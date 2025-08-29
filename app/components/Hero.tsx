@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 export function Hero() {
   return (
@@ -25,32 +26,48 @@ export function Hero() {
               funcionais, com código organizado e boa performance.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
-                Ver meus projetos
-              </button>
-              <button className="border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-8 py-3 rounded-lg font-medium transition-colors">
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <a 
+                href="/CV-Thiago-Felippe.pdf" 
+                download="CV-Thiago-Felippe.pdf"
+                className="border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-8 py-3 rounded-lg font-medium transition-colors inline-block text-center"
+              >
                 Baixar CV
-              </button>
+              </a>
+              <div className="flex gap-3">
+                <a 
+                  href="https://linkedin.com/in/thiagofelippe" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all"
+                  title="LinkedIn"
+                >
+                  <FaLinkedin size={20} />
+                </a>
+                <a 
+                  href="https://github.com/othiagofelippe" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-all"
+                  title="GitHub"
+                >
+                  <FaGithub size={20} />
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-8 border-white dark:border-slate-700 shadow-xl">
-                <Image
-                  src="https://github.com/othiagofelippe.png"
-                  alt="Thiago Felippe"
-                  width={320}
-                  height={320}
-                  className="w-full h-full object-cover"
-                  priority
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-cyan-500 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-500 rounded-full opacity-30 animate-pulse delay-75"></div>
+            <div className="w-80 h-80 rounded-3xl overflow-hidden border-8 border-white dark:border-slate-700 shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300 cursor-pointer">
+              <Image
+                src="https://github.com/othiagofelippe.png"
+                alt="Thiago Felippe"
+                width={320}
+                height={320}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
