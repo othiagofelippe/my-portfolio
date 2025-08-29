@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import { HiOutlineEnvelope, HiOutlineMapPin, HiOutlineClock } from 'react-icons/hi2';
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
@@ -5,6 +7,13 @@ import { Logo } from './Logo';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const footerLinks = {
     navegacao: [
@@ -73,12 +82,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.navegacao.map((link, index) => (
                 <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-slate-400 hover:text-white transition-colors"
+                  <button
+                    onClick={() => scrollToSection(link.href)}
+                    className="text-slate-400 hover:text-white transition-colors text-left"
                   >
                     {link.name}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>

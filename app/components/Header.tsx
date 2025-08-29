@@ -1,6 +1,5 @@
 "use client";
 
-import Link from 'next/link';
 import { useState } from 'react';
 import { Logo } from './Logo';
 import { LanguageSelector } from './LanguageSelector';
@@ -16,6 +15,13 @@ export function Header() {
     { name: 'Contato', href: '#contato' },
   ];
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-slate-300 dark:bg-slate-900/80 dark:border-slate-600 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,24 +34,24 @@ export function Header() {
           <div className="hidden md:flex md:items-center md:space-x-8">
             <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
-                <Link
+                <button
                   key={item.name}
-                  href={item.href}
+                  onClick={() => scrollToSection(item.href)}
                   className="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 px-3 py-2 text-sm font-medium transition-colors relative group"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
-                </Link>
+                </button>
               ))}
             </div>
             <LanguageSelector />
             <ThemeToggle />
-            <Link
-              href="#contato"
+            <button
+              onClick={() => scrollToSection('#contato')}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             >
               Entre em Contato
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button and theme toggle */}
@@ -73,24 +79,28 @@ export function Header() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-slate-900 border-t border-slate-300 dark:border-slate-600">
               {navItems.map((item) => (
-                <Link
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 block px-3 py-2 text-base font-medium transition-colors relative group"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    scrollToSection(item.href);
+                    setIsMenuOpen(false);
+                  }}
+                  className="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 block px-3 py-2 text-base font-medium transition-colors relative group w-full text-left"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
-                </Link>
+                </button>
               ))}
               <div className="pt-2">
-                <Link
-                  href="#contato"
-                  className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-lg text-base font-medium transition-colors text-center"
-                  onClick={() => setIsMenuOpen(false)}
+                <button
+                  onClick={() => {
+                    scrollToSection('#contato');
+                    setIsMenuOpen(false);
+                  }}
+                  className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-lg text-base font-medium transition-colors text-center w-full"
                 >
                   Entre em Contato
-                </Link>
+                </button>
               </div>
             </div>
           </div>
