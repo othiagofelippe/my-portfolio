@@ -23,7 +23,7 @@ export function LanguageSelector() {
   }, [isOpen]);
 
   const playToggleSound = () => {
-    const audio = new Audio('/sounds/select-toggle.mp3');
+    const audio = new Audio('/sounds/mouse-click.mp3');
     audio.volume = 0.3;
     audio.play().catch(() => {
       // Ignore audio play errors
@@ -68,10 +68,10 @@ export function LanguageSelector() {
         aria-label="Language selector"
       >
         <span>{getCurrentLanguage().name}</span>
-        <svg 
-          className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
-          fill="none" 
-          viewBox="0 0 24 24" 
+        <svg
+          className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          viewBox="0 0 24 24"
           stroke="currentColor"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -82,14 +82,14 @@ export function LanguageSelector() {
       {isVisible && (
         <>
           {/* Overlay para fechar ao clicar fora */}
-          <div 
-            className="fixed inset-0 z-10" 
+          <div
+            className="fixed inset-0 z-10"
             onClick={handleClose}
           />
-          
+
           <div className={`absolute right-0 mt-2 w-36 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-300 dark:border-slate-600 z-20 transform transition-all duration-200 ${
-            isOpen 
-              ? 'opacity-100 scale-100 translate-y-0' 
+            isOpen
+              ? 'opacity-100 scale-100 translate-y-0'
               : 'opacity-0 scale-95 -translate-y-2'
           }`}>
             <div className="py-1">
