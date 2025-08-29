@@ -1,18 +1,18 @@
 export function Experience() {
   const experiences = [
     {
-      period: "Mar 2025 - Jul 2025",
-      title: "Desenvolvedor Full Stack",
-      company: "Tech Solutions",
-      description: "Desenvolvimento de aplicações web modernas utilizando React, Next.js e Node.js. Implementação de APIs RESTful e integração com bancos de dados.",
-      skills: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB"]
+      period: "Abr 2022 - Mar 2025",
+      title: "Desenvolvedor Front-End Pleno",
+      company: "Heap Engenharia e Software",
+      description: "Desenvolvimento e manutenção de aplicações web e mobile com React.js, Next.js e React Native. Implementei otimizações de performance, SSR, integração de APIs RESTful e introduzi novas bibliotecas que aprimoraram a arquitetura front-end. Participei ativamente em metodologias ágeis (Scrum/Kanban).",
+      skills: ["React.js", "Next.js", "React Native", "TypeScript", "SSR", "APIs RESTful", "Scrum", "Kanban"]
     },
     {
-      period: "2022 - 2025",
-      title: "Desenvolvedor Frontend",
-      company: "Digital Agency",
-      description: "Criação de interfaces responsivas e experiências de usuário otimizadas. Colaboração com designers e equipe de backend para entregar soluções completas.",
-      skills: ["HTML", "CSS", "JavaScript", "React", "Figma"]
+      period: "Mar 2025 - Jun 2025",
+      title: "Desenvolvedor Front-End Pleno",
+      company: "Divam",
+      description: "Desenvolvimento de aplicações mobile com React Native para novas funcionalidades e manutenção de produtos em produção. Implementação de soluções críticas, correção de bugs, integração com APIs e criação de interfaces seguindo boas práticas de UX/UI. Contribuição ativa em processos ágeis.",
+      skills: ["React Native", "JavaScript", "APIs", "UX/UI", "Metodologias Ágeis", "Debugging"]
     }
   ];
 
@@ -80,9 +80,13 @@ export function Experience() {
           <p className="text-slate-600 dark:text-slate-400 mb-6">
             Sempre em busca de novos desafios e oportunidades de crescimento! 📈
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+          <a 
+            href="/CV-Thiago-Felippe.pdf" 
+            download="CV-Thiago-Felippe.pdf"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors inline-block"
+          >
             Baixar CV completo
-          </button>
+          </a>
         </div>
       </div>
     </section>
