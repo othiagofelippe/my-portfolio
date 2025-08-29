@@ -64,7 +64,7 @@ export function LanguageSelector() {
     <div className="relative">
       <button
         onClick={handleToggle}
-        className="px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium transition-all duration-200 flex items-center space-x-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-105"
+        className="px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 text-sm font-medium transition-all duration-200 flex items-center space-x-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 hover:scale-105"
         aria-label="Language selector"
       >
         <span>{getCurrentLanguage().name}</span>
@@ -87,7 +87,7 @@ export function LanguageSelector() {
             onClick={handleClose}
           />
           
-          <div className={`absolute right-0 mt-2 w-36 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 z-20 transform transition-all duration-200 ${
+          <div className={`absolute right-0 mt-2 w-36 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-300 dark:border-slate-600 z-20 transform transition-all duration-200 ${
             isOpen 
               ? 'opacity-100 scale-100 translate-y-0' 
               : 'opacity-0 scale-95 -translate-y-2'
@@ -99,8 +99,8 @@ export function LanguageSelector() {
                   onClick={() => handleLanguageChange(language.code)}
                   className={`w-full text-left px-4 py-2 text-sm transition-all duration-150 flex items-center justify-between hover:scale-[0.98] ${
                     currentLanguage === language.code
-                      ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                      ? 'bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
                   }`}
                   style={{
                     transitionDelay: isOpen ? `${index * 30}ms` : '0ms'

@@ -17,7 +17,7 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-200 dark:bg-gray-900/80 dark:border-gray-800 z-50">
+    <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-slate-300 dark:bg-slate-900/80 dark:border-slate-600 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
@@ -31,7 +31,7 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors relative group"
+                  className="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 px-3 py-2 text-sm font-medium transition-colors relative group"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
@@ -54,7 +54,7 @@ export function Header() {
             <ThemeToggle />
             <button
               type="button"
-              className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white focus:outline-none focus:text-gray-900 dark:focus:text-white"
+              className="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 focus:outline-none focus:text-slate-800 dark:focus:text-slate-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,12 +71,12 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-slate-900 border-t border-slate-300 dark:border-slate-600">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 text-base font-medium transition-colors relative group"
+                  className="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 block px-3 py-2 text-base font-medium transition-colors relative group"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

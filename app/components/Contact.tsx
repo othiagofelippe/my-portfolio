@@ -52,7 +52,7 @@ export function Contact() {
       name: "GitHub",
       icon: <FaGithub className="w-6 h-6" />,
       href: "https://github.com/othiagofelippe",
-      color: "hover:text-gray-900 dark:hover:text-white"
+      color: "hover:text-slate-800 dark:hover:text-slate-100"
     },
     {
       name: "WhatsApp",
@@ -69,21 +69,21 @@ export function Contact() {
   ];
 
   return (
-    <section id="contato" className="py-20 bg-white dark:bg-gray-900">
+    <section id="contato" className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Vamos Conversar?``
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+            Vamos Conversar?
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Tem algum projeto em mente ou quer bater um papo? Ficarei feliz em conversar com você!
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-8">
+            <h3 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-6">
               Envie uma Mensagem
             </h3>
 
@@ -96,10 +96,10 @@ export function Contact() {
                   type="text"
                   id="name"
                   {...register('name')}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 transition-colors ${
                     errors.name
                       ? 'border-red-500 dark:border-red-500'
-                      : 'border-gray-300 dark:border-gray-600'
+                      : 'border-slate-300 dark:border-slate-600'
                   }`}
                   placeholder="Seu nome"
                 />
@@ -118,10 +118,10 @@ export function Contact() {
                   type="email"
                   id="email"
                   {...register('email')}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 transition-colors ${
                     errors.email
                       ? 'border-red-500 dark:border-red-500'
-                      : 'border-gray-300 dark:border-gray-600'
+                      : 'border-slate-300 dark:border-slate-600'
                   }`}
                   placeholder="seu@email.com"
                 />
@@ -143,7 +143,7 @@ export function Contact() {
                   className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none transition-colors ${
                     errors.message
                       ? 'border-red-500 dark:border-red-500'
-                      : 'border-gray-300 dark:border-gray-600'
+                      : 'border-slate-300 dark:border-slate-600'
                   }`}
                   placeholder="Conte-me sobre seu projeto..."
                 />

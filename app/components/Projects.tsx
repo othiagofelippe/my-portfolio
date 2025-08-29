@@ -21,13 +21,13 @@ export function Projects() {
   ];
 
   return (
-    <section id="projetos" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="projetos" className="py-20 bg-slate-50 dark:bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
             Meus Projetos
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Alguns dos projetos que desenvolvi e que mostram minhas habilidades técnicas
           </p>
         </div>
@@ -36,28 +36,28 @@ export function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="mb-4">
-                <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900 dark:to-indigo-800 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-full h-48 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 rounded-lg flex items-center justify-center mb-4">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-500 dark:bg-blue-400 rounded-full flex items-center justify-center mb-2 mx-auto">
+                    <div className="w-16 h-16 bg-cyan-500 dark:bg-cyan-400 rounded-full flex items-center justify-center mb-2 mx-auto">
                       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                       </svg>
                     </div>
-                    <span className="inline-block bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-sm px-3 py-1 rounded-full font-medium">
+                    <span className="inline-block bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm px-3 py-1 rounded-full font-medium">
                       {project.status}
                     </span>
                   </div>
                 </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-3">
                 {project.title}
               </h3>
               
-              <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
                 {project.description}
               </p>
 
@@ -65,7 +65,7 @@ export function Projects() {
                 {project.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm px-3 py-1 rounded-full"
+                    className="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 text-sm px-3 py-1 rounded-full"
                   >
                     {tag}
                   </span>
@@ -73,10 +73,10 @@ export function Projects() {
               </div>
 
               <div className="flex gap-3">
-                <button className="flex-1 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 py-2 px-4 rounded-lg font-medium cursor-not-allowed">
+                <button className="flex-1 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 py-2 px-4 rounded-lg font-medium cursor-not-allowed">
                   Demo
                 </button>
-                <button className="flex-1 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 py-2 px-4 rounded-lg font-medium cursor-not-allowed">
+                <button className="flex-1 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 py-2 px-4 rounded-lg font-medium cursor-not-allowed">
                   Código
                 </button>
               </div>
@@ -85,7 +85,7 @@ export function Projects() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-slate-600 dark:text-slate-400 mb-6">
             Mais projetos em desenvolvimento! 🚀
           </p>
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
