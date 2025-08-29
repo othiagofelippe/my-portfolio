@@ -32,7 +32,7 @@ export function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300"
+              className="bg-slate-50 dark:bg-slate-800 rounded-xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
             >
               <div className="text-cyan-600 dark:text-cyan-400 mb-4">
                 {service.icon}

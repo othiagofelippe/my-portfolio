@@ -40,7 +40,7 @@ export function Experience() {
 
                 {/* Content */}
                 <div className={`ml-16 md:w-5/12 ${index % 2 === 0 ? 'md:ml-0 md:pr-8 md:text-right' : 'md:ml-auto md:pl-8'}`}>
-                  <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 shadow-lg">
+                  <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out">
                     <div className="mb-2">
                       <span className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm px-3 py-1 rounded-full font-medium">
                         {experience.period}
