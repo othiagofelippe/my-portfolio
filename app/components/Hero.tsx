@@ -21,9 +21,24 @@ export function Hero({ lang, dict }: { lang: Locale; dict: any }) {
               </h2>
             </div>
 
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xl sm:text-2xl text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
+              {dict.hero.role}
+            </p>
+            
+            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
               {dict.hero.description}
             </p>
+
+            <div className="flex flex-wrap gap-3">
+              {dict.hero.skills.map((skill: string, index: number) => (
+                <span
+                  key={index}
+                  className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-800"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start">
               <a 
@@ -58,12 +73,12 @@ export function Hero({ lang, dict }: { lang: Locale; dict: any }) {
 
           {/* Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="w-80 h-80 rounded-3xl overflow-hidden border-8 border-white dark:border-slate-700 shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300 cursor-pointer">
+            <div className="w-96 h-96 rounded-3xl overflow-hidden border-8 border-white dark:border-slate-700 shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300 cursor-pointer">
               <Image
                 src="https://github.com/othiagofelippe.png"
                 alt="Thiago Felippe"
-                width={320}
-                height={320}
+                width={384}
+                height={384}
                 className="w-full h-full object-cover"
                 priority
               />

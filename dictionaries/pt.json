@@ -10,7 +10,9 @@
     "greeting": "Fala aí! 👋",
     "intro": "Prazer, eu sou o",
     "name": "Thiago Felippe",
-    "description": "Desenvolvedor Front-End com 3+ anos de experiência em React, Next.js e React Native. Foco em criar aplicações web e mobile funcionais, com código organizado e boa performance.",
+    "role": "Desenvolvedor Front-End Pleno há 3+ anos transformando ideias em aplicações web e mobile que realmente funcionam.",
+    "description": "Especializado em React e React Native, já implementei soluções críticas que otimizaram performance, integraram APIs complexas e melhoraram a experiência de milhares de usuários. Atualmente focado em arquiteturas escaláveis e metodologias ágeis.",
+    "skills": ["React", "Next.js", "React Native", "TypeScript", "Node.js", "Tailwind"],
     "downloadCV": "Baixar CV"
   },
   "services": {
