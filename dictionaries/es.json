@@ -29,7 +29,23 @@
     "title": "Experiencia Profesional",
     "subtitle": "Mi trayectoria profesional y las experiencias que me formaron como desarrollador",
     "downloadCV": "Descargar CV completo",
-    "quote": "¡Siempre en busca de nuevos desafíos y oportunidades de crecimiento! 📈"
+    "quote": "¡Siempre en busca de nuevos desafíos y oportunidades de crecimiento! 📈",
+    "jobs": {
+      "heap": {
+        "period": "Abr 2022 - Mar 2025",
+        "title": "Desarrollador Front-End Senior",
+        "company": "Heap Engenharia e Software",
+        "description": "Desarrollo y mantenimiento de aplicaciones web y móviles con React.js, Next.js y React Native. Implementé optimizaciones de rendimiento, SSR, integración de APIs RESTful e introduje nuevas librerías que mejoraron la arquitectura front-end. Participé activamente en metodologías ágiles (Scrum/Kanban).",
+        "skills": ["React.js", "Next.js", "React Native", "TypeScript", "SSR", "APIs RESTful", "Scrum", "Kanban"]
+      },
+      "divam": {
+        "period": "Mar 2025 - Jun 2025",
+        "title": "Desarrollador Front-End Senior",
+        "company": "Divam",
+        "description": "Desarrollo de aplicaciones móviles con React Native para nuevas funcionalidades y mantenimiento de productos en producción. Implementación de soluciones críticas, corrección de errores, integración con APIs y creación de interfaces siguiendo buenas prácticas de UX/UI. Contribución activa en procesos ágiles.",
+        "skills": ["React Native", "JavaScript", "APIs", "UX/UI", "Metodologías Ágiles", "Debugging"]
+      }
+    }
   },
   "projects": {
     "title": "Mis Proyectos",

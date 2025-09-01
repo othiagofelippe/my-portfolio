@@ -19,7 +19,7 @@ export default async function Home({
     <div className="min-h-screen">
       <Hero lang={lang} dict={dict} />
       <Services lang={lang} dict={dict} />
-      <Experience lang={lang} dict={dict} />
+      <Experience dict={dict} />
       <Projects lang={lang} dict={dict} />
       <Skills lang={lang} dict={dict} />
       <Contact lang={lang} dict={dict} />

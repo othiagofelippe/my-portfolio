@@ -1,18 +1,18 @@
-export function Experience() {
+export function Experience({ dict }: { dict: any }) {
   const experiences = [
     {
-      period: "Abr 2022 - Mar 2025",
-      title: "Desenvolvedor Front-End Pleno",
-      company: "Heap Engenharia e Software",
-      description: "Desenvolvimento e manutenção de aplicações web e mobile com React.js, Next.js e React Native. Implementei otimizações de performance, SSR, integração de APIs RESTful e introduzi novas bibliotecas que aprimoraram a arquitetura front-end. Participei ativamente em metodologias ágeis (Scrum/Kanban).",
-      skills: ["React.js", "Next.js", "React Native", "TypeScript", "SSR", "APIs RESTful", "Scrum", "Kanban"]
+      period: dict.experience.jobs.heap.period,
+      title: dict.experience.jobs.heap.title,
+      company: dict.experience.jobs.heap.company,
+      description: dict.experience.jobs.heap.description,
+      skills: dict.experience.jobs.heap.skills
     },
     {
-      period: "Mar 2025 - Jun 2025",
-      title: "Desenvolvedor Front-End Pleno",
-      company: "Divam",
-      description: "Desenvolvimento de aplicações mobile com React Native para novas funcionalidades e manutenção de produtos em produção. Implementação de soluções críticas, correção de bugs, integração com APIs e criação de interfaces seguindo boas práticas de UX/UI. Contribuição ativa em processos ágeis.",
-      skills: ["React Native", "JavaScript", "APIs", "UX/UI", "Metodologias Ágeis", "Debugging"]
+      period: dict.experience.jobs.divam.period,
+      title: dict.experience.jobs.divam.title,
+      company: dict.experience.jobs.divam.company,
+      description: dict.experience.jobs.divam.description,
+      skills: dict.experience.jobs.divam.skills
     }
   ];
 
@@ -21,10 +21,10 @@ export function Experience() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-            Experiência Profissional
+            {dict.experience.title}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Minha jornada profissional e as experiências que me moldaram como desenvolvedor
+            {dict.experience.subtitle}
           </p>
         </div>
 
@@ -78,14 +78,14 @@ export function Experience() {
 
         <div className="text-center mt-16">
           <p className="text-slate-600 dark:text-slate-400 mb-6">
-            Sempre em busca de novos desafios e oportunidades de crescimento! 📈
+            {dict.experience.quote}
           </p>
           <a 
             href="/CV-Thiago-Felippe.pdf" 
             download="CV-Thiago-Felippe.pdf"
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors inline-block"
           >
-            Baixar CV completo
+            {dict.experience.downloadCV}
           </a>
         </div>
       </div>

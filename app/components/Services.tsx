@@ -4,15 +4,13 @@ import { HiOutlineCodeBracket, HiOutlinePaintBrush } from 'react-icons/hi2';
 export function Services({ lang, dict }: { lang: Locale; dict: any })  {
   const services = [
     {
-      title: "Desenvolvimento Frontend",
-      description:
-        "Criação de interfaces modernas e responsivas com React, Next.js e TypeScript",
+      title: dict.services.frontend.title,
+      description: dict.services.frontend.description,
       icon: <HiOutlineCodeBracket className="w-8 h-8" />,
     },
     {
-      title: "Design UI/UX",
-      description:
-        "Design de experiências de usuário intuitivas e interfaces visuais atrativas",
+      title: dict.services.design.title,
+      description: dict.services.design.description,
       icon: <HiOutlinePaintBrush className="w-8 h-8" />,
     },
   ];
@@ -25,8 +23,7 @@ export function Services({ lang, dict }: { lang: Locale; dict: any })  {
             {dict.services.title}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Transformo ideias em soluções digitais completas, do design à
-            implementação
+            {dict.services.subtitle}
           </p>
         </div>
 
