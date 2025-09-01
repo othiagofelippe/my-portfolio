@@ -69,8 +69,22 @@
     }
   },
   "skills": {
-    "title": "Technical Skills",
-    "subtitle": "Technologies and tools I master to create efficient solutions"
+    "title": "My Skills",
+    "subtitle": "Technologies and tools I master to create complete digital solutions",
+    "categories": {
+      "frontend": {
+        "title": "Frontend",
+        "skills": ["React", "Next.js", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS", "Vue.js", "Sass"]
+      },
+      "backend": {
+        "title": "Backend",
+        "skills": ["Node.js", "Python", "Express.js", "MongoDB", "PostgreSQL", "REST APIs", "GraphQL", "Firebase"]
+      },
+      "tools": {
+        "title": "Tools & Others",
+        "skills": ["Git", "Docker", "AWS", "Figma", "VS Code", "Linux", "Photoshop", "Vercel"]
+      }
+    }
   },
   "contact": {
     "title": "Let's Talk?",

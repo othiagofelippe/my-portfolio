@@ -69,8 +69,22 @@
     }
   },
   "skills": {
-    "title": "Habilidades Técnicas",
-    "subtitle": "Tecnologias e ferramentas que domino para criar soluções eficientes"
+    "title": "Minhas Habilidades",
+    "subtitle": "Tecnologias e ferramentas que domino para criar soluções digitais completas",
+    "categories": {
+      "frontend": {
+        "title": "Frontend",
+        "skills": ["React", "Next.js", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS", "Vue.js", "Sass"]
+      },
+      "backend": {
+        "title": "Backend",
+        "skills": ["Node.js", "Python", "Express.js", "MongoDB", "PostgreSQL", "REST APIs", "GraphQL", "Firebase"]
+      },
+      "tools": {
+        "title": "Ferramentas & Outros",
+        "skills": ["Git", "Docker", "AWS", "Figma", "VS Code", "Linux", "Photoshop", "Vercel"]
+      }
+    }
   },
   "contact": {
     "title": "Vamos Conversar?",
