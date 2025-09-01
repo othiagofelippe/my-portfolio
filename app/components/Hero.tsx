@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
-import { Locale } from '@/lib/i18n';
 
-export function Hero({ lang, dict }: { lang: Locale; dict: any }) {
+export function Hero({ dict }: { dict: any }) {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

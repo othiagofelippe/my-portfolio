@@ -10,7 +10,6 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: dict.nav.about, href: '#sobre' },
     { name: dict.nav.projects, href: '#projetos' },
     { name: dict.nav.skills, href: '#habilidades' },
     { name: dict.nav.contact, href: '#contato' },
