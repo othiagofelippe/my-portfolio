@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { HiOutlineEnvelope, HiOutlineMapPin, HiOutlineClock } from 'react-icons/hi2';
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { Logo } from './Logo';
+import { Locale } from '@/lib/i18n';
 
-export function Footer() {
+export function Footer({ lang, dict }: { lang: Locale; dict: any }) {
   const currentYear = new Date().getFullYear();
 
   const scrollToSection = (href: string) => {
@@ -17,10 +18,10 @@ export function Footer() {
 
   const footerLinks = {
     navegacao: [
-      { name: 'Sobre', href: '#sobre' },
-      { name: 'Projetos', href: '#projetos' },
-      { name: 'Habilidades', href: '#habilidades' },
-      { name: 'Contato', href: '#contato' }
+      { name: dict.nav.about, href: '#sobre' },
+      { name: dict.nav.projects, href: '#projetos' },
+      { name: dict.nav.skills, href: '#habilidades' },
+      { name: dict.nav.contact, href: '#contato' }
     ],
     social: [
       { name: 'LinkedIn', href: 'https://linkedin.com/in/othiagofelippe' },
@@ -39,9 +40,7 @@ export function Footer() {
               <Logo />
             </div>
             <p className="text-slate-400 mb-6 max-w-md">
-              Desenvolvedor Front-End com 3+ anos de experiência em React,
-              Next.js e React Native. Foco em criar aplicações web e mobile
-              funcionais, com código organizado e boa performance.
+              {dict.footer.description}
             </p>
             <div className="flex space-x-4">
               <Link
@@ -78,7 +77,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Navegação</h3>
+            <h3 className="text-lg font-semibold mb-4">{dict.footer.navigation}</h3>
             <ul className="space-y-3">
               {footerLinks.navegacao.map((link, index) => (
                 <li key={index}>
@@ -94,21 +93,21 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contato</h3>
+            <h3 className="text-lg font-semibold mb-4">{dict.footer.contactSection}</h3>
             <div className="space-y-3 text-slate-400">
               <div className="flex items-center gap-2 hover:text-white transition-colors">
                 <HiOutlineEnvelope className="w-5 h-5" />
                 <Link href="mailto:contact@othiagofelippe.com">
-                  contact@othiagofelippe.com
+                  {dict.contact.info.email}
                 </Link>
               </div>
               <div className="flex items-center gap-2 hover:text-white transition-colors">
                 <HiOutlineMapPin className="w-5 h-5" />
-                <span>Rio de Janeiro, Brasil</span>
+                <span>{dict.contact.info.location}</span>
               </div>
               <div className="flex items-center gap-2 hover:text-white transition-colors">
                 <HiOutlineClock className="w-5 h-5" />
-                <span>Disponível para projetos</span>
+                <span>{dict.contact.info.availability}</span>
               </div>
             </div>
           </div>
@@ -116,7 +115,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-slate-400 text-sm">
-            © {currentYear} Thiago Felippe. Todos os direitos reservados.
+            © {currentYear} Thiago Felippe. {dict.footer.rights}
           </p>
         </div>
       </div>
