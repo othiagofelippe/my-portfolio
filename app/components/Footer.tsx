@@ -18,7 +18,7 @@ export function Footer({ lang, dict }: { lang: Locale; dict: any }) {
 
   const footerLinks = {
     navegacao: [
-      { name: dict.nav.about, href: '#sobre' },
+      { name: dict.nav.experience, href: '#experiencia' },
       { name: dict.nav.projects, href: '#projetos' },
       { name: dict.nav.skills, href: '#habilidades' },
       { name: dict.nav.contact, href: '#contato' }

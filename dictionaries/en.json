@@ -1,6 +1,7 @@
 {
   "nav": {
     "about": "About",
+    "experience": "Experience",
     "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact",
@@ -13,7 +14,12 @@
     "role": "Senior Front-End Developer for 3+ years transforming ideas into web and mobile applications that really work.",
     "description": "Specialized in React and React Native, I've implemented critical solutions that optimized performance, integrated complex APIs, and improved the experience of thousands of users. Currently focused on scalable architectures and agile methodologies.",
     "skills": ["React", "Next.js", "React Native", "TypeScript", "Node.js", "Tailwind"],
-    "downloadCV": "Download CV"
+    "downloadCV": "Download CV",
+    "buttons": {
+      "downloadCV": "Download CV",
+      "linkedin": "LinkedIn",
+      "contact": "Contact"
+    }
   },
   "services": {
     "title": "My Services",

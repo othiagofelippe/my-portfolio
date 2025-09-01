@@ -10,6 +10,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
+    { name: dict.nav.experience, href: '#experiencia' },
     { name: dict.nav.projects, href: '#projetos' },
     { name: dict.nav.skills, href: '#habilidades' },
     { name: dict.nav.contact, href: '#contato' },
@@ -30,8 +31,8 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
             <Logo />
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex md:items-center justify-center flex-1">
             <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <button
@@ -44,6 +45,10 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                 </button>
               ))}
             </div>
+          </div>
+
+          {/* Right side controls */}
+          <div className="hidden md:flex md:items-center md:space-x-4">
             <LanguageSelector currentLang={lang} />
             <ThemeToggle />
             <button
