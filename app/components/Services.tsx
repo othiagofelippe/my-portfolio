@@ -1,6 +1,7 @@
+import { Locale } from '@/lib/i18n';
 import { HiOutlineCodeBracket, HiOutlinePaintBrush } from 'react-icons/hi2';
 
-export function Services() {
+export function Services({ lang, dict }: { lang: Locale; dict: any })  {
   const services = [
     {
       title: "Desenvolvimento Frontend",
@@ -21,10 +22,11 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-            Meus Serviços
+            {dict.services.title}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Transformo ideias em soluções digitais completas, do design à implementação
+            Transformo ideias em soluções digitais completas, do design à
+            implementação
           </p>
         </div>
 

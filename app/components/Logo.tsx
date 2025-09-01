@@ -1,9 +1,15 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export function Logo() {
+  const pathname = usePathname();
+  const currentLang = pathname.split('/')[1] || 'pt';
+  
   return (
-    <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+    <Link href={`/${currentLang}`} className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
       {/* Logo SVG */}
       <Image
         src="/logo-light.svg"

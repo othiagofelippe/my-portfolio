@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "contactButton": "Get in Touch"
+  },
+  "hero": {
+    "greeting": "Hello there! 👋",
+    "intro": "Nice to meet you, I'm",
+    "name": "Thiago Felippe",
+    "description": "Front-End Developer with 3+ years of experience in React, Next.js and React Native. Focus on creating functional web and mobile applications with organized code and good performance.",
+    "downloadCV": "Download CV"
+  },
+  "services": {
+    "title": "My Services",
+    "subtitle": "I transform ideas into complete digital solutions, from design to implementation",
+    "frontend": {
+      "title": "Frontend Development",
+      "description": "Creating modern and responsive interfaces with React, Next.js and TypeScript"
+    },
+    "design": {
+      "title": "UI/UX Design",
+      "description": "Design of intuitive user experiences and attractive visual interfaces"
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "My professional journey and the experiences that shaped me as a developer",
+    "downloadCV": "Download complete CV",
+    "quote": "Always looking for new challenges and growth opportunities! 📈"
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Some of the projects I've developed that showcase my technical skills",
+    "status": "Coming Soon",
+    "demo": "Demo",
+    "code": "Code",
+    "quote": "More projects in development! 🚀",
+    "viewAll": "View all projects",
+    "ecommerce": {
+      "title": "Modern E-commerce",
+      "description": "Complete e-commerce platform with admin panel, shopping cart and integrated payment system."
+    },
+    "dashboard": {
+      "title": "Analytics Dashboard",
+      "description": "Interactive dashboard for data visualization with dynamic charts and customizable reports."
+    },
+    "mobile": {
+      "title": "Productivity Mobile App",
+      "description": "Mobile application for task management with real-time synchronization and push notifications."
+    }
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies and tools I master to create efficient solutions"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's turn your idea into reality! Get in touch with me.",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "send": "Send Message"
+    },
+    "info": {
+      "email": "contact@othiagofelippe.com",
+      "location": "Rio de Janeiro, Brazil",
+      "availability": "Available for projects"
+    }
+  },
+  "footer": {
+    "description": "Front-End Developer with 3+ years of experience in React, Next.js and React Native. Focus on creating functional web and mobile applications with organized code and good performance.",
+    "navigation": "Navigation",
+    "contactSection": "Contact",
+    "rights": "All rights reserved."
+  }
+}

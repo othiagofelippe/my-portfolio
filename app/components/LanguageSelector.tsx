@@ -1,17 +1,28 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import { Locale, locales, localeNames } from '@/lib/i18n';
+import { HiOutlineGlobeAlt } from 'react-icons/hi2';
 
-export function LanguageSelector() {
+export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('pt-br');
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const languages = [
-    { code: 'pt-br', name: 'PT', fullName: 'Português' },
-    { code: 'en', name: 'EN', fullName: 'English' },
-    { code: 'es', name: 'ES', fullName: 'Español' }
-  ];
+  const flagEmojis: Record<Locale, string> = {
+    pt: '🇧🇷',
+    en: '🇺🇸', 
+    es: '🇪🇸'
+  };
+
+  const languages = locales.map(locale => ({
+    code: locale,
+    name: locale.toUpperCase(),
+    fullName: localeNames[locale],
+    flag: flagEmojis[locale]
+  }));
 
   useEffect(() => {
     if (isOpen) {
@@ -43,12 +54,13 @@ export function LanguageSelector() {
     playToggleSound();
   };
 
-  const handleLanguageChange = (languageCode: string) => {
-    setCurrentLanguage(languageCode);
+  const handleLanguageChange = (locale: Locale) => {
     setIsOpen(false);
     playChangeSound();
-    // TODO: Implementar mudança de idioma
-    console.log('Language changed to:', languageCode);
+    
+    // Replace current locale in pathname with new locale
+    const newPathname = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
+    router.push(newPathname);
   };
 
   const handleClose = () => {
@@ -57,17 +69,18 @@ export function LanguageSelector() {
   };
 
   const getCurrentLanguage = () => {
-    return languages.find(lang => lang.code === currentLanguage) || languages[0];
+    return languages.find(lang => lang.code === currentLang) || languages[0];
   };
 
   return (
     <div className="relative">
       <button
         onClick={handleToggle}
-        className="px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 text-sm font-medium transition-all duration-200 flex items-center space-x-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 hover:scale-105"
+        className="px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 text-sm font-medium transition-all duration-200 flex items-center space-x-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 hover:scale-105"
         aria-label="Language selector"
       >
-        <span>{getCurrentLanguage().name}</span>
+        <HiOutlineGlobeAlt className="w-4 h-4" />
+        <span>{getCurrentLanguage().flag}</span>
         <svg
           className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
@@ -96,9 +109,9 @@ export function LanguageSelector() {
               {languages.map((language, index) => (
                 <button
                   key={language.code}
-                  onClick={() => handleLanguageChange(language.code)}
+                  onClick={() => handleLanguageChange(language.code as Locale)}
                   className={`w-full text-left px-4 py-2 text-sm transition-all duration-150 flex items-center justify-between hover:scale-[0.98] ${
-                    currentLanguage === language.code
+                    currentLang === language.code
                       ? 'bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300'
                       : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
                   }`}
@@ -106,8 +119,10 @@ export function LanguageSelector() {
                     transitionDelay: isOpen ? `${index * 30}ms` : '0ms'
                   }}
                 >
-                  <span className="transition-transform duration-150 hover:translate-x-1">{language.fullName}</span>
-                  <span className="font-medium">{language.name}</span>
+                  <span className="transition-transform duration-150 hover:translate-x-1 flex items-center space-x-2">
+                    <span>{language.flag}</span>
+                    <span>{language.fullName}</span>
+                  </span>
                 </button>
               ))}
             </div>

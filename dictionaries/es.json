@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "about": "Acerca de",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto",
+    "contactButton": "Contactar"
+  },
+  "hero": {
+    "greeting": "¡Hola! 👋",
+    "intro": "Un placer, soy",
+    "name": "Thiago Felippe",
+    "description": "Desarrollador Front-End con más de 3 años de experiencia en React, Next.js y React Native. Me enfoco en crear aplicaciones web y móviles funcionales, con código organizado y buen rendimiento.",
+    "downloadCV": "Descargar CV"
+  },
+  "services": {
+    "title": "Mis Servicios",
+    "subtitle": "Transformo ideas en soluciones digitales completas, desde el diseño hasta la implementación",
+    "frontend": {
+      "title": "Desarrollo Frontend",
+      "description": "Creación de interfaces modernas y responsivas con React, Next.js y TypeScript"
+    },
+    "design": {
+      "title": "Diseño UI/UX",
+      "description": "Diseño de experiencias de usuario intuitivas e interfaces visuales atractivas"
+    }
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "subtitle": "Mi trayectoria profesional y las experiencias que me formaron como desarrollador",
+    "downloadCV": "Descargar CV completo",
+    "quote": "¡Siempre en busca de nuevos desafíos y oportunidades de crecimiento! 📈"
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "subtitle": "Algunos de los proyectos que he desarrollado y que muestran mis habilidades técnicas",
+    "status": "Próximamente",
+    "demo": "Demo",
+    "code": "Código",
+    "quote": "¡Más proyectos en desarrollo! 🚀",
+    "viewAll": "Ver todos los proyectos",
+    "ecommerce": {
+      "title": "E-commerce Moderno",
+      "description": "Plataforma de e-commerce completa con panel administrativo, carrito de compras y sistema de pago integrado."
+    },
+    "dashboard": {
+      "title": "Dashboard Analytics",
+      "description": "Dashboard interactivo para visualización de datos con gráficos dinámicos e informes personalizables."
+    },
+    "mobile": {
+      "title": "App Móvil de Productividad",
+      "description": "Aplicación móvil para gestión de tareas con sincronización en tiempo real y notificaciones push."
+    }
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "subtitle": "Tecnologías y herramientas que domino para crear soluciones eficientes"
+  },
+  "contact": {
+    "title": "Contactar",
+    "subtitle": "¡Hagamos realidad tu idea! Ponte en contacto conmigo.",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+      "send": "Enviar Mensaje"
+    },
+    "info": {
+      "email": "contact@othiagofelippe.com",
+      "location": "Río de Janeiro, Brasil",
+      "availability": "Disponible para proyectos"
+    }
+  },
+  "footer": {
+    "description": "Desarrollador Front-End con más de 3 años de experiencia en React, Next.js y React Native. Me enfoco en crear aplicaciones web y móviles funcionales, con código organizado y buen rendimiento.",
+    "navigation": "Navegación",
+    "contactSection": "Contacto",
+    "rights": "Todos los derechos reservados."
+  }
+}

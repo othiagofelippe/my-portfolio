@@ -4,15 +4,16 @@ import { useState } from 'react';
 import { Logo } from './Logo';
 import { LanguageSelector } from './LanguageSelector';
 import { ThemeToggle } from './ThemeToggle';
+import { Locale } from '@/lib/i18n';
 
-export function Header() {
+export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Sobre', href: '#sobre' },
-    { name: 'Projetos', href: '#projetos' },
-    { name: 'Habilidades', href: '#habilidades' },
-    { name: 'Contato', href: '#contato' },
+    { name: dict.nav.about, href: '#sobre' },
+    { name: dict.nav.projects, href: '#projetos' },
+    { name: dict.nav.skills, href: '#habilidades' },
+    { name: dict.nav.contact, href: '#contato' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -44,19 +45,19 @@ export function Header() {
                 </button>
               ))}
             </div>
-            <LanguageSelector />
+            <LanguageSelector currentLang={lang} />
             <ThemeToggle />
             <button
               onClick={() => scrollToSection('#contato')}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             >
-              Entre em Contato
+              {dict.nav.contactButton}
             </button>
           </div>
 
           {/* Mobile menu button and theme toggle */}
           <div className="md:hidden flex items-center space-x-1">
-            <LanguageSelector />
+            <LanguageSelector currentLang={lang} />
             <ThemeToggle />
             <button
               type="button"
@@ -99,7 +100,7 @@ export function Header() {
                   }}
                   className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-lg text-base font-medium transition-colors text-center w-full"
                 >
-                  Entre em Contato
+                  {dict.nav.contactButton}
                 </button>
               </div>
             </div>

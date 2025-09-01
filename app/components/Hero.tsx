@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { Locale } from '@/lib/i18n';
 
-export function Hero() {
+export function Hero({ lang, dict }: { lang: Locale; dict: any }) {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -10,20 +11,18 @@ export function Hero() {
           <div className="space-y-6">
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
-                Fala aí! 👋
+                {dict.hero.greeting}
               </h1>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-600 dark:text-slate-400">
-                Prazer, eu sou o{" "}
+                {dict.hero.intro}{" "}
                 <span className="text-blue-600 dark:text-blue-400">
-                  Thiago Felippe
+                  {dict.hero.name}
                 </span>
               </h2>
             </div>
 
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-              Desenvolvedor Front-End com 3+ anos de experiência em React,
-              Next.js e React Native. Foco em criar aplicações web e mobile
-              funcionais, com código organizado e boa performance.
+              {dict.hero.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -32,7 +31,7 @@ export function Hero() {
                 download="CV-Thiago-Felippe.pdf"
                 className="border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-8 py-3 rounded-lg font-medium transition-colors inline-block text-center"
               >
-                Baixar CV
+                {dict.hero.downloadCV}
               </a>
               <div className="flex gap-3">
                 <a 

@@ -1,19 +1,6 @@
-import { Hero } from "./components/Hero";
-import { Services } from "./components/Services";
-import { Projects } from "./components/Projects";
-import { Experience } from "./components/Experience";
-import { Skills } from "./components/Skills";
-import { Contact } from "./components/Contact";
+import { redirect } from 'next/navigation';
+import { defaultLocale } from '@/lib/i18n';
 
-export default function Home() {
-  return (
-    <div className="min-h-screen">
-      <Hero />
-      <Services />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
-    </div>
-  );
+export default function RootPage() {
+  redirect(`/${defaultLocale}`);
 }
