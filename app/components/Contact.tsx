@@ -5,16 +5,16 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
+import { Locale } from '@/lib/i18n';
 
-const contactFormSchema = z.object({
-  name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
-  email: z.string().email('Email inválido'),
-  message: z.string().min(10, 'Mensagem deve ter pelo menos 10 caracteres'),
-});
+export function Contact({ lang, dict }: { lang: Locale; dict: any }) {
+  const contactFormSchema = z.object({
+    name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
+    email: z.string().email('Email inválido'),
+    message: z.string().min(10, 'Mensagem deve ter pelo menos 10 caracteres'),
+  });
 
-type ContactFormData = z.infer<typeof contactFormSchema>;
-
-export function Contact() {
+  type ContactFormData = z.infer<typeof contactFormSchema>;
   const {
     register,
     handleSubmit,
@@ -34,10 +34,10 @@ export function Contact() {
 
       // Reset form on success
       reset();
-      alert('Mensagem enviada com sucesso!');
+      alert(dict.contact.form.successMessage);
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
-      alert('Erro ao enviar mensagem. Tente novamente.');
+      alert(dict.contact.form.errorMessage);
     }
   };
 
@@ -73,10 +73,10 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-            Vamos Conversar?
+            {dict.contact.title}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Tem algum projeto em mente ou quer bater um papo? Ficarei feliz em conversar com você!
+            {dict.contact.subtitle}
           </p>
         </div>
 
@@ -84,13 +84,13 @@ export function Contact() {
           {/* Contact Form */}
           <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-8">
             <h3 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-6">
-              Envie uma Mensagem
+              {dict.contact.formTitle}
             </h3>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Nome
+                  {dict.contact.form.name}
                 </label>
                 <input
                   type="text"
@@ -101,7 +101,7 @@ export function Contact() {
                       ? 'border-red-500 dark:border-red-500'
                       : 'border-slate-300 dark:border-slate-600'
                   }`}
-                  placeholder="Seu nome"
+                  placeholder={dict.contact.form.namePlaceholder}
                 />
                 {errors.name && (
                   <p className="mt-1 text-sm text-red-600 dark:text-red-400">
@@ -112,7 +112,7 @@ export function Contact() {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Email
+                  {dict.contact.form.email}
                 </label>
                 <input
                   type="email"
@@ -123,7 +123,7 @@ export function Contact() {
                       ? 'border-red-500 dark:border-red-500'
                       : 'border-slate-300 dark:border-slate-600'
                   }`}
-                  placeholder="seu@email.com"
+                  placeholder={dict.contact.form.emailPlaceholder}
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-600 dark:text-red-400">
@@ -134,7 +134,7 @@ export function Contact() {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Mensagem
+                  {dict.contact.form.message}
                 </label>
                 <textarea
                   id="message"
@@ -145,7 +145,7 @@ export function Contact() {
                       ? 'border-red-500 dark:border-red-500'
                       : 'border-slate-300 dark:border-slate-600'
                   }`}
-                  placeholder="Conte-me sobre seu projeto..."
+                  placeholder={dict.contact.form.messagePlaceholder}
                 />
                 {errors.message && (
                   <p className="mt-1 text-sm text-red-600 dark:text-red-400">
@@ -159,7 +159,7 @@ export function Contact() {
                 disabled={isSubmitting}
                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-colors"
               >
-                {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+{isSubmitting ? 'Enviando...' : dict.contact.form.send}
               </button>
             </form>
           </div>
@@ -168,11 +168,10 @@ export function Contact() {
           <div className="flex flex-col justify-center">
             <div className="mb-8">
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                Outras formas de contato
+                {dict.contact.socialSection.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Prefere uma abordagem mais direta? Você pode me encontrar nas redes sociais
-                ou enviar um email diretamente.
+                {dict.contact.socialSection.subtitle}
               </p>
             </div>
 
@@ -197,11 +196,10 @@ export function Contact() {
 
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6">
               <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">
-                Resposta Rápida ⚡
+                {dict.contact.socialSection.quickResponse.title}
               </h4>
               <p className="text-blue-700 dark:text-blue-300 text-sm">
-                Costumo responder em até 24 horas. Para projetos urgentes,
-                me chame no LinkedIn!
+                {dict.contact.socialSection.quickResponse.description}
               </p>
             </div>
           </div>

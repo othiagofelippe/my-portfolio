@@ -73,20 +73,33 @@
     "subtitle": "Technologies and tools I master to create efficient solutions"
   },
   "contact": {
-    "title": "Get in Touch",
-    "subtitle": "Let's turn your idea into reality! Get in touch with me.",
+    "title": "Let's Talk?",
+    "subtitle": "Have a project in mind or want to chat? I'd be happy to talk with you!",
+    "formTitle": "Send a Message",
     "form": {
-      "name": "Full name",
+      "name": "Name",
+      "namePlaceholder": "Your name",
       "email": "Email",
+      "emailPlaceholder": "your@email.com",
       "subject": "Subject",
       "message": "Message",
       "messagePlaceholder": "Tell me about your project...",
-      "send": "Send Message"
+      "send": "Send Message",
+      "successMessage": "Message sent successfully!",
+      "errorMessage": "Error sending message. Please try again."
     },
     "info": {
       "email": "contact@othiagofelippe.com",
       "location": "Rio de Janeiro, Brazil",
       "availability": "Available for projects"
+    },
+    "socialSection": {
+      "title": "Other ways to contact",
+      "subtitle": "Prefer a more direct approach? You can find me on social media or send an email directly.",
+      "quickResponse": {
+        "title": "Quick Response ⚡",
+        "description": "I usually respond within 24 hours. For urgent projects, contact me on LinkedIn!"
+      }
     }
   },
   "footer": {
