@@ -2,6 +2,7 @@ import { Hero } from "../components/Hero";
 import { Services } from "../components/Services";
 import { Projects } from "../components/Projects";
 import { Experience } from "../components/Experience";
+import { Education } from "../components/Education";
 import { Skills } from "../components/Skills";
 import { Contact } from "../components/Contact";
 import { Locale } from "@/lib/i18n";
@@ -20,6 +21,7 @@ export default async function Home({
       <Hero dict={dict} />
       <Services lang={lang} dict={dict} />
       <Experience dict={dict} />
+      <Education dict={dict} />
       <Projects lang={lang} dict={dict} />
       <Skills lang={lang} dict={dict} />
       <Contact lang={lang} dict={dict} />

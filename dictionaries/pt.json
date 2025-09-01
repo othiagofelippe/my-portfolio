@@ -124,6 +124,39 @@
       }
     }
   },
+  "education": {
+    "title": "Formação & Qualificações",
+    "subtitle": "Minha jornada acadêmica e certificações que complementam minha experiência profissional",
+    "academic": {
+      "title": "Formação Acadêmica",
+      "course": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+      "institution": "Centro Universitário Unicarioca",
+      "location": "Rio de Janeiro, RJ",
+      "period": "Janeiro de 2025 - Presente",
+      "type": "Ensino a Distância (EAD)"
+    },
+    "certifications": {
+      "title": "Certificações",
+      "fullstack": {
+        "name": "Certificação em Desenvolvimento Web Full Stack",
+        "institution": "ProgramadorBr",
+        "date": "Março de 2022",
+        "technologiesLabel": "Tecnologias Aprendidas",
+        "technologies": ["HTML5", "CSS3", "JavaScript ES6+", "jQuery", "Bootstrap", "React.js", "Node.js", "Firebase", "MongoDB", "Electron"]
+      }
+    },
+    "languages": {
+      "title": "Idiomas",
+      "portuguese": {
+        "name": "Português",
+        "level": "Nativo"
+      },
+      "english": {
+        "name": "Inglês",
+        "level": "Intermediário (Leitura técnica e compreensão auditiva)"
+      }
+    }
+  },
   "footer": {
     "description": "Desenvolvedor Front-End com 3+ anos de experiência em React, Next.js e React Native. Foco em criar aplicações web e mobile funcionais, com código organizado e boa performance.",
     "navigation": "Navegação",
