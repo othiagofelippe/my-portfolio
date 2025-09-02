@@ -1,10 +1,12 @@
-import { Hero } from "../components/Hero";
-import { Services } from "../components/Services";
-import { Projects } from "../components/Projects";
-import { Experience } from "../components/Experience";
-import { Education } from "../components/Education";
-import { Skills } from "../components/Skills";
-import { Contact } from "../components/Contact";
+import {
+  Hero,
+  Services,
+  Experience,
+  Education,
+  Projects,
+  Skills,
+  Contact
+} from "../components/sections";
 import { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
 
