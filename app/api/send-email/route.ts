@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
     };
 
     // Enviar o email
-    const info = await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
       { message: 'Email enviado com sucesso!' },
@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
     // Se for erro de validação do Zod
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Dados inválidos', details: error.errors },
+        { error: 'Dados inválidos', details: error.issues },
         { status: 400 }
       );
     }

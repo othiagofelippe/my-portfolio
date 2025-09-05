@@ -21,12 +21,12 @@ export default async function Home({
   return (
     <div className="min-h-screen">
       <Hero dict={dict} />
-      <Services lang={lang} dict={dict} />
+      <Services dict={dict} />
       <Experience dict={dict} />
       <Education dict={dict} />
-      <Projects lang={lang} dict={dict} />
-      <Skills lang={lang} dict={dict} />
-      <Contact lang={lang} dict={dict} />
+      <Projects />
+      <Skills dict={dict} />
+      <Contact dict={dict} />
     </div>
   );
 }

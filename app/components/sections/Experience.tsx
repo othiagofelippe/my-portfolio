@@ -60,7 +60,7 @@ export function Experience({ dict }: { dict: any }) {
                     </p>
 
                     <div className="flex flex-wrap gap-2">
-                      {experience.skills.map((skill, skillIndex) => (
+                      {experience.skills.map((skill: any, skillIndex: number) => (
                         <span
                           key={skillIndex}
                           className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm px-3 py-1 rounded-full"

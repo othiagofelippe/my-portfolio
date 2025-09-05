@@ -5,10 +5,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
-import { Locale } from '@/lib/i18n';
 import { toast } from 'react-toastify';
 
-export function Contact({ lang, dict }: { lang: Locale; dict: any }) {
+export function Contact({ dict }: { dict: any }) {
   const contactFormSchema = z.object({
     name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
     email: z.string().email('Email inválido'),

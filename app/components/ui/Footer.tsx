@@ -4,9 +4,8 @@ import Link from 'next/link';
 import { HiOutlineEnvelope, HiOutlineMapPin, HiOutlineClock } from 'react-icons/hi2';
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { Logo } from './Logo';
-import { Locale } from '@/lib/i18n';
 
-export function Footer({ lang, dict }: { lang: Locale; dict: any }) {
+export function Footer({ dict }: { dict: any }) {
   const currentYear = new Date().getFullYear();
 
   const scrollToSection = (href: string) => {

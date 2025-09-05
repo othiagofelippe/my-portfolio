@@ -27,19 +27,19 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const dict = await getDictionary(lang);
+  const dict = await getDictionary(lang as Locale);
 
   return (
     <html lang={lang} className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header lang={lang} dict={dict} />
+        <Header lang={lang as Locale} dict={dict} />
         {children}
-        <Footer lang={lang} dict={dict} />
+        <Footer dict={dict} />
         <ToastContainer
           position="bottom-right"
           autoClose={5000}

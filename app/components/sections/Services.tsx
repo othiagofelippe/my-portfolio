@@ -1,7 +1,6 @@
-import { Locale } from '@/lib/i18n';
 import { HiOutlineCodeBracket, HiOutlinePaintBrush } from 'react-icons/hi2';
 
-export function Services({ lang, dict }: { lang: Locale; dict: any })  {
+export function Services({ dict }: { dict: any })  {
   const services = [
     {
       title: dict.services.frontend.title,

@@ -1,6 +1,5 @@
-import { Locale } from '@/lib/i18n';
 
-export function Skills({ lang, dict }: { lang: Locale; dict: any }) {
+export function Skills({ dict }: { dict: any }) {
   const skillCategories = [
     {
       title: dict.skills.categories.frontend.title,
@@ -60,7 +59,7 @@ export function Skills({ lang, dict }: { lang: Locale; dict: any }) {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
+                {category.skills.map((skill: any, skillIndex: number) => (
                   <span
                     key={skillIndex}
                     className="bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 px-4 py-2 rounded-full text-sm font-medium border border-cyan-200 dark:border-cyan-800 hover:bg-cyan-100 dark:hover:bg-cyan-900/40 transition-colors"
