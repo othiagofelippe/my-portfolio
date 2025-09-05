@@ -15,13 +15,13 @@ export function Services({ dict }: { dict: any })  {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900">
+    <section className="py-20 bg-background-primary dark:bg-background-primary-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
             {dict.services.title}
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark max-w-2xl mx-auto">
             {dict.services.subtitle}
           </p>
         </div>
@@ -30,15 +30,15 @@ export function Services({ dict }: { dict: any })  {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
+              className="bg-background-secondary/50 dark:bg-background-tertiary rounded-xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out border border-border-primary/20"
             >
-              <div className="text-cyan-600 dark:text-cyan-400 mb-4">
+              <div className="text-accent-brand mb-4">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-3">
+              <h3 className="font-poppins text-xl text-text-headline dark:text-text-headline-dark mb-3">
                 {service.title}
               </h3>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="font-roboto text-text-body dark:text-text-body-dark leading-relaxed">
                 {service.description}
               </p>
             </div>

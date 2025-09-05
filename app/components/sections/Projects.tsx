@@ -21,13 +21,13 @@ export function Projects() {
   ];
 
   return (
-    <section id="projetos" className="py-20 bg-slate-50 dark:bg-slate-800">
+    <section id="projetos" className="py-20 bg-background-secondary/30 dark:bg-background-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
             Meus Projetos
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark max-w-2xl mx-auto">
             Alguns dos projetos que desenvolvi e que mostram minhas habilidades técnicas
           </p>
         </div>
@@ -36,28 +36,28 @@ export function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
+              className="bg-background-primary dark:bg-background-tertiary rounded-xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out border border-border-primary/20"
             >
               <div className="mb-4">
-                <div className="w-full h-48 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-full h-48 bg-gradient-to-br from-background-secondary/30 to-background-secondary/50 dark:from-background-secondary dark:to-background-tertiary rounded-lg flex items-center justify-center mb-4">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-cyan-500 dark:bg-cyan-400 rounded-full flex items-center justify-center mb-2 mx-auto">
-                      <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="w-16 h-16 bg-accent-brand rounded-full flex items-center justify-center mb-2 mx-auto">
+                      <svg className="w-8 h-8 text-text-label" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                       </svg>
                     </div>
-                    <span className="inline-block bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm px-3 py-1 rounded-full font-medium">
+                    <span className="font-roboto inline-block bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark text-sm px-3 py-1 rounded-full font-medium">
                       {project.status}
                     </span>
                   </div>
                 </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-3">
+              <h3 className="font-poppins text-xl text-text-headline dark:text-text-headline-dark mb-3">
                 {project.title}
               </h3>
               
-              <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+              <p className="font-roboto text-text-body dark:text-text-body-dark mb-4 leading-relaxed">
                 {project.description}
               </p>
 
@@ -65,7 +65,7 @@ export function Projects() {
                 {project.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 text-sm px-3 py-1 rounded-full"
+                    className="font-roboto bg-accent-brand/10 text-accent-brand text-sm px-3 py-1 rounded-full border border-accent-brand/20"
                   >
                     {tag}
                   </span>
@@ -73,10 +73,10 @@ export function Projects() {
               </div>
 
               <div className="flex gap-3">
-                <button className="flex-1 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 py-2 px-4 rounded-lg font-medium cursor-not-allowed">
+                <button className="font-roboto flex-1 bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark py-2 px-4 rounded-lg font-medium cursor-not-allowed">
                   Demo
                 </button>
-                <button className="flex-1 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 py-2 px-4 rounded-lg font-medium cursor-not-allowed">
+                <button className="font-roboto flex-1 bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark py-2 px-4 rounded-lg font-medium cursor-not-allowed">
                   Código
                 </button>
               </div>
@@ -85,10 +85,10 @@ export function Projects() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-slate-600 dark:text-slate-400 mb-6">
+          <p className="font-roboto text-text-body dark:text-text-body-dark mb-6">
             Mais projetos em desenvolvimento! 🚀
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+          <button className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-8 py-3 rounded-lg transition-colors">
             Ver todos os projetos
           </button>
         </div>
