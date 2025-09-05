@@ -1,49 +1,66 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HiOutlineSun, HiOutlineMoon } from 'react-icons/hi2';
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const playSound = () => {
-    const audio = new Audio('/sounds/slash.mp3');
-    audio.volume = 0.3;
-    audio.play().catch(() => {
-      // Ignore audio play errors (user interaction required, etc.)
-    });
-  };
+  useEffect(() => {
+    setMounted(true);
+    
+    // Check current theme
+    const htmlElement = document.documentElement;
+    const currentIsDark = htmlElement.classList.contains('dark');
+    setIsDark(currentIsDark);
+  }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    playSound();
-    // TODO: Implementar mudança de tema
-    console.log('Theme changed to:', newTheme);
+    const htmlElement = document.documentElement;
+    const newIsDark = !isDark;
+    
+    console.log('Toggle clicked:', { currentIsDark: isDark, newIsDark });
+    console.log('Before - html classes:', htmlElement.classList.toString());
+    
+    if (newIsDark) {
+      htmlElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      htmlElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+    
+    console.log('After - html classes:', htmlElement.classList.toString());
+    setIsDark(newIsDark);
   };
+
+  if (!mounted) {
+    return (
+      <div className="p-2 w-9 h-9 rounded-lg">
+        <div className="w-5 h-5"></div>
+      </div>
+    );
+  }
 
   return (
     <button
       onClick={toggleTheme}
-      className={`p-2 transition-all duration-300 rounded-lg hover:scale-110 ${
-        theme === 'light' 
-          ? 'text-yellow-500 hover:text-yellow-600 hover:bg-yellow-50' 
-          : 'text-blue-400 hover:text-blue-300 hover:bg-blue-950'
-      }`}
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-      title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      className="p-2 transition-all duration-300 rounded-lg hover:scale-110 text-text-body dark:text-text-body-dark hover:text-accent-brand hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30"
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+      title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
       <div className="relative w-5 h-5">
         <HiOutlineSun 
-          className={`w-5 h-5 absolute inset-0 transition-all duration-500 transform text-yellow-500 ${
-            theme === 'light' 
+          className={`w-5 h-5 absolute inset-0 transition-all duration-500 transform text-accent-brand ${
+            !isDark 
               ? 'opacity-100 rotate-0 scale-100' 
               : 'opacity-0 rotate-180 scale-75'
           }`} 
         />
         <HiOutlineMoon 
-          className={`w-5 h-5 absolute inset-0 transition-all duration-500 transform text-blue-400 ${
-            theme === 'dark' 
+          className={`w-5 h-5 absolute inset-0 transition-all duration-500 transform text-accent-brand ${
+            isDark 
               ? 'opacity-100 rotate-0 scale-100' 
               : 'opacity-0 -rotate-180 scale-75'
           }`} 

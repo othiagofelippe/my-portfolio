@@ -32,13 +32,13 @@ export function Skills({ dict }: { dict: any }) {
   ];
 
   return (
-    <section id="habilidades" className="py-20 bg-slate-50 dark:bg-slate-800">
+    <section id="habilidades" className="py-20 bg-background-secondary/30 dark:bg-background-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
             {dict.skills.title}
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark max-w-2xl mx-auto">
             {dict.skills.subtitle}
           </p>
         </div>
@@ -47,13 +47,13 @@ export function Skills({ dict }: { dict: any }) {
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg"
+              className="bg-background-primary dark:bg-background-tertiary rounded-xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out border border-border-primary/20"
             >
               <div className="flex items-center mb-6">
-                <div className="text-cyan-600 dark:text-cyan-400 mr-3">
+                <div className="text-accent-brand mr-3">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-100">
+                <h3 className="font-poppins text-xl text-text-headline dark:text-text-headline-dark">
                   {category.title}
                 </h3>
               </div>
@@ -62,7 +62,7 @@ export function Skills({ dict }: { dict: any }) {
                 {category.skills.map((skill: any, skillIndex: number) => (
                   <span
                     key={skillIndex}
-                    className="bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 px-4 py-2 rounded-full text-sm font-medium border border-cyan-200 dark:border-cyan-800 hover:bg-cyan-100 dark:hover:bg-cyan-900/40 transition-colors"
+                    className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand px-4 py-2 rounded-full border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
                   >
                     {skill}
                   </span>

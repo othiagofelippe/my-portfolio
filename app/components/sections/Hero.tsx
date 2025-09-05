@@ -15,28 +15,28 @@ interface HeroDict {
 
 export function Hero({ dict }: { dict: HeroDict }) {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary to-background-secondary dark:from-background-primary-dark dark:to-background-secondary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-20 md:pt-16 lg:pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
+              <h1 className="font-poppins text-4xl sm:text-5xl lg:text-6xl text-text-headline dark:text-text-headline-dark">
                 {dict.hero.greeting}
               </h1>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-600 dark:text-slate-400">
+              <h2 className="font-poppins text-2xl sm:text-3xl lg:text-4xl text-text-heading dark:text-text-heading-dark">
                 {dict.hero.intro}{" "}
-                <span className="text-blue-600 dark:text-blue-400">
+                <span className="text-accent-brand">
                   {dict.hero.name}
                 </span>
               </h2>
             </div>
 
-            <p className="text-xl sm:text-2xl text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
+            <p className="font-roboto text-xl sm:text-2xl font-medium text-text-body dark:text-text-body-dark leading-relaxed">
               {dict.hero.role}
             </p>
             
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="font-roboto text-lg text-text-body dark:text-text-body-dark leading-relaxed">
               {dict.hero.description}
             </p>
 
@@ -44,18 +44,18 @@ export function Hero({ dict }: { dict: HeroDict }) {
               {dict.hero.skills.map((skill: string, index: number) => (
                 <span
                   key={index}
-                  className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-800"
+                  className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand px-4 py-2 rounded-full border border-accent-brand/20"
                 >
                   {skill}
                 </span>
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <div className="flex flex-row gap-4 items-start">
               <a 
                 href="/CV-Thiago-Felippe.pdf" 
                 download="CV-Thiago-Felippe.pdf"
-                className="border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-8 py-3 rounded-lg font-medium transition-colors inline-block text-center"
+                className="font-roboto text-base font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark px-8 py-3 rounded-lg transition-colors inline-block text-center"
               >
                 {dict.hero.downloadCV}
               </a>
@@ -64,7 +64,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
                   href="https://linkedin.com/in/thiagofelippe" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all"
+                  className="p-3 rounded-lg border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-accent-brand transition-all"
                   title="LinkedIn"
                 >
                   <FaLinkedin size={20} />
@@ -73,7 +73,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
                   href="https://github.com/othiagofelippe" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-all"
+                  className="p-3 rounded-lg border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-text-headline dark:hover:text-text-headline-dark transition-all"
                   title="GitHub"
                 >
                   <FaGithub size={20} />
@@ -84,7 +84,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
 
           {/* Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="w-96 h-96 rounded-3xl overflow-hidden border-8 border-white dark:border-slate-700 shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300 cursor-pointer">
+            <div className="w-96 h-96 rounded-3xl overflow-hidden border-8 border-background-primary dark:border-background-tertiary shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300 cursor-pointer">
               <Image
                 src="https://github.com/othiagofelippe.png"
                 alt="Thiago Felippe"

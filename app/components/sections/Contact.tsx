@@ -67,109 +67,109 @@ export function Contact({ dict }: { dict: any }) {
       name: "LinkedIn",
       icon: <FaLinkedinIn className="w-6 h-6" />,
       href: "https://linkedin.com/in/othiagofelippe",
-      color: "hover:text-blue-600"
+      color: "hover:text-accent-brand"
     },
     {
       name: "GitHub",
       icon: <FaGithub className="w-6 h-6" />,
       href: "https://github.com/othiagofelippe",
-      color: "hover:text-slate-800 dark:hover:text-slate-100"
+      color: "hover:text-text-headline dark:hover:text-text-headline-dark"
     },
     {
       name: "WhatsApp",
       icon: <FaWhatsapp className="w-6 h-6" />,
       href: "https://wa.me/5521973494481",
-      color: "hover:text-green-600"
+      color: "hover:text-accent-green"
     },
     {
       name: "Email",
       icon: <HiOutlineEnvelope className="w-6 h-6" />,
       href: "mailto:contact@othiagofelippe.com",
-      color: "hover:text-red-600"
+      color: "hover:text-accent-red"
     }
   ];
 
   return (
-    <section id="contato" className="py-20 bg-white dark:bg-slate-900">
+    <section id="contato" className="py-20 bg-background-primary dark:bg-background-primary-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
             {dict.contact.title}
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark max-w-2xl mx-auto">
             {dict.contact.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-8">
-            <h3 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-6">
+          <div className="bg-background-secondary/20 dark:bg-background-tertiary rounded-xl p-8 border border-border-primary/20">
+            <h3 className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark mb-6">
               {dict.contact.formTitle}
             </h3>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="name" className="font-roboto block text-sm font-medium text-text-heading dark:text-text-heading-dark mb-2">
                   {dict.contact.form.name}
                 </label>
                 <input
                   type="text"
                   id="name"
                   {...register('name')}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 transition-colors ${
+                  className={`font-roboto w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-brand focus:border-transparent bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark transition-colors ${
                     errors.name
-                      ? 'border-red-500 dark:border-red-500'
-                      : 'border-slate-300 dark:border-slate-600'
+                      ? 'border-accent-red'
+                      : 'border-border-primary'
                   }`}
                   placeholder={dict.contact.form.namePlaceholder}
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <p className="font-roboto mt-1 text-sm text-accent-red">
                     {errors.name.message}
                   </p>
                 )}
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="email" className="font-roboto block text-sm font-medium text-text-heading dark:text-text-heading-dark mb-2">
                   {dict.contact.form.email}
                 </label>
                 <input
                   type="email"
                   id="email"
                   {...register('email')}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 transition-colors ${
+                  className={`font-roboto w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-brand focus:border-transparent bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark transition-colors ${
                     errors.email
-                      ? 'border-red-500 dark:border-red-500'
-                      : 'border-slate-300 dark:border-slate-600'
+                      ? 'border-accent-red'
+                      : 'border-border-primary'
                   }`}
                   placeholder={dict.contact.form.emailPlaceholder}
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <p className="font-roboto mt-1 text-sm text-accent-red">
                     {errors.email.message}
                   </p>
                 )}
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="message" className="font-roboto block text-sm font-medium text-text-heading dark:text-text-heading-dark mb-2">
                   {dict.contact.form.message}
                 </label>
                 <textarea
                   id="message"
                   {...register('message')}
                   rows={5}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none transition-colors ${
+                  className={`font-roboto w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-brand focus:border-transparent bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark resize-none transition-colors ${
                     errors.message
-                      ? 'border-red-500 dark:border-red-500'
-                      : 'border-slate-300 dark:border-slate-600'
+                      ? 'border-accent-red'
+                      : 'border-border-primary'
                   }`}
                   placeholder={dict.contact.form.messagePlaceholder}
                 />
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <p className="font-roboto mt-1 text-sm text-accent-red">
                     {errors.message.message}
                   </p>
                 )}
@@ -178,7 +178,7 @@ export function Contact({ dict }: { dict: any }) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-colors"
+                className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand-dark disabled:bg-accent-brand/50 disabled:cursor-not-allowed text-text-label py-3 px-6 rounded-lg transition-colors"
               >
 {isSubmitting ? 'Enviando...' : dict.contact.form.send}
               </button>
@@ -188,10 +188,10 @@ export function Contact({ dict }: { dict: any }) {
           {/* Contact Info */}
           <div className="flex flex-col justify-center">
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark mb-4">
                 {dict.contact.socialSection.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <p className="font-roboto text-text-body dark:text-text-body-dark mb-6">
                 {dict.contact.socialSection.subtitle}
               </p>
             </div>
@@ -203,23 +203,23 @@ export function Contact({ dict }: { dict: any }) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg transition-colors ${link.color} group`}
+                  className={`flex items-center p-4 bg-background-secondary/30 dark:bg-background-secondary rounded-lg transition-colors ${link.color} group border border-border-primary/20`}
                 >
-                  <div className="text-gray-600 dark:text-gray-400 group-hover:text-current mr-3">
+                  <div className="text-text-span dark:text-text-span-dark group-hover:text-current mr-3">
                     {link.icon}
                   </div>
-                  <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-current">
+                  <span className="font-roboto font-medium text-text-body dark:text-text-body-dark group-hover:text-current">
                     {link.name}
                   </span>
                 </a>
               ))}
             </div>
 
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6">
-              <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">
+            <div className="bg-accent-brand/10 rounded-xl p-6 border border-accent-brand/20">
+              <h4 className="font-poppins font-medium text-accent-brand mb-2">
                 {dict.contact.socialSection.quickResponse.title}
               </h4>
-              <p className="text-blue-700 dark:text-blue-300 text-sm">
+              <p className="font-roboto text-text-body dark:text-text-body-dark text-sm">
                 {dict.contact.socialSection.quickResponse.description}
               </p>
             </div>
