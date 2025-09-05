@@ -30,16 +30,14 @@ export function ScrollToTop() {
   };
 
   return (
-    <>
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 group"
-          aria-label="Voltar ao topo"
-        >
-          <HiOutlineChevronUp className="w-6 h-6 group-hover:animate-bounce" />
-        </button>
-      )}
-    </>
+    <button
+      onClick={scrollToTop}
+      className={`fixed bottom-8 right-8 bg-accent-brand hover:bg-accent-brand-dark text-text-label p-4 rounded-full shadow-2xl transition-all duration-300 z-[9999] group ${
+        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none'
+      }`}
+      aria-label="Voltar ao topo"
+    >
+      <HiOutlineChevronUp className="w-8 h-8 group-hover:animate-bounce" />
+    </button>
   );
 }
