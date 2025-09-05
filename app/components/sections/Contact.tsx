@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { Locale } from '@/lib/i18n';
+import { toast } from 'react-toastify';
 
 export function Contact({ lang, dict }: { lang: Locale; dict: any }) {
   const contactFormSchema = z.object({
@@ -26,18 +27,39 @@ export function Contact({ lang, dict }: { lang: Locale; dict: any }) {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Por enquanto só um log, depois implementar envio real
-      console.log('Form submitted:', data);
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-      // Simular delay de envio
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro ao enviar mensagem');
+      }
 
       // Reset form on success
       reset();
-      alert(dict.contact.form.successMessage);
+      toast.success(dict.contact.form.successMessage || 'Mensagem enviada com sucesso! 🎉', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
-      alert(dict.contact.form.errorMessage);
+      toast.error(dict.contact.form.errorMessage || 'Erro ao enviar mensagem. Tente novamente. 😞', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     }
   };
 

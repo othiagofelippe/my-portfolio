@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
+import "react-toastify/dist/ReactToastify.css";
 import { Header, Footer } from "../components/ui";
 import { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +40,18 @@ export default async function RootLayout({
         <Header lang={lang} dict={dict} />
         {children}
         <Footer lang={lang} dict={dict} />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="auto"
+        />
       </body>
     </html>
   );
