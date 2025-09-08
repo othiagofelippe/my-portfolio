@@ -23,11 +23,12 @@ export function Logo() {
     return (
       <Link
         href={`/${currentLang}`}
-        className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+        className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity"
       >
-        <div className="w-8 h-8" />
-        <span className="text-xl font-bold text-text-headline dark:text-text-headline-dark">
-          Thiago Felippe
+        <div className="w-6 h-6 sm:w-8 sm:h-8" />
+        <span className="text-base sm:text-lg md:text-xl font-bold text-text-headline">
+          <span className="hidden sm:inline">Thiago Felippe</span>
+          <span className="sm:hidden">T. Felippe</span>
         </span>
       </Link>
     );
@@ -36,7 +37,7 @@ export function Logo() {
   return (
     <Link
       href={`/${currentLang}`}
-      className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+      className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity"
     >
       {/* Logo SVG */}
       <Image
@@ -44,13 +45,14 @@ export function Logo() {
         alt="Thiago Felippe Logo"
         width={32}
         height={32}
-        className="w-8 h-8"
+        className="w-6 h-6 sm:w-8 sm:h-8"
         key={isDark ? 'dark' : 'light'}
       />
 
       {/* Logo Text */}
-      <span className="text-xl font-bold text-text-headline dark:text-text-headline-dark">
-        Thiago Felippe
+      <span className="text-base sm:text-lg md:text-xl font-bold text-text-headline">
+        <span className="hidden sm:inline">Thiago Felippe</span>
+        <span className="sm:hidden">T. Felippe</span>
       </span>
     </Link>
   );
