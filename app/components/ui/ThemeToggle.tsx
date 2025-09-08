@@ -1,39 +1,23 @@
 "use client";
 
+import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 import { HiOutlineSun, HiOutlineMoon } from 'react-icons/hi2';
 
 export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    
-    // Check current theme
-    const htmlElement = document.documentElement;
-    const currentIsDark = htmlElement.classList.contains('dark');
-    setIsDark(currentIsDark);
   }, []);
 
   const toggleTheme = () => {
-    const htmlElement = document.documentElement;
-    const newIsDark = !isDark;
-    
-    console.log('Toggle clicked:', { currentIsDark: isDark, newIsDark });
-    console.log('Before - html classes:', htmlElement.classList.toString());
-    
-    if (newIsDark) {
-      htmlElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      htmlElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-    
-    console.log('After - html classes:', htmlElement.classList.toString());
-    setIsDark(newIsDark);
+    const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
   };
+
+  const isDark = resolvedTheme === 'dark';
 
   if (!mounted) {
     return (
