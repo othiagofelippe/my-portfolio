@@ -4,12 +4,16 @@ import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { Locale, locales, localeNames } from '@/lib/i18n';
 import { HiOutlineGlobeAlt, HiOutlineChevronDown } from 'react-icons/hi2';
+import useSound from 'use-sound';
 
 export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  
+  const [playToggleSound] = useSound('/sounds/language-select.mp3', { volume: 0.4 });
+  const [playChangeSound] = useSound('/sounds/select-change.mp3', { volume: 0.3 });
 
   const flagEmojis: Record<Locale, string> = {
     pt: '🇧🇷',
@@ -33,21 +37,6 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
     }
   }, [isOpen]);
 
-  const playToggleSound = () => {
-    const audio = new Audio('/sounds/mouse-click.mp3');
-    audio.volume = 0.3;
-    audio.play().catch(() => {
-      // Ignore audio play errors
-    });
-  };
-
-  const playChangeSound = () => {
-    const audio = new Audio('/sounds/select-change.mp3');
-    audio.volume = 0.3;
-    audio.play().catch(() => {
-      // Ignore audio play errors
-    });
-  };
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
