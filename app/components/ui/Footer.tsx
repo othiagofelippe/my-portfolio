@@ -54,7 +54,7 @@ export function Footer({ dict }: { dict: any }) {
                 href="https://github.com/othiagofelippe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-span dark:text-text-span-dark hover:text-text-label dark:hover:text-text-label transition-colors"
+                className="text-text-span dark:text-text-span-dark hover:text-text-headline dark:hover:text-text-heading transition-colors"
               >
                 <FaGithub className="w-6 h-6" />
               </Link>
@@ -76,13 +76,13 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <h3 className="font-poppins text-lg text-text-label mb-4">{dict.footer.navigation}</h3>
+            <h3 className="font-poppins text-lg text-text-body dark:text-text-body-dark mb-4">{dict.footer.navigation}</h3>
             <ul className="space-y-3">
               {footerLinks.navegacao.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="font-roboto text-text-body dark:text-text-body-dark hover:text-black dark:hover:text-text-label transition-colors text-left"
+                    className="font-roboto text-text-body dark:text-text-body-dark hover:text-text-headline transition-colors text-left"
                   >
                     {link.name}
                   </button>
@@ -92,19 +92,19 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <h3 className="font-poppins text-lg text-text-label mb-4">{dict.footer.contactSection}</h3>
+            <h3 className="font-poppins text-lg text-text-body dark:text-text-body-dark mb-4">{dict.footer.contactSection}</h3>
             <div className="space-y-3 text-text-body dark:text-text-body-dark">
-              <div className="flex items-center gap-2 hover:text-black dark:hover:text-text-label transition-colors">
+              <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
                 <HiOutlineEnvelope className="w-5 h-5" />
                 <Link href="mailto:contact@othiagofelippe.com" className="font-roboto">
                   {dict.contact.info.email}
                 </Link>
               </div>
-              <div className="flex items-center gap-2 hover:text-black dark:hover:text-text-label transition-colors">
+              <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
                 <HiOutlineMapPin className="w-5 h-5" />
                 <span className="font-roboto">{dict.contact.info.location}</span>
               </div>
-              <div className="flex items-center gap-2 hover:text-black dark:hover:text-text-label transition-colors">
+              <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
                 <HiOutlineClock className="w-5 h-5" />
                 <span className="font-roboto">{dict.contact.info.availability}</span>
               </div>
