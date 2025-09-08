@@ -1,5 +1,8 @@
+"use client";
+
 import Image from 'next/image';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import useSound from 'use-sound';
 
 interface HeroDict {
   hero: {
@@ -14,6 +17,7 @@ interface HeroDict {
 }
 
 export function Hero({ dict }: { dict: HeroDict }) {
+  const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary to-background-secondary dark:from-background-primary-dark dark:to-background-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-20 md:pt-16 lg:pt-12">
@@ -55,6 +59,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
               <a 
                 href="/CV-Thiago-Felippe.pdf" 
                 download="CV-Thiago-Felippe.pdf"
+                onClick={playDownloadSound}
                 className="font-roboto text-base font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark px-8 py-3 rounded-lg transition-colors inline-block text-center"
               >
                 {dict.hero.downloadCV}
