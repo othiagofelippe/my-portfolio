@@ -24,7 +24,7 @@ export default async function Home({
       <Services dict={dict} />
       <Experience dict={dict} />
       <Education dict={dict} />
-      <Projects />
+      {/* <Projects /> */}
       <Skills dict={dict} />
       <Contact dict={dict} />
     </div>
