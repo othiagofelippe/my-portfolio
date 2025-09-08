@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { Locale, locales, localeNames } from '@/lib/i18n';
 import { HiOutlineGlobeAlt, HiOutlineChevronDown } from 'react-icons/hi2';
@@ -9,12 +9,11 @@ import useSound from 'use-sound';
 
 export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   
   const [playToggleSound] = useSound('/sounds/language-select.mp3', { volume: 0.4 });
-  const [playChangeSound] = useSound('/sounds/select-change.mp3', { volume: 0.3 });
+  const [playChangeSound] = useSound('/sounds/page-transition.mp3', { volume: 0.5 });
 
   const flagEmojis: Record<Locale, string> = {
     pt: '🇧🇷',
@@ -29,14 +28,6 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
     flag: flagEmojis[locale]
   }));
 
-  useEffect(() => {
-    if (isOpen) {
-      setIsVisible(true);
-    } else {
-      const timeout = setTimeout(() => setIsVisible(false), 200);
-      return () => clearTimeout(timeout);
-    }
-  }, [isOpen]);
 
 
   const handleToggle = () => {

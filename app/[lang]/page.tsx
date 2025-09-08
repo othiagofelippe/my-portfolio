@@ -7,6 +7,7 @@ import {
   Skills,
   Contact
 } from "../components/sections";
+import { PageTransition } from "../components/ui/PageTransition";
 import { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
 
@@ -19,14 +20,16 @@ export default async function Home({
   const dict = await getDictionary(lang);
 
   return (
-    <div className="min-h-screen">
-      <Hero dict={dict} />
-      <Services dict={dict} />
-      <Experience dict={dict} />
-      <Education dict={dict} />
-      {/* <Projects /> */}
-      <Skills dict={dict} />
-      <Contact dict={dict} />
-    </div>
+    <PageTransition lang={lang}>
+      <div className="min-h-screen">
+        <Hero dict={dict} />
+        <Services dict={dict} />
+        <Experience dict={dict} />
+        <Education dict={dict} />
+        {/* <Projects /> */}
+        <Skills dict={dict} />
+        <Contact dict={dict} />
+      </div>
+    </PageTransition>
   );
 }
