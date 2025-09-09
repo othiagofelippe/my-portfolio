@@ -12,6 +12,7 @@ import useSound from 'use-sound';
 export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [playMenuToggle] = useSound('/sounds/ui-expand.mp3', { volume: 0.4 });
+  const [playButtonClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
 
   const navItems = [
     { name: dict.nav.experience, href: '#experiencia' },
@@ -30,6 +31,11 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const toggleMenu = () => {
     playMenuToggle();
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleContactClick = () => {
+    playButtonClick();
+    setTimeout(() => scrollToSection('#contato'), 100);
   };
 
   return (
@@ -61,7 +67,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
             <LanguageSelector currentLang={lang} />
             <ThemeToggle />
             <button
-              onClick={() => scrollToSection('#contato')}
+              onClick={handleContactClick}
               className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-4 py-2 rounded-lg transition-colors"
             >
               {dict.nav.contactButton}
@@ -147,9 +153,9 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                 <div className="pt-2">
                   <motion.button
                     onClick={() => {
-                      scrollToSection('#contato');
-                      playMenuToggle();
+                      playButtonClick();
                       setIsMenuOpen(false);
+                      setTimeout(() => scrollToSection('#contato'), 300);
                     }}
                     className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label block px-3 py-2 rounded-lg text-center w-full"
                     initial={{ opacity: 0, y: 20 }}

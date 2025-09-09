@@ -18,6 +18,7 @@ interface HeroDict {
 
 export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
   const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
+  const [playSocialClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
   
   const getCVFileName = () => {
     const lang = dict.lang || 'pt';
@@ -31,6 +32,10 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
   
   const handleDownloadClick = () => {
     playDownloadSound();
+  };
+  
+  const handleSocialClick = () => {
+    playSocialClick();
   };
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary to-background-secondary dark:from-background-primary-dark dark:to-background-secondary">
@@ -83,6 +88,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   href="https://linkedin.com/in/thiagofelippe" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  onClick={handleSocialClick}
                   className="p-3 rounded-lg border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-accent-brand transition-all"
                   title="LinkedIn"
                 >
@@ -92,6 +98,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   href="https://github.com/othiagofelippe" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  onClick={handleSocialClick}
                   className="p-3 rounded-lg border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-text-headline dark:hover:text-text-headline-dark transition-all"
                   title="GitHub"
                 >
