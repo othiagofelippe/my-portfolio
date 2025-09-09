@@ -6,8 +6,11 @@ import { z } from 'zod';
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { toast } from 'react-toastify';
+import useSound from 'use-sound';
 
 export function Contact({ dict }: { dict: any }) {
+  const [playSuccessSound] = useSound('/sounds/email-success.mp3', { volume: 0.6 });
+  
   const contactFormSchema = z.object({
     name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
     email: z.string().email('Email inválido'),
@@ -41,6 +44,7 @@ export function Contact({ dict }: { dict: any }) {
 
       // Reset form on success
       reset();
+      playSuccessSound();
       toast.success(dict.contact.form.successMessage || 'Mensagem enviada com sucesso! 🎉', {
         position: "bottom-right",
         autoClose: 5000,

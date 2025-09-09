@@ -1,39 +1,34 @@
 "use client";
 
+import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 import { HiOutlineSun, HiOutlineMoon } from 'react-icons/hi2';
+import { motion, AnimatePresence } from 'motion/react';
+import useSound from 'use-sound';
 
 export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [playToggleSound] = useSound('/sounds/theme-toggle.mp3', {
+    volume: 0.5,
+    preload: true
+  });
 
   useEffect(() => {
     setMounted(true);
-    
-    // Check current theme
-    const htmlElement = document.documentElement;
-    const currentIsDark = htmlElement.classList.contains('dark');
-    setIsDark(currentIsDark);
   }, []);
 
   const toggleTheme = () => {
-    const htmlElement = document.documentElement;
-    const newIsDark = !isDark;
-    
-    console.log('Toggle clicked:', { currentIsDark: isDark, newIsDark });
-    console.log('Before - html classes:', htmlElement.classList.toString());
-    
-    if (newIsDark) {
-      htmlElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      htmlElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+    try {
+      playToggleSound();
+    } catch (error) {
+      console.log('Sound playback blocked or failed:', error);
     }
-    
-    console.log('After - html classes:', htmlElement.classList.toString());
-    setIsDark(newIsDark);
+    const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
   };
+
+  const isDark = resolvedTheme === 'dark';
 
   if (!mounted) {
     return (
@@ -44,28 +39,42 @@ export function ThemeToggle() {
   }
 
   return (
-    <button
+    <motion.button
       onClick={toggleTheme}
-      className="p-2 transition-all duration-300 rounded-lg hover:scale-110 text-text-body dark:text-text-body-dark hover:text-accent-brand hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30"
+      className="p-2 rounded-lg text-text-body dark:text-text-body-dark hover:text-accent-brand hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
     >
       <div className="relative w-5 h-5">
-        <HiOutlineSun 
-          className={`w-5 h-5 absolute inset-0 transition-all duration-500 transform text-accent-brand ${
-            !isDark 
-              ? 'opacity-100 rotate-0 scale-100' 
-              : 'opacity-0 rotate-180 scale-75'
-          }`} 
-        />
-        <HiOutlineMoon 
-          className={`w-5 h-5 absolute inset-0 transition-all duration-500 transform text-accent-brand ${
-            isDark 
-              ? 'opacity-100 rotate-0 scale-100' 
-              : 'opacity-0 -rotate-180 scale-75'
-          }`} 
-        />
+        <AnimatePresence mode="wait">
+          {!isDark ? (
+            <motion.div
+              key="sun"
+              initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+              animate={{ opacity: 1, rotate: 0, scale: 1 }}
+              exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+              transition={{ duration: 0.18, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <HiOutlineSun className="w-5 h-5 text-accent-brand" />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="moon"
+              initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+              animate={{ opacity: 1, rotate: 0, scale: 1 }}
+              exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+              transition={{ duration: 0.18, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <HiOutlineMoon className="w-5 h-5 text-accent-brand" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </button>
+    </motion.button>
   );
 }

@@ -12,7 +12,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
 
   const navItems = [
     { name: dict.nav.experience, href: '#experiencia' },
-    { name: dict.nav.projects, href: '#projetos' },
+    // { name: dict.nav.projects, href: '#projetos' },
     { name: dict.nav.skills, href: '#habilidades' },
     { name: dict.nav.contact, href: '#contato' },
   ];
@@ -26,8 +26,8 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-background-primary/80 backdrop-blur-md border-b border-border-primary dark:bg-background-primary-dark/80 z-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <nav className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex-shrink-0">
             <Logo />
           </div>
@@ -61,7 +61,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
           </div>
 
           {/* Mobile menu button and theme toggle */}
-          <div className="lg:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-1 sm:space-x-2">
             <LanguageSelector currentLang={lang} />
             <ThemeToggle />
             <button

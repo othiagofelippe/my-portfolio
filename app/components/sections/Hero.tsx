@@ -1,5 +1,8 @@
+"use client";
+
 import Image from 'next/image';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import useSound from 'use-sound';
 
 interface HeroDict {
   hero: {
@@ -13,7 +16,22 @@ interface HeroDict {
   };
 }
 
-export function Hero({ dict }: { dict: HeroDict }) {
+export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
+  const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
+  
+  const getCVFileName = () => {
+    const lang = dict.lang || 'pt';
+    const fileNames = {
+      'pt': 'CV-Thiago-Felippe-PT.pdf',
+      'en': 'CV-Thiago-Felippe-EN.pdf', 
+      'es': 'CV-Thiago-Felippe-ES.pdf'
+    };
+    return fileNames[lang as keyof typeof fileNames] || fileNames.pt;
+  };
+  
+  const handleDownloadClick = () => {
+    playDownloadSound();
+  };
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary to-background-secondary dark:from-background-primary-dark dark:to-background-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-20 md:pt-16 lg:pt-12">
@@ -53,8 +71,9 @@ export function Hero({ dict }: { dict: HeroDict }) {
 
             <div className="flex flex-row gap-4 items-start">
               <a 
-                href="/CV-Thiago-Felippe.pdf" 
-                download="CV-Thiago-Felippe.pdf"
+                href={`/${getCVFileName()}`}
+                download={getCVFileName()}
+                onClick={handleDownloadClick}
                 className="font-roboto text-base font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark px-8 py-3 rounded-lg transition-colors inline-block text-center"
               >
                 {dict.hero.downloadCV}

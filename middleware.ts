@@ -34,7 +34,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next|api|favicon.ico|robots.txt|sitemap.xml).*)',
+    // Skip all internal paths (_next), static files, images, audio and documents
+    '/((?!_next|api|favicon.ico|robots.txt|sitemap.xml|.*\\.svg|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.gif|.*\\.webp|.*\\.ico|.*\\.mp3|.*\\.wav|.*\\.ogg|.*\\.pdf).*)',
   ],
 };
