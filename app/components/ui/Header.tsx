@@ -2,13 +2,16 @@
 
 import { useState } from 'react';
 import { HiOutlineBars3, HiOutlineXMark } from 'react-icons/hi2';
+import { motion, AnimatePresence } from 'motion/react';
 import { Logo } from './Logo';
 import { LanguageSelector } from './LanguageSelector';
 import { ThemeToggle } from './ThemeToggle';
 import { Locale } from '@/lib/i18n';
+import useSound from 'use-sound';
 
 export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [playMenuToggle] = useSound('/sounds/ui-expand.mp3', { volume: 0.4 });
 
   const navItems = [
     { name: dict.nav.experience, href: '#experiencia' },
@@ -22,6 +25,11 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+
+  const toggleMenu = () => {
+    playMenuToggle();
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -64,62 +72,99 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
           <div className="lg:hidden flex items-center space-x-1 sm:space-x-2">
             <LanguageSelector currentLang={lang} />
             <ThemeToggle />
-            <button
+            <motion.button
               type="button"
               className="text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark focus:outline-none p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={toggleMenu}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <div className="relative w-6 h-6">
-                <HiOutlineBars3 
-                  className={`w-6 h-6 absolute inset-0 transition-all duration-500 transform ${
-                    !isMenuOpen 
-                      ? 'opacity-100 rotate-0 scale-100' 
-                      : 'opacity-0 rotate-180 scale-75'
-                  }`} 
-                />
-                <HiOutlineXMark 
-                  className={`w-6 h-6 absolute inset-0 transition-all duration-500 transform ${
-                    isMenuOpen 
-                      ? 'opacity-100 rotate-0 scale-100' 
-                      : 'opacity-0 -rotate-180 scale-75'
-                  }`} 
-                />
+                <AnimatePresence mode="wait">
+                  {!isMenuOpen ? (
+                    <motion.div
+                      key="hamburger"
+                      initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                      animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                      exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="absolute inset-0"
+                    >
+                      <HiOutlineBars3 className="w-6 h-6" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="close"
+                      initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                      animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                      exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="absolute inset-0"
+                    >
+                      <HiOutlineXMark className="w-6 h-6" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            </button>
+            </motion.button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background-primary dark:bg-background-primary-dark border-t border-border-primary">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    scrollToSection(item.href);
-                    setIsMenuOpen(false);
-                  }}
-                  className="font-roboto text-base font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark block px-3 py-2 transition-colors relative group w-full text-left"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent-brand group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
-                </button>
-              ))}
-              <div className="pt-2">
-                <button
-                  onClick={() => {
-                    scrollToSection('#contato');
-                    setIsMenuOpen(false);
-                  }}
-                  className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label block px-3 py-2 rounded-lg transition-colors text-center w-full"
-                >
-                  {dict.nav.contactButton}
-                </button>
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div 
+              className="lg:hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-background-primary dark:bg-background-primary-dark border-t border-border-primary">
+                {navItems.map((item, index) => (
+                  <motion.button
+                    key={item.name}
+                    onClick={() => {
+                      scrollToSection(item.href);
+                      playMenuToggle();
+                      setIsMenuOpen(false);
+                    }}
+                    className="font-roboto text-base font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark block px-3 py-2 relative group w-full text-left"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ 
+                      delay: index * 0.1,
+                      duration: 0.3 
+                    }}
+                    whileHover={{ scale: 1.02, x: 4 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {item.name}
+                    <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent-brand group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
+                  </motion.button>
+                ))}
+                <div className="pt-2">
+                  <motion.button
+                    onClick={() => {
+                      scrollToSection('#contato');
+                      playMenuToggle();
+                      setIsMenuOpen(false);
+                    }}
+                    className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label block px-3 py-2 rounded-lg text-center w-full"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: navItems.length * 0.1 + 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {dict.nav.contactButton}
+                  </motion.button>
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );

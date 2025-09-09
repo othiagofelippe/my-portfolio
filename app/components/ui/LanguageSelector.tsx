@@ -12,7 +12,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   const router = useRouter();
   const pathname = usePathname();
   
-  const [playToggleSound] = useSound('/sounds/language-select.mp3', { volume: 0.4 });
+  const [playToggleSound] = useSound('/sounds/ui-expand.mp3', { volume: 0.4 });
   const [playChangeSound] = useSound('/sounds/page-transition.mp3', { volume: 0.5 });
 
   const flagEmojis: Record<Locale, string> = {
