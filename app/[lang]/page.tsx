@@ -3,7 +3,6 @@ import {
   Services,
   Experience,
   Education,
-  Projects,
   Skills,
   Contact
 } from "../components/sections";
@@ -22,7 +21,7 @@ export default async function Home({
   return (
     <PageTransition lang={lang}>
       <div className="min-h-screen">
-        <Hero dict={dict} />
+        <Hero dict={{ ...dict, lang }} />
         <Services dict={dict} />
         <Experience dict={dict} />
         <Education dict={dict} />
