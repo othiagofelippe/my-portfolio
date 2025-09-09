@@ -4,11 +4,14 @@ import Link from 'next/link';
 import { HiOutlineEnvelope, HiOutlineMapPin, HiOutlineClock } from 'react-icons/hi2';
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { Logo } from './Logo';
+import useSound from 'use-sound';
 
 export function Footer({ dict }: { dict: any }) {
   const currentYear = new Date().getFullYear();
+  const [playButtonClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
 
   const scrollToSection = (href: string) => {
+    playButtonClick();
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
