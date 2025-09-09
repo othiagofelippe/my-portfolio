@@ -53,7 +53,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="font-roboto text-sm font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark px-3 py-2 transition-colors relative group"
+                  className="font-roboto text-sm font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark px-3 py-2 transition-colors relative group cursor-pointer"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent-brand group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
@@ -68,7 +68,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
             <ThemeToggle />
             <button
               onClick={handleContactClick}
-              className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-4 py-2 rounded-lg transition-colors"
+              className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-4 py-2 rounded-lg transition-colors cursor-pointer"
             >
               {dict.nav.contactButton}
             </button>
@@ -80,7 +80,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
             <ThemeToggle />
             <motion.button
               type="button"
-              className="text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark focus:outline-none p-2"
+              className="text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark focus:outline-none p-2 cursor-pointer"
               onClick={toggleMenu}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -136,7 +136,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                       playMenuToggle();
                       setIsMenuOpen(false);
                     }}
-                    className="font-roboto text-base font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark block px-3 py-2 relative group w-full text-left"
+                    className="font-roboto text-base font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark block px-3 py-2 relative group w-full text-left cursor-pointer"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ 
@@ -157,7 +157,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                       setIsMenuOpen(false);
                       setTimeout(() => scrollToSection('#contato'), 300);
                     }}
-                    className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label block px-3 py-2 rounded-lg text-center w-full"
+                    className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label block px-3 py-2 rounded-lg text-center w-full cursor-pointer"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: navItems.length * 0.1 + 0.1 }}
