@@ -10,6 +10,11 @@ import useSound from 'use-sound';
 
 export function Contact({ dict }: { dict: any }) {
   const [playSuccessSound] = useSound('/sounds/email-success.mp3', { volume: 0.6 });
+  const [playSocialClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
+  
+  const handleSocialClick = () => {
+    playSocialClick();
+  };
   
   const contactFormSchema = z.object({
     name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
@@ -207,6 +212,7 @@ export function Contact({ dict }: { dict: any }) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={handleSocialClick}
                   className={`flex items-center p-4 bg-background-secondary/30 dark:bg-background-secondary rounded-lg transition-colors ${link.color} group border border-border-primary/20`}
                 >
                   <div className="text-text-span dark:text-text-span-dark group-hover:text-current mr-3">

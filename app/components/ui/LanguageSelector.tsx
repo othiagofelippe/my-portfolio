@@ -12,7 +12,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   const router = useRouter();
   const pathname = usePathname();
   
-  const [playToggleSound] = useSound('/sounds/language-select.mp3', { volume: 0.4 });
+  const [playToggleSound] = useSound('/sounds/ui-expand.mp3', { volume: 0.4 });
   const [playChangeSound] = useSound('/sounds/page-transition.mp3', { volume: 0.5 });
 
   const flagEmojis: Record<Locale, string> = {
@@ -57,7 +57,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
     <div className="relative">
       <motion.button
         onClick={handleToggle}
-        className="px-3 py-2 text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark text-sm font-medium flex items-center space-x-2 rounded-lg hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30"
+        className="px-3 py-2 text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark text-sm font-medium flex items-center space-x-2 rounded-lg hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30 cursor-pointer"
         aria-label="Language selector"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -109,7 +109,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
                   <motion.button
                     key={language.code}
                     onClick={() => handleLanguageChange(language.code as Locale)}
-                    className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between ${
+                    className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between cursor-pointer ${
                       currentLang === language.code
                         ? 'bg-accent-brand/10 text-accent-brand border-l-2 border-accent-brand'
                         : 'text-text-body dark:text-text-body-dark hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30 hover:text-text-headline dark:hover:text-text-headline-dark'

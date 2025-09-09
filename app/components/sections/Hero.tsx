@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { motion } from 'motion/react';
 import useSound from 'use-sound';
 
 interface HeroDict {
@@ -18,6 +19,7 @@ interface HeroDict {
 
 export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
   const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
+  const [playSocialClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
   
   const getCVFileName = () => {
     const lang = dict.lang || 'pt';
@@ -31,6 +33,10 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
   
   const handleDownloadClick = () => {
     playDownloadSound();
+  };
+  
+  const handleSocialClick = () => {
+    playSocialClick();
   };
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary to-background-secondary dark:from-background-primary-dark dark:to-background-secondary">
@@ -83,6 +89,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   href="https://linkedin.com/in/thiagofelippe" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  onClick={handleSocialClick}
                   className="p-3 rounded-lg border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-accent-brand transition-all"
                   title="LinkedIn"
                 >
@@ -92,6 +99,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   href="https://github.com/othiagofelippe" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  onClick={handleSocialClick}
                   className="p-3 rounded-lg border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-text-headline dark:hover:text-text-headline-dark transition-all"
                   title="GitHub"
                 >
@@ -103,16 +111,43 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
 
           {/* Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="w-96 h-96 rounded-3xl overflow-hidden border-8 border-background-primary dark:border-background-tertiary shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300 cursor-pointer">
-              <Image
-                src="https://github.com/othiagofelippe.png"
-                alt="Thiago Felippe"
-                width={384}
-                height={384}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
+            <motion.div 
+              className="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-4 sm:border-8 border-background-primary dark:border-background-tertiary shadow-xl"
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: 2 }}
+              transition={{ 
+                duration: 0.8, 
+                ease: "easeOut",
+                delay: 0.3
+              }}
+              whileHover={{ 
+                rotate: 0, 
+                scale: 1.05,
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.div
+                animate={{ 
+                  rotate: [2, -1, 2],
+                }}
+                transition={{
+                  duration: 12,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              >
+                <Image
+                  src="https://github.com/othiagofelippe.png"
+                  alt="Thiago Felippe"
+                  width={384}
+                  height={384}
+                  className="w-full h-full object-cover cursor-pointer"
+                  priority
+                />
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>

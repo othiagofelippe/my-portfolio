@@ -46,7 +46,7 @@ export function Footer({ dict }: { dict: any }) {
                 href="https://linkedin.com/in/othiagofelippe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-span dark:text-text-span-dark hover:text-accent-brand transition-colors"
+                className="text-text-span dark:text-text-span-dark hover:text-accent-brand transition-colors cursor-pointer"
               >
                 <FaLinkedinIn className="w-6 h-6" />
               </Link>
@@ -54,7 +54,7 @@ export function Footer({ dict }: { dict: any }) {
                 href="https://github.com/othiagofelippe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-span dark:text-text-span-dark hover:text-text-headline dark:hover:text-text-heading transition-colors"
+                className="text-text-span dark:text-text-span-dark hover:text-text-headline dark:hover:text-text-heading transition-colors cursor-pointer"
               >
                 <FaGithub className="w-6 h-6" />
               </Link>
@@ -62,13 +62,13 @@ export function Footer({ dict }: { dict: any }) {
                 href="https://wa.me/5521973494481"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-span dark:text-text-span-dark hover:text-accent-green transition-colors"
+                className="text-text-span dark:text-text-span-dark hover:text-accent-green transition-colors cursor-pointer"
               >
                 <FaWhatsapp className="w-6 h-6" />
               </Link>
               <Link
                 href="mailto:contact@othiagofelippe.com"
-                className="text-text-span dark:text-text-span-dark hover:text-accent-red transition-colors"
+                className="text-text-span dark:text-text-span-dark hover:text-accent-red transition-colors cursor-pointer"
               >
                 <HiOutlineEnvelope className="w-6 h-6" />
               </Link>
@@ -82,7 +82,7 @@ export function Footer({ dict }: { dict: any }) {
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="font-roboto text-text-body dark:text-text-body-dark hover:text-text-headline transition-colors text-left"
+                    className="font-roboto text-text-body dark:text-text-body-dark hover:text-text-headline transition-colors text-left cursor-pointer"
                   >
                     {link.name}
                   </button>
@@ -96,7 +96,7 @@ export function Footer({ dict }: { dict: any }) {
             <div className="space-y-3 text-text-body dark:text-text-body-dark">
               <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
                 <HiOutlineEnvelope className="w-5 h-5" />
-                <Link href="mailto:contact@othiagofelippe.com" className="font-roboto">
+                <Link href="mailto:contact@othiagofelippe.com" className="font-roboto cursor-pointer">
                   {dict.contact.info.email}
                 </Link>
               </div>
