@@ -23,7 +23,7 @@ export default async function Home({
       <div className="min-h-screen">
         <Hero dict={{ ...dict, lang }} />
         <Services dict={dict} />
-        <Experience dict={dict} />
+        <Experience dict={{ ...dict, lang }} />
         <Education dict={dict} />
         {/* <Projects /> */}
         <Skills dict={dict} />

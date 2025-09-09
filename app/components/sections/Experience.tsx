@@ -1,4 +1,23 @@
-export function Experience({ dict }: { dict: any }) {
+"use client";
+
+import useSound from 'use-sound';
+
+export function Experience({ dict }: { dict: any & { lang?: string } }) {
+  const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
+  
+  const getCVFileName = () => {
+    const lang = dict.lang || 'pt';
+    const fileNames = {
+      'pt': 'CV-Thiago-Felippe-PT.pdf',
+      'en': 'CV-Thiago-Felippe-EN.pdf', 
+      'es': 'CV-Thiago-Felippe-ES.pdf'
+    };
+    return fileNames[lang as keyof typeof fileNames] || fileNames.pt;
+  };
+  
+  const handleDownloadClick = () => {
+    playDownloadSound();
+  };
   const experiences = [
     {
       period: dict.experience.jobs.heap.period,
@@ -81,8 +100,9 @@ export function Experience({ dict }: { dict: any }) {
             {dict.experience.quote}
           </p>
           <a 
-            href="/CV-Thiago-Felippe.pdf" 
-            download="CV-Thiago-Felippe.pdf"
+            href={`/${getCVFileName()}`}
+            download={getCVFileName()}
+            onClick={handleDownloadClick}
             className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-8 py-3 rounded-lg transition-colors inline-block"
           >
             {dict.experience.downloadCV}
