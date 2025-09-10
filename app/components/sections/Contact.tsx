@@ -10,6 +10,7 @@ import useSound from 'use-sound';
 
 export function Contact({ dict }: { dict: any }) {
   const [playSuccessSound] = useSound('/sounds/email-success.mp3', { volume: 0.6 });
+  const [playErrorSound] = useSound('/sounds/email-error.mp3', { volume: 0.6 });
   const [playSocialClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
   
   const handleSocialClick = () => {
@@ -60,6 +61,7 @@ export function Contact({ dict }: { dict: any }) {
       });
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
+      playErrorSound();
       toast.error(dict.contact.form.errorMessage || 'Erro ao enviar mensagem. Tente novamente. 😞', {
         position: "bottom-right",
         autoClose: 5000,
