@@ -22,6 +22,14 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   ];
 
   const scrollToSection = (href: string) => {
+    playButtonClick();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const scrollToSectionSilent = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -35,7 +43,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
 
   const handleContactClick = () => {
     playButtonClick();
-    setTimeout(() => scrollToSection('#contato'), 100);
+    setTimeout(() => scrollToSectionSilent('#contato'), 100);
   };
 
   return (
@@ -155,7 +163,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                     onClick={() => {
                       playButtonClick();
                       setIsMenuOpen(false);
-                      setTimeout(() => scrollToSection('#contato'), 300);
+                      setTimeout(() => scrollToSectionSilent('#contato'), 300);
                     }}
                     className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label block px-3 py-2 rounded-lg text-center w-full cursor-pointer"
                     initial={{ opacity: 0, y: 20 }}
