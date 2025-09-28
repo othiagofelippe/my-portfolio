@@ -1,38 +1,40 @@
 "use client";
 
-import { useState } from 'react';
-import { HiOutlineBars3, HiOutlineXMark } from 'react-icons/hi2';
-import { motion, AnimatePresence } from 'motion/react';
-import { Logo } from './Logo';
-import { LanguageSelector } from './LanguageSelector';
-import { ThemeToggle } from './ThemeToggle';
-import { Locale } from '@/lib/i18n';
-import useSound from 'use-sound';
+import { Locale } from "@/src/lib/i18n";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
+import useSound from "use-sound";
+import { LanguageSelector } from "./LanguageSelector";
+import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [playMenuToggle] = useSound('/sounds/ui-expand.mp3', { volume: 0.4 });
-  const [playButtonClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
+  const [playMenuToggle] = useSound("/sounds/ui-expand.mp3", { volume: 0.4 });
+  const [playButtonClick] = useSound("/sounds/button-click.mp3", {
+    volume: 0.5,
+  });
 
   const navItems = [
-    { name: dict.nav.experience, href: '#experiencia' },
+    { name: dict.nav.experience, href: "#experiencia" },
     // { name: dict.nav.projects, href: '#projetos' },
-    { name: dict.nav.skills, href: '#habilidades' },
-    { name: dict.nav.contact, href: '#contato' },
+    { name: dict.nav.skills, href: "#habilidades" },
+    { name: dict.nav.contact, href: "#contato" },
   ];
 
   const scrollToSection = (href: string) => {
     playButtonClick();
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   const scrollToSectionSilent = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -43,7 +45,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
 
   const handleContactClick = () => {
     playButtonClick();
-    setTimeout(() => scrollToSectionSilent('#contato'), 100);
+    setTimeout(() => scrollToSectionSilent("#contato"), 100);
   };
 
   return (
@@ -128,7 +130,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div 
+            <motion.div
               className="lg:hidden"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
@@ -147,9 +149,9 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                     className="font-roboto text-base font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark block px-3 py-2 relative group w-full text-left cursor-pointer"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ 
+                    transition={{
                       delay: index * 0.1,
-                      duration: 0.3 
+                      duration: 0.3,
                     }}
                     whileHover={{ scale: 1.02, x: 4 }}
                     whileTap={{ scale: 0.98 }}
@@ -163,7 +165,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                     onClick={() => {
                       playButtonClick();
                       setIsMenuOpen(false);
-                      setTimeout(() => scrollToSectionSilent('#contato'), 300);
+                      setTimeout(() => scrollToSectionSilent("#contato"), 300);
                     }}
                     className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label block px-3 py-2 rounded-lg text-center w-full cursor-pointer"
                     initial={{ opacity: 0, y: 20 }}

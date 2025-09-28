@@ -1,34 +1,34 @@
 "use client";
 
-import { useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import { Locale, locales, localeNames } from '@/lib/i18n';
-import { HiOutlineGlobeAlt, HiOutlineChevronDown } from 'react-icons/hi2';
-import { motion, AnimatePresence } from 'motion/react';
-import useSound from 'use-sound';
+import { Locale, localeNames, locales } from "@/src/lib/i18n";
+import { AnimatePresence, motion } from "motion/react";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
+import { HiOutlineChevronDown, HiOutlineGlobeAlt } from "react-icons/hi2";
+import useSound from "use-sound";
 
 export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  
-  const [playToggleSound] = useSound('/sounds/ui-expand.mp3', { volume: 0.4 });
-  const [playChangeSound] = useSound('/sounds/page-transition.mp3', { volume: 0.5 });
+
+  const [playToggleSound] = useSound("/sounds/ui-expand.mp3", { volume: 0.4 });
+  const [playChangeSound] = useSound("/sounds/page-transition.mp3", {
+    volume: 0.5,
+  });
 
   const flagEmojis: Record<Locale, string> = {
-    pt: '🇧🇷',
-    en: '🇺🇸', 
-    es: '🇪🇸'
+    pt: "🇧🇷",
+    en: "🇺🇸",
+    es: "🇪🇸",
   };
 
-  const languages = locales.map(locale => ({
+  const languages = locales.map((locale) => ({
     code: locale,
     name: locale.toUpperCase(),
     fullName: localeNames[locale],
-    flag: flagEmojis[locale]
+    flag: flagEmojis[locale],
   }));
-
-
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -38,7 +38,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   const handleLanguageChange = (locale: Locale) => {
     setIsOpen(false);
     playChangeSound();
-    
+
     // Replace current locale in pathname with new locale
     const newPathname = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
     router.push(newPathname);
@@ -50,7 +50,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   };
 
   const getCurrentLanguage = () => {
-    return languages.find(lang => lang.code === currentLang) || languages[0];
+    return languages.find((lang) => lang.code === currentLang) || languages[0];
   };
 
   return (
@@ -97,7 +97,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
               transition={{ duration: 0.2 }}
             />
 
-            <motion.div 
+            <motion.div
               className="absolute right-0 mt-2 w-36 bg-background-primary dark:bg-background-tertiary rounded-lg shadow-lg border border-border-primary z-20"
               initial={{ opacity: 0, scale: 0.95, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -108,17 +108,19 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
                 {languages.map((language, index) => (
                   <motion.button
                     key={language.code}
-                    onClick={() => handleLanguageChange(language.code as Locale)}
+                    onClick={() =>
+                      handleLanguageChange(language.code as Locale)
+                    }
                     className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between cursor-pointer ${
                       currentLang === language.code
-                        ? 'bg-accent-brand/10 text-accent-brand border-l-2 border-accent-brand'
-                        : 'text-text-body dark:text-text-body-dark hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30 hover:text-text-headline dark:hover:text-text-headline-dark'
+                        ? "bg-accent-brand/10 text-accent-brand border-l-2 border-accent-brand"
+                        : "text-text-body dark:text-text-body-dark hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30 hover:text-text-headline dark:hover:text-text-headline-dark"
                     }`}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ 
+                    transition={{
                       delay: index * 0.05,
-                      duration: 0.2 
+                      duration: 0.2,
                     }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.95 }}

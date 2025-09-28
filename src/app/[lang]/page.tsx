@@ -1,14 +1,14 @@
+import { getDictionary } from "@/src/lib/dictionaries";
+import { Locale } from "@/src/lib/i18n";
 import {
+  Contact,
+  Education,
+  Experience,
   Hero,
   Services,
-  Experience,
-  Education,
   Skills,
-  Contact
-} from "../components/sections";
-import { PageTransition } from "../components/ui/PageTransition";
-import { Locale } from "@/lib/i18n";
-import { getDictionary } from "@/lib/dictionaries";
+} from "../../components/sections";
+import { PageTransition } from "../../components/ui/PageTransition";
 
 export default async function Home({
   params,

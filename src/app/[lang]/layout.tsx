@@ -1,11 +1,11 @@
+import { getDictionary } from "@/src/lib/dictionaries";
+import { Locale } from "@/src/lib/i18n";
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
-import "../globals.css";
-import "react-toastify/dist/ReactToastify.css";
-import { Header, Footer, ScrollToTop } from "../components";
-import { Locale } from "@/lib/i18n";
-import { getDictionary } from "@/lib/dictionaries";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Footer, Header, ScrollToTop } from "../../components";
+import "../globals.css";
 import { ThemeProvider } from "../providers/ThemeProvider";
 
 const poppins = Poppins({
@@ -42,9 +42,7 @@ export default async function RootLayout({
   return (
     <html lang={lang} className="scroll-smooth" suppressHydrationWarning>
       <head />
-      <body
-        className={`${poppins.variable} ${roboto.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} ${roboto.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
