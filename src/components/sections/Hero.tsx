@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -69,12 +70,13 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
 
             <div className="flex flex-wrap gap-3">
               {dict.hero.skills.map((skill: string, index: number) => (
-                <span
+                <Badge
                   key={index}
-                  className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand px-4 py-2 rounded-full border border-accent-brand/20"
+                  variant="secondary"
+                  className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
                 >
                   {skill}
-                </span>
+                </Badge>
               ))}
             </div>
 

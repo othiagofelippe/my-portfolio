@@ -1,3 +1,6 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
 export function Projects() {
   const projects = [
     {
@@ -46,9 +49,12 @@ export function Projects() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                       </svg>
                     </div>
-                    <span className="font-roboto inline-block bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark text-sm px-3 py-1 rounded-full font-medium">
+                    <Badge
+                      variant="outline"
+                      className="font-roboto bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark text-sm border-border-primary/20"
+                    >
                       {project.status}
-                    </span>
+                    </Badge>
                   </div>
                 </div>
               </div>
@@ -63,22 +69,33 @@ export function Projects() {
 
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag, tagIndex) => (
-                  <span
+                  <Badge
                     key={tagIndex}
-                    className="font-roboto bg-accent-brand/10 text-accent-brand text-sm px-3 py-1 rounded-full border border-accent-brand/20"
+                    variant="secondary"
+                    className="font-roboto bg-accent-brand/10 text-accent-brand text-sm border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
                   >
                     {tag}
-                  </span>
+                  </Badge>
                 ))}
               </div>
 
               <div className="flex gap-3">
-                <button className="font-roboto flex-1 bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark py-2 px-4 rounded-lg font-medium cursor-not-allowed">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled
+                  className="font-roboto flex-1 bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark border-border-primary/20 cursor-not-allowed"
+                >
                   Demo
-                </button>
-                <button className="font-roboto flex-1 bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark py-2 px-4 rounded-lg font-medium cursor-not-allowed">
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled
+                  className="font-roboto flex-1 bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark border-border-primary/20 cursor-not-allowed"
+                >
                   Código
-                </button>
+                </Button>
               </div>
             </div>
           ))}
@@ -88,9 +105,12 @@ export function Projects() {
           <p className="font-roboto text-text-body dark:text-text-body-dark mb-6">
             Mais projetos em desenvolvimento! 🚀
           </p>
-          <button className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-8 py-3 rounded-lg transition-colors">
+          <Button
+            size="lg"
+            className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
+          >
             Ver todos os projetos
-          </button>
+          </Button>
         </div>
       </div>
     </section>

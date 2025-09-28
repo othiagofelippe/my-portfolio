@@ -1,3 +1,5 @@
+import { Badge } from "@/components/ui/badge";
+
 export function Education({ dict }: { dict: any }) {
   return (
     <section className="py-20 bg-background-primary dark:bg-background-primary-dark">
@@ -27,9 +29,12 @@ export function Education({ dict }: { dict: any }) {
                   <p className="font-roboto">{dict.education.academic.location}</p>
                   <p className="font-roboto flex items-center gap-4">
                     <span>{dict.education.academic.period}</span>
-                    <span className="text-sm bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark px-2 py-1 rounded">
+                    <Badge
+                      variant="outline"
+                      className="text-sm bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark border-border-primary/20"
+                    >
                       {dict.education.academic.type}
-                    </span>
+                    </Badge>
                   </p>
                 </div>
               </div>
@@ -56,12 +61,13 @@ export function Education({ dict }: { dict: any }) {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {dict.education.certifications.fullstack.technologies.map((tech: string, index: number) => (
-                      <span
+                      <Badge
                         key={index}
-                        className="font-roboto text-sm font-medium bg-accent-green-light/20 text-accent-green px-3 py-1 rounded-full border border-accent-green/30"
+                        variant="secondary"
+                        className="font-roboto text-sm font-medium bg-accent-green-light/20 text-accent-green border border-accent-green/30 hover:bg-accent-green/20 transition-colors"
                       >
                         {tech}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
                 </div>

@@ -2,6 +2,7 @@
 
 import useSound from 'use-sound';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
 export function Experience({ dict }: { dict: any & { lang?: string } }) {
   const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
@@ -62,9 +63,12 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
                 <div className={`ml-16 md:w-5/12 ${index % 2 === 0 ? 'md:ml-0 md:pr-8 md:text-right' : 'md:ml-auto md:pl-8'}`}>
                   <div className="bg-background-primary dark:bg-background-tertiary rounded-xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out border border-border-primary/20">
                     <div className="mb-2">
-                      <span className="font-roboto text-sm font-medium inline-block bg-accent-green-light/20 text-accent-green px-3 py-1 rounded-full">
+                      <Badge
+                        variant="secondary"
+                        className="font-roboto text-sm font-medium bg-accent-green-light/20 text-accent-green border border-accent-green/20 hover:bg-accent-green/20 transition-colors"
+                      >
                         {experience.period}
-                      </span>
+                      </Badge>
                     </div>
                     
                     <h3 className="font-poppins text-xl text-text-headline dark:text-text-headline-dark mb-1">
@@ -81,12 +85,13 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
 
                     <div className="flex flex-wrap gap-2">
                       {experience.skills.map((skill: any, skillIndex: number) => (
-                        <span
+                        <Badge
                           key={skillIndex}
-                          className="font-roboto text-sm bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark px-3 py-1 rounded-full"
+                          variant="outline"
+                          className="font-roboto text-sm bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark border-border-primary/20 hover:bg-background-secondary/70 transition-colors"
                         >
                           {skill}
-                        </span>
+                        </Badge>
                       ))}
                     </div>
                   </div>

@@ -1,4 +1,6 @@
 
+import { Badge } from "@/components/ui/badge";
+
 export function Skills({ dict }: { dict: any }) {
   const skillCategories = [
     {
@@ -60,12 +62,13 @@ export function Skills({ dict }: { dict: any }) {
 
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill: any, skillIndex: number) => (
-                  <span
+                  <Badge
                     key={skillIndex}
-                    className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand px-4 py-2 rounded-full border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
+                    variant="secondary"
+                    className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
                   >
                     {skill}
-                  </span>
+                  </Badge>
                 ))}
               </div>
             </div>
