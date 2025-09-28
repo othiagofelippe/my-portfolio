@@ -1,5 +1,5 @@
-import { getDictionary } from "@/src/lib/dictionaries";
-import { Locale } from "@/src/lib/i18n";
+import { getDictionary } from "@/lib/dictionaries";
+import { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
 import { ToastContainer } from "react-toastify";

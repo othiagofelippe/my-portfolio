@@ -1,6 +1,6 @@
 "use client";
 
-import { Locale } from "@/src/lib/i18n";
+import { Locale } from "@/lib/i18n";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";

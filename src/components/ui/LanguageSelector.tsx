@@ -1,6 +1,6 @@
 "use client";
 
-import { Locale, localeNames, locales } from "@/src/lib/i18n";
+import { Locale, localeNames, locales } from "@/lib/i18n";
 import { AnimatePresence, motion } from "motion/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";

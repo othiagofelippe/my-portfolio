@@ -1,4 +1,4 @@
-import { defaultLocale, locales } from "@/src/lib/i18n";
+import { defaultLocale, locales } from "@/lib/i18n";
 import { NextRequest, NextResponse } from "next/server";
 
 function getLocale(request: NextRequest) {
