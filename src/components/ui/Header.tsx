@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 import useSound from "use-sound";
+import { Button } from "@/components/ui/button";
 import { LanguageSelector } from "./LanguageSelector";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
@@ -76,12 +77,13 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
           <div className="hidden lg:flex lg:items-center lg:space-x-4">
             <LanguageSelector currentLang={lang} />
             <ThemeToggle />
-            <button
+            <Button
               onClick={handleContactClick}
-              className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-4 py-2 rounded-lg transition-colors cursor-pointer"
+              size="sm"
+              className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
             >
               {dict.nav.contactButton}
-            </button>
+            </Button>
           </div>
 
           {/* Mobile menu button and theme toggle */}
@@ -161,21 +163,25 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                   </motion.button>
                 ))}
                 <div className="pt-2">
-                  <motion.button
-                    onClick={() => {
-                      playButtonClick();
-                      setIsMenuOpen(false);
-                      setTimeout(() => scrollToSectionSilent("#contato"), 300);
-                    }}
-                    className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label block px-3 py-2 rounded-lg text-center w-full cursor-pointer"
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: navItems.length * 0.1 + 0.1 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {dict.nav.contactButton}
-                  </motion.button>
+                    <Button
+                      onClick={() => {
+                        playButtonClick();
+                        setIsMenuOpen(false);
+                        setTimeout(() => scrollToSectionSilent("#contato"), 300);
+                      }}
+                      className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
+                      size="default"
+                    >
+                      {dict.nav.contactButton}
+                    </Button>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>

@@ -1,6 +1,7 @@
 "use client";
 
 import useSound from 'use-sound';
+import { Button } from '@/components/ui/button';
 
 export function Experience({ dict }: { dict: any & { lang?: string } }) {
   const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
@@ -99,14 +100,16 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
           <p className="font-roboto text-lg text-text-body dark:text-text-body-dark mb-6">
             {dict.experience.quote}
           </p>
-          <a 
-            href={`/${getCVFileName()}`}
-            download={getCVFileName()}
+          <Button
+            asChild
+            size="lg"
             onClick={handleDownloadClick}
-            className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-8 py-3 rounded-lg transition-colors inline-block"
+            className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
           >
-            {dict.experience.downloadCV}
-          </a>
+            <a href={`/${getCVFileName()}`} download={getCVFileName()}>
+              {dict.experience.downloadCV}
+            </a>
+          </Button>
         </div>
       </div>
     </section>

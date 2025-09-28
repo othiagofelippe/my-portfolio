@@ -7,6 +7,7 @@ import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { toast } from 'react-toastify';
 import useSound from 'use-sound';
+import { Button } from '@/components/ui/button';
 
 export function Contact({ dict }: { dict: any }) {
   const [playSuccessSound] = useSound('/sounds/email-success.mp3', { volume: 0.6 });
@@ -186,13 +187,14 @@ export function Contact({ dict }: { dict: any }) {
                 )}
               </div>
 
-              <button
+              <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand-dark disabled:bg-accent-brand/50 disabled:cursor-not-allowed text-text-label py-3 px-6 rounded-lg transition-colors"
+                size="lg"
+                className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand-dark disabled:bg-accent-brand/50 disabled:cursor-not-allowed text-text-label transition-colors cursor-pointer"
               >
-{isSubmitting ? 'Enviando...' : dict.contact.form.send}
-              </button>
+                {isSubmitting ? 'Enviando...' : dict.contact.form.send}
+              </Button>
             </form>
           </div>
 
@@ -209,21 +211,27 @@ export function Contact({ dict }: { dict: any }) {
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               {socialLinks.map((link, index) => (
-                <a
+                <Button
                   key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  asChild
+                  variant="outline"
+                  size="lg"
                   onClick={handleSocialClick}
-                  className={`flex items-center p-4 bg-background-secondary/30 dark:bg-background-secondary rounded-lg transition-colors ${link.color} group border border-border-primary/20`}
+                  className={`flex items-center p-4 bg-background-secondary/30 dark:bg-background-secondary rounded-lg transition-colors ${link.color} group border border-border-primary/20 h-auto justify-start cursor-pointer`}
                 >
-                  <div className="text-text-span dark:text-text-span-dark group-hover:text-current mr-3">
-                    {link.icon}
-                  </div>
-                  <span className="font-roboto font-medium text-text-body dark:text-text-body-dark group-hover:text-current">
-                    {link.name}
-                  </span>
-                </a>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="text-text-span dark:text-text-span-dark group-hover:text-current mr-3">
+                      {link.icon}
+                    </div>
+                    <span className="font-roboto font-medium text-text-body dark:text-text-body-dark group-hover:text-current">
+                      {link.name}
+                    </span>
+                  </a>
+                </Button>
               ))}
             </div>
 
