@@ -1,4 +1,5 @@
 import { HiOutlineCodeBracket, HiOutlinePaintBrush } from 'react-icons/hi2';
+import { Card, CardContent, CardTitle } from '@/components/ui/card';
 
 export function Services({ dict }: { dict: any })  {
   const services = [
@@ -28,20 +29,24 @@ export function Services({ dict }: { dict: any })  {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
-            <div
+            <Card
               key={index}
-              className="bg-background-secondary/50 dark:bg-background-tertiary rounded-xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out border border-border-primary/20"
+              className="bg-background-secondary/50 dark:bg-background-tertiary border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
             >
-              <div className="text-accent-brand mb-4">
-                {service.icon}
-              </div>
-              <h3 className="font-poppins text-xl text-text-headline dark:text-text-headline-dark mb-3">
-                {service.title}
-              </h3>
-              <p className="font-roboto text-text-body dark:text-text-body-dark leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+              <CardContent className="p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="text-accent-brand">
+                    {service.icon}
+                  </div>
+                  <CardTitle className="font-poppins text-xl text-text-headline dark:text-text-headline-dark">
+                    {service.title}
+                  </CardTitle>
+                </div>
+                <p className="font-roboto text-text-body dark:text-text-body-dark leading-relaxed">
+                  {service.description}
+                </p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

@@ -1,38 +1,39 @@
 "use client";
 
-import { useState } from 'react';
-import { HiOutlineBars3, HiOutlineXMark } from 'react-icons/hi2';
-import { motion, AnimatePresence } from 'motion/react';
-import { Logo } from './Logo';
-import { LanguageSelector } from './LanguageSelector';
-import { ThemeToggle } from './ThemeToggle';
-import { Locale } from '@/lib/i18n';
-import useSound from 'use-sound';
+import { Locale } from "@/lib/i18n";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
+import useSound from "use-sound";
+import { Button } from "@/components/ui/button";
+import { Logo } from "./Logo";
 
 export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [playMenuToggle] = useSound('/sounds/ui-expand.mp3', { volume: 0.4 });
-  const [playButtonClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
+  const [playMenuToggle] = useSound("/sounds/ui-expand.mp3", { volume: 0.4 });
+  const [playButtonClick] = useSound("/sounds/button-click.mp3", {
+    volume: 0.5,
+  });
 
   const navItems = [
-    { name: dict.nav.experience, href: '#experiencia' },
-    // { name: dict.nav.projects, href: '#projetos' },
-    { name: dict.nav.skills, href: '#habilidades' },
-    { name: dict.nav.contact, href: '#contato' },
+    { name: dict.nav.experience, href: "#experiencia" },
+    { name: dict.nav.projects, href: '#projetos' },
+    { name: dict.nav.skills, href: "#habilidades" },
+    { name: dict.nav.contact, href: "#contato" },
   ];
 
   const scrollToSection = (href: string) => {
     playButtonClick();
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   const scrollToSectionSilent = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -43,7 +44,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
 
   const handleContactClick = () => {
     playButtonClick();
-    setTimeout(() => scrollToSectionSilent('#contato'), 100);
+    setTimeout(() => scrollToSectionSilent("#contato"), 100);
   };
 
   return (
@@ -71,21 +72,18 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
           </div>
 
           {/* Right side controls */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-4">
-            <LanguageSelector currentLang={lang} />
-            <ThemeToggle />
-            <button
+          <div className="hidden lg:flex lg:items-center">
+            <Button
               onClick={handleContactClick}
-              className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-4 py-2 rounded-lg transition-colors cursor-pointer"
+              size="sm"
+              className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
             >
               {dict.nav.contactButton}
-            </button>
+            </Button>
           </div>
 
-          {/* Mobile menu button and theme toggle */}
-          <div className="lg:hidden flex items-center space-x-1 sm:space-x-2">
-            <LanguageSelector currentLang={lang} />
-            <ThemeToggle />
+          {/* Mobile menu button */}
+          <div className="lg:hidden flex items-center">
             <motion.button
               type="button"
               className="text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark focus:outline-none p-2 cursor-pointer"
@@ -128,7 +126,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div 
+            <motion.div
               className="lg:hidden"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
@@ -147,9 +145,9 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                     className="font-roboto text-base font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark block px-3 py-2 relative group w-full text-left cursor-pointer"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ 
+                    transition={{
                       delay: index * 0.1,
-                      duration: 0.3 
+                      duration: 0.3,
                     }}
                     whileHover={{ scale: 1.02, x: 4 }}
                     whileTap={{ scale: 0.98 }}
@@ -159,21 +157,25 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                   </motion.button>
                 ))}
                 <div className="pt-2">
-                  <motion.button
-                    onClick={() => {
-                      playButtonClick();
-                      setIsMenuOpen(false);
-                      setTimeout(() => scrollToSectionSilent('#contato'), 300);
-                    }}
-                    className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label block px-3 py-2 rounded-lg text-center w-full cursor-pointer"
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: navItems.length * 0.1 + 0.1 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {dict.nav.contactButton}
-                  </motion.button>
+                    <Button
+                      onClick={() => {
+                        playButtonClick();
+                        setIsMenuOpen(false);
+                        setTimeout(() => scrollToSectionSilent("#contato"), 300);
+                      }}
+                      className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
+                      size="default"
+                    >
+                      {dict.nav.contactButton}
+                    </Button>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>

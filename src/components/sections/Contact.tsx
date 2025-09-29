@@ -7,6 +7,11 @@ import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { toast } from 'react-toastify';
 import useSound from 'use-sound';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export function Contact({ dict }: { dict: any }) {
   const [playSuccessSound] = useSound('/sounds/email-success.mp3', { volume: 0.6 });
@@ -114,24 +119,26 @@ export function Contact({ dict }: { dict: any }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-background-secondary/20 dark:bg-background-tertiary rounded-xl p-8 border border-border-primary/20">
-            <h3 className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark mb-6">
-              {dict.contact.formTitle}
-            </h3>
-
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <Card className="bg-background-secondary/20 dark:bg-background-tertiary border-border-primary/10">
+            <CardHeader>
+              <CardTitle className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark">
+                {dict.contact.formTitle}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label htmlFor="name" className="font-roboto block text-sm font-medium text-text-heading dark:text-text-heading-dark mb-2">
+                <Label htmlFor="name" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
                   {dict.contact.form.name}
-                </label>
-                <input
+                </Label>
+                <Input
                   type="text"
                   id="name"
                   {...register('name')}
-                  className={`font-roboto w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-brand focus:border-transparent bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark transition-colors ${
+                  className={`font-roboto mt-2 bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark ${
                     errors.name
-                      ? 'border-accent-red'
-                      : 'border-border-primary'
+                      ? 'border-accent-red focus:ring-accent-red'
+                      : 'focus:ring-accent-brand'
                   }`}
                   placeholder={dict.contact.form.namePlaceholder}
                 />
@@ -143,17 +150,17 @@ export function Contact({ dict }: { dict: any }) {
               </div>
 
               <div>
-                <label htmlFor="email" className="font-roboto block text-sm font-medium text-text-heading dark:text-text-heading-dark mb-2">
+                <Label htmlFor="email" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
                   {dict.contact.form.email}
-                </label>
-                <input
+                </Label>
+                <Input
                   type="email"
                   id="email"
                   {...register('email')}
-                  className={`font-roboto w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-brand focus:border-transparent bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark transition-colors ${
+                  className={`font-roboto mt-2 bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark ${
                     errors.email
-                      ? 'border-accent-red'
-                      : 'border-border-primary'
+                      ? 'border-accent-red focus:ring-accent-red'
+                      : 'focus:ring-accent-brand'
                   }`}
                   placeholder={dict.contact.form.emailPlaceholder}
                 />
@@ -165,17 +172,17 @@ export function Contact({ dict }: { dict: any }) {
               </div>
 
               <div>
-                <label htmlFor="message" className="font-roboto block text-sm font-medium text-text-heading dark:text-text-heading-dark mb-2">
+                <Label htmlFor="message" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
                   {dict.contact.form.message}
-                </label>
-                <textarea
+                </Label>
+                <Textarea
                   id="message"
                   {...register('message')}
                   rows={5}
-                  className={`font-roboto w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-brand focus:border-transparent bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark resize-none transition-colors ${
+                  className={`font-roboto mt-2 bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark resize-none ${
                     errors.message
-                      ? 'border-accent-red'
-                      : 'border-border-primary'
+                      ? 'border-accent-red focus:ring-accent-red'
+                      : 'focus:ring-accent-brand'
                   }`}
                   placeholder={dict.contact.form.messagePlaceholder}
                 />
@@ -186,15 +193,17 @@ export function Contact({ dict }: { dict: any }) {
                 )}
               </div>
 
-              <button
+              <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand-dark disabled:bg-accent-brand/50 disabled:cursor-not-allowed text-text-label py-3 px-6 rounded-lg transition-colors"
+                size="lg"
+                className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand-dark disabled:bg-accent-brand/50 disabled:cursor-not-allowed text-text-label transition-colors cursor-pointer"
               >
-{isSubmitting ? 'Enviando...' : dict.contact.form.send}
-              </button>
-            </form>
-          </div>
+                {isSubmitting ? 'Enviando...' : dict.contact.form.send}
+              </Button>
+              </form>
+            </CardContent>
+          </Card>
 
           {/* Contact Info */}
           <div className="flex flex-col justify-center">
@@ -209,32 +218,40 @@ export function Contact({ dict }: { dict: any }) {
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               {socialLinks.map((link, index) => (
-                <a
+                <Button
                   key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  asChild
+                  variant="outline"
+                  size="lg"
                   onClick={handleSocialClick}
-                  className={`flex items-center p-4 bg-background-secondary/30 dark:bg-background-secondary rounded-lg transition-colors ${link.color} group border border-border-primary/20`}
+                  className={`flex items-center p-4 bg-background-secondary/30 dark:bg-background-secondary rounded-lg transition-colors ${link.color} group border border-border-primary/20 h-auto justify-start cursor-pointer`}
                 >
-                  <div className="text-text-span dark:text-text-span-dark group-hover:text-current mr-3">
-                    {link.icon}
-                  </div>
-                  <span className="font-roboto font-medium text-text-body dark:text-text-body-dark group-hover:text-current">
-                    {link.name}
-                  </span>
-                </a>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="text-text-span dark:text-text-span-dark group-hover:text-current mr-3">
+                      {link.icon}
+                    </div>
+                    <span className="font-roboto font-medium text-text-body dark:text-text-body-dark group-hover:text-current">
+                      {link.name}
+                    </span>
+                  </a>
+                </Button>
               ))}
             </div>
 
-            <div className="bg-accent-brand/10 rounded-xl p-6 border border-accent-brand/20">
-              <h4 className="font-poppins font-medium text-accent-brand mb-2">
-                {dict.contact.socialSection.quickResponse.title}
-              </h4>
-              <p className="font-roboto text-text-body dark:text-text-body-dark text-sm">
-                {dict.contact.socialSection.quickResponse.description}
-              </p>
-            </div>
+            <Card className="bg-accent-brand/10 border-accent-brand/20">
+              <CardContent className="p-6">
+                <h4 className="font-poppins font-medium text-accent-brand mb-2">
+                  {dict.contact.socialSection.quickResponse.title}
+                </h4>
+                <p className="font-roboto text-text-body dark:text-text-body-dark text-sm">
+                  {dict.contact.socialSection.quickResponse.description}
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

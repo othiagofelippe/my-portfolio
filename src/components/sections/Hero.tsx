@@ -1,9 +1,11 @@
 "use client";
 
-import Image from 'next/image';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
-import { motion } from 'motion/react';
-import useSound from 'use-sound';
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "motion/react";
+import Image from "next/image";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import useSound from "use-sound";
 
 interface HeroDict {
   hero: {
@@ -18,23 +20,27 @@ interface HeroDict {
 }
 
 export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
-  const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
-  const [playSocialClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
-  
+  const [playDownloadSound] = useSound("/sounds/download-cv.mp3", {
+    volume: 0.5,
+  });
+  const [playSocialClick] = useSound("/sounds/button-click.mp3", {
+    volume: 0.5,
+  });
+
   const getCVFileName = () => {
-    const lang = dict.lang || 'pt';
+    const lang = dict.lang || "pt";
     const fileNames = {
-      'pt': 'CV-Thiago-Felippe-PT.pdf',
-      'en': 'CV-Thiago-Felippe-EN.pdf', 
-      'es': 'CV-Thiago-Felippe-ES.pdf'
+      pt: "CV-Thiago-Felippe-PT.pdf",
+      en: "CV-Thiago-Felippe-EN.pdf",
+      es: "CV-Thiago-Felippe-ES.pdf",
     };
     return fileNames[lang as keyof typeof fileNames] || fileNames.pt;
   };
-  
+
   const handleDownloadClick = () => {
     playDownloadSound();
   };
-  
+
   const handleSocialClick = () => {
     playSocialClick();
   };
@@ -50,92 +56,106 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
               </h1>
               <h2 className="font-poppins text-2xl sm:text-3xl lg:text-4xl text-text-heading dark:text-text-heading-dark">
                 {dict.hero.intro}{" "}
-                <span className="text-accent-brand">
-                  {dict.hero.name}
-                </span>
+                <span className="text-accent-brand">{dict.hero.name}</span>
               </h2>
             </div>
 
             <p className="font-roboto text-xl sm:text-2xl font-medium text-text-body dark:text-text-body-dark leading-relaxed">
               {dict.hero.role}
             </p>
-            
+
             <p className="font-roboto text-lg text-text-body dark:text-text-body-dark leading-relaxed">
               {dict.hero.description}
             </p>
 
             <div className="flex flex-wrap gap-3">
               {dict.hero.skills.map((skill: string, index: number) => (
-                <span
+                <Badge
                   key={index}
-                  className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand px-4 py-2 rounded-full border border-accent-brand/20"
+                  variant="secondary"
+                  className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
                 >
                   {skill}
-                </span>
+                </Badge>
               ))}
             </div>
 
             <div className="flex flex-row gap-4 items-start">
-              <a 
-                href={`/${getCVFileName()}`}
-                download={getCVFileName()}
+              <Button
+                asChild
+                variant="ghost"
+                size="lg"
                 onClick={handleDownloadClick}
-                className="font-roboto text-base font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark px-8 py-3 rounded-lg transition-colors inline-block text-center"
+                className="font-roboto text-base font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark transition-colors cursor-pointer bg-transparent"
               >
-                {dict.hero.downloadCV}
-              </a>
+                <a href={`/${getCVFileName()}`} download={getCVFileName()}>
+                  {dict.hero.downloadCV}
+                </a>
+              </Button>
               <div className="flex gap-3">
-                <a 
-                  href="https://linkedin.com/in/thiagofelippe" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="icon"
                   onClick={handleSocialClick}
-                  className="p-3 rounded-lg border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-accent-brand transition-all"
+                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-accent-brand transition-all cursor-pointer bg-transparent"
                   title="LinkedIn"
                 >
-                  <FaLinkedin size={20} />
-                </a>
-                <a 
-                  href="https://github.com/othiagofelippe" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  <a
+                    href="https://linkedin.com/in/othiagofelippe"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaLinkedin size={20} />
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="icon"
                   onClick={handleSocialClick}
-                  className="p-3 rounded-lg border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-text-headline dark:hover:text-text-headline-dark transition-all"
+                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-text-headline dark:hover:text-text-headline-dark transition-all cursor-pointer bg-transparent"
                   title="GitHub"
                 >
-                  <FaGithub size={20} />
-                </a>
+                  <a
+                    href="https://github.com/othiagofelippe"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaGithub size={20} />
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
 
           {/* Image */}
           <div className="flex justify-center lg:justify-end">
-            <motion.div 
+            <motion.div
               className="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-4 sm:border-8 border-background-primary dark:border-background-tertiary shadow-xl"
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 2 }}
-              transition={{ 
-                duration: 0.8, 
+              transition={{
+                duration: 0.8,
                 ease: "easeOut",
-                delay: 0.3
+                delay: 0.3,
               }}
-              whileHover={{ 
-                rotate: 0, 
+              whileHover={{
+                rotate: 0,
                 scale: 1.05,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               whileTap={{ scale: 0.95 }}
             >
               <motion.div
-                animate={{ 
+                animate={{
                   rotate: [2, -1, 2],
                 }}
                 transition={{
                   duration: 12,
                   ease: "easeInOut",
                   repeat: Infinity,
-                  repeatType: "reverse"
+                  repeatType: "reverse",
                 }}
               >
                 <Image

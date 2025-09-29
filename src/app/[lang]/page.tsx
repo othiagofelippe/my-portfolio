@@ -1,14 +1,15 @@
-import {
-  Hero,
-  Services,
-  Experience,
-  Education,
-  Skills,
-  Contact
-} from "../components/sections";
-import { PageTransition } from "../components/ui/PageTransition";
-import { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
+import { Locale } from "@/lib/i18n";
+import {
+  Contact,
+  Education,
+  Experience,
+  Hero,
+  Projects,
+  Services,
+  Skills,
+} from "../../components/sections";
+import { PageTransition } from "../../components/ui/PageTransition";
 
 export default async function Home({
   params,
@@ -25,7 +26,7 @@ export default async function Home({
         <Services dict={dict} />
         <Experience dict={{ ...dict, lang }} />
         <Education dict={dict} />
-        {/* <Projects /> */}
+        <Projects />
         <Skills dict={dict} />
         <Contact dict={dict} />
       </div>

@@ -1,6 +1,9 @@
 "use client";
 
 import useSound from 'use-sound';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 
 export function Experience({ dict }: { dict: any & { lang?: string } }) {
   const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
@@ -59,36 +62,42 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
 
                 {/* Content */}
                 <div className={`ml-16 md:w-5/12 ${index % 2 === 0 ? 'md:ml-0 md:pr-8 md:text-right' : 'md:ml-auto md:pl-8'}`}>
-                  <div className="bg-background-primary dark:bg-background-tertiary rounded-xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out border border-border-primary/20">
-                    <div className="mb-2">
-                      <span className="font-roboto text-sm font-medium inline-block bg-accent-green-light/20 text-accent-green px-3 py-1 rounded-full">
-                        {experience.period}
-                      </span>
-                    </div>
-                    
-                    <h3 className="font-poppins text-xl text-text-headline dark:text-text-headline-dark mb-1">
-                      {experience.title}
-                    </h3>
-                    
-                    <h4 className="font-poppins text-lg font-medium text-accent-brand mb-3">
-                      {experience.company}
-                    </h4>
-                    
-                    <p className="font-roboto text-text-body dark:text-text-body-dark mb-4 leading-relaxed">
-                      {experience.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {experience.skills.map((skill: any, skillIndex: number) => (
-                        <span
-                          key={skillIndex}
-                          className="font-roboto text-sm bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark px-3 py-1 rounded-full"
+                  <Card className="bg-background-primary dark:bg-background-tertiary border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out">
+                    <CardContent className="p-6">
+                      <div className="mb-2">
+                        <Badge
+                          variant="secondary"
+                          className="font-roboto text-sm font-medium bg-accent-green-light/20 text-accent-green border border-accent-green/20 hover:bg-accent-green/20 transition-colors"
                         >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                          {experience.period}
+                        </Badge>
+                      </div>
+
+                      <h3 className="font-poppins text-xl text-text-headline dark:text-text-headline-dark mb-1">
+                        {experience.title}
+                      </h3>
+
+                      <h4 className="font-poppins text-lg font-medium text-accent-brand mb-3">
+                        {experience.company}
+                      </h4>
+
+                      <p className="font-roboto text-text-body dark:text-text-body-dark mb-4 leading-relaxed">
+                        {experience.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {experience.skills.map((skill: any, skillIndex: number) => (
+                          <Badge
+                            key={skillIndex}
+                            variant="outline"
+                            className="font-roboto text-sm bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark border-border-primary/20 hover:bg-background-secondary/70 transition-colors"
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
               </div>
             ))}
@@ -99,14 +108,16 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
           <p className="font-roboto text-lg text-text-body dark:text-text-body-dark mb-6">
             {dict.experience.quote}
           </p>
-          <a 
-            href={`/${getCVFileName()}`}
-            download={getCVFileName()}
+          <Button
+            asChild
+            size="lg"
             onClick={handleDownloadClick}
-            className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label px-8 py-3 rounded-lg transition-colors inline-block"
+            className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
           >
-            {dict.experience.downloadCV}
-          </a>
+            <a href={`/${getCVFileName()}`} download={getCVFileName()}>
+              {dict.experience.downloadCV}
+            </a>
+          </Button>
         </div>
       </div>
     </section>
