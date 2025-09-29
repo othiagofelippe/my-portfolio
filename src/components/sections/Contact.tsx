@@ -8,6 +8,9 @@ import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { toast } from 'react-toastify';
 import useSound from 'use-sound';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 export function Contact({ dict }: { dict: any }) {
   const [playSuccessSound] = useSound('/sounds/email-success.mp3', { volume: 0.6 });
@@ -122,17 +125,17 @@ export function Contact({ dict }: { dict: any }) {
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label htmlFor="name" className="font-roboto block text-sm font-medium text-text-heading dark:text-text-heading-dark mb-2">
+                <Label htmlFor="name" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
                   {dict.contact.form.name}
-                </label>
-                <input
+                </Label>
+                <Input
                   type="text"
                   id="name"
                   {...register('name')}
-                  className={`font-roboto w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-brand focus:border-transparent bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark transition-colors ${
+                  className={`font-roboto mt-2 bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark ${
                     errors.name
-                      ? 'border-accent-red'
-                      : 'border-border-primary'
+                      ? 'border-accent-red focus:ring-accent-red'
+                      : 'focus:ring-accent-brand'
                   }`}
                   placeholder={dict.contact.form.namePlaceholder}
                 />
@@ -144,17 +147,17 @@ export function Contact({ dict }: { dict: any }) {
               </div>
 
               <div>
-                <label htmlFor="email" className="font-roboto block text-sm font-medium text-text-heading dark:text-text-heading-dark mb-2">
+                <Label htmlFor="email" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
                   {dict.contact.form.email}
-                </label>
-                <input
+                </Label>
+                <Input
                   type="email"
                   id="email"
                   {...register('email')}
-                  className={`font-roboto w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-brand focus:border-transparent bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark transition-colors ${
+                  className={`font-roboto mt-2 bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark ${
                     errors.email
-                      ? 'border-accent-red'
-                      : 'border-border-primary'
+                      ? 'border-accent-red focus:ring-accent-red'
+                      : 'focus:ring-accent-brand'
                   }`}
                   placeholder={dict.contact.form.emailPlaceholder}
                 />
@@ -166,17 +169,17 @@ export function Contact({ dict }: { dict: any }) {
               </div>
 
               <div>
-                <label htmlFor="message" className="font-roboto block text-sm font-medium text-text-heading dark:text-text-heading-dark mb-2">
+                <Label htmlFor="message" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
                   {dict.contact.form.message}
-                </label>
-                <textarea
+                </Label>
+                <Textarea
                   id="message"
                   {...register('message')}
                   rows={5}
-                  className={`font-roboto w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-brand focus:border-transparent bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark resize-none transition-colors ${
+                  className={`font-roboto mt-2 bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark resize-none ${
                     errors.message
-                      ? 'border-accent-red'
-                      : 'border-border-primary'
+                      ? 'border-accent-red focus:ring-accent-red'
+                      : 'focus:ring-accent-brand'
                   }`}
                   placeholder={dict.contact.form.messagePlaceholder}
                 />

@@ -102,7 +102,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   title="LinkedIn"
                 >
                   <a
-                    href="https://linkedin.com/in/thiagofelippe"
+                    href="https://linkedin.com/in/othiagofelippe"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
