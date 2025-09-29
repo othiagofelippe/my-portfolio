@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export function Contact({ dict }: { dict: any }) {
   const [playSuccessSound] = useSound('/sounds/email-success.mp3', { volume: 0.6 });
@@ -118,12 +119,14 @@ export function Contact({ dict }: { dict: any }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-background-secondary/20 dark:bg-background-tertiary rounded-xl p-8 border border-border-primary/20">
-            <h3 className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark mb-6">
-              {dict.contact.formTitle}
-            </h3>
-
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <Card className="bg-background-secondary/20 dark:bg-background-tertiary border-border-primary/10">
+            <CardHeader>
+              <CardTitle className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark">
+                {dict.contact.formTitle}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <Label htmlFor="name" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
                   {dict.contact.form.name}
@@ -198,8 +201,9 @@ export function Contact({ dict }: { dict: any }) {
               >
                 {isSubmitting ? 'Enviando...' : dict.contact.form.send}
               </Button>
-            </form>
-          </div>
+              </form>
+            </CardContent>
+          </Card>
 
           {/* Contact Info */}
           <div className="flex flex-col justify-center">
@@ -238,14 +242,16 @@ export function Contact({ dict }: { dict: any }) {
               ))}
             </div>
 
-            <div className="bg-accent-brand/10 rounded-xl p-6 border border-accent-brand/20">
-              <h4 className="font-poppins font-medium text-accent-brand mb-2">
-                {dict.contact.socialSection.quickResponse.title}
-              </h4>
-              <p className="font-roboto text-text-body dark:text-text-body-dark text-sm">
-                {dict.contact.socialSection.quickResponse.description}
-              </p>
-            </div>
+            <Card className="bg-accent-brand/10 border-accent-brand/20">
+              <CardContent className="p-6">
+                <h4 className="font-poppins font-medium text-accent-brand mb-2">
+                  {dict.contact.socialSection.quickResponse.title}
+                </h4>
+                <p className="font-roboto text-text-body dark:text-text-body-dark text-sm">
+                  {dict.contact.socialSection.quickResponse.description}
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
