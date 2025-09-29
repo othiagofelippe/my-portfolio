@@ -28,7 +28,7 @@ export function Footer({ dict }: { dict: any }) {
   const footerLinks = {
     navegacao: [
       { name: dict.nav.experience, href: "#experiencia" },
-      // { name: dict.nav.projects, href: '#projetos' },
+      { name: dict.nav.projects, href: '#projetos' },
       { name: dict.nav.skills, href: "#habilidades" },
       { name: dict.nav.contact, href: "#contato" },
     ],
@@ -132,11 +132,11 @@ export function Footer({ dict }: { dict: any }) {
               {dict.footer.contactSection}
             </h3>
             <div className="space-y-3 text-text-body dark:text-text-body-dark">
-              <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
-                <HiOutlineEnvelope className="w-5 h-5" />
+              <div className="flex items-start gap-2 hover:text-text-headline transition-colors">
+                <HiOutlineEnvelope className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <Link
                   href="mailto:contact@othiagofelippe.com"
-                  className="font-roboto cursor-pointer"
+                  className="font-roboto cursor-pointer break-all text-sm leading-relaxed"
                 >
                   {dict.contact.info.email}
                 </Link>

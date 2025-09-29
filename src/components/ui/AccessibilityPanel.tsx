@@ -81,12 +81,6 @@ export function AccessibilityPanel() {
     playThemeSound();
   };
 
-  const getActiveSettingsCount = () => {
-    let count = 0;
-    if (!settings.soundEnabled) count++;
-    if (resolvedTheme === 'dark') count++;
-    return count;
-  };
 
   const languageOptions = [
     { code: 'pt', name: 'Português', flag: '🇧🇷' },
@@ -119,17 +113,6 @@ export function AccessibilityPanel() {
             <HiOutlineAdjustmentsHorizontal className="w-6 h-6" />
           </motion.div>
 
-          {/* Badge com contador */}
-          {getActiveSettingsCount() > 0 && (
-            <motion.div
-              className="absolute -top-1 -right-1 bg-accent-red text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              {getActiveSettingsCount()}
-            </motion.div>
-          )}
         </motion.button>
       </motion.div>
 

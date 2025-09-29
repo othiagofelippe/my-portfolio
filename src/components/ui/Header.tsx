@@ -17,7 +17,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
 
   const navItems = [
     { name: dict.nav.experience, href: "#experiencia" },
-    // { name: dict.nav.projects, href: '#projetos' },
+    { name: dict.nav.projects, href: '#projetos' },
     { name: dict.nav.skills, href: "#habilidades" },
     { name: dict.nav.contact, href: "#contato" },
   ];
