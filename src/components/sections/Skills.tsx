@@ -1,6 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { HiOutlineCog6Tooth, HiOutlineServerStack, HiOutlineDevicePhoneMobile } from "react-icons/hi2";
+import {
+  HiOutlineCog6Tooth,
+  HiOutlineDevicePhoneMobile,
+  HiOutlineServerStack,
+} from "react-icons/hi2";
 
 export function Skills({ dict }: { dict: any }) {
   const skillCategories = [
