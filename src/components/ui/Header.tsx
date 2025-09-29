@@ -6,9 +6,7 @@ import { useState } from "react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 import useSound from "use-sound";
 import { Button } from "@/components/ui/button";
-import { LanguageSelector } from "./LanguageSelector";
 import { Logo } from "./Logo";
-import { ThemeToggle } from "./ThemeToggle";
 
 export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,9 +72,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
           </div>
 
           {/* Right side controls */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-4">
-            <LanguageSelector currentLang={lang} />
-            <ThemeToggle />
+          <div className="hidden lg:flex lg:items-center">
             <Button
               onClick={handleContactClick}
               size="sm"
@@ -86,10 +82,8 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
             </Button>
           </div>
 
-          {/* Mobile menu button and theme toggle */}
-          <div className="lg:hidden flex items-center space-x-1 sm:space-x-2">
-            <LanguageSelector currentLang={lang} />
-            <ThemeToggle />
+          {/* Mobile menu button */}
+          <div className="lg:hidden flex items-center">
             <motion.button
               type="button"
               className="text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark focus:outline-none p-2 cursor-pointer"

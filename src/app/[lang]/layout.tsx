@@ -5,6 +5,7 @@ import { Poppins, Roboto } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Footer, Header, ScrollToTop } from "../../components";
+import { AccessibilityPanel } from "../../components/ui/AccessibilityPanel";
 import "../globals.css";
 import { ThemeProvider } from "../providers/ThemeProvider";
 
@@ -53,6 +54,7 @@ export default async function RootLayout({
           {children}
           <Footer dict={dict} />
           <ScrollToTop />
+          <AccessibilityPanel />
           <ToastContainer
             position="bottom-right"
             autoClose={5000}
