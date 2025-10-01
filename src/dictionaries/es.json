@@ -162,5 +162,12 @@
     "navigation": "Navegación",
     "contactSection": "Contacto",
     "rights": "Todos los derechos reservados."
+  },
+  "metadata": {
+    "title": "Thiago Felippe - Desarrollador Front-End | React, Next.js, TypeScript",
+    "description": "Desarrollador Front-End Pleno con más de 3 años de experiencia en React, Next.js y React Native. Desarrollo aplicaciones web y móviles de alto rendimiento en Río de Janeiro. Abierto a oportunidades.",
+    "keywords": "desarrollador front-end, react developer, next.js, typescript, react native, desarrollador javascript, empleo desarrollador, ingeniero de software, rio de janeiro, trabajo remoto, empleos tech brasil",
+    "author": "Thiago Felippe",
+    "twitterHandle": "@othiagofelippe"
   }
 }

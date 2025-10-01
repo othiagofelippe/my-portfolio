@@ -1,6 +1,6 @@
 import { getDictionary } from "@/lib/dictionaries";
 import { Locale } from "@/lib/i18n";
-import type { Metadata } from "next";
+import { generateMetadata as genMetadata } from "@/lib/metadata";
 import { Poppins, Roboto } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,22 +13,25 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
+  display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Thiago Felippe - Desenvolvedor Front-End",
-  description:
-    "Desenvolvedor Front-End com 3+ anos de experiência em React, Next.js e React Native.",
-  icons: {
-    icon: "/logo-light.svg",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as Locale);
+  return genMetadata(lang as Locale, dict);
+}
 
 export default async function RootLayout({
   children,
