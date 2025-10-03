@@ -1,0 +1,26 @@
+{
+  "name": "Thiago Felippe - Desenvolvedor Front-End",
+  "short_name": "TF Portfolio",
+  "description": "Portfólio de Thiago Felippe - Desenvolvedor Front-End especializado em React, Next.js e React Native",
+  "start_url": "/pt",
+  "display": "standalone",
+  "background_color": "#0f0f11",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
