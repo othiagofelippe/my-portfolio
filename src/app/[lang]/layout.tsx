@@ -7,8 +7,6 @@ import {
 } from "@/lib/structured-data";
 import { Analytics } from "@vercel/analytics/react";
 import { Poppins, Roboto } from "next/font/google";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Footer, Header, ScrollToTop } from "../../components";
 import { AccessibilityPanel } from "../../components/ui/AccessibilityPanel";
 import "../globals.css";
@@ -80,18 +78,6 @@ export default async function RootLayout({
           <Footer dict={dict} />
           <ScrollToTop />
           <AccessibilityPanel />
-          <ToastContainer
-            position="bottom-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="auto"
-          />
         </ThemeProvider>
         <Analytics />
       </body>

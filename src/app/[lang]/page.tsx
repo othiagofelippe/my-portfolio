@@ -26,7 +26,7 @@ export default async function Home({
         <Services dict={dict} />
         <Experience dict={{ ...dict, lang }} />
         <Education dict={dict} />
-        <Projects />
+        <Projects dict={dict} />
         <Skills dict={dict} />
         <Contact dict={dict} />
       </div>

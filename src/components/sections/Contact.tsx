@@ -1,109 +1,51 @@
 "use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
-import { HiOutlineEnvelope } from 'react-icons/hi2';
-import { toast } from 'react-toastify';
-import useSound from 'use-sound';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { HiOutlineEnvelope, HiOutlineClock, HiOutlineMapPin } from "react-icons/hi2";
+import useSound from "use-sound";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function Contact({ dict }: { dict: any }) {
-  const [playSuccessSound] = useSound('/sounds/email-success.mp3', { volume: 0.6 });
-  const [playErrorSound] = useSound('/sounds/email-error.mp3', { volume: 0.6 });
-  const [playSocialClick] = useSound('/sounds/button-click.mp3', { volume: 0.5 });
-  
-  const handleSocialClick = () => {
+  const [playSocialClick] = useSound("/sounds/button-click.mp3", { volume: 0.5 });
+
+  const contactChannels = [
+    {
+      key: "linkedin",
+      label: dict.contact.socialSection.channels.linkedin.label,
+      description: dict.contact.socialSection.channels.linkedin.description,
+      icon: <FaLinkedinIn className="w-5 h-5" />,
+      href: "https://linkedin.com/in/othiagofelippe",
+      accent: "text-accent-brand bg-accent-brand/10 group-hover:bg-accent-brand/20",
+    },
+    {
+      key: "github",
+      label: dict.contact.socialSection.channels.github.label,
+      description: dict.contact.socialSection.channels.github.description,
+      icon: <FaGithub className="w-5 h-5" />,
+      href: "https://github.com/othiagofelippe",
+      accent: "text-text-headline dark:text-text-headline-dark bg-background-secondary/50 group-hover:bg-accent-brand/15 group-hover:text-accent-brand",
+    },
+    {
+      key: "whatsapp",
+      label: dict.contact.socialSection.channels.whatsapp.label,
+      description: dict.contact.socialSection.channels.whatsapp.description,
+      icon: <FaWhatsapp className="w-5 h-5" />,
+      href: "https://wa.me/5521973494481",
+      accent: "text-accent-green bg-accent-green/10 group-hover:bg-accent-green/20",
+    },
+    {
+      key: "email",
+      label: dict.contact.socialSection.channels.email.label,
+      description: dict.contact.socialSection.channels.email.description,
+      icon: <HiOutlineEnvelope className="w-5 h-5" />,
+      href: "mailto:contact@othiagofelippe.com",
+      accent: "text-accent-red bg-accent-red/10 group-hover:bg-accent-red/20",
+    },
+  ];
+
+  const handleChannelClick = () => {
     playSocialClick();
   };
-  
-  const contactFormSchema = z.object({
-    name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
-    email: z.string().email('Email inválido'),
-    message: z.string().min(10, 'Mensagem deve ter pelo menos 10 caracteres'),
-  });
-
-  type ContactFormData = z.infer<typeof contactFormSchema>;
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema)
-  });
-
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Erro ao enviar mensagem');
-      }
-
-      // Reset form on success
-      reset();
-      playSuccessSound();
-      toast.success(dict.contact.form.successMessage || 'Mensagem enviada com sucesso! 🎉', {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-    } catch (error) {
-      console.error('Erro ao enviar mensagem:', error);
-      playErrorSound();
-      toast.error(dict.contact.form.errorMessage || 'Erro ao enviar mensagem. Tente novamente. 😞', {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-    }
-  };
-
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      icon: <FaLinkedinIn className="w-6 h-6" />,
-      href: "https://linkedin.com/in/othiagofelippe",
-      color: "hover:text-accent-brand"
-    },
-    {
-      name: "GitHub",
-      icon: <FaGithub className="w-6 h-6" />,
-      href: "https://github.com/othiagofelippe",
-      color: "hover:text-text-headline dark:hover:text-text-headline-dark"
-    },
-    {
-      name: "WhatsApp",
-      icon: <FaWhatsapp className="w-6 h-6" />,
-      href: "https://wa.me/5521973494481",
-      color: "hover:text-accent-green"
-    },
-    {
-      name: "Email",
-      icon: <HiOutlineEnvelope className="w-6 h-6" />,
-      href: "mailto:contact@othiagofelippe.com",
-      color: "hover:text-accent-red"
-    }
-  ];
 
   return (
     <section id="contato" className="py-20 bg-background-primary dark:bg-background-primary-dark">
@@ -118,141 +60,101 @@ export function Contact({ dict }: { dict: any }) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <Card className="bg-background-secondary/20 dark:bg-background-tertiary border-border-primary/10">
             <CardHeader>
               <CardTitle className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark">
-                {dict.contact.formTitle}
+                {dict.contact.socialSection.quickResponse.title}
               </CardTitle>
+              <p className="font-roboto text-text-body dark:text-text-body-dark">
+                {dict.contact.socialSection.quickResponse.description}
+              </p>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div>
-                <Label htmlFor="name" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
-                  {dict.contact.form.name}
-                </Label>
-                <Input
-                  type="text"
-                  id="name"
-                  {...register('name')}
-                  className={`font-roboto mt-2 bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark ${
-                    errors.name
-                      ? 'border-accent-red focus:ring-accent-red'
-                      : 'focus:ring-accent-brand'
-                  }`}
-                  placeholder={dict.contact.form.namePlaceholder}
-                />
-                {errors.name && (
-                  <p className="font-roboto mt-1 text-sm text-accent-red">
-                    {errors.name.message}
+            <CardContent className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-brand/15 text-accent-brand">
+                  <HiOutlineEnvelope className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="font-roboto text-sm text-text-span dark:text-text-span-dark uppercase tracking-wide">
+                    {dict.contact.infoLabels.email}
                   </p>
-                )}
+                  <a
+                    href={`mailto:${dict.contact.info.email}`}
+                    className="font-roboto text-base text-text-headline dark:text-text-headline-dark hover:text-accent-brand transition-colors"
+                  >
+                    {dict.contact.info.email}
+                  </a>
+                </div>
               </div>
 
-              <div>
-                <Label htmlFor="email" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
-                  {dict.contact.form.email}
-                </Label>
-                <Input
-                  type="email"
-                  id="email"
-                  {...register('email')}
-                  className={`font-roboto mt-2 bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark ${
-                    errors.email
-                      ? 'border-accent-red focus:ring-accent-red'
-                      : 'focus:ring-accent-brand'
-                  }`}
-                  placeholder={dict.contact.form.emailPlaceholder}
-                />
-                {errors.email && (
-                  <p className="font-roboto mt-1 text-sm text-accent-red">
-                    {errors.email.message}
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-brand/15 text-accent-brand">
+                  <HiOutlineMapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="font-roboto text-sm text-text-span dark:text-text-span-dark uppercase tracking-wide">
+                    {dict.contact.infoLabels.location}
                   </p>
-                )}
+                  <p className="font-roboto text-base text-text-headline dark:text-text-headline-dark">
+                    {dict.contact.info.location}
+                  </p>
+                </div>
               </div>
 
-              <div>
-                <Label htmlFor="message" className="font-roboto text-sm font-medium text-text-heading dark:text-text-heading-dark">
-                  {dict.contact.form.message}
-                </Label>
-                <Textarea
-                  id="message"
-                  {...register('message')}
-                  rows={5}
-                  className={`font-roboto mt-2 bg-background-primary dark:bg-background-secondary text-text-headline dark:text-text-headline-dark resize-none ${
-                    errors.message
-                      ? 'border-accent-red focus:ring-accent-red'
-                      : 'focus:ring-accent-brand'
-                  }`}
-                  placeholder={dict.contact.form.messagePlaceholder}
-                />
-                {errors.message && (
-                  <p className="font-roboto mt-1 text-sm text-accent-red">
-                    {errors.message.message}
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-brand/15 text-accent-brand">
+                  <HiOutlineClock className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="font-roboto text-sm text-text-span dark:text-text-span-dark uppercase tracking-wide">
+                    {dict.contact.infoLabels.availability}
                   </p>
-                )}
+                  <p className="font-roboto text-base text-text-headline dark:text-text-headline-dark">
+                    {dict.contact.info.availability}
+                  </p>
+                </div>
               </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                size="lg"
-                className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand-dark disabled:bg-accent-brand/50 disabled:cursor-not-allowed text-text-label transition-colors cursor-pointer"
-              >
-                {isSubmitting ? 'Enviando...' : dict.contact.form.send}
-              </Button>
-              </form>
             </CardContent>
           </Card>
 
-          {/* Contact Info */}
-          <div className="flex flex-col justify-center">
-            <div className="mb-8">
-              <h3 className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark mb-4">
+          <Card className="bg-background-secondary/20 dark:bg-background-tertiary border-border-primary/10">
+            <CardHeader>
+              <CardTitle className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark">
                 {dict.contact.socialSection.title}
-              </h3>
-              <p className="font-roboto text-text-body dark:text-text-body-dark mb-6">
+              </CardTitle>
+              <p className="font-roboto text-text-body dark:text-text-body-dark">
                 {dict.contact.socialSection.subtitle}
               </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {socialLinks.map((link, index) => (
-                <Button
-                  key={index}
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  onClick={handleSocialClick}
-                  className={`flex items-center p-4 bg-background-secondary/30 dark:bg-background-secondary rounded-lg transition-colors ${link.color} group border border-border-primary/20 h-auto justify-start cursor-pointer`}
-                >
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 gap-4">
+                {contactChannels.map((channel) => (
                   <a
-                    href={link.href}
+                    key={channel.key}
+                    href={channel.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={handleChannelClick}
+                    className="group flex items-center gap-5 rounded-2xl border border-border-primary/15 bg-background-secondary/40 dark:bg-background-secondary/40 px-6 py-5 transition-all hover:-translate-y-0.5 hover:border-accent-brand/40 hover:bg-background-secondary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-brand/60"
                   >
-                    <div className="text-text-span dark:text-text-span-dark group-hover:text-current mr-3">
-                      {link.icon}
+                    <div
+                      className={`flex h-12 w-12 items-center justify-center rounded-full ${channel.accent}`}
+                    >
+                      {channel.icon}
                     </div>
-                    <span className="font-roboto font-medium text-text-body dark:text-text-body-dark group-hover:text-current">
-                      {link.name}
-                    </span>
+                    <div className="flex flex-col items-start gap-1">
+                      <span className="font-roboto text-base font-medium text-text-headline dark:text-text-headline-dark group-hover:text-accent-brand">
+                        {channel.label}
+                      </span>
+                      <span className="font-roboto text-sm text-text-body dark:text-text-body-dark">
+                        {channel.description}
+                      </span>
+                    </div>
                   </a>
-                </Button>
-              ))}
-            </div>
-
-            <Card className="bg-accent-brand/10 border-accent-brand/20">
-              <CardContent className="p-6">
-                <h4 className="font-poppins font-medium text-accent-brand mb-2">
-                  {dict.contact.socialSection.quickResponse.title}
-                </h4>
-                <p className="font-roboto text-text-body dark:text-text-body-dark text-sm">
-                  {dict.contact.socialSection.quickResponse.description}
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

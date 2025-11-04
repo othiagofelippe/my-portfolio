@@ -105,9 +105,6 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
         </div>
 
         <div className="text-center mt-16">
-          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark mb-6">
-            {dict.experience.quote}
-          </p>
           <Button
             asChild
             size="lg"
