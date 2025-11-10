@@ -39,7 +39,6 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
     setIsOpen(false);
     playChangeSound();
 
-    // Replace current locale in pathname with new locale
     const newPathname = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
     router.push(newPathname);
   };

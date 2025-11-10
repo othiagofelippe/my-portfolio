@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
         'Accept': 'application/vnd.github.v3+json',
         'User-Agent': 'Portfolio-App',
       },
-      next: { revalidate: 3600 }, // Cache por 1 hora
+      next: { revalidate: 3600 },
     });
 
     if (!response.ok) {
@@ -42,16 +42,14 @@ export async function GET(request: NextRequest) {
 
     const repos: GitHubRepo[] = await response.json();
 
-    // Filtrar e mapear apenas os dados que vamos usar
     const projects: Project[] = repos
       .filter((repo: GitHubRepo) =>
         !repo.fork &&
         !repo.archived &&
-        repo.description // Deve ter descrição
+        repo.description
       )
-      .slice(0, 6) // Pegar apenas os 6 principais
+      .slice(0, 6)
       .map((repo: GitHubRepo) => {
-        // Formatar data para português
         const date = new Date(repo.created_at);
         const formattedDate = date.toLocaleDateString('pt-BR', {
           month: 'short',

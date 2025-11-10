@@ -9,10 +9,8 @@ export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
   const [playScrollSound] = useSound("/sounds/ui-expand.mp3", { volume: 0.4 });
 
-  // Controla a visibilidade do botão baseado na posição do scroll
   useEffect(() => {
     const toggleVisibility = () => {
-      // Mostra o botão quando o usuário rolar 300px
       if (window.pageYOffset > 300) {
         setIsVisible(true);
       } else {

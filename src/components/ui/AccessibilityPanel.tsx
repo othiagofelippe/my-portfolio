@@ -18,7 +18,6 @@ import { Switch } from "./switch";
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
 import useSound from "use-sound";
 
-// Simular estados por enquanto (depois virá do contexto)
 interface AccessibilitySettings {
   soundEnabled: boolean;
   language: 'pt' | 'en' | 'es';
@@ -35,13 +34,11 @@ export function AccessibilityPanel() {
   const [playThemeSound] = useSound("/sounds/theme-toggle.mp3", { volume: 0.5 });
   const [playLanguageSound] = useSound("/sounds/page-transition.mp3", { volume: 0.5 });
 
-  // Estados temporários para demonstração
   const [settings, setSettings] = useState<AccessibilitySettings>({
     soundEnabled: true,
     language: 'pt',
   });
 
-  // Detectar idioma atual da URL
   const getCurrentLanguage = (): Locale => {
     const pathSegments = pathname.split('/');
     const langFromPath = pathSegments[1] as Locale;
@@ -60,7 +57,6 @@ export function AccessibilityPanel() {
   const handleSettingChange = (key: keyof AccessibilitySettings, value: any) => {
     setSettings(prev => ({ ...prev, [key]: value }));
 
-    // Som específico para mudança de idioma
     if (key === 'language') {
       handleLanguageChange(value as Locale);
     } else {
@@ -71,7 +67,6 @@ export function AccessibilityPanel() {
   const handleLanguageChange = (locale: Locale) => {
     playLanguageSound();
 
-    // Replace current locale in pathname with new locale
     const newPathname = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
     router.push(newPathname);
   };
