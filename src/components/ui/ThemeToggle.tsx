@@ -4,26 +4,19 @@ import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 import { HiOutlineSun, HiOutlineMoon } from 'react-icons/hi2';
 import { motion, AnimatePresence } from 'motion/react';
-import useSound from 'use-sound';
+import { useAudio } from '@/context/AudioContext';
 
 export function ThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [playToggleSound] = useSound('/sounds/theme-toggle.mp3', {
-    volume: 0.5,
-    preload: true
-  });
+  const audio = useAudio();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const toggleTheme = () => {
-    try {
-      playToggleSound();
-    } catch (error) {
-      console.log('Sound playback blocked or failed:', error);
-    }
+    audio.play('themeToggle');
     const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
   };

@@ -17,6 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useAudio } from "@/context/AudioContext";
 
 interface Project {
   name: string;
@@ -32,6 +33,7 @@ export function Projects({ dict }: { dict: any }) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const audio = useAudio();
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -212,6 +214,7 @@ export function Projects({ dict }: { dict: any }) {
                           variant="outline"
                           size="sm"
                           className="font-roboto flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
+                          onClick={() => audio.play("buttonClick")}
                         >
                           <a
                             href={project.demo}
@@ -227,6 +230,7 @@ export function Projects({ dict }: { dict: any }) {
                         variant="outline"
                         size="sm"
                         className="font-roboto flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
+                        onClick={() => audio.play("buttonClick")}
                       >
                         <a
                           href={project.url}
@@ -252,6 +256,7 @@ export function Projects({ dict }: { dict: any }) {
             asChild
             size="lg"
             className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
+            onClick={() => audio.play("buttonClick")}
           >
             <a
               href="https://github.com/othiagofelippe?tab=repositories"

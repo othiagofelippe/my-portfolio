@@ -4,16 +4,13 @@ import { Locale } from "@/lib/i18n";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
-import useSound from "use-sound";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
+import { useAudio } from "@/context/AudioContext";
 
 export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [playMenuToggle] = useSound("/sounds/ui-expand.mp3", { volume: 0.4 });
-  const [playButtonClick] = useSound("/sounds/button-click.mp3", {
-    volume: 0.5,
-  });
+  const audio = useAudio();
 
   const navItems = [
     { name: dict.nav.experience, href: "#experiencia" },
@@ -23,7 +20,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   ];
 
   const scrollToSection = (href: string) => {
-    playButtonClick();
+    audio.play("buttonClick");
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -38,12 +35,12 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   };
 
   const toggleMenu = () => {
-    playMenuToggle();
+    audio.play("uiExpand");
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleContactClick = () => {
-    playButtonClick();
+    audio.play("buttonClick");
     setTimeout(() => scrollToSectionSilent("#contato"), 100);
   };
 
@@ -139,7 +136,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                     key={item.name}
                     onClick={() => {
                       scrollToSection(item.href);
-                      playMenuToggle();
+                      audio.play("uiExpand");
                       setIsMenuOpen(false);
                     }}
                     className="font-roboto text-base font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark block px-3 py-2 relative group w-full text-left cursor-pointer"
@@ -166,7 +163,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                   >
                     <Button
                       onClick={() => {
-                        playButtonClick();
+                        audio.play("buttonClick");
                         setIsMenuOpen(false);
                         setTimeout(() => scrollToSectionSilent("#contato"), 300);
                       }}

@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import useSound from "use-sound";
+import { useAudio } from "@/context/AudioContext";
 
 interface HeroDict {
   hero: {
@@ -20,12 +20,7 @@ interface HeroDict {
 }
 
 export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
-  const [playDownloadSound] = useSound("/sounds/download-cv.mp3", {
-    volume: 0.5,
-  });
-  const [playSocialClick] = useSound("/sounds/button-click.mp3", {
-    volume: 0.5,
-  });
+  const audio = useAudio();
 
   const getCVFileName = () => {
     const lang = dict.lang || "pt";
@@ -38,11 +33,11 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
   };
 
   const handleDownloadClick = () => {
-    playDownloadSound();
+    audio.play("downloadCv");
   };
 
   const handleSocialClick = () => {
-    playSocialClick();
+    audio.play("buttonClick");
   };
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary to-background-secondary dark:from-background-primary-dark dark:to-background-secondary">

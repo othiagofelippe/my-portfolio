@@ -5,17 +5,13 @@ import { AnimatePresence, motion } from "motion/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { HiOutlineChevronDown, HiOutlineGlobeAlt } from "react-icons/hi2";
-import useSound from "use-sound";
+import { useAudio } from "@/context/AudioContext";
 
 export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-
-  const [playToggleSound] = useSound("/sounds/ui-expand.mp3", { volume: 0.4 });
-  const [playChangeSound] = useSound("/sounds/page-transition.mp3", {
-    volume: 0.5,
-  });
+  const audio = useAudio();
 
   const flagEmojis: Record<Locale, string> = {
     pt: "🇧🇷",
@@ -32,12 +28,12 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
-    playToggleSound();
+    audio.play("uiExpand");
   };
 
   const handleLanguageChange = (locale: Locale) => {
     setIsOpen(false);
-    playChangeSound();
+    audio.play("pageTransition");
 
     const newPathname = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
     router.push(newPathname);
@@ -45,7 +41,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
 
   const handleClose = () => {
     setIsOpen(false);
-    playToggleSound();
+    audio.play("uiExpand");
   };
 
   const getCurrentLanguage = () => {

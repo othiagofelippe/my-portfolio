@@ -11,6 +11,7 @@ import { Footer, Header, ScrollToTop } from "../../components";
 import { AccessibilityPanel } from "../../components/ui/AccessibilityPanel";
 import "../globals.css";
 import { ThemeProvider } from "../providers/ThemeProvider";
+import { AudioProvider } from "@/context/AudioContext";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -73,11 +74,13 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header lang={lang as Locale} dict={dict} />
-          {children}
-          <Footer dict={dict} />
-          <ScrollToTop />
-          <AccessibilityPanel />
+          <AudioProvider>
+            <Header lang={lang as Locale} dict={dict} />
+            {children}
+            <Footer dict={dict} />
+            <ScrollToTop />
+            <AccessibilityPanel />
+          </AudioProvider>
         </ThemeProvider>
         <Analytics />
       </body>

@@ -2,11 +2,11 @@
 
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineEnvelope, HiOutlineClock, HiOutlineMapPin } from "react-icons/hi2";
-import useSound from "use-sound";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useAudio } from "@/context/AudioContext";
 
 export function Contact({ dict }: { dict: any }) {
-  const [playSocialClick] = useSound("/sounds/button-click.mp3", { volume: 0.5 });
+  const audio = useAudio();
 
   const contactChannels = [
     {
@@ -44,7 +44,7 @@ export function Contact({ dict }: { dict: any }) {
   ];
 
   const handleChannelClick = () => {
-    playSocialClick();
+    audio.play("buttonClick");
   };
 
   return (

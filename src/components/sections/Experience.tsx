@@ -1,12 +1,12 @@
 "use client";
 
-import useSound from 'use-sound';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { useAudio } from '@/context/AudioContext';
 
 export function Experience({ dict }: { dict: any & { lang?: string } }) {
-  const [playDownloadSound] = useSound('/sounds/download-cv.mp3', { volume: 0.5 });
+  const audio = useAudio();
   
   const getCVFileName = () => {
     const lang = dict.lang || 'pt';
@@ -19,7 +19,7 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
   };
   
   const handleDownloadClick = () => {
-    playDownloadSound();
+    audio.play('downloadCv');
   };
   const experiences = [
     {

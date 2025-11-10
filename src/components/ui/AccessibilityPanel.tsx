@@ -16,12 +16,7 @@ import {
 import { Button } from "./button";
 import { Switch } from "./switch";
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
-import useSound from "use-sound";
-
-interface AccessibilitySettings {
-  soundEnabled: boolean;
-  language: 'pt' | 'en' | 'es';
-}
+import { useAudio } from "@/context/AudioContext";
 
 export function AccessibilityPanel() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,15 +24,7 @@ export function AccessibilityPanel() {
   const { setTheme, resolvedTheme } = useTheme();
   const router = useRouter();
   const pathname = usePathname();
-  const [playToggleSound] = useSound("/sounds/ui-expand.mp3", { volume: 0.4 });
-  const [playClickSound] = useSound("/sounds/button-click.mp3", { volume: 0.3 });
-  const [playThemeSound] = useSound("/sounds/theme-toggle.mp3", { volume: 0.5 });
-  const [playLanguageSound] = useSound("/sounds/page-transition.mp3", { volume: 0.5 });
-
-  const [settings, setSettings] = useState<AccessibilitySettings>({
-    soundEnabled: true,
-    language: 'pt',
-  });
+  const audio = useAudio();
 
   const getCurrentLanguage = (): Locale => {
     const pathSegments = pathname.split('/');
@@ -51,21 +38,11 @@ export function AccessibilityPanel() {
 
   const handleTogglePanel = () => {
     setIsOpen(!isOpen);
-    playToggleSound();
-  };
-
-  const handleSettingChange = (key: keyof AccessibilitySettings, value: any) => {
-    setSettings(prev => ({ ...prev, [key]: value }));
-
-    if (key === 'language') {
-      handleLanguageChange(value as Locale);
-    } else {
-      playClickSound();
-    }
+    audio.play("uiExpand");
   };
 
   const handleLanguageChange = (locale: Locale) => {
-    playLanguageSound();
+    audio.play("pageTransition");
 
     const newPathname = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
     router.push(newPathname);
@@ -73,7 +50,7 @@ export function AccessibilityPanel() {
 
   const handleThemeChange = (newTheme: 'light' | 'dark') => {
     setTheme(newTheme);
-    playThemeSound();
+    audio.play("themeToggle");
   };
 
 
@@ -189,7 +166,7 @@ export function AccessibilityPanel() {
                 <div className="space-y-2 sm:space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      {settings.soundEnabled ? (
+                      {audio.soundEnabled ? (
                         <HiOutlineSpeakerWave className="w-4 h-4 text-text-heading dark:text-text-heading-dark" />
                       ) : (
                         <HiOutlineSpeakerXMark className="w-4 h-4 text-text-span dark:text-text-span-dark" />
@@ -199,8 +176,11 @@ export function AccessibilityPanel() {
                       </h4>
                     </div>
                     <Switch
-                      checked={settings.soundEnabled}
-                      onCheckedChange={(checked) => handleSettingChange('soundEnabled', checked)}
+                      checked={audio.soundEnabled}
+                      onCheckedChange={(checked) => {
+                        audio.setSoundEnabled(checked);
+                        audio.play("buttonClick");
+                      }}
                       className="data-[state=checked]:!bg-accent-brand"
                     />
                   </div>
@@ -218,7 +198,7 @@ export function AccessibilityPanel() {
                     value={getCurrentLanguage()}
                     onValueChange={(value) => {
                       if (value) {
-                        handleSettingChange('language', value);
+                        handleLanguageChange(value as Locale);
                       }
                     }}
                     className="grid w-full grid-cols-3 gap-1"

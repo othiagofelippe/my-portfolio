@@ -8,17 +8,15 @@ import {
   HiOutlineEnvelope,
   HiOutlineMapPin,
 } from "react-icons/hi2";
-import useSound from "use-sound";
 import { Logo } from "./Logo";
+import { useAudio } from "@/context/AudioContext";
 
 export function Footer({ dict }: { dict: any }) {
   const currentYear = new Date().getFullYear();
-  const [playButtonClick] = useSound("/sounds/button-click.mp3", {
-    volume: 0.5,
-  });
+  const audio = useAudio();
 
   const scrollToSection = (href: string) => {
-    playButtonClick();
+    audio.play("buttonClick");
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
