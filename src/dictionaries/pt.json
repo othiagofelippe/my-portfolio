@@ -11,9 +11,9 @@
     "greeting": "Fala aí! 👋",
     "intro": "Prazer, eu sou o",
     "name": "Thiago Felippe",
-    "role": "Desenvolvedor Front-End Pleno há 3+ anos transformando ideias em aplicações web e mobile que realmente funcionam.",
-    "description": "Especializado em React e React Native, já implementei soluções críticas que otimizaram performance, integraram APIs complexas e melhoraram a experiência de milhares de usuários. Atualmente focado em arquiteturas escaláveis e metodologias ágeis.",
-    "skills": ["React", "Next.js", "React Native", "TypeScript", "Node.js", "Tailwind"],
+    "role": "Desenvolvedor Front-End Pleno com 3+ anos construindo experiências web e mobile de alto impacto.",
+    "description": "Especialista em React, Next.js e React Native, atuo na criação e evolução de Design Systems, padronização de componentes com tokens e otimização de performance. Trabalho lado a lado com design e produto para entregar interfaces acessíveis e consistentes.",
+    "skills": ["Next.js", "React Native", "Design Systems", "TypeScript", "Performance", "UX/UI"],
     "downloadCV": "Baixar CV",
     "buttons": {
       "downloadCV": "Baixar CV",
@@ -37,31 +37,32 @@
     "title": "Experiência Profissional",
     "subtitle": "Minha jornada profissional e as experiências que me moldaram como desenvolvedor",
     "downloadCV": "Baixar CV completo",
-    "quote": "Sempre em busca de novos desafios e oportunidades de crescimento! 📈",
     "jobs": {
       "heap": {
         "period": "Abr 2022 - Mar 2025",
         "title": "Desenvolvedor Front-End Pleno",
         "company": "Heap Engenharia e Software",
-        "description": "Desenvolvimento e manutenção de aplicações web e mobile com React.js, Next.js e React Native. Implementei otimizações de performance, SSR, integração de APIs RESTful e introduzi novas bibliotecas que aprimoraram a arquitetura front-end. Participei ativamente em metodologias ágeis (Scrum/Kanban).",
-        "skills": ["React.js", "Next.js", "React Native", "TypeScript", "SSR", "APIs RESTful", "Scrum", "Kanban"]
+        "description": "Liderei o desenvolvimento de interfaces web e mobile com React, Next.js e React Native, priorizando performance e acessibilidade. Estruturei fluxos de dados com APIs RESTful, implementei SSR para melhorar métricas de SEO e padronizei componentes através de Design Systems documentados no Storybook. Colaborei com design aplicando princípios de UX/UI e facilitei entregas contínuas com times ágeis.",
+        "skills": ["React", "Next.js", "React Native", "TypeScript", "SSR", "Performance", "Storybook", "Design System", "APIs REST", "Scrum", "Kanban"]
       },
       "divam": {
         "period": "Mar 2025 - Jun 2025",
         "title": "Desenvolvedor Front-End Pleno",
         "company": "Divam",
-        "description": "Desenvolvimento de aplicações mobile com React Native para novas funcionalidades e manutenção de produtos em produção. Implementação de soluções críticas, correção de bugs, integração com APIs e criação de interfaces seguindo boas práticas de UX/UI. Contribuição ativa em processos ágeis.",
-        "skills": ["React Native", "JavaScript", "APIs", "UX/UI", "Metodologias Ágeis", "Debugging"]
+        "description": "Atuei na evolução de produtos web com Next.js e mobile com React Native, entregando novas funcionalidades e garantindo estabilidade em produção. Reforcei o Design System interno com componentes reutilizáveis, tokens de cor, espaçamento e tipografia, além de padrões de acessibilidade e responsividade. Integrei APIs em parceria com backend, conduzi code reviews e padronizei fluxos de dados.",
+        "skills": ["Next.js", "React Native", "Design System", "Design Tokens", "UX/UI", "Figma", "APIs REST", "Agile", "Code Review"]
       }
     }
   },
   "projects": {
     "title": "Meus Projetos",
     "subtitle": "Alguns dos projetos que desenvolvi e que mostram minhas habilidades técnicas",
+    "loading": "Carregando projetos do GitHub...",
+    "error": "Erro ao carregar projetos",
+    "empty": "Ainda não há projetos para mostrar. Volte em breve! 🚀",
     "status": "Em breve",
     "demo": "Demo",
     "code": "Código",
-    "quote": "Mais projetos em desenvolvimento! 🚀",
     "viewAll": "Ver todos os projetos",
     "ecommerce": {
       "title": "E-commerce Moderno",
@@ -82,45 +83,55 @@
     "categories": {
       "frontend": {
         "title": "Frontend",
-        "skills": ["React", "Next.js", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS", "Vue.js", "Sass"]
+        "skills": ["React", "Next.js", "React Native", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS", "Styled Components", "Sass", "MUI"]
       },
       "backend": {
         "title": "Backend",
-        "skills": ["Node.js", "Python", "Express.js", "MongoDB", "PostgreSQL", "REST APIs", "GraphQL", "Firebase"]
+        "skills": ["Node.js", "Express.js", "MongoDB", "MySQL", "REST APIs", "GraphQL", "JWT", "Firebase"]
       },
       "tools": {
         "title": "Ferramentas & Outros",
-        "skills": ["Git", "Docker", "AWS", "Figma", "VS Code", "Linux", "Photoshop", "Vercel"]
+        "skills": ["Git", "GitHub", "VS Code", "Figma", "Storybook", "ESLint", "Prettier", "Scrum", "Kanban", "Vercel"]
       }
     }
   },
   "contact": {
     "title": "Vamos Conversar?",
-    "subtitle": "Tem algum projeto em mente ou quer bater um papo? Ficarei feliz em conversar com você!",
-    "formTitle": "Envie uma Mensagem",
-    "form": {
-      "name": "Nome",
-      "namePlaceholder": "Seu nome",
-      "email": "Email",
-      "emailPlaceholder": "seu@email.com",
-      "subject": "Assunto",
-      "message": "Mensagem",
-      "messagePlaceholder": "Conte-me sobre seu projeto...",
-      "send": "Enviar Mensagem",
-      "successMessage": "Mensagem enviada com sucesso!",
-      "errorMessage": "Erro ao enviar mensagem. Tente novamente."
-    },
+    "subtitle": "Tem algum projeto em mente ou quer bater um papo? Estou disponível nos canais abaixo.",
     "info": {
       "email": "contact@othiagofelippe.com",
       "location": "Rio de Janeiro, Brasil",
       "availability": "Disponível para projetos"
     },
+    "infoLabels": {
+      "email": "Email",
+      "location": "Localização",
+      "availability": "Disponibilidade"
+    },
     "socialSection": {
-      "title": "Outras formas de contato",
-      "subtitle": "Prefere uma abordagem mais direta? Você pode me encontrar nas redes sociais ou enviar um email diretamente.",
+      "title": "Fale comigo por onde preferir",
+      "subtitle": "Escolha o canal que fizer mais sentido para você e vamos conversar.",
       "quickResponse": {
-        "title": "Resposta Rápida ⚡",
-        "description": "Costumo responder em até 24 horas. Para projetos urgentes, me chame no LinkedIn!"
+        "title": "Resposta rápida ⚡",
+        "description": "Costumo responder em até 24 horas. Para assuntos urgentes, me chame no LinkedIn!"
+      },
+      "channels": {
+        "linkedin": {
+          "label": "LinkedIn",
+          "description": "Conexões profissionais e networking"
+        },
+        "github": {
+          "label": "GitHub",
+          "description": "Veja meus projetos mais recentes"
+        },
+        "whatsapp": {
+          "label": "WhatsApp",
+          "description": "Conversa rápida e direta"
+        },
+        "email": {
+          "label": "Email",
+          "description": "Envie detalhes do seu projeto"
+        }
       }
     }
   },

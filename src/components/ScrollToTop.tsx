@@ -3,16 +3,14 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { HiOutlineChevronUp } from "react-icons/hi2";
-import useSound from "use-sound";
+import { useAudio } from "@/context/AudioContext";
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
-  const [playScrollSound] = useSound("/sounds/ui-expand.mp3", { volume: 0.4 });
+  const audio = useAudio();
 
-  // Controla a visibilidade do botão baseado na posição do scroll
   useEffect(() => {
     const toggleVisibility = () => {
-      // Mostra o botão quando o usuário rolar 300px
       if (window.pageYOffset > 300) {
         setIsVisible(true);
       } else {
@@ -26,7 +24,7 @@ export function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
-    playScrollSound();
+    audio.play("uiExpand");
     window.scrollTo({
       top: 0,
       behavior: "smooth",

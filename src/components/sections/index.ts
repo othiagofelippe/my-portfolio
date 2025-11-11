@@ -1,4 +1,3 @@
-// Seções principais do site
 export { Hero } from './Hero';
 export { Services } from './Services';
 export { Experience } from './Experience';

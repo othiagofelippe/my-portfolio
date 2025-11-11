@@ -5,12 +5,14 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import { useAudio } from '@/context/AudioContext';
 
 export function Logo() {
   const pathname = usePathname();
   const currentLang = pathname.split('/')[1] || 'pt';
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const audio = useAudio();
 
   useEffect(() => {
     setMounted(true);
@@ -24,6 +26,7 @@ export function Logo() {
       <Link
         href={`/${currentLang}`}
         className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity"
+        onClick={() => audio.play('buttonClick')}
       >
         <div className="w-6 h-6 sm:w-8 sm:h-8" />
         <span className="text-base sm:text-lg md:text-xl font-bold text-text-headline">
@@ -38,6 +41,7 @@ export function Logo() {
     <Link
       href={`/${currentLang}`}
       className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity"
+      onClick={() => audio.play('buttonClick')}
     >
       {/* Logo SVG */}
       <Image
