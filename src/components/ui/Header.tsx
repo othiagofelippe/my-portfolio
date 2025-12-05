@@ -45,7 +45,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background-primary/80 backdrop-blur-md border-b border-border-primary dark:bg-background-primary-dark/80 z-50">
+    <header className="fixed top-0 left-0 right-0 bg-background-primary/80 backdrop-blur-md border-b border-border-primary z-50">
       <nav className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex-shrink-0">
@@ -59,7 +59,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="font-roboto text-sm font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark px-3 py-2 transition-colors relative group cursor-pointer"
+                  className="font-roboto text-sm font-normal text-text-body hover:text-text-headline px-3 py-2 transition-colors relative group cursor-pointer"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent-brand group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
@@ -73,7 +73,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
             <Button
               onClick={handleContactClick}
               size="sm"
-              className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
+              className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand/90 text-text-label transition-colors cursor-pointer"
             >
               {dict.nav.contactButton}
             </Button>
@@ -83,7 +83,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
           <div className="lg:hidden flex items-center">
             <motion.button
               type="button"
-              className="text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark focus:outline-none p-2 cursor-pointer"
+              className="text-text-body hover:text-text-headline focus:outline-none p-2 cursor-pointer"
               onClick={toggleMenu}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -130,7 +130,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-background-primary dark:bg-background-primary-dark border-t border-border-primary">
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-background-primary border-t border-border-primary">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.name}
@@ -139,7 +139,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                       audio.play("uiExpand");
                       setIsMenuOpen(false);
                     }}
-                    className="font-roboto text-base font-normal text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark block px-3 py-2 relative group w-full text-left cursor-pointer"
+                    className="font-roboto text-base font-normal text-text-body hover:text-text-headline block px-3 py-2 relative group w-full text-left cursor-pointer"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{
@@ -167,7 +167,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                         setIsMenuOpen(false);
                         setTimeout(() => scrollToSectionSilent("#contato"), 300);
                       }}
-                      className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
+                      className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand/90 text-text-label transition-colors cursor-pointer"
                       size="default"
                     >
                       {dict.nav.contactButton}

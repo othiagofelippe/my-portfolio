@@ -73,6 +73,7 @@ export default async function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+          themes={['light', 'dark', 'ocean-sunset']}
         >
           <AudioProvider>
             <Header lang={lang as Locale} dict={dict} />

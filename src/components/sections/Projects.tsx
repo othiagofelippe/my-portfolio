@@ -58,14 +58,14 @@ export function Projects({ dict }: { dict: any }) {
     return (
       <section
         id="projetos"
-        className="py-20 bg-background-secondary/30 dark:bg-background-secondary"
+        className="py-20 bg-background-secondary/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
+            <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
               {dict.projects.title}
             </h2>
-            <p className="font-roboto text-lg text-text-body dark:text-text-body-dark max-w-2xl mx-auto">
+            <p className="font-roboto text-lg text-text-body max-w-2xl mx-auto">
               {dict.projects.loading}
             </p>
           </div>
@@ -73,16 +73,16 @@ export function Projects({ dict }: { dict: any }) {
             {[1, 2, 3].map((i) => (
               <Card
                 key={i}
-                className="bg-background-primary dark:bg-background-tertiary border-border-primary/10"
+                className="bg-background-primary border-border-primary/10"
               >
                 <CardHeader className="pb-4">
-                  <div className="w-full h-32 bg-background-secondary/50 dark:bg-background-secondary rounded-lg animate-pulse"></div>
-                  <div className="h-6 bg-background-secondary/50 dark:bg-background-secondary rounded animate-pulse"></div>
+                  <div className="w-full h-32 bg-background-secondary/50 rounded-lg animate-pulse"></div>
+                  <div className="h-6 bg-background-secondary/50 rounded animate-pulse"></div>
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="space-y-2">
-                    <div className="h-4 bg-background-secondary/50 dark:bg-background-secondary rounded animate-pulse"></div>
-                    <div className="h-4 bg-background-secondary/50 dark:bg-background-secondary rounded animate-pulse w-3/4"></div>
+                    <div className="h-4 bg-background-secondary/50 rounded animate-pulse"></div>
+                    <div className="h-4 bg-background-secondary/50 rounded animate-pulse w-3/4"></div>
                   </div>
                 </CardContent>
               </Card>
@@ -97,11 +97,11 @@ export function Projects({ dict }: { dict: any }) {
     return (
       <section
         id="projetos"
-        className="py-20 bg-background-secondary/30 dark:bg-background-secondary"
+        className="py-20 bg-background-secondary/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
+            <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
               {dict.projects.title}
             </h2>
             <p className="font-roboto text-lg text-accent-red">
@@ -117,13 +117,13 @@ export function Projects({ dict }: { dict: any }) {
     return (
       <section
         id="projetos"
-        className="py-20 bg-background-secondary/30 dark:bg-background-secondary"
+        className="py-20 bg-background-secondary/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
             {dict.projects.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark">
+          <p className="font-roboto text-lg text-text-body">
             {dict.projects.empty}
           </p>
         </div>
@@ -138,10 +138,10 @@ export function Projects({ dict }: { dict: any }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
             {dict.projects.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark max-w-2xl mx-auto">
+          <p className="font-roboto text-lg text-text-body max-w-2xl mx-auto">
             {dict.projects.subtitle}
           </p>
         </div>
@@ -160,15 +160,15 @@ export function Projects({ dict }: { dict: any }) {
                   key={index}
                   className="pl-4 md:basis-1/2 lg:basis-1/3"
                 >
-                  <Card className="h-full bg-background-primary dark:bg-background-tertiary border-border-primary/10 hover:shadow-xl transition-all duration-300 ease-out flex flex-col">
+                  <Card className="h-full bg-background-primary border-border-primary/10 hover:shadow-xl transition-all duration-300 ease-out flex flex-col">
                     <CardHeader className="pb-4">
                       <div className="flex items-center justify-between mb-4">
-                        <CardTitle className="font-poppins text-xl text-text-headline dark:text-text-headline-dark">
+                        <CardTitle className="font-poppins text-xl text-text-headline">
                           {project.name}
                         </CardTitle>
                         <Badge
                           variant="outline"
-                          className="font-roboto bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark text-sm border-border-primary/20"
+                          className="font-roboto bg-background-secondary/50 text-text-span text-sm border-border-primary/20"
                         >
                           {project.language || "Projeto"}
                         </Badge>
@@ -176,12 +176,12 @@ export function Projects({ dict }: { dict: any }) {
                     </CardHeader>
 
                     <CardContent className="pt-0 flex-1 flex flex-col">
-                      <p className="font-roboto text-text-body dark:text-text-body-dark mb-4 leading-relaxed line-clamp-3">
+                      <p className="font-roboto text-text-body mb-4 leading-relaxed line-clamp-3">
                         {project.description}
                       </p>
 
                       <div className="space-y-3 mt-auto">
-                        <div className="flex items-center gap-2 text-text-body dark:text-text-body-dark text-sm">
+                        <div className="flex items-center gap-2 text-text-body text-sm">
                           <span>📅 {project.formatted_date}</span>
                         </div>
                         <div className="flex flex-wrap gap-2 min-h-[2rem]">
@@ -197,7 +197,7 @@ export function Projects({ dict }: { dict: any }) {
                           {project.tags.length > 4 && (
                             <Badge
                               variant="outline"
-                              className="font-roboto text-text-span dark:text-text-span-dark text-sm border-border-primary/20"
+                              className="font-roboto text-text-span text-sm border-border-primary/20"
                             >
                               +{project.tags.length - 4}
                             </Badge>

@@ -40,26 +40,26 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
     audio.play("buttonClick");
   };
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary to-background-secondary dark:from-background-primary-dark dark:to-background-secondary">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary to-background-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-20 md:pt-16 lg:pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="font-poppins text-4xl sm:text-5xl lg:text-6xl text-text-headline dark:text-text-headline-dark">
+              <h1 className="font-poppins text-4xl sm:text-5xl lg:text-6xl text-text-headline">
                 {dict.hero.greeting}
               </h1>
-              <h2 className="font-poppins text-2xl sm:text-3xl lg:text-4xl text-text-heading dark:text-text-heading-dark">
+              <h2 className="font-poppins text-2xl sm:text-3xl lg:text-4xl text-text-heading">
                 {dict.hero.intro}{" "}
                 <span className="text-accent-brand">{dict.hero.name}</span>
               </h2>
             </div>
 
-            <p className="font-roboto text-xl sm:text-2xl font-medium text-text-body dark:text-text-body-dark leading-relaxed">
+            <p className="font-roboto text-xl sm:text-2xl font-medium text-text-body leading-relaxed">
               {dict.hero.role}
             </p>
 
-            <p className="font-roboto text-lg text-text-body dark:text-text-body-dark leading-relaxed">
+            <p className="font-roboto text-lg text-text-body leading-relaxed">
               {dict.hero.description}
             </p>
 
@@ -81,7 +81,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                 variant="ghost"
                 size="lg"
                 onClick={handleDownloadClick}
-                className="font-roboto text-base font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark transition-colors cursor-pointer bg-transparent"
+                className="font-roboto text-base font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body hover:text-text-headline transition-colors cursor-pointer bg-transparent"
               >
                 <a href={`/${getCVFileName()}`} download={getCVFileName()}>
                   {dict.hero.downloadCV}
@@ -93,7 +93,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   variant="ghost"
                   size="icon"
                   onClick={handleSocialClick}
-                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-accent-brand transition-all cursor-pointer bg-transparent"
+                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span hover:text-accent-brand transition-all cursor-pointer bg-transparent"
                   title="LinkedIn"
                 >
                   <a
@@ -109,7 +109,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   variant="ghost"
                   size="icon"
                   onClick={handleSocialClick}
-                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span dark:text-text-span-dark hover:text-text-headline dark:hover:text-text-headline-dark transition-all cursor-pointer bg-transparent"
+                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span hover:text-text-headline transition-all cursor-pointer bg-transparent"
                   title="GitHub"
                 >
                   <a
@@ -127,7 +127,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
           {/* Image */}
           <div className="flex justify-center lg:justify-end">
             <motion.div
-              className="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-4 sm:border-8 border-background-primary dark:border-background-tertiary shadow-xl"
+              className="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-4 sm:border-8 border-background-primary shadow-xl"
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 2 }}
               transition={{

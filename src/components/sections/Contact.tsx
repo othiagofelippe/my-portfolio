@@ -23,7 +23,7 @@ export function Contact({ dict }: { dict: any }) {
       description: dict.contact.socialSection.channels.github.description,
       icon: <FaGithub className="w-5 h-5" />,
       href: "https://github.com/othiagofelippe",
-      accent: "text-text-headline dark:text-text-headline-dark bg-background-secondary/50 group-hover:bg-accent-brand/15 group-hover:text-accent-brand",
+      accent: "text-text-headline bg-background-secondary/50 group-hover:bg-accent-brand/15 group-hover:text-accent-brand",
     },
     {
       key: "whatsapp",
@@ -31,7 +31,7 @@ export function Contact({ dict }: { dict: any }) {
       description: dict.contact.socialSection.channels.whatsapp.description,
       icon: <FaWhatsapp className="w-5 h-5" />,
       href: "https://wa.me/5521973494481",
-      accent: "text-accent-green bg-accent-green/10 group-hover:bg-accent-green/20",
+      accent: "text-white bg-accent-green/90 group-hover:bg-accent-green",
     },
     {
       key: "email",
@@ -48,24 +48,24 @@ export function Contact({ dict }: { dict: any }) {
   };
 
   return (
-    <section id="contato" className="py-20 bg-background-primary dark:bg-background-primary-dark">
+    <section id="contato" className="py-20 bg-background-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
             {dict.contact.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark max-w-2xl mx-auto">
+          <p className="font-roboto text-lg text-text-body max-w-2xl mx-auto">
             {dict.contact.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Card className="bg-background-secondary/20 dark:bg-background-tertiary border-border-primary/10">
+          <Card className="bg-background-secondary/20 border-border-primary/10">
             <CardHeader>
-              <CardTitle className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark">
+              <CardTitle className="font-poppins text-2xl text-text-headline">
                 {dict.contact.socialSection.quickResponse.title}
               </CardTitle>
-              <p className="font-roboto text-text-body dark:text-text-body-dark">
+              <p className="font-roboto text-text-body">
                 {dict.contact.socialSection.quickResponse.description}
               </p>
             </CardHeader>
@@ -75,12 +75,12 @@ export function Contact({ dict }: { dict: any }) {
                   <HiOutlineEnvelope className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-roboto text-sm text-text-span dark:text-text-span-dark uppercase tracking-wide">
+                  <p className="font-roboto text-sm text-text-span uppercase tracking-wide">
                     {dict.contact.infoLabels.email}
                   </p>
                   <a
                     href={`mailto:${dict.contact.info.email}`}
-                    className="font-roboto text-base text-text-headline dark:text-text-headline-dark hover:text-accent-brand transition-colors"
+                    className="font-roboto text-base text-text-headline hover:text-accent-brand transition-colors"
                   >
                     {dict.contact.info.email}
                   </a>
@@ -92,10 +92,10 @@ export function Contact({ dict }: { dict: any }) {
                   <HiOutlineMapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-roboto text-sm text-text-span dark:text-text-span-dark uppercase tracking-wide">
+                  <p className="font-roboto text-sm text-text-span uppercase tracking-wide">
                     {dict.contact.infoLabels.location}
                   </p>
-                  <p className="font-roboto text-base text-text-headline dark:text-text-headline-dark">
+                  <p className="font-roboto text-base text-text-headline">
                     {dict.contact.info.location}
                   </p>
                 </div>
@@ -106,10 +106,10 @@ export function Contact({ dict }: { dict: any }) {
                   <HiOutlineClock className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-roboto text-sm text-text-span dark:text-text-span-dark uppercase tracking-wide">
+                  <p className="font-roboto text-sm text-text-span uppercase tracking-wide">
                     {dict.contact.infoLabels.availability}
                   </p>
-                  <p className="font-roboto text-base text-text-headline dark:text-text-headline-dark">
+                  <p className="font-roboto text-base text-text-headline">
                     {dict.contact.info.availability}
                   </p>
                 </div>
@@ -117,12 +117,12 @@ export function Contact({ dict }: { dict: any }) {
             </CardContent>
           </Card>
 
-          <Card className="bg-background-secondary/20 dark:bg-background-tertiary border-border-primary/10">
+          <Card className="bg-background-secondary/20 border-border-primary/10">
             <CardHeader>
-              <CardTitle className="font-poppins text-2xl text-text-headline dark:text-text-headline-dark">
+              <CardTitle className="font-poppins text-2xl text-text-headline">
                 {dict.contact.socialSection.title}
               </CardTitle>
-              <p className="font-roboto text-text-body dark:text-text-body-dark">
+              <p className="font-roboto text-text-body">
                 {dict.contact.socialSection.subtitle}
               </p>
             </CardHeader>
@@ -135,7 +135,7 @@ export function Contact({ dict }: { dict: any }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={handleChannelClick}
-                    className="group flex items-center gap-5 rounded-2xl border border-border-primary/15 bg-background-secondary/40 dark:bg-background-secondary/40 px-6 py-5 transition-all hover:-translate-y-0.5 hover:border-accent-brand/40 hover:bg-background-secondary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-brand/60"
+                    className="group flex items-center gap-5 rounded-2xl border border-border-primary/15 bg-background-secondary/40 px-6 py-5 transition-all hover:-translate-y-0.5 hover:border-accent-brand/40 hover:bg-background-secondary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-brand/60"
                   >
                     <div
                       className={`flex h-12 w-12 items-center justify-center rounded-full ${channel.accent}`}
@@ -143,10 +143,10 @@ export function Contact({ dict }: { dict: any }) {
                       {channel.icon}
                     </div>
                     <div className="flex flex-col items-start gap-1">
-                      <span className="font-roboto text-base font-medium text-text-headline dark:text-text-headline-dark group-hover:text-accent-brand">
+                      <span className="font-roboto text-base font-medium text-text-headline group-hover:text-accent-brand">
                         {channel.label}
                       </span>
-                      <span className="font-roboto text-sm text-text-body dark:text-text-body-dark">
+                      <span className="font-roboto text-sm text-text-body">
                         {channel.description}
                       </span>
                     </div>

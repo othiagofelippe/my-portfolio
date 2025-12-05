@@ -13,6 +13,7 @@ import {
   HiOutlineMoon,
   HiOutlineXMark,
 } from "react-icons/hi2";
+import { MdOutlineWaves } from "react-icons/md";
 import { Button } from "./button";
 import { Switch } from "./switch";
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
@@ -48,7 +49,7 @@ export function AccessibilityPanel() {
     router.push(newPathname);
   };
 
-  const handleThemeChange = (newTheme: 'light' | 'dark') => {
+  const handleThemeChange = (newTheme: 'light' | 'dark' | 'ocean-sunset') => {
     setTheme(newTheme);
     audio.play("themeToggle");
   };
@@ -72,7 +73,7 @@ export function AccessibilityPanel() {
       >
         <motion.button
           onClick={handleTogglePanel}
-          className="relative p-4 bg-accent-brand hover:bg-accent-brand-dark text-text-label rounded-full shadow-lg cursor-pointer group"
+          className="relative p-4 bg-accent-brand hover:bg-accent-brand/90 text-text-label rounded-full shadow-lg cursor-pointer group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -104,7 +105,7 @@ export function AccessibilityPanel() {
 
             {/* Panel Content */}
             <motion.div
-              className="fixed right-4 sm:right-6 bottom-4 sm:bottom-32 w-[calc(100vw-2rem)] sm:w-80 max-w-sm max-h-[calc(100vh-8rem)] bg-background-primary dark:bg-background-tertiary rounded-2xl shadow-xl border border-border-primary z-50 overflow-hidden flex flex-col"
+              className="fixed right-4 sm:right-6 bottom-4 sm:bottom-32 w-[calc(100vw-2rem)] sm:w-80 max-w-sm max-h-[calc(100vh-8rem)] bg-background-primary rounded-2xl shadow-xl border border-border-primary z-50 overflow-hidden flex flex-col"
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -112,14 +113,14 @@ export function AccessibilityPanel() {
             >
               {/* Header */}
               <div className="flex items-center justify-between p-3 sm:p-4 border-b border-border-primary flex-shrink-0">
-                <h3 className="font-poppins text-base sm:text-lg font-semibold text-text-headline dark:text-text-headline-dark">
+                <h3 className="font-poppins text-base sm:text-lg font-semibold text-text-headline">
                   Acessibilidade
                 </h3>
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={handleTogglePanel}
-                  className="h-7 w-7 sm:h-8 sm:w-8 text-black dark:text-white hover:bg-accent-brand/10 hover:text-accent-brand"
+                  className="h-7 w-7 sm:h-8 sm:w-8 text-text-heading hover:bg-accent-brand/10 hover:text-accent-brand"
                 >
                   <HiOutlineXMark className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
@@ -129,7 +130,7 @@ export function AccessibilityPanel() {
               <div className="p-3 sm:p-4 space-y-4 sm:space-y-6 overflow-y-auto flex-1">
                 {/* Tema */}
                 <div className="space-y-2 sm:space-y-3">
-                  <h4 className="font-roboto text-xs sm:text-sm font-medium text-text-heading dark:text-text-heading-dark">
+                  <h4 className="font-roboto text-xs sm:text-sm font-medium text-text-heading ">
                     Tema
                   </h4>
                   <ToggleGroup
@@ -138,26 +139,34 @@ export function AccessibilityPanel() {
                     value={mounted ? resolvedTheme || 'light' : 'light'}
                     onValueChange={(value) => {
                       if (value && mounted) {
-                        handleThemeChange(value as 'light' | 'dark');
+                        handleThemeChange(value as 'light' | 'dark' | 'ocean-sunset');
                       }
                     }}
-                    className="grid w-full grid-cols-2"
+                    className="grid w-full grid-cols-3 gap-1"
                   >
                     <ToggleGroupItem
                       value="light"
-                      className="text-xs sm:text-sm h-8 sm:h-9 !bg-white data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
+                      className="text-xs sm:text-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
                       disabled={!mounted}
                     >
-                      <HiOutlineSun className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                      Claro
+                      <HiOutlineSun className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="text-xs font-medium">Claro</span>
                     </ToggleGroupItem>
                     <ToggleGroupItem
                       value="dark"
-                      className="text-xs sm:text-sm h-8 sm:h-9 !bg-white data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
+                      className="text-xs sm:text-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
                       disabled={!mounted}
                     >
-                      <HiOutlineMoon className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                      Escuro
+                      <HiOutlineMoon className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="text-xs font-medium">Escuro</span>
+                    </ToggleGroupItem>
+                    <ToggleGroupItem
+                      value="ocean-sunset"
+                      className="text-xs sm:text-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
+                      disabled={!mounted}
+                    >
+                      <MdOutlineWaves className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="text-xs font-medium">Oceano</span>
                     </ToggleGroupItem>
                   </ToggleGroup>
                 </div>
@@ -167,11 +176,11 @@ export function AccessibilityPanel() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       {audio.soundEnabled ? (
-                        <HiOutlineSpeakerWave className="w-4 h-4 text-text-heading dark:text-text-heading-dark" />
+                        <HiOutlineSpeakerWave className="w-4 h-4 text-text-heading" />
                       ) : (
-                        <HiOutlineSpeakerXMark className="w-4 h-4 text-text-span dark:text-text-span-dark" />
+                        <HiOutlineSpeakerXMark className="w-4 h-4 text-text-span" />
                       )}
-                      <h4 className="font-roboto text-xs sm:text-sm font-medium text-text-heading dark:text-text-heading-dark">
+                      <h4 className="font-roboto text-xs sm:text-sm font-medium text-text-heading ">
                         Efeitos Sonoros
                       </h4>
                     </div>
@@ -189,7 +198,7 @@ export function AccessibilityPanel() {
 
                 {/* Idioma */}
                 <div className="space-y-2 sm:space-y-3">
-                  <h4 className="font-roboto text-xs sm:text-sm font-medium text-text-heading dark:text-text-heading-dark">
+                  <h4 className="font-roboto text-xs sm:text-sm font-medium text-text-heading ">
                     Idioma
                   </h4>
                   <ToggleGroup
@@ -207,7 +216,7 @@ export function AccessibilityPanel() {
                       <ToggleGroupItem
                         key={lang.code}
                         value={lang.code}
-                        className="text-xs sm:text-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
+                        className="text-xs sm:text-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
                       >
                         <span className="text-sm">{lang.flag}</span>
                         <span className="text-xs font-medium">{lang.code.toUpperCase()}</span>

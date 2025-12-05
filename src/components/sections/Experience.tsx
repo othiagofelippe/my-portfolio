@@ -39,13 +39,13 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
   ];
 
   return (
-    <section id="experiencia" className="py-20 bg-background-secondary/30 dark:bg-background-secondary">
+    <section id="experiencia" className="py-20 bg-background-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
             {dict.experience.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark max-w-2xl mx-auto">
+          <p className="font-roboto text-lg text-text-body max-w-2xl mx-auto">
             {dict.experience.subtitle}
           </p>
         </div>
@@ -58,22 +58,22 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
             {experiences.map((experience, index) => (
               <div key={index} className="relative flex items-center mb-12 last:mb-0">
                 {/* Timeline dot */}
-                <div className="absolute left-6 w-4 h-4 bg-accent-brand rounded-full border-4 border-background-primary dark:border-background-secondary md:left-1/2 md:transform md:-translate-x-2"></div>
+                <div className="absolute left-6 w-4 h-4 bg-accent-brand rounded-full border-4 border-background-primary md:left-1/2 md:transform md:-translate-x-2"></div>
 
                 {/* Content */}
                 <div className={`ml-16 md:w-5/12 ${index % 2 === 0 ? 'md:ml-0 md:pr-8 md:text-right' : 'md:ml-auto md:pl-8'}`}>
-                  <Card className="bg-background-primary dark:bg-background-tertiary border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out">
+                  <Card className="bg-background-primary border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out">
                     <CardContent className="p-6">
                       <div className="mb-2">
                         <Badge
                           variant="secondary"
-                          className="font-roboto text-sm font-medium bg-accent-green-light/20 text-accent-green border border-accent-green/20 hover:bg-accent-green/20 transition-colors"
+                          className="font-roboto text-sm font-medium bg-accent-green/90 text-white border border-accent-green hover:bg-accent-green transition-colors"
                         >
                           {experience.period}
                         </Badge>
                       </div>
 
-                      <h3 className="font-poppins text-xl text-text-headline dark:text-text-headline-dark mb-1">
+                      <h3 className="font-poppins text-xl text-text-headline mb-1">
                         {experience.title}
                       </h3>
 
@@ -81,7 +81,7 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
                         {experience.company}
                       </h4>
 
-                      <p className="font-roboto text-text-body dark:text-text-body-dark mb-4 leading-relaxed">
+                      <p className="font-roboto text-text-body mb-4 leading-relaxed">
                         {experience.description}
                       </p>
 
@@ -90,7 +90,7 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
                           <Badge
                             key={skillIndex}
                             variant="outline"
-                            className="font-roboto text-sm bg-background-secondary/50 dark:bg-background-secondary text-text-span dark:text-text-span-dark border-border-primary/20 hover:bg-background-secondary/70 transition-colors"
+                            className="font-roboto text-sm bg-background-secondary/50 text-text-span border-border-primary/20 hover:bg-background-secondary/70 transition-colors"
                           >
                             {skill}
                           </Badge>
