@@ -15,32 +15,39 @@
   --font-family-body: var(--font-roboto), Arial, Helvetica, sans-serif;
 
   /* ============================================ */
-  /* PRIMITIVE TOKENS - Font Sizes               */
+  /* PRIMITIVE TOKENS - Font Sizes (Fluid)       */
   /* ============================================ */
-  --font-size-6xl: 3.75rem;   /* 60px */
-  --font-size-5xl: 3rem;      /* 48px */
-  --font-size-4xl: 2.25rem;   /* 36px */
-  --font-size-3xl: 1.875rem;  /* 30px */
-  --font-size-2xl: 1.5rem;    /* 24px */
-  --font-size-xl: 1.25rem;    /* 20px */
-  --font-size-lg: 1.125rem;   /* 18px */
-  --font-size-base: 1rem;     /* 16px */
-  --font-size-sm: 0.875rem;   /* 14px */
-  --font-size-xs: 0.75rem;    /* 12px */
+  /* Tipografia fluida usando clamp() para responsividade suave */
+  /* Fórmula: clamp(min-mobile, escala-viewport, max-desktop) */
+  /* Viewport range: 320px (mobile) → 1440px+ (desktop) */
+
+  --font-size-6xl: clamp(2.5rem, 1.5rem + 5vw, 3.75rem);        /* 40px → 60px */
+  --font-size-5xl: clamp(2rem, 1.25rem + 3.75vw, 3rem);         /* 32px → 48px */
+  --font-size-4xl: clamp(1.5rem, 1rem + 2.5vw, 2.25rem);        /* 24px → 36px */
+  --font-size-3xl: clamp(1.375rem, 0.875rem + 2.5vw, 1.875rem); /* 22px → 30px */
+  --font-size-2xl: clamp(1.25rem, 0.875rem + 1.875vw, 1.5rem);  /* 20px → 24px */
+  --font-size-xl: clamp(1.125rem, 0.875rem + 1.25vw, 1.25rem);  /* 18px → 20px */
+  --font-size-lg: clamp(1rem, 0.875rem + 0.625vw, 1.125rem);    /* 16px → 18px */
+  --font-size-base: 1rem;     /* 16px - Base fixa para corpo de texto */
+  --font-size-sm: 0.875rem;   /* 14px - Fixo */
+  --font-size-xs: 0.75rem;    /* 12px - Fixo */
 
   /* ============================================ */
-  /* PRIMITIVE TOKENS - Line Heights             */
+  /* PRIMITIVE TOKENS - Line Heights (Fluid)     */
   /* ============================================ */
-  --line-height-6xl: 3.75rem;   /* 60px */
-  --line-height-5xl: 3rem;      /* 48px */
-  --line-height-4xl: 2.5rem;    /* 40px */
-  --line-height-3xl: 2.25rem;   /* 36px */
-  --line-height-2xl: 2rem;      /* 32px */
-  --line-height-xl: 1.75rem;    /* 28px */
-  --line-height-lg: 1.75rem;    /* 28px */
-  --line-height-base: 1.5rem;   /* 24px */
-  --line-height-sm: 1.25rem;    /* 20px */
-  --line-height-xs: 1rem;       /* 16px */
+  /* Line heights escalados proporcionalmente aos font-sizes */
+  /* Mantém ratio de ~1.2-1.3 para melhor legibilidade */
+
+  --line-height-6xl: clamp(3rem, 1.875rem + 5.625vw, 3.75rem);    /* 48px → 60px */
+  --line-height-5xl: clamp(2.5rem, 1.625rem + 4.375vw, 3rem);     /* 40px → 48px */
+  --line-height-4xl: clamp(2rem, 1.375rem + 3.125vw, 2.5rem);     /* 32px → 40px */
+  --line-height-3xl: clamp(1.75rem, 1.125rem + 3.125vw, 2.25rem); /* 28px → 36px */
+  --line-height-2xl: clamp(1.625rem, 1.125rem + 2.5vw, 2rem);     /* 26px → 32px */
+  --line-height-xl: clamp(1.5rem, 1.125rem + 1.875vw, 1.75rem);   /* 24px → 28px */
+  --line-height-lg: clamp(1.5rem, 1.125rem + 1.875vw, 1.75rem);   /* 24px → 28px */
+  --line-height-base: 1.5rem;   /* 24px - Fixo (1.5 ratio do base) */
+  --line-height-sm: 1.25rem;    /* 20px - Fixo */
+  --line-height-xs: 1rem;       /* 16px - Fixo */
 
   /* ============================================ */
   /* PRIMITIVE TOKENS - Font Weights             */
