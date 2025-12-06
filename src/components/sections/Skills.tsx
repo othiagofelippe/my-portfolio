@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/atoms";
+import { Card, CardContent, CardTitle } from "@/components/molecules";
 import {
   HiOutlineCog6Tooth,
   HiOutlineDevicePhoneMobile,

@@ -7,8 +7,7 @@ import {
 } from "@/lib/structured-data";
 import { Analytics } from "@vercel/analytics/react";
 import { Poppins, Roboto } from "next/font/google";
-import { Footer, Header, ScrollToTop } from "../../components";
-import { AccessibilityPanel } from "../../components/ui/AccessibilityPanel";
+import { Footer, Header, ScrollToTop, AccessibilityPanel } from "../../components";
 import "../globals.css";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { AudioProvider } from "@/context/AudioContext";

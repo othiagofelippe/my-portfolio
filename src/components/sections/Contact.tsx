@@ -2,7 +2,7 @@
 
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineEnvelope, HiOutlineClock, HiOutlineMapPin } from "react-icons/hi2";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/molecules";
 import { useAudio } from "@/context/AudioContext";
 
 export function Contact({ dict }: { dict: any }) {

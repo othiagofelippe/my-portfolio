@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/atoms";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/molecules";
 import { HiOutlineAcademicCap, HiOutlineDocumentText, HiOutlineGlobeAlt } from "react-icons/hi2";
 
 export function Education({ dict }: { dict: any }) {

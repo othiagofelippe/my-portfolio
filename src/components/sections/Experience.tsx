@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/atoms';
+import { Badge } from '@/components/atoms';
+import { Card, CardContent } from '@/components/molecules';
 import { useAudio } from '@/context/AudioContext';
 
 export function Experience({ dict }: { dict: any & { lang?: string } }) {

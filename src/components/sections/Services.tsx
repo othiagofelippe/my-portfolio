@@ -1,5 +1,5 @@
 import { HiOutlineCodeBracket, HiOutlinePaintBrush } from 'react-icons/hi2';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardTitle } from '@/components/molecules';
 
 export function Services({ dict }: { dict: any })  {
   const services = [

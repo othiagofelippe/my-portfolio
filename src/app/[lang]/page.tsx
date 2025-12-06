@@ -9,7 +9,7 @@ import {
   Services,
   Skills,
 } from "../../components/sections";
-import { PageTransition } from "../../components/ui/PageTransition";
+import { PageTransition } from "../../components/molecules";
 
 export default async function Home({
   params,
