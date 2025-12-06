@@ -1,0 +1,57 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Write(./.env)",
+      "Write(./.env.*)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash(git push*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '🔍 Verificando tipos TypeScript...' && npx tsc --noEmit && echo '📦 Rodando build...' && npm run build"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(npm install*|npm i *|yarn add*|pnpm add*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '⚠️  Instalando dependência: $CLAUDE_TOOL_INPUT'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"📝 Arquivo modificado: $CLAUDE_FILE_PATHS\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command -v terminal-notifier >/dev/null 2>&1 && terminal-notifier -message 'Tarefa concluída!' -title 'Claude Code' -sound 'Glass' || echo '✅ Claude terminou!'"
+          }
+        ]
+      }
+    ]
+  },
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
