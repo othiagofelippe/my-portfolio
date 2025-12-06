@@ -59,7 +59,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="font-roboto text-sm font-normal text-text-body hover:text-text-headline px-3 py-2 transition-colors relative group cursor-pointer"
+                  className="typography-body-sm text-text-body hover:text-text-headline px-3 py-2 transition-colors relative group cursor-pointer"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent-brand group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
@@ -73,7 +73,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
             <Button
               onClick={handleContactClick}
               size="sm"
-              className="font-roboto text-sm font-medium bg-accent-brand hover:bg-accent-brand/90 text-text-label transition-colors cursor-pointer"
+              className="typography-body-sm font-medium bg-accent-brand hover:bg-accent-brand/90 text-text-label transition-colors cursor-pointer"
             >
               {dict.nav.contactButton}
             </Button>
@@ -133,16 +133,16 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
               <div className="px-2 pt-2 pb-3 space-y-1 bg-background-primary border-t border-border-primary">
                 {navItems.map((item, index) => (
                   <motion.button
-                    key={item.name}
-                    onClick={() => {
-                      scrollToSection(item.href);
-                      audio.play("uiExpand");
-                      setIsMenuOpen(false);
-                    }}
-                    className="font-roboto text-base font-normal text-text-body hover:text-text-headline block px-3 py-2 relative group w-full text-left cursor-pointer"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
+                  key={item.name}
+                  onClick={() => {
+                    scrollToSection(item.href);
+                    audio.play("uiExpand");
+                    setIsMenuOpen(false);
+                  }}
+                  className="typography-body text-text-body hover:text-text-headline block px-3 py-2 relative group w-full text-left cursor-pointer"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
                       delay: index * 0.1,
                       duration: 0.3,
                     }}
@@ -167,7 +167,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                         setIsMenuOpen(false);
                         setTimeout(() => scrollToSectionSilent("#contato"), 300);
                       }}
-                      className="font-roboto text-base font-medium w-full bg-accent-brand hover:bg-accent-brand/90 text-text-label transition-colors cursor-pointer"
+                      className="typography-body font-medium w-full bg-accent-brand hover:bg-accent-brand/90 text-text-label transition-colors cursor-pointer"
                       size="default"
                     >
                       {dict.nav.contactButton}

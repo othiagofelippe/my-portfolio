@@ -51,10 +51,10 @@ export function Contact({ dict }: { dict: any }) {
     <section id="contato" className="py-20 bg-background-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
+          <h2 className="typography-h2 text-text-headline mb-4">
             {dict.contact.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body max-w-2xl mx-auto">
+          <p className="typography-body text-text-body max-w-2xl mx-auto">
             {dict.contact.subtitle}
           </p>
         </div>
@@ -62,10 +62,10 @@ export function Contact({ dict }: { dict: any }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <Card className="bg-background-secondary/20 border-border-primary/10">
             <CardHeader>
-              <CardTitle className="font-poppins text-2xl text-text-headline">
+              <CardTitle className="typography-h4 text-text-headline">
                 {dict.contact.socialSection.quickResponse.title}
               </CardTitle>
-              <p className="font-roboto text-text-body">
+              <p className="typography-body text-text-body">
                 {dict.contact.socialSection.quickResponse.description}
               </p>
             </CardHeader>
@@ -75,12 +75,12 @@ export function Contact({ dict }: { dict: any }) {
                   <HiOutlineEnvelope className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-roboto text-sm text-text-span uppercase tracking-wide">
+                  <p className="typography-body-sm text-text-span uppercase tracking-wide">
                     {dict.contact.infoLabels.email}
                   </p>
                   <a
                     href={`mailto:${dict.contact.info.email}`}
-                    className="font-roboto text-base text-text-headline hover:text-accent-brand transition-colors"
+                    className="typography-body text-text-headline hover:text-accent-brand transition-colors"
                   >
                     {dict.contact.info.email}
                   </a>
@@ -92,10 +92,10 @@ export function Contact({ dict }: { dict: any }) {
                   <HiOutlineMapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-roboto text-sm text-text-span uppercase tracking-wide">
+                  <p className="typography-body-sm text-text-span uppercase tracking-wide">
                     {dict.contact.infoLabels.location}
                   </p>
-                  <p className="font-roboto text-base text-text-headline">
+                  <p className="typography-body text-text-headline">
                     {dict.contact.info.location}
                   </p>
                 </div>
@@ -106,10 +106,10 @@ export function Contact({ dict }: { dict: any }) {
                   <HiOutlineClock className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-roboto text-sm text-text-span uppercase tracking-wide">
+                  <p className="typography-body-sm text-text-span uppercase tracking-wide">
                     {dict.contact.infoLabels.availability}
                   </p>
-                  <p className="font-roboto text-base text-text-headline">
+                  <p className="typography-body text-text-headline">
                     {dict.contact.info.availability}
                   </p>
                 </div>
@@ -119,10 +119,10 @@ export function Contact({ dict }: { dict: any }) {
 
           <Card className="bg-background-secondary/20 border-border-primary/10">
             <CardHeader>
-              <CardTitle className="font-poppins text-2xl text-text-headline">
+              <CardTitle className="typography-h4 text-text-headline">
                 {dict.contact.socialSection.title}
               </CardTitle>
-              <p className="font-roboto text-text-body">
+              <p className="typography-body text-text-body">
                 {dict.contact.socialSection.subtitle}
               </p>
             </CardHeader>
@@ -143,10 +143,10 @@ export function Contact({ dict }: { dict: any }) {
                       {channel.icon}
                     </div>
                     <div className="flex flex-col items-start gap-1">
-                      <span className="font-roboto text-base font-medium text-text-headline group-hover:text-accent-brand">
+                      <span className="typography-body font-medium text-text-headline group-hover:text-accent-brand">
                         {channel.label}
                       </span>
-                      <span className="font-roboto text-sm text-text-body">
+                      <span className="typography-body-sm text-text-body">
                         {channel.description}
                       </span>
                     </div>

@@ -46,20 +46,20 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
           {/* Text Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="font-poppins text-4xl sm:text-5xl lg:text-6xl text-text-headline">
+              <h1 className="typography-display text-text-headline">
                 {dict.hero.greeting}
               </h1>
-              <h2 className="font-poppins text-2xl sm:text-3xl lg:text-4xl text-text-heading">
+              <h2 className="typography-h2 text-text-heading">
                 {dict.hero.intro}{" "}
                 <span className="text-accent-brand">{dict.hero.name}</span>
               </h2>
             </div>
 
-            <p className="font-roboto text-xl sm:text-2xl font-medium text-text-body leading-relaxed">
+            <p className="typography-h5 text-text-body">
               {dict.hero.role}
             </p>
 
-            <p className="font-roboto text-lg text-text-body leading-relaxed">
+            <p className="typography-body-lg text-text-body">
               {dict.hero.description}
             </p>
 
@@ -68,7 +68,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                 <Badge
                   key={index}
                   variant="secondary"
-                  className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
+                  className="typography-body-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
                 >
                   {skill}
                 </Badge>
@@ -81,7 +81,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                 variant="ghost"
                 size="lg"
                 onClick={handleDownloadClick}
-                className="font-roboto text-base font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body hover:text-text-headline transition-colors cursor-pointer bg-transparent"
+                className="typography-body font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body hover:text-text-headline transition-colors cursor-pointer bg-transparent"
               >
                 <a href={`/${getCVFileName()}`} download={getCVFileName()}>
                   {dict.hero.downloadCV}

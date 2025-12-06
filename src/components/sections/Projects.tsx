@@ -62,10 +62,10 @@ export function Projects({ dict }: { dict: any }) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
+            <h2 className="typography-h2 text-text-headline mb-4">
               {dict.projects.title}
             </h2>
-            <p className="font-roboto text-lg text-text-body max-w-2xl mx-auto">
+            <p className="typography-body text-text-body max-w-2xl mx-auto">
               {dict.projects.loading}
             </p>
           </div>
@@ -101,10 +101,10 @@ export function Projects({ dict }: { dict: any }) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
+            <h2 className="typography-h2 text-text-headline mb-4">
               {dict.projects.title}
             </h2>
-            <p className="font-roboto text-lg text-accent-red">
+            <p className="typography-body text-accent-red">
               {dict.projects.error}: {error}
             </p>
           </div>
@@ -120,10 +120,10 @@ export function Projects({ dict }: { dict: any }) {
         className="py-20 bg-background-secondary/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
+          <h2 className="typography-h2 text-text-headline mb-4">
             {dict.projects.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body">
+          <p className="typography-body text-text-body">
             {dict.projects.empty}
           </p>
         </div>
@@ -138,10 +138,10 @@ export function Projects({ dict }: { dict: any }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
+          <h2 className="typography-h2 text-text-headline mb-4">
             {dict.projects.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body max-w-2xl mx-auto">
+          <p className="typography-body text-text-body max-w-2xl mx-auto">
             {dict.projects.subtitle}
           </p>
         </div>
@@ -163,12 +163,12 @@ export function Projects({ dict }: { dict: any }) {
                   <Card className="h-full bg-background-primary border-border-primary/10 hover:shadow-xl transition-all duration-300 ease-out flex flex-col">
                     <CardHeader className="pb-4">
                       <div className="flex items-center justify-between mb-4">
-                        <CardTitle className="font-poppins text-xl text-text-headline">
+                        <CardTitle className="typography-h5 text-text-headline">
                           {project.name}
                         </CardTitle>
                         <Badge
                           variant="outline"
-                          className="font-roboto bg-background-secondary/50 text-text-span text-sm border-border-primary/20"
+                          className="typography-body-sm bg-background-secondary/50 text-text-span border-border-primary/20"
                         >
                           {project.language || "Projeto"}
                         </Badge>
@@ -176,12 +176,12 @@ export function Projects({ dict }: { dict: any }) {
                     </CardHeader>
 
                     <CardContent className="pt-0 flex-1 flex flex-col">
-                      <p className="font-roboto text-text-body mb-4 leading-relaxed line-clamp-3">
+                      <p className="typography-body text-text-body mb-4 leading-relaxed line-clamp-3">
                         {project.description}
                       </p>
 
                       <div className="space-y-3 mt-auto">
-                        <div className="flex items-center gap-2 text-text-body text-sm">
+                        <div className="flex items-center gap-2 text-text-body typography-body-sm">
                           <span>📅 {project.formatted_date}</span>
                         </div>
                         <div className="flex flex-wrap gap-2 min-h-[2rem]">
@@ -189,7 +189,7 @@ export function Projects({ dict }: { dict: any }) {
                             <Badge
                               key={tagIndex}
                               variant="secondary"
-                              className="font-roboto bg-accent-brand/10 text-accent-brand text-sm border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
+                              className="typography-body-sm bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
                             >
                               {tag}
                             </Badge>
@@ -197,7 +197,7 @@ export function Projects({ dict }: { dict: any }) {
                           {project.tags.length > 4 && (
                             <Badge
                               variant="outline"
-                              className="font-roboto text-text-span text-sm border-border-primary/20"
+                              className="typography-body-sm text-text-span border-border-primary/20"
                             >
                               +{project.tags.length - 4}
                             </Badge>
@@ -213,7 +213,7 @@ export function Projects({ dict }: { dict: any }) {
                           asChild
                           variant="outline"
                           size="sm"
-                          className="font-roboto flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
+                          className="typography-body-sm flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
                           onClick={() => audio.play("buttonClick")}
                         >
                           <a
@@ -225,13 +225,13 @@ export function Projects({ dict }: { dict: any }) {
                           </a>
                         </Button>
                       )}
-                      <Button
-                        asChild
-                        variant="outline"
-                        size="sm"
-                        className="font-roboto flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
-                        onClick={() => audio.play("buttonClick")}
-                      >
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="typography-body-sm flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
+                          onClick={() => audio.play("buttonClick")}
+                        >
                         <a
                           href={project.url}
                           target="_blank"
@@ -255,7 +255,7 @@ export function Projects({ dict }: { dict: any }) {
           <Button
             asChild
             size="lg"
-            className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
+            className="typography-body font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
             onClick={() => audio.play("buttonClick")}
           >
             <a

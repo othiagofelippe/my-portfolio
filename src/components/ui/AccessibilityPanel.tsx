@@ -113,7 +113,7 @@ export function AccessibilityPanel() {
             >
               {/* Header */}
               <div className="flex items-center justify-between p-3 sm:p-4 border-b border-border-primary flex-shrink-0">
-                <h3 className="font-poppins text-base sm:text-lg font-semibold text-text-headline">
+                <h3 className="typography-h5 font-semibold text-text-headline">
                   Acessibilidade
                 </h3>
                 <Button
@@ -130,7 +130,7 @@ export function AccessibilityPanel() {
               <div className="p-3 sm:p-4 space-y-4 sm:space-y-6 overflow-y-auto flex-1">
                 {/* Tema */}
                 <div className="space-y-2 sm:space-y-3">
-                  <h4 className="font-roboto text-xs sm:text-sm font-medium text-text-heading ">
+                  <h4 className="typography-body-sm font-medium text-text-heading">
                     Tema
                   </h4>
                   <ToggleGroup
@@ -146,27 +146,27 @@ export function AccessibilityPanel() {
                   >
                     <ToggleGroupItem
                       value="light"
-                      className="text-xs sm:text-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
+                      className="typography-body-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
                       disabled={!mounted}
                     >
                       <HiOutlineSun className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span className="text-xs font-medium">Claro</span>
+                      <span className="typography-body-sm font-medium">Claro</span>
                     </ToggleGroupItem>
                     <ToggleGroupItem
                       value="dark"
-                      className="text-xs sm:text-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
+                      className="typography-body-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
                       disabled={!mounted}
                     >
                       <HiOutlineMoon className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span className="text-xs font-medium">Escuro</span>
+                      <span className="typography-body-sm font-medium">Escuro</span>
                     </ToggleGroupItem>
                     <ToggleGroupItem
                       value="ocean-sunset"
-                      className="text-xs sm:text-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
+                      className="typography-body-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
                       disabled={!mounted}
                     >
                       <MdOutlineWaves className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span className="text-xs font-medium">Oceano</span>
+                      <span className="typography-body-sm font-medium">Oceano</span>
                     </ToggleGroupItem>
                   </ToggleGroup>
                 </div>
@@ -180,7 +180,7 @@ export function AccessibilityPanel() {
                       ) : (
                         <HiOutlineSpeakerXMark className="w-4 h-4 text-text-span" />
                       )}
-                      <h4 className="font-roboto text-xs sm:text-sm font-medium text-text-heading ">
+                      <h4 className="typography-body-sm font-medium text-text-heading">
                         Efeitos Sonoros
                       </h4>
                     </div>
@@ -198,7 +198,7 @@ export function AccessibilityPanel() {
 
                 {/* Idioma */}
                 <div className="space-y-2 sm:space-y-3">
-                  <h4 className="font-roboto text-xs sm:text-sm font-medium text-text-heading ">
+                  <h4 className="typography-body-sm font-medium text-text-heading">
                     Idioma
                   </h4>
                   <ToggleGroup
@@ -216,10 +216,10 @@ export function AccessibilityPanel() {
                       <ToggleGroupItem
                         key={lang.code}
                         value={lang.code}
-                        className="text-xs sm:text-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
+                        className="typography-body-sm h-12 sm:h-14 flex flex-col gap-0.5 p-1 !bg-white !text-gray-800 data-[state=on]:!bg-accent-brand data-[state=on]:!text-white data-[state=on]:!border-accent-brand"
                       >
-                        <span className="text-sm">{lang.flag}</span>
-                        <span className="text-xs font-medium">{lang.code.toUpperCase()}</span>
+                        <span className="typography-body-sm">{lang.flag}</span>
+                        <span className="typography-body-sm font-medium">{lang.code.toUpperCase()}</span>
                       </ToggleGroupItem>
                     ))}
                   </ToggleGroup>

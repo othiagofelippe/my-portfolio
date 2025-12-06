@@ -6,10 +6,119 @@
 @custom-variant ocean-sunset (&:is(.ocean-sunset *));
 
 @theme {
+  /* ============================================ */
+  /* PRIMITIVE TOKENS - Font Families            */
+  /* ============================================ */
   --font-poppins: var(--font-poppins);
   --font-roboto: var(--font-roboto);
+  --font-family-heading: var(--font-poppins), Arial, Helvetica, sans-serif;
+  --font-family-body: var(--font-roboto), Arial, Helvetica, sans-serif;
 
-  /* Light Theme Colors */
+  /* ============================================ */
+  /* PRIMITIVE TOKENS - Font Sizes               */
+  /* ============================================ */
+  --font-size-6xl: 3.75rem;   /* 60px */
+  --font-size-5xl: 3rem;      /* 48px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-xs: 0.75rem;    /* 12px */
+
+  /* ============================================ */
+  /* PRIMITIVE TOKENS - Line Heights             */
+  /* ============================================ */
+  --line-height-6xl: 3.75rem;   /* 60px */
+  --line-height-5xl: 3rem;      /* 48px */
+  --line-height-4xl: 2.5rem;    /* 40px */
+  --line-height-3xl: 2.25rem;   /* 36px */
+  --line-height-2xl: 2rem;      /* 32px */
+  --line-height-xl: 1.75rem;    /* 28px */
+  --line-height-lg: 1.75rem;    /* 28px */
+  --line-height-base: 1.5rem;   /* 24px */
+  --line-height-sm: 1.25rem;    /* 20px */
+  --line-height-xs: 1rem;       /* 16px */
+
+  /* ============================================ */
+  /* PRIMITIVE TOKENS - Font Weights             */
+  /* ============================================ */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ============================================ */
+  /* SEMANTIC TOKENS - Typography Styles         */
+  /* ============================================ */
+
+  /* Display - Para títulos muito grandes (6XL) */
+  --typography-display-font: var(--font-family-heading);
+  --typography-display-size: var(--font-size-6xl);
+  --typography-display-weight: var(--font-weight-bold);
+  --typography-display-line-height: var(--line-height-6xl);
+
+  /* Heading 1 (5XL) */
+  --typography-h1-font: var(--font-family-heading);
+  --typography-h1-size: var(--font-size-5xl);
+  --typography-h1-weight: var(--font-weight-medium);
+  --typography-h1-line-height: var(--line-height-5xl);
+
+  /* Heading 2 (4XL) */
+  --typography-h2-font: var(--font-family-heading);
+  --typography-h2-size: var(--font-size-4xl);
+  --typography-h2-weight: var(--font-weight-medium);
+  --typography-h2-line-height: var(--line-height-4xl);
+
+  /* Heading 3 (3XL) */
+  --typography-h3-font: var(--font-family-heading);
+  --typography-h3-size: var(--font-size-3xl);
+  --typography-h3-weight: var(--font-weight-medium);
+  --typography-h3-line-height: var(--line-height-3xl);
+
+  /* Heading 4 (2XL) */
+  --typography-h4-font: var(--font-family-heading);
+  --typography-h4-size: var(--font-size-2xl);
+  --typography-h4-weight: var(--font-weight-medium);
+  --typography-h4-line-height: var(--line-height-2xl);
+
+  /* Heading 5 (XL) */
+  --typography-h5-font: var(--font-family-heading);
+  --typography-h5-size: var(--font-size-xl);
+  --typography-h5-weight: var(--font-weight-medium);
+  --typography-h5-line-height: var(--line-height-xl);
+
+  /* Body Large (LG) */
+  --typography-body-lg-font: var(--font-family-body);
+  --typography-body-lg-size: var(--font-size-lg);
+  --typography-body-lg-weight: var(--font-weight-medium);
+  --typography-body-lg-line-height: var(--line-height-lg);
+
+  /* Body (Base) */
+  --typography-body-font: var(--font-family-body);
+  --typography-body-size: var(--font-size-base);
+  --typography-body-weight: var(--font-weight-regular);
+  --typography-body-line-height: var(--line-height-base);
+
+  /* Body Small (SM) */
+  --typography-body-sm-font: var(--font-family-body);
+  --typography-body-sm-size: var(--font-size-sm);
+  --typography-body-sm-weight: var(--font-weight-regular);
+  --typography-body-sm-line-height: var(--line-height-sm);
+
+  /* Caption (XS) */
+  --typography-caption-font: var(--font-family-body);
+  --typography-caption-size: var(--font-size-xs);
+  --typography-caption-weight: var(--font-weight-light);
+  --typography-caption-line-height: var(--line-height-xs);
+
+  /* ============================================ */
+  /* COLOR TOKENS - Light Theme (Default)        */
+  /* ============================================ */
+
   /* Backgrounds */
   --color-background-primary: #FFFFFF;
   --color-background-secondary: #F7F8FC;
@@ -29,50 +138,11 @@
   --color-accent-brand: #5A86F7;
   --color-accent-green: #00875F;
   --color-accent-red: #DC2626;
-
-  /* Typography */
-  --font-size-6xl: 60px;
-  --line-height-6xl: 60px;
-  --font-weight-6xl: 700;
-
-  --font-size-5xl: 48px;
-  --line-height-5xl: 48px;
-  --font-weight-5xl: 500;
-
-  --font-size-4xl: 36px;
-  --line-height-4xl: 40px;
-  --font-weight-4xl: 500;
-
-  --font-size-3xl: 30px;
-  --line-height-3xl: 36px;
-  --font-weight-3xl: 500;
-
-  --font-size-2xl: 24px;
-  --line-height-2xl: 32px;
-  --font-weight-2xl: 500;
-
-  --font-size-xl: 20px;
-  --line-height-xl: 28px;
-  --font-weight-xl: 500;
-
-  --font-size-lg: 18px;
-  --line-height-lg: 28px;
-  --font-weight-lg: 500;
-
-  --font-size-base: 16px;
-  --line-height-base: 24px;
-  --font-weight-base: 400;
-
-  --font-size-sm: 14px;
-  --line-height-sm: 20px;
-  --font-weight-sm: 400;
-
-  --font-size-xs: 12px;
-  --line-height-xs: 16px;
-  --font-weight-xs: 300;
 }
 
-/* Dark Theme */
+/* ============================================ */
+/* DARK THEME OVERRIDES                        */
+/* ============================================ */
 .dark {
   /* Backgrounds */
   --color-background-primary: #121214;
@@ -95,7 +165,9 @@
   --color-accent-red: #AA2834;
 }
 
-/* Ocean Sunset Theme */
+/* ============================================ */
+/* OCEAN SUNSET THEME OVERRIDES                */
+/* ============================================ */
 .ocean-sunset {
   /* Backgrounds */
   --color-background-primary: #0D3B4A;
@@ -118,12 +190,94 @@
   --color-accent-red: #FF4500;
 }
 
+/* ============================================ */
+/* BASE STYLES                                  */
+/* ============================================ */
 body {
-  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-body);
 }
 
 @layer base {
   body {
     @apply bg-background-primary text-text-body;
+  }
+}
+
+/* ============================================ */
+/* UTILITY CLASSES - Typography                */
+/* ============================================ */
+@layer utilities {
+  /* Display */
+  .typography-display {
+    font-family: var(--typography-display-font);
+    font-size: var(--typography-display-size);
+    font-weight: var(--typography-display-weight);
+    line-height: var(--typography-display-line-height);
+  }
+
+  /* Headings */
+  .typography-h1 {
+    font-family: var(--typography-h1-font);
+    font-size: var(--typography-h1-size);
+    font-weight: var(--typography-h1-weight);
+    line-height: var(--typography-h1-line-height);
+  }
+
+  .typography-h2 {
+    font-family: var(--typography-h2-font);
+    font-size: var(--typography-h2-size);
+    font-weight: var(--typography-h2-weight);
+    line-height: var(--typography-h2-line-height);
+  }
+
+  .typography-h3 {
+    font-family: var(--typography-h3-font);
+    font-size: var(--typography-h3-size);
+    font-weight: var(--typography-h3-weight);
+    line-height: var(--typography-h3-line-height);
+  }
+
+  .typography-h4 {
+    font-family: var(--typography-h4-font);
+    font-size: var(--typography-h4-size);
+    font-weight: var(--typography-h4-weight);
+    line-height: var(--typography-h4-line-height);
+  }
+
+  .typography-h5 {
+    font-family: var(--typography-h5-font);
+    font-size: var(--typography-h5-size);
+    font-weight: var(--typography-h5-weight);
+    line-height: var(--typography-h5-line-height);
+  }
+
+  /* Body */
+  .typography-body-lg {
+    font-family: var(--typography-body-lg-font);
+    font-size: var(--typography-body-lg-size);
+    font-weight: var(--typography-body-lg-weight);
+    line-height: var(--typography-body-lg-line-height);
+  }
+
+  .typography-body {
+    font-family: var(--typography-body-font);
+    font-size: var(--typography-body-size);
+    font-weight: var(--typography-body-weight);
+    line-height: var(--typography-body-line-height);
+  }
+
+  .typography-body-sm {
+    font-family: var(--typography-body-sm-font);
+    font-size: var(--typography-body-sm-size);
+    font-weight: var(--typography-body-sm-weight);
+    line-height: var(--typography-body-sm-line-height);
+  }
+
+  /* Caption */
+  .typography-caption {
+    font-family: var(--typography-caption-font);
+    font-size: var(--typography-caption-size);
+    font-weight: var(--typography-caption-weight);
+    line-height: var(--typography-caption-line-height);
   }
 }

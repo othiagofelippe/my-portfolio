@@ -32,10 +32,10 @@ export function Skills({ dict }: { dict: any }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
+          <h2 className="typography-h2 text-text-headline mb-4">
             {dict.skills.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body max-w-2xl mx-auto">
+          <p className="typography-body text-text-body max-w-2xl mx-auto">
             {dict.skills.subtitle}
           </p>
         </div>
@@ -49,7 +49,7 @@ export function Skills({ dict }: { dict: any }) {
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="text-accent-brand">{category.icon}</div>
-                  <CardTitle className="font-poppins text-xl text-text-headline">
+                  <CardTitle className="typography-h5 text-text-headline">
                     {category.title}
                   </CardTitle>
                 </div>
@@ -59,7 +59,7 @@ export function Skills({ dict }: { dict: any }) {
                     <Badge
                       key={skillIndex}
                       variant="secondary"
-                      className="font-roboto text-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
+                      className="typography-body-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
                     >
                       {skill}
                     </Badge>

@@ -42,10 +42,10 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
     <section id="experiencia" className="py-20 bg-background-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline mb-4">
+          <h2 className="typography-h2 text-text-headline mb-4">
             {dict.experience.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body max-w-2xl mx-auto">
+          <p className="typography-body text-text-body max-w-2xl mx-auto">
             {dict.experience.subtitle}
           </p>
         </div>
@@ -67,21 +67,21 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
                       <div className="mb-2">
                         <Badge
                           variant="secondary"
-                          className="font-roboto text-sm font-medium bg-accent-green/90 text-white border border-accent-green hover:bg-accent-green transition-colors"
+                          className="typography-body-sm font-medium bg-accent-green/90 text-white border border-accent-green hover:bg-accent-green transition-colors"
                         >
                           {experience.period}
                         </Badge>
                       </div>
 
-                      <h3 className="font-poppins text-xl text-text-headline mb-1">
+                      <h3 className="typography-h5 text-text-headline mb-1">
                         {experience.title}
                       </h3>
 
-                      <h4 className="font-poppins text-lg font-medium text-accent-brand mb-3">
+                      <h4 className="typography-body-lg text-accent-brand mb-3">
                         {experience.company}
                       </h4>
 
-                      <p className="font-roboto text-text-body mb-4 leading-relaxed">
+                      <p className="typography-body text-text-body mb-4">
                         {experience.description}
                       </p>
 
@@ -90,7 +90,7 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
                           <Badge
                             key={skillIndex}
                             variant="outline"
-                            className="font-roboto text-sm bg-background-secondary/50 text-text-span border-border-primary/20 hover:bg-background-secondary/70 transition-colors"
+                            className="typography-body-sm bg-background-secondary/50 text-text-span border-border-primary/20 hover:bg-background-secondary/70 transition-colors"
                           >
                             {skill}
                           </Badge>
@@ -109,7 +109,7 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
             asChild
             size="lg"
             onClick={handleDownloadClick}
-            className="font-roboto text-base font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
+            className="typography-body font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
           >
             <a href={`/${getCVFileName()}`} download={getCVFileName()}>
               {dict.experience.downloadCV}

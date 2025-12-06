@@ -46,7 +46,7 @@ export function Footer({ dict }: { dict: any }) {
             <div className="mb-4">
               <Logo />
             </div>
-            <p className="font-roboto text-text-body mb-6 max-w-md">
+            <p className="typography-body text-text-body mb-6 max-w-md">
               {dict.footer.description}
             </p>
             <div className="flex space-x-4">
@@ -106,7 +106,7 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <h3 className="font-poppins text-lg text-text-body mb-4">
+            <h3 className="typography-body-lg text-text-body mb-4">
               {dict.footer.navigation}
             </h3>
             <ul className="space-y-3">
@@ -116,7 +116,7 @@ export function Footer({ dict }: { dict: any }) {
                     onClick={() => scrollToSection(link.href)}
                     variant="ghost"
                     size="lg"
-                    className="font-roboto text-text-body hover:text-text-headline hover:bg-transparent transition-colors text-left cursor-pointer p-0 h-auto justify-start"
+                    className="typography-body text-text-body hover:text-text-headline hover:bg-transparent transition-colors text-left cursor-pointer p-0 h-auto justify-start"
                   >
                     {link.name}
                   </Button>
@@ -126,7 +126,7 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <h3 className="font-poppins text-lg text-text-body mb-4">
+            <h3 className="typography-body-lg text-text-body mb-4">
               {dict.footer.contactSection}
             </h3>
             <div className="space-y-3 text-text-body">
@@ -134,20 +134,20 @@ export function Footer({ dict }: { dict: any }) {
                 <HiOutlineEnvelope className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <Link
                   href="mailto:contact@othiagofelippe.com"
-                  className="font-roboto cursor-pointer break-all text-sm leading-relaxed"
+                  className="typography-body-sm cursor-pointer break-all leading-relaxed"
                 >
                   {dict.contact.info.email}
                 </Link>
               </div>
               <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
                 <HiOutlineMapPin className="w-5 h-5" />
-                <span className="font-roboto">
+                <span className="typography-body">
                   {dict.contact.info.location}
                 </span>
               </div>
               <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
                 <HiOutlineClock className="w-5 h-5" />
-                <span className="font-roboto">
+                <span className="typography-body">
                   {dict.contact.info.availability}
                 </span>
               </div>
@@ -156,7 +156,7 @@ export function Footer({ dict }: { dict: any }) {
         </div>
 
         <div className="border-t border-border-primary mt-12 pt-8 text-center">
-          <p className="font-roboto text-text-span text-sm">
+          <p className="typography-body-sm text-text-span">
             © {currentYear} Thiago Felippe. {dict.footer.rights}
           </p>
         </div>
