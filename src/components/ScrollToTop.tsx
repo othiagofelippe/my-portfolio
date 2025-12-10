@@ -43,7 +43,7 @@ export function ScrollToTop() {
         >
           <motion.button
             onClick={scrollToTop}
-            className="relative p-4 bg-accent-brand hover:bg-accent-brand-dark text-text-label rounded-full shadow-lg cursor-pointer group"
+            className="relative p-4 bg-accent-brand hover:bg-accent-brand/90 text-text-label rounded-full shadow-lg cursor-pointer group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}

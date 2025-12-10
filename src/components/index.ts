@@ -1,5 +1,7 @@
-export * from './sections';
+// Central barrel export for all components
+export * from './atoms'
+export * from './molecules'
+export * from './organisms'
+export * from './sections'
 
-export * from './ui';
-
-export { ScrollToTop } from './ScrollToTop';
+export { ScrollToTop } from './ScrollToTop'

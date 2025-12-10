@@ -1,5 +1,5 @@
 import { HiOutlineCodeBracket, HiOutlinePaintBrush } from 'react-icons/hi2';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardTitle } from '@/components/molecules';
 
 export function Services({ dict }: { dict: any })  {
   const services = [
@@ -16,13 +16,13 @@ export function Services({ dict }: { dict: any })  {
   ];
 
   return (
-    <section className="py-20 bg-background-primary dark:bg-background-primary-dark">
+    <section className="py-20 bg-background-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl text-text-headline dark:text-text-headline-dark mb-4">
+          <h2 className="typography-h2 text-text-headline mb-4">
             {dict.services.title}
           </h2>
-          <p className="font-roboto text-lg text-text-body dark:text-text-body-dark max-w-2xl mx-auto">
+          <p className="typography-body text-text-body max-w-2xl mx-auto">
             {dict.services.subtitle}
           </p>
         </div>
@@ -31,18 +31,18 @@ export function Services({ dict }: { dict: any })  {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="bg-background-secondary/50 dark:bg-background-tertiary border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
+              className="bg-background-secondary/50 border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
             >
               <CardContent className="p-8">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-accent-brand">
                     {service.icon}
                   </div>
-                  <CardTitle className="font-poppins text-xl text-text-headline dark:text-text-headline-dark">
+                  <CardTitle className="typography-h5 text-text-headline">
                     {service.title}
                   </CardTitle>
                 </div>
-                <p className="font-roboto text-text-body dark:text-text-body-dark leading-relaxed">
+                <p className="typography-body text-text-body">
                   {service.description}
                 </p>
               </CardContent>

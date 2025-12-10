@@ -19,7 +19,8 @@ export function Logo() {
   }, []);
 
   const isDark = resolvedTheme === 'dark' || theme === 'dark';
-  const logoSrc = isDark ? "/logo-light.svg" : "/logo-dark.svg";
+  const isOcean = resolvedTheme === 'ocean-sunset' || theme === 'ocean-sunset';
+  const logoSrc = (isDark || isOcean) ? "/logo-light.svg" : "/logo-dark.svg";
 
   if (!mounted) {
     return (
@@ -29,7 +30,7 @@ export function Logo() {
         onClick={() => audio.play('buttonClick')}
       >
         <div className="w-6 h-6 sm:w-8 sm:h-8" />
-        <span className="text-base sm:text-lg md:text-xl font-bold text-text-headline">
+        <span className="typography-h5 !font-bold text-text-headline">
           <span className="hidden sm:inline">Thiago Felippe</span>
           <span className="sm:hidden">T. Felippe</span>
         </span>
@@ -50,11 +51,11 @@ export function Logo() {
         width={32}
         height={32}
         className="w-6 h-6 sm:w-8 sm:h-8"
-        key={isDark ? 'dark' : 'light'}
+        key={(isDark || isOcean) ? 'light' : 'dark'}
       />
 
       {/* Logo Text */}
-      <span className="text-base sm:text-lg md:text-xl font-bold text-text-headline">
+      <span className="typography-h5 !font-bold text-text-headline">
         <span className="hidden sm:inline">Thiago Felippe</span>
         <span className="sm:hidden">T. Felippe</span>
       </span>

@@ -52,7 +52,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
     <div className="relative">
       <motion.button
         onClick={handleToggle}
-        className="px-3 py-2 text-text-body dark:text-text-body-dark hover:text-text-headline dark:hover:text-text-headline-dark text-sm font-medium flex items-center space-x-2 rounded-lg hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30 cursor-pointer"
+        className="px-3 py-2 typography-body-sm font-medium text-text-body hover:text-text-headline flex items-center space-x-2 rounded-lg hover:bg-background-secondary/30 cursor-pointer"
         aria-label="Language selector"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -93,7 +93,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
             />
 
             <motion.div
-              className="absolute right-0 mt-2 w-36 bg-background-primary dark:bg-background-tertiary rounded-lg shadow-lg border border-border-primary z-20"
+              className="absolute right-0 mt-2 w-36 bg-background-primary rounded-lg shadow-lg border border-border-primary z-20"
               initial={{ opacity: 0, scale: 0.95, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
@@ -106,10 +106,10 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
                     onClick={() =>
                       handleLanguageChange(language.code as Locale)
                     }
-                    className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between cursor-pointer ${
+                    className={`w-full text-left px-4 py-2 typography-body-sm flex items-center justify-between cursor-pointer ${
                       currentLang === language.code
                         ? "bg-accent-brand/10 text-accent-brand border-l-2 border-accent-brand"
-                        : "text-text-body dark:text-text-body-dark hover:bg-background-secondary/30 dark:hover:bg-background-secondary/30 hover:text-text-headline dark:hover:text-text-headline-dark"
+                        : "text-text-body hover:bg-background-secondary/30 hover:text-text-headline"
                     }`}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}

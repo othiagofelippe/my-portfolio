@@ -7,7 +7,7 @@ import useEmblaCarousel, {
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/atoms"
 import { useAudio } from "@/context/AudioContext"
 
 type CarouselApi = UseEmblaCarouselType[1]
@@ -162,7 +162,7 @@ const CarouselContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "flex",
+          "flex cursor-grab active:cursor-grabbing",
           orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
           className
         )}
