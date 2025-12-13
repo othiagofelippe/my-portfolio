@@ -52,13 +52,13 @@ export function Footer({ dict }: { dict: any }) {
               <Button
                 asChild
                 variant="ghost"
-                size="lg"
-                className="text-text-span hover:text-accent-brand hover:bg-transparent transition-colors cursor-pointer p-2"
+                size="icon"
               >
                 <Link
                   href="https://linkedin.com/in/othiagofelippe"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn"
                 >
                   <FaLinkedinIn className="w-6 h-6" />
                 </Link>
@@ -66,13 +66,13 @@ export function Footer({ dict }: { dict: any }) {
               <Button
                 asChild
                 variant="ghost"
-                size="lg"
-                className="text-text-span hover:text-text-headline hover:bg-transparent transition-colors cursor-pointer p-2"
+                size="icon"
               >
                 <Link
                   href="https://github.com/othiagofelippe"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="GitHub"
                 >
                   <FaGithub className="w-6 h-6" />
                 </Link>
@@ -80,13 +80,13 @@ export function Footer({ dict }: { dict: any }) {
               <Button
                 asChild
                 variant="ghost"
-                size="lg"
-                className="text-text-span hover:text-white hover:bg-accent-green transition-colors cursor-pointer p-2 rounded-lg"
+                size="icon"
               >
                 <Link
                   href="https://wa.me/5521973494481"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="WhatsApp"
                 >
                   <FaWhatsapp className="w-6 h-6" />
                 </Link>
@@ -94,10 +94,12 @@ export function Footer({ dict }: { dict: any }) {
               <Button
                 asChild
                 variant="ghost"
-                size="lg"
-                className="text-text-span hover:text-accent-red hover:bg-transparent transition-colors cursor-pointer p-2"
+                size="icon"
               >
-                <Link href="mailto:contact@othiagofelippe.com">
+                <Link
+                  href="mailto:contact@othiagofelippe.com"
+                  aria-label="Email"
+                >
                   <HiOutlineEnvelope className="w-6 h-6" />
                 </Link>
               </Button>
@@ -114,8 +116,7 @@ export function Footer({ dict }: { dict: any }) {
                   <Button
                     onClick={() => scrollToSection(link.href)}
                     variant="ghost"
-                    size="lg"
-                    className="typography-body text-text-body hover:text-text-headline hover:bg-transparent transition-colors text-left cursor-pointer p-0 h-auto justify-start"
+                    className="p-0 h-auto justify-start"
                   >
                     {link.name}
                   </Button>

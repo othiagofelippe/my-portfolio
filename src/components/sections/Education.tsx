@@ -35,10 +35,7 @@ export function Education({ dict }: { dict: any }) {
                     <p className="typography-body">{dict.education.academic.location}</p>
                     <p className="typography-body flex items-center gap-4">
                       <span>{dict.education.academic.period}</span>
-                      <Badge
-                        variant="outline"
-                        className="typography-body-sm bg-background-secondary/50 text-text-span border-border-primary/20"
-                      >
+                      <Badge variant="neutral">
                         {dict.education.academic.type}
                       </Badge>
                     </p>
@@ -74,8 +71,7 @@ export function Education({ dict }: { dict: any }) {
                       {dict.education.certifications.fullstack.technologies.map((tech: string, index: number) => (
                         <Badge
                           key={index}
-                          variant="secondary"
-                          className="typography-body-sm font-medium bg-accent-green/90 text-white border border-accent-green hover:bg-accent-green transition-colors"
+                          variant="success"
                         >
                           {tech}
                         </Badge>

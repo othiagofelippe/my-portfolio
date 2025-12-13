@@ -4,21 +4,28 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center rounded-md border typography-body-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-brand focus-visible:ring-offset-2",
   {
     variants: {
       variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
-        outline: "text-foreground",
+        brand:
+          "bg-accent-brand/10 text-accent-brand border-accent-brand/20 hover:bg-accent-brand/20 dark:bg-accent-brand/20 dark:border-accent-brand/30 ocean-sunset:bg-accent-brand/20 ocean-sunset:border-accent-brand/30",
+        neutral:
+          "bg-background-secondary/50 text-text-heading border-border-primary/30 hover:bg-background-secondary/70 dark:bg-background-tertiary dark:text-text-heading dark:border-border-primary/50 ocean-sunset:bg-background-tertiary ocean-sunset:text-text-headline ocean-sunset:border-border-primary/50",
+        success:
+          "bg-accent-green/90 text-white border-accent-green hover:bg-accent-green dark:bg-accent-green dark:text-white dark:border-accent-green ocean-sunset:bg-accent-green ocean-sunset:text-white ocean-sunset:border-accent-green",
+        outline: "bg-background-secondary/50 text-text-heading border-border-primary/30 hover:bg-background-secondary/70 dark:bg-background-tertiary dark:text-text-heading dark:border-border-primary/50 ocean-sunset:bg-background-tertiary ocean-sunset:text-text-headline ocean-sunset:border-border-primary/50",
+        secondary: "bg-accent-brand/10 text-accent-brand border-accent-brand/20 hover:bg-accent-brand/20 dark:bg-accent-brand/20 dark:border-accent-brand/30 ocean-sunset:bg-accent-brand/20 ocean-sunset:border-accent-brand/30",
+      },
+      size: {
+        sm: "px-2 py-0.5 text-xs",
+        default: "px-2.5 py-0.5",
+        lg: "px-3 py-1",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "brand",
+      size: "default",
     },
   }
 )
@@ -27,9 +34,9 @@ export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 
-function Badge({ className, variant, ...props }: BadgeProps) {
+function Badge({ className, variant, size, ...props }: BadgeProps) {
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+    <div className={cn(badgeVariants({ variant, size }), className)} {...props} />
   )
 }
 

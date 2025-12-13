@@ -17,6 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/organisms";
+import { HiOutlineArrowTopRightOnSquare, HiOutlineCodeBracket, HiOutlineArrowRight } from "react-icons/hi2";
 import { useAudio } from "@/context/AudioContext";
 
 interface Project {
@@ -166,10 +167,7 @@ export function Projects({ dict }: { dict: any }) {
                         <CardTitle className="typography-h5 text-text-headline">
                           {project.name}
                         </CardTitle>
-                        <Badge
-                          variant="outline"
-                          className="typography-body-sm bg-background-secondary/50 text-text-span border-border-primary/20"
-                        >
+                        <Badge variant="neutral">
                           {project.language || "Projeto"}
                         </Badge>
                       </div>
@@ -188,17 +186,13 @@ export function Projects({ dict }: { dict: any }) {
                           {project.tags.slice(0, 4).map((tag, tagIndex) => (
                             <Badge
                               key={tagIndex}
-                              variant="secondary"
-                              className="typography-body-sm bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
+                              variant="brand"
                             >
                               {tag}
                             </Badge>
                           ))}
                           {project.tags.length > 4 && (
-                            <Badge
-                              variant="outline"
-                              className="typography-body-sm text-text-span border-border-primary/20"
-                            >
+                            <Badge variant="neutral">
                               +{project.tags.length - 4}
                             </Badge>
                           )}
@@ -213,7 +207,7 @@ export function Projects({ dict }: { dict: any }) {
                           asChild
                           variant="outline"
                           size="sm"
-                          className="typography-body-sm flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
+                          className="flex-1"
                           onClick={() => audio.play("buttonClick")}
                         >
                           <a
@@ -221,6 +215,7 @@ export function Projects({ dict }: { dict: any }) {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
+                            <HiOutlineArrowTopRightOnSquare />
                             {dict.projects.demo}
                           </a>
                         </Button>
@@ -229,7 +224,7 @@ export function Projects({ dict }: { dict: any }) {
                           asChild
                           variant="outline"
                           size="sm"
-                          className="typography-body-sm flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
+                          className="flex-1"
                           onClick={() => audio.play("buttonClick")}
                         >
                         <a
@@ -237,6 +232,7 @@ export function Projects({ dict }: { dict: any }) {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
+                          <HiOutlineCodeBracket />
                           {dict.projects.code}
                         </a>
                       </Button>
@@ -255,7 +251,6 @@ export function Projects({ dict }: { dict: any }) {
           <Button
             asChild
             size="lg"
-            className="typography-body font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
             onClick={() => audio.play("buttonClick")}
           >
             <a
@@ -264,6 +259,7 @@ export function Projects({ dict }: { dict: any }) {
               rel="noopener noreferrer"
             >
               {dict.projects.viewAll}
+              <HiOutlineArrowRight />
             </a>
           </Button>
         </div>

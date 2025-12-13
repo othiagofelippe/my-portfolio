@@ -3,6 +3,7 @@
 import { Button } from '@/components/atoms';
 import { Badge } from '@/components/atoms';
 import { Card, CardContent } from '@/components/molecules';
+import { HiOutlineArrowDownTray } from 'react-icons/hi2';
 import { useAudio } from '@/context/AudioContext';
 
 export function Experience({ dict }: { dict: any & { lang?: string } }) {
@@ -65,10 +66,7 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
                   <Card className="bg-background-primary border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out">
                     <CardContent className="p-6">
                       <div className="mb-2">
-                        <Badge
-                          variant="secondary"
-                          className="typography-body-sm font-medium bg-accent-green/90 text-white border border-accent-green hover:bg-accent-green transition-colors"
-                        >
+                        <Badge variant="success">
                           {experience.period}
                         </Badge>
                       </div>
@@ -89,8 +87,7 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
                         {experience.skills.map((skill: any, skillIndex: number) => (
                           <Badge
                             key={skillIndex}
-                            variant="outline"
-                            className="typography-body-sm bg-background-secondary/50 text-text-span border-border-primary/20 hover:bg-background-secondary/70 transition-colors"
+                            variant="neutral"
                           >
                             {skill}
                           </Badge>
@@ -109,9 +106,9 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
             asChild
             size="lg"
             onClick={handleDownloadClick}
-            className="typography-body font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
           >
             <a href={`/${getCVFileName()}`} download={getCVFileName()}>
+              <HiOutlineArrowDownTray />
               {dict.experience.downloadCV}
             </a>
           </Button>

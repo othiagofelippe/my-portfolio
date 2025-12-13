@@ -5,6 +5,7 @@ import { Badge } from "@/components/atoms";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiOutlineArrowDownTray } from "react-icons/hi2";
 import { useAudio } from "@/context/AudioContext";
 
 interface HeroDict {
@@ -67,8 +68,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
               {dict.hero.skills.map((skill: string, index: number) => (
                 <Badge
                   key={index}
-                  variant="secondary"
-                  className="typography-body-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
+                  variant="brand"
                 >
                   {skill}
                 </Badge>
@@ -78,12 +78,12 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
             <div className="flex flex-row gap-4 items-start">
               <Button
                 asChild
-                variant="ghost"
+                variant="outline"
                 size="lg"
                 onClick={handleDownloadClick}
-                className="typography-body font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body hover:text-text-headline transition-colors cursor-pointer bg-transparent"
               >
                 <a href={`/${getCVFileName()}`} download={getCVFileName()}>
+                  <HiOutlineArrowDownTray />
                   {dict.hero.downloadCV}
                 </a>
               </Button>
@@ -93,7 +93,6 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   variant="ghost"
                   size="icon"
                   onClick={handleSocialClick}
-                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span hover:text-accent-brand transition-all cursor-pointer bg-transparent"
                   title="LinkedIn"
                 >
                   <a
@@ -109,7 +108,6 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   variant="ghost"
                   size="icon"
                   onClick={handleSocialClick}
-                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span hover:text-text-headline transition-all cursor-pointer bg-transparent"
                   title="GitHub"
                 >
                   <a

@@ -119,9 +119,10 @@ export function AccessibilityPanel() {
                   variant="ghost"
                   size="icon"
                   onClick={handleTogglePanel}
-                  className="h-7 w-7 sm:h-8 sm:w-8 text-text-heading hover:bg-accent-brand/10 hover:text-accent-brand"
+                  className="h-8 w-8"
+                  aria-label="Fechar painel de acessibilidade"
                 >
-                  <HiOutlineXMark className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <HiOutlineXMark className="w-5 h-5" />
                 </Button>
               </div>
 
