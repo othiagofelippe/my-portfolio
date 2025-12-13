@@ -5,6 +5,7 @@ import { Badge } from "@/components/atoms";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiOutlineArrowDownTray } from "react-icons/hi2";
 import { useAudio } from "@/context/AudioContext";
 
 interface HeroDict {
@@ -83,6 +84,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                 onClick={handleDownloadClick}
               >
                 <a href={`/${getCVFileName()}`} download={getCVFileName()}>
+                  <HiOutlineArrowDownTray />
                   {dict.hero.downloadCV}
                 </a>
               </Button>

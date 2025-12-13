@@ -3,6 +3,7 @@
 import { Button } from '@/components/atoms';
 import { Badge } from '@/components/atoms';
 import { Card, CardContent } from '@/components/molecules';
+import { HiOutlineArrowDownTray } from 'react-icons/hi2';
 import { useAudio } from '@/context/AudioContext';
 
 export function Experience({ dict }: { dict: any & { lang?: string } }) {
@@ -111,6 +112,7 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
             onClick={handleDownloadClick}
           >
             <a href={`/${getCVFileName()}`} download={getCVFileName()}>
+              <HiOutlineArrowDownTray />
               {dict.experience.downloadCV}
             </a>
           </Button>

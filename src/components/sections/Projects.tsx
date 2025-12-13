@@ -17,6 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/organisms";
+import { HiOutlineArrowTopRightOnSquare, HiOutlineCodeBracket, HiOutlineArrowRight } from "react-icons/hi2";
 import { useAudio } from "@/context/AudioContext";
 
 interface Project {
@@ -221,6 +222,7 @@ export function Projects({ dict }: { dict: any }) {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
+                            <HiOutlineArrowTopRightOnSquare />
                             {dict.projects.demo}
                           </a>
                         </Button>
@@ -237,6 +239,7 @@ export function Projects({ dict }: { dict: any }) {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
+                          <HiOutlineCodeBracket />
                           {dict.projects.code}
                         </a>
                       </Button>
@@ -263,6 +266,7 @@ export function Projects({ dict }: { dict: any }) {
               rel="noopener noreferrer"
             >
               {dict.projects.viewAll}
+              <HiOutlineArrowRight />
             </a>
           </Button>
         </div>
