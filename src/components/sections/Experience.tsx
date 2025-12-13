@@ -109,7 +109,6 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
             asChild
             size="lg"
             onClick={handleDownloadClick}
-            className="typography-body font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
           >
             <a href={`/${getCVFileName()}`} download={getCVFileName()}>
               {dict.experience.downloadCV}

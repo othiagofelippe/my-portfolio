@@ -78,10 +78,9 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
             <div className="flex flex-row gap-4 items-start">
               <Button
                 asChild
-                variant="ghost"
+                variant="outline"
                 size="lg"
                 onClick={handleDownloadClick}
-                className="typography-body font-medium border border-border-primary hover:bg-background-secondary/50 text-text-body hover:text-text-headline transition-colors cursor-pointer bg-transparent"
               >
                 <a href={`/${getCVFileName()}`} download={getCVFileName()}>
                   {dict.hero.downloadCV}
@@ -93,7 +92,6 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   variant="ghost"
                   size="icon"
                   onClick={handleSocialClick}
-                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span hover:text-accent-brand transition-all cursor-pointer bg-transparent"
                   title="LinkedIn"
                 >
                   <a
@@ -109,7 +107,6 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   variant="ghost"
                   size="icon"
                   onClick={handleSocialClick}
-                  className="p-3 border border-border-primary hover:bg-background-secondary/50 text-text-span hover:text-text-headline transition-all cursor-pointer bg-transparent"
                   title="GitHub"
                 >
                   <a

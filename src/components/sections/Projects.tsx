@@ -213,7 +213,7 @@ export function Projects({ dict }: { dict: any }) {
                           asChild
                           variant="outline"
                           size="sm"
-                          className="typography-body-sm flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
+                          className="flex-1"
                           onClick={() => audio.play("buttonClick")}
                         >
                           <a
@@ -229,7 +229,7 @@ export function Projects({ dict }: { dict: any }) {
                           asChild
                           variant="outline"
                           size="sm"
-                          className="typography-body-sm flex-1 border-border-primary/20 hover:bg-background-secondary/50 transition-colors cursor-pointer"
+                          className="flex-1"
                           onClick={() => audio.play("buttonClick")}
                         >
                         <a
@@ -255,7 +255,6 @@ export function Projects({ dict }: { dict: any }) {
           <Button
             asChild
             size="lg"
-            className="typography-body font-medium bg-accent-brand hover:bg-accent-brand-dark text-text-label transition-colors cursor-pointer"
             onClick={() => audio.play("buttonClick")}
           >
             <a

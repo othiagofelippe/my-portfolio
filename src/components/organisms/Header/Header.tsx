@@ -73,7 +73,6 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
             <Button
               onClick={handleContactClick}
               size="sm"
-              className="typography-body-sm font-medium bg-accent-brand hover:bg-accent-brand/90 text-text-label transition-colors cursor-pointer"
             >
               {dict.nav.contactButton}
             </Button>
@@ -167,7 +166,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                         setIsMenuOpen(false);
                         setTimeout(() => scrollToSectionSilent("#contato"), 300);
                       }}
-                      className="typography-body font-medium w-full bg-accent-brand hover:bg-accent-brand/90 text-text-label transition-colors cursor-pointer"
+                      className="w-full"
                       size="default"
                     >
                       {dict.nav.contactButton}
