@@ -58,8 +58,7 @@ export function Skills({ dict }: { dict: any }) {
                   {category.skills.map((skill: any, skillIndex: number) => (
                     <Badge
                       key={skillIndex}
-                      variant="secondary"
-                      className="typography-body-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
+                      variant="brand"
                     >
                       {skill}
                     </Badge>

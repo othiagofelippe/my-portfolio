@@ -167,10 +167,7 @@ export function Projects({ dict }: { dict: any }) {
                         <CardTitle className="typography-h5 text-text-headline">
                           {project.name}
                         </CardTitle>
-                        <Badge
-                          variant="outline"
-                          className="typography-body-sm bg-background-secondary/50 text-text-span border-border-primary/20"
-                        >
+                        <Badge variant="neutral">
                           {project.language || "Projeto"}
                         </Badge>
                       </div>
@@ -189,17 +186,13 @@ export function Projects({ dict }: { dict: any }) {
                           {project.tags.slice(0, 4).map((tag, tagIndex) => (
                             <Badge
                               key={tagIndex}
-                              variant="secondary"
-                              className="typography-body-sm bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
+                              variant="brand"
                             >
                               {tag}
                             </Badge>
                           ))}
                           {project.tags.length > 4 && (
-                            <Badge
-                              variant="outline"
-                              className="typography-body-sm text-text-span border-border-primary/20"
-                            >
+                            <Badge variant="neutral">
                               +{project.tags.length - 4}
                             </Badge>
                           )}

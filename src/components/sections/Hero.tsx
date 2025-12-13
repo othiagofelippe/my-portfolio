@@ -68,8 +68,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
               {dict.hero.skills.map((skill: string, index: number) => (
                 <Badge
                   key={index}
-                  variant="secondary"
-                  className="typography-body-sm font-medium bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-colors"
+                  variant="brand"
                 >
                   {skill}
                 </Badge>
