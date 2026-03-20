@@ -7,17 +7,20 @@ import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 import { Button } from "@/components/atoms";
 import { Logo } from "@/components/atoms";
 import { useAudio } from "@/context/AudioContext";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 export function Header({ lang, dict }: { lang: Locale; dict: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const audio = useAudio();
 
   const navItems = [
-    { name: dict.nav.experience, href: "#experiencia" },
-    { name: dict.nav.projects, href: '#projetos' },
-    { name: dict.nav.skills, href: "#habilidades" },
-    { name: dict.nav.contact, href: "#contato" },
+    { name: dict.nav.experience, href: "#experiencia", id: "experiencia" },
+    { name: dict.nav.projects, href: '#projetos', id: "projetos" },
+    { name: dict.nav.skills, href: "#habilidades", id: "habilidades" },
+    { name: dict.nav.contact, href: "#contato", id: "contato" },
   ];
+
+  const activeSection = useActiveSection(navItems.map((item) => item.id));
 
   const scrollToSection = (href: string) => {
     audio.play("buttonClick");
@@ -55,16 +58,23 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
           {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex lg:items-center justify-center flex-1">
             <div className="flex items-baseline space-x-6">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="typography-body-sm text-text-body hover:text-text-headline px-3 py-2 transition-colors relative group cursor-pointer"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent-brand group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
-                </button>
-              ))}
+              {navItems.map((item) => {
+                const isActive = activeSection === item.id;
+                return (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className={`typography-body-sm px-3 py-2 transition-colors relative group cursor-pointer ${isActive ? "text-text-headline" : "text-text-body hover:text-text-headline"}`}
+                  >
+                    {item.name}
+                    <motion.span
+                      className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
+                      animate={{ width: isActive ? "100%" : "0%" }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    />
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -130,28 +140,35 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <div className="px-2 pt-2 pb-3 space-y-1 bg-background-primary border-t border-border-primary">
-                {navItems.map((item, index) => (
-                  <motion.button
-                  key={item.name}
-                  onClick={() => {
-                    scrollToSection(item.href);
-                    audio.play("uiExpand");
-                    setIsMenuOpen(false);
-                  }}
-                  className="typography-body text-text-body hover:text-text-headline block px-3 py-2 relative group w-full text-left cursor-pointer"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                      delay: index * 0.1,
-                      duration: 0.3,
+                {navItems.map((item, index) => {
+                  const isActive = activeSection === item.id;
+                  return (
+                    <motion.button
+                    key={item.name}
+                    onClick={() => {
+                      scrollToSection(item.href);
+                      audio.play("uiExpand");
+                      setIsMenuOpen(false);
                     }}
-                    whileHover={{ scale: 1.02, x: 4 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {item.name}
-                    <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent-brand group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
-                  </motion.button>
-                ))}
+                    className={`typography-body block px-3 py-2 relative group w-full text-left cursor-pointer ${isActive ? "text-text-headline" : "text-text-body hover:text-text-headline"}`}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                        delay: index * 0.1,
+                        duration: 0.3,
+                      }}
+                      whileHover={{ scale: 1.02, x: 4 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {item.name}
+                      <motion.span
+                        className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
+                        animate={{ width: isActive ? "100%" : "0%" }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                      />
+                    </motion.button>
+                  );
+                })}
                 <div className="pt-2">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}

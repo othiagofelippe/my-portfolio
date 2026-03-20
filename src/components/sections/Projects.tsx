@@ -55,52 +55,44 @@ export function Projects({ dict }: { dict: any }) {
     fetchProjects();
   }, []);
 
-  if (loading) {
-    return (
-      <section
-        id="projetos"
-        className="py-20 bg-background-secondary/30"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="typography-h2 text-text-headline mb-4">
-              {dict.projects.title}
-            </h2>
-            <p className="typography-body text-text-body max-w-2xl mx-auto">
-              {dict.projects.loading}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <Card
-                key={i}
-                className="bg-background-primary border-border-primary/10"
-              >
-                <CardHeader className="pb-4">
-                  <div className="w-full h-32 bg-background-secondary/50 rounded-lg animate-pulse"></div>
-                  <div className="h-6 bg-background-secondary/50 rounded animate-pulse"></div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <div className="space-y-2">
-                    <div className="h-4 bg-background-secondary/50 rounded animate-pulse"></div>
-                    <div className="h-4 bg-background-secondary/50 rounded animate-pulse w-3/4"></div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const sectionClassName = `py-20 bg-background-secondary/30${!loading && !error && projects.length ? " dark:bg-background-secondary" : ""}`;
 
-  if (error) {
-    return (
-      <section
-        id="projetos"
-        className="py-20 bg-background-secondary/30"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return (
+    <section id="projetos" className={sectionClassName}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {loading && (
+          <>
+            <div className="text-center mb-16">
+              <h2 className="typography-h2 text-text-headline mb-4">
+                {dict.projects.title}
+              </h2>
+              <p className="typography-body text-text-body max-w-2xl mx-auto">
+                {dict.projects.loading}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3].map((i) => (
+                <Card
+                  key={i}
+                  className="bg-background-primary border-border-primary/10"
+                >
+                  <CardHeader className="pb-4">
+                    <div className="w-full h-32 bg-background-secondary/50 rounded-lg animate-pulse"></div>
+                    <div className="h-6 bg-background-secondary/50 rounded animate-pulse"></div>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <div className="space-y-2">
+                      <div className="h-4 bg-background-secondary/50 rounded animate-pulse"></div>
+                      <div className="h-4 bg-background-secondary/50 rounded animate-pulse w-3/4"></div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </>
+        )}
+
+        {error && (
           <div className="text-center">
             <h2 className="typography-h2 text-text-headline mb-4">
               {dict.projects.title}
@@ -109,35 +101,21 @@ export function Projects({ dict }: { dict: any }) {
               {dict.projects.error}: {error}
             </p>
           </div>
-        </div>
-      </section>
-    );
-  }
+        )}
 
-  if (!projects.length) {
-    return (
-      <section
-        id="projetos"
-        className="py-20 bg-background-secondary/30"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="typography-h2 text-text-headline mb-4">
-            {dict.projects.title}
-          </h2>
-          <p className="typography-body text-text-body">
-            {dict.projects.empty}
-          </p>
-        </div>
-      </section>
-    );
-  }
+        {!loading && !error && !projects.length && (
+          <div className="text-center">
+            <h2 className="typography-h2 text-text-headline mb-4">
+              {dict.projects.title}
+            </h2>
+            <p className="typography-body text-text-body">
+              {dict.projects.empty}
+            </p>
+          </div>
+        )}
 
-  return (
-    <section
-      id="projetos"
-      className="py-20 bg-background-secondary/30 dark:bg-background-secondary"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {!loading && !error && projects.length > 0 && (
+          <>
         <div className="text-center mb-16">
           <h2 className="typography-h2 text-text-headline mb-4">
             {dict.projects.title}
@@ -263,6 +241,8 @@ export function Projects({ dict }: { dict: any }) {
             </a>
           </Button>
         </div>
+          </>
+        )}
       </div>
     </section>
   );
