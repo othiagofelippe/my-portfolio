@@ -4,16 +4,18 @@
     "experience": "Experiência",
     "projects": "Projetos",
     "skills": "Habilidades",
-    "contact": "Contato",
-    "contactButton": "Entre em Contato"
+    "contact": "Contato"
   },
   "hero": {
     "greeting": "Fala aí! 👋",
     "intro": "Prazer, eu sou o",
     "name": "Thiago Felippe",
-    "role": "Desenvolvedor Front-End Pleno com 3+ anos construindo experiências web e mobile de alto impacto.",
-    "description": "Especialista em React, Next.js e React Native, atuo na criação e evolução de Design Systems, padronização de componentes com tokens e otimização de performance. Trabalho lado a lado com design e produto para entregar interfaces acessíveis e consistentes.",
-    "skills": ["Next.js", "React Native", "Design Systems", "TypeScript", "Performance", "UX/UI"],
+    "role": "Desenvolvedor frontend há 4 anos, com foco em React, React Native, TypeScript e Next.js.",
+    "rolePre": "Desenvolvedor frontend focado em",
+    "description": "Já peguei projetos do zero à produção, integrando APIs REST e cuidando de performance. Nos últimos anos me aprofundei bastante em Design Systems — componentes, tokens, documentação e padronização. Cursando Análise e Desenvolvimento de Sistemas.",
+    "descriptionPre": "Já levei projetos do zero à produção. Nos últimos",
+    "descriptionHighlight": "4 anos",
+    "descriptionPost": "trabalhei de forma independente em interfaces web e mobile — integrando APIs, pensando em performance e construindo componentes que outros devs conseguem usar e dar manutenção.",
     "downloadCV": "Baixar CV",
     "buttons": {
       "downloadCV": "Baixar CV",
@@ -21,36 +23,32 @@
       "contact": "Contato"
     }
   },
-  "services": {
-    "title": "Meus Serviços",
-    "subtitle": "Transformo ideias em soluções digitais completas, do design à implementação",
-    "frontend": {
-      "title": "Desenvolvimento Frontend",
-      "description": "Criação de interfaces modernas e responsivas com React, Next.js e TypeScript"
-    },
-    "design": {
-      "title": "Design UI/UX",
-      "description": "Design de experiências de usuário intuitivas e interfaces visuais atrativas"
-    }
-  },
   "experience": {
     "title": "Experiência Profissional",
     "subtitle": "Minha jornada profissional e as experiências que me moldaram como desenvolvedor",
     "downloadCV": "Baixar CV completo",
+    "currentLabel": "Atual",
     "jobs": {
       "heap": {
         "period": "Abr 2022 - Mar 2025",
         "title": "Desenvolvedor Front-End Pleno",
         "company": "Heap Engenharia e Software",
         "description": "Liderei o desenvolvimento de interfaces web e mobile com React, Next.js e React Native, priorizando performance e acessibilidade. Estruturei fluxos de dados com APIs RESTful, implementei SSR para melhorar métricas de SEO e padronizei componentes através de Design Systems documentados no Storybook. Colaborei com design aplicando princípios de UX/UI e facilitei entregas contínuas com times ágeis.",
-        "skills": ["React", "Next.js", "React Native", "TypeScript", "SSR", "Performance", "Storybook", "Design System", "APIs REST", "Scrum", "Kanban"]
+        "skills": ["React", "Next.js", "React Native", "TypeScript", "Storybook", "APIs REST"]
       },
       "divam": {
         "period": "Mar 2025 - Jun 2025",
         "title": "Desenvolvedor Front-End Pleno",
         "company": "Divam",
         "description": "Atuei na evolução de produtos web com Next.js e mobile com React Native, entregando novas funcionalidades e garantindo estabilidade em produção. Reforcei o Design System interno com componentes reutilizáveis, tokens de cor, espaçamento e tipografia, além de padrões de acessibilidade e responsividade. Integrei APIs em parceria com backend, conduzi code reviews e padronizei fluxos de dados.",
-        "skills": ["Next.js", "React Native", "Design System", "Design Tokens", "UX/UI", "Figma", "APIs REST", "Agile", "Code Review"]
+        "skills": ["Next.js", "React Native", "GraphQL", "APIs REST", "Figma", "UX/UI"]
+      },
+      "ilia": {
+        "period": "Nov 2025 - Presente",
+        "title": "Desenvolvedor Frontend | Design System @ Livelo",
+        "company": "ília",
+        "description": "Desenvolvedor frontend alocado na Livelo pelo time da ília. Faço parte do time de Design System (Alchemy), onde criamos e mantemos os componentes e tokens utilizados pelos outros times, tanto em React quanto em React Native. Além de desenvolver, damos suporte às equipes e criamos componentes colaborativos sob demanda.",
+        "skills": ["React", "React Native", "Design System", "Storybook", "TypeScript", "Acessibilidade"]
       }
     }
   },
@@ -169,14 +167,14 @@
     }
   },
   "footer": {
-    "description": "Desenvolvedor Front-End com 3+ anos de experiência em React, Next.js e React Native. Foco em criar aplicações web e mobile funcionais, com código organizado e boa performance.",
+    "description": "Desenvolvedor frontend há 4 anos, trabalhando com React, React Native, TypeScript e Next.js. Aprofundado em Design Systems, componentes e tokens.",
     "navigation": "Navegação",
     "contactSection": "Contato",
     "rights": "Todos os direitos reservados."
   },
   "metadata": {
     "title": "Thiago Felippe - Desenvolvedor Front-End | React, Next.js, TypeScript",
-    "description": "Desenvolvedor Front-End Pleno com 3+ anos de experiência em React, Next.js e React Native. Desenvolvimento de aplicações web e mobile de alta performance no Rio de Janeiro. Aberto a oportunidades.",
+    "description": "Desenvolvedor frontend há 4 anos, trabalhando com React, React Native, TypeScript e Next.js. Do zero à produção, com foco em Design Systems e performance. Aberto a oportunidades.",
     "keywords": "desenvolvedor front-end, react developer, next.js, typescript, react native, desenvolvedor react, vaga desenvolvedor, desenvolvedor rio de janeiro, programador javascript, trabalho remoto, vagas tech brasil",
     "author": "Thiago Felippe",
     "twitterHandle": "@othiagofelippe"

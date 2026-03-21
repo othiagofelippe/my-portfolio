@@ -4,16 +4,18 @@
     "experience": "Experience",
     "projects": "Projects",
     "skills": "Skills",
-    "contact": "Contact",
-    "contactButton": "Get in Touch"
+    "contact": "Contact"
   },
   "hero": {
     "greeting": "Hello there! 👋",
     "intro": "Nice to meet you, I'm",
     "name": "Thiago Felippe",
-    "role": "Mid-level Front-End Developer with 3+ years building high-impact web and mobile experiences.",
-    "description": "Specialist in React, Next.js, and React Native, I craft and evolve Design Systems, standardise component libraries with tokens, and optimise performance. I partner closely with design and product teams to deliver accessible, consistent interfaces.",
-    "skills": ["Next.js", "React Native", "Design Systems", "TypeScript", "Performance", "UX/UI"],
+    "role": "Frontend developer for 4 years, working with React, React Native, TypeScript and Next.js.",
+    "rolePre": "Frontend developer focused on",
+    "description": "Taken projects from zero to production, integrating REST APIs and handling performance. Over the last few years I've gone deep into Design Systems — components, tokens, documentation and standardisation. Currently studying Systems Analysis and Development.",
+    "descriptionPre": "Taken projects from zero to production. Over the last",
+    "descriptionHighlight": "4 years",
+    "descriptionPost": "I've worked independently on web and mobile interfaces — integrating APIs, thinking about performance, and building components that other devs can actually use and maintain.",
     "downloadCV": "Download CV",
     "buttons": {
       "downloadCV": "Download CV",
@@ -21,36 +23,32 @@
       "contact": "Contact"
     }
   },
-  "services": {
-    "title": "My Services",
-    "subtitle": "I transform ideas into complete digital solutions, from design to implementation",
-    "frontend": {
-      "title": "Frontend Development",
-      "description": "Creating modern and responsive interfaces with React, Next.js and TypeScript"
-    },
-    "design": {
-      "title": "UI/UX Design",
-      "description": "Design of intuitive user experiences and attractive visual interfaces"
-    }
-  },
   "experience": {
     "title": "Professional Experience",
     "subtitle": "My professional journey and the experiences that shaped me as a developer",
     "downloadCV": "Download complete CV",
+    "currentLabel": "Current",
     "jobs": {
       "heap": {
         "period": "Apr 2022 - Mar 2025",
         "title": "Mid-level Front-End Developer",
         "company": "Heap Engenharia e Software",
         "description": "Led the development of web and mobile interfaces with React, Next.js, and React Native while prioritising performance and accessibility. Structured data flows with RESTful APIs, introduced SSR to boost SEO metrics, and standardised components via Design Systems documented in Storybook. Partnered with design on UX/UI principles and enabled continuous delivery with agile teams.",
-        "skills": ["React", "Next.js", "React Native", "TypeScript", "SSR", "Performance", "Storybook", "Design System", "REST APIs", "Scrum", "Kanban"]
+        "skills": ["React", "Next.js", "React Native", "TypeScript", "Storybook", "REST APIs"]
       },
       "divam": {
         "period": "Mar 2025 - Jun 2025",
         "title": "Mid-level Front-End Developer",
         "company": "Divam",
         "description": "Worked on evolving web products with Next.js and mobile apps with React Native, delivering new features while keeping production stable. Enhanced the internal Design System with reusable components and design tokens for colour, spacing, and typography, reinforcing accessibility and responsiveness standards. Collaborated with backend on APIs, led code reviews, and aligned data flows across projects.",
-        "skills": ["Next.js", "React Native", "Design System", "Design Tokens", "UX/UI", "Figma", "REST APIs", "Agile", "Code Review"]
+        "skills": ["Next.js", "React Native", "GraphQL", "REST APIs", "Figma", "UX/UI"]
+      },
+      "ilia": {
+        "period": "Nov 2025 - Present",
+        "title": "Frontend Developer | Design System @ Livelo",
+        "company": "ília",
+        "description": "Frontend developer embedded at Livelo through ília's team. Part of the Design System team (Alchemy), where we build and maintain the components and tokens used by other teams in both React and React Native. Beyond development, we support cross-functional teams and build collaborative components on demand.",
+        "skills": ["React", "React Native", "Design System", "Storybook", "TypeScript", "Accessibility"]
       }
     }
   },
@@ -169,14 +167,14 @@
     }
   },
   "footer": {
-    "description": "Front-End Developer with 3+ years of experience in React, Next.js and React Native. Focus on creating functional web and mobile applications with organized code and good performance.",
+    "description": "Frontend developer for 4 years, working with React, React Native, TypeScript and Next.js. From zero to production, with a focus on Design Systems and performance.",
     "navigation": "Navigation",
     "contactSection": "Contact",
     "rights": "All rights reserved."
   },
   "metadata": {
     "title": "Thiago Felippe - Front-End Developer | React, Next.js, TypeScript",
-    "description": "Mid-Level Front-End Developer with 3+ years of experience in React, Next.js and React Native. Building high-performance web and mobile applications in Rio de Janeiro. Open to opportunities.",
+    "description": "Frontend developer for 4 years, working with React, React Native, TypeScript and Next.js. From zero to production, with a focus on Design Systems and performance. Open to opportunities.",
     "keywords": "front-end developer, react developer, next.js, typescript, react native, javascript developer, web developer jobs, software engineer, rio de janeiro, remote work, tech jobs brazil",
     "author": "Thiago Felippe",
     "twitterHandle": "@othiagofelippe"

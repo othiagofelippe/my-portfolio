@@ -4,12 +4,21 @@ import { Locale } from "@/lib/i18n";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
-import { Button } from "@/components/atoms";
-import { Logo } from "@/components/atoms";
+import { Button, Logo } from "@/components/atoms";
+import { LanguageSelector, ThemeToggle, SoundToggle } from "@/components/molecules";
 import { useAudio } from "@/context/AudioContext";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
-export function Header({ lang, dict }: { lang: Locale; dict: any }) {
+interface HeaderDict {
+  nav: {
+    experience: string;
+    projects: string;
+    skills: string;
+    contact: string;
+  };
+}
+
+export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const audio = useAudio();
 
@@ -30,26 +39,14 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
     }
   };
 
-  const scrollToSectionSilent = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   const toggleMenu = () => {
     audio.play("uiExpand");
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleContactClick = () => {
-    audio.play("buttonClick");
-    setTimeout(() => scrollToSectionSilent("#contato"), 100);
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 bg-background-primary/80 backdrop-blur-md border-b border-border-primary z-50">
-      <nav className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <nav aria-label="Navegação principal" className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex-shrink-0">
             <Logo />
@@ -61,39 +58,47 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
-                  <button
-                    key={item.name}
+                  <Button
+                    key={item.id}
+                    asChild
+                    variant="ghost"
+                    size="sm"
                     onClick={() => scrollToSection(item.href)}
-                    className={`typography-body-sm px-3 py-2 transition-colors relative group cursor-pointer ${isActive ? "text-text-headline" : "text-text-body hover:text-text-headline"}`}
+                    className={`relative ${isActive ? "text-text-headline" : "text-text-body"}`}
                   >
-                    {item.name}
-                    <motion.span
-                      className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
-                      animate={{ width: isActive ? "100%" : "0%" }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                    />
-                  </button>
+                    <a href={item.href}>
+                      {item.name}
+                      <motion.span
+                        className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
+                        animate={{ width: isActive ? "100%" : "0%" }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                      />
+                    </a>
+                  </Button>
                 );
               })}
             </div>
           </div>
 
-          {/* Right side controls */}
-          <div className="hidden lg:flex lg:items-center">
-            <Button
-              onClick={handleContactClick}
-              size="sm"
-            >
-              {dict.nav.contactButton}
-            </Button>
+          {/* Desktop right controls */}
+          <div className="hidden lg:flex lg:items-center gap-1">
+            <SoundToggle />
+            <ThemeToggle />
+            <LanguageSelector currentLang={lang} />
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center">
+          <div className="lg:hidden flex items-center gap-1">
+            <SoundToggle />
+            <ThemeToggle />
+            <LanguageSelector currentLang={lang} />
             <motion.button
               type="button"
               className="text-text-body hover:text-text-headline focus:outline-none p-2 cursor-pointer"
               onClick={toggleMenu}
+              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -109,7 +114,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="absolute inset-0"
                     >
-                      <HiOutlineBars3 className="w-6 h-6" />
+                      <HiOutlineBars3 className="w-6 h-6" aria-hidden="true" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -120,7 +125,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="absolute inset-0"
                     >
-                      <HiOutlineXMark className="w-6 h-6" />
+                      <HiOutlineXMark className="w-6 h-6" aria-hidden="true" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -133,6 +138,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
+              id="mobile-menu"
               className="lg:hidden"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
@@ -143,53 +149,35 @@ export function Header({ lang, dict }: { lang: Locale; dict: any }) {
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.id;
                   return (
-                    <motion.button
-                    key={item.name}
-                    onClick={() => {
-                      scrollToSection(item.href);
-                      audio.play("uiExpand");
-                      setIsMenuOpen(false);
-                    }}
-                    className={`typography-body block px-3 py-2 relative group w-full text-left cursor-pointer ${isActive ? "text-text-headline" : "text-text-body hover:text-text-headline"}`}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                        delay: index * 0.1,
-                        duration: 0.3,
-                      }}
-                      whileHover={{ scale: 1.02, x: 4 }}
-                      whileTap={{ scale: 0.98 }}
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1, duration: 0.3 }}
+                      whileHover={{ x: 4 }}
                     >
-                      {item.name}
-                      <motion.span
-                        className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
-                        animate={{ width: isActive ? "100%" : "0%" }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                      />
-                    </motion.button>
+                      <Button
+                        asChild
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => {
+                          scrollToSection(item.href);
+                          setIsMenuOpen(false);
+                        }}
+                        className={`relative w-full justify-start ${isActive ? "text-text-headline" : "text-text-body"}`}
+                      >
+                        <a href={item.href}>
+                          {item.name}
+                          <motion.span
+                            className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
+                            animate={{ width: isActive ? "100%" : "0%" }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                          />
+                        </a>
+                      </Button>
+                    </motion.div>
                   );
                 })}
-                <div className="pt-2">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: navItems.length * 0.1 + 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Button
-                      onClick={() => {
-                        audio.play("buttonClick");
-                        setIsMenuOpen(false);
-                        setTimeout(() => scrollToSectionSilent("#contato"), 300);
-                      }}
-                      className="w-full"
-                      size="default"
-                    >
-                      {dict.nav.contactButton}
-                    </Button>
-                  </motion.div>
-                </div>
               </div>
             </motion.div>
           )}
