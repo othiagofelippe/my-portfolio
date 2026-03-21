@@ -1,12 +1,59 @@
+"use client";
+
 import { Badge } from "@/components/atoms";
 import { Card, CardContent, CardTitle } from "@/components/molecules";
+import { motion } from "motion/react";
 import {
   HiOutlineCog6Tooth,
   HiOutlineDevicePhoneMobile,
   HiOutlineServerStack,
 } from "react-icons/hi2";
 
-export function Skills({ dict }: { dict: any }) {
+interface SkillsDict {
+  skills: {
+    title: string;
+    subtitle: string;
+    categories: {
+      frontend: { title: string; skills: string[] };
+      backend: { title: string; skills: string[] };
+      tools: { title: string; skills: string[] };
+    };
+  };
+}
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const badgeContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.04, delayChildren: 0.2 },
+  },
+};
+
+const badgeVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.25, ease: "easeOut" },
+  },
+};
+
+export function Skills({ dict }: { dict: SkillsDict }) {
   const skillCategories = [
     {
       title: dict.skills.categories.frontend.title,
@@ -26,48 +73,64 @@ export function Skills({ dict }: { dict: any }) {
   ];
 
   return (
-    <section
-      id="habilidades"
-      className="py-20 bg-background-secondary/30"
-    >
+    <section id="habilidades" className="py-20 bg-background-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h2 className="typography-h2 text-text-headline mb-4">
             {dict.skills.title}
           </h2>
           <p className="typography-body text-text-body max-w-2xl mx-auto">
             {dict.skills.subtitle}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <Card
-              key={categoryIndex}
-              className="bg-background-primary border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {skillCategories.map((category) => (
+            <motion.div
+              key={category.title}
+              variants={cardVariants}
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
             >
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="text-accent-brand">{category.icon}</div>
-                  <CardTitle className="typography-h5 text-text-headline">
-                    {category.title}
-                  </CardTitle>
-                </div>
+              <Card className="bg-background-primary border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300 h-full">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="text-accent-brand">{category.icon}</div>
+                    <CardTitle className="typography-h5 text-text-headline">
+                      {category.title}
+                    </CardTitle>
+                  </div>
 
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill: any, skillIndex: number) => (
-                    <Badge
-                      key={skillIndex}
-                      variant="brand"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  <motion.div
+                    className="flex flex-wrap gap-3"
+                    variants={badgeContainerVariants}
+                  >
+                    {category.skills.map((skill) => (
+                      <motion.div
+                        key={skill}
+                        variants={badgeVariants}
+                        whileHover={{ scale: 1.05, transition: { duration: 0.15 } }}
+                      >
+                        <Badge variant="brand">{skill}</Badge>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
