@@ -21,10 +21,9 @@
 
 ### Features
 - **Theming:** next-themes (3 temas: light, dark, ocean-sunset)
-- **i18n:** Suporte multilíngue (pt/en)
+- **i18n:** Suporte multilíngue (pt/en/es)
 - **Analytics:** Vercel Analytics
 - **Audio:** use-sound (efeitos sonoros)
-- **Accessibility:** AccessibilityPanel customizado
 
 ### Tooling
 - **Linting:** ESLint (next/core-web-vitals, next/typescript)
@@ -49,23 +48,24 @@ my-portfolio/
 │   │       └── ThemeProvider.tsx # Context de temas
 │   │
 │   ├── components/
-│   │   ├── ui/                   # Componentes base (Atoms/Molecules)
-│   │   │   ├── button.tsx
-│   │   │   ├── card.tsx
-│   │   │   ├── carousel.tsx
-│   │   │   ├── ThemeToggle.tsx
-│   │   │   ├── LanguageSelector.tsx
-│   │   │   ├── AccessibilityPanel.tsx
-│   │   │   └── ...
-│   │   └── sections/             # Seções da página (Organisms)
+│   │   ├── atoms/                # Componentes primitivos (Button, Badge)
+│   │   ├── molecules/            # Composições simples (Card, ThemeToggle, LanguageSelector)
+│   │   ├── organisms/            # Composições complexas (Header)
+│   │   └── sections/             # Seções da página
 │   │       ├── Hero.tsx
 │   │       ├── Projects.tsx
 │   │       ├── Skills.tsx
 │   │       ├── Experience.tsx
+│   │       ├── Education.tsx
 │   │       └── Contact.tsx
 │   │
 │   ├── context/
 │   │   └── AudioContext.tsx      # Gerenciamento de sons
+│   │
+│   ├── dictionaries/             # Traduções i18n
+│   │   ├── pt.json
+│   │   ├── en.json
+│   │   └── es.json
 │   │
 │   └── lib/
 │       └── utils.ts              # Helpers (cn, etc)
@@ -455,20 +455,23 @@ npm run build       # Build completo
 ## 🚧 Estado Atual vs Roadmap
 
 ### ✅ Implementado
-- Design system com tokens
-- 3 temas funcionais
-- Componentes base (25+)
-- Acessibilidade básica
-- i18n (pt/en)
-- Git hooks (lint + commit)
-- Claude Code configurado
 
-### 🔜 Próximos Passos (Ver DESIGN_SYSTEM_ANALYSIS.md)
-1. Migrar tokens CSS → JSON (W3C DTCG)
-2. Configurar Storybook
-3. Adicionar testes (Vitest)
-4. Pipeline de automação (Style Dictionary)
-5. Documentação completa
+- Design system com tokens (2 camadas: primitive + semantic)
+- 3 temas funcionais (light, dark, ocean-sunset)
+- Arquitetura de componentes: atoms / molecules / organisms / sections
+- Animações com Motion em todas as seções (Hero, Experience, Education, Skills, Contact)
+- i18n com 3 idiomas (pt/en/es) via dicionários JSON
+- Header com indicador de seção ativa
+- Sistema de áudio (AudioContext + use-sound)
+- Git hooks (lint + commit + pre-push com type-check e build)
+- Claude Code configurado com sub-agents
+
+### 🔜 Próximos Passos
+
+1. Seção Projects com dados reais do GitHub
+2. Adicionar testes (Vitest + Testing Library)
+3. Configurar Storybook
+4. Otimização de performance (Lighthouse > 90)
 
 ---
 
@@ -497,7 +500,7 @@ npm run build       # Build completo
 A: Evite, mas está permitido no ESLint para casos inevitáveis.
 
 **Q: Preciso adicionar 'use client'?**
-A: Só se o componente usar hooks (useState, useEffect, etc).
+A: Só se o componente usar hooks (useState, useEffect, etc) ou Motion (motion/react requer client).
 
 **Q: Como adicionar nova cor ao tema?**
 A: Editar `globals.css` em todas as seções de tema (root, .dark, .ocean-sunset).
