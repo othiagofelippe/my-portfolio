@@ -92,7 +92,7 @@ export default async function Image({
               marginTop: '24px',
             }}
           >
-            {dict.hero.skills.slice(0, 4).map((skill: string) => (
+            {(['React', 'Next.js', 'TypeScript', 'React Native'] as const).map((skill) => (
               <div
                 key={skill}
                 style={{
