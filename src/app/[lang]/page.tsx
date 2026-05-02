@@ -6,7 +6,6 @@ import {
   Experience,
   Hero,
   Projects,
-  Services,
   Skills,
 } from "../../components/sections";
 import { PageTransition } from "../../components/molecules";
@@ -23,7 +22,6 @@ export default async function Home({
     <PageTransition lang={lang}>
       <div className="min-h-screen">
         <Hero dict={{ ...dict, lang }} />
-        <Services dict={dict} />
         <Experience dict={{ ...dict, lang }} />
         <Education dict={dict} />
         <Projects dict={dict} />

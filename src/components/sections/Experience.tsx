@@ -3,45 +3,99 @@
 import { Button } from '@/components/atoms';
 import { Badge } from '@/components/atoms';
 import { Card, CardContent } from '@/components/molecules';
+import { motion, useScroll, useSpring, useTransform } from 'motion/react';
+import { useRef } from 'react';
 import { HiOutlineArrowDownTray } from 'react-icons/hi2';
 import { useAudio } from '@/context/AudioContext';
 
-export function Experience({ dict }: { dict: any & { lang?: string } }) {
-  const audio = useAudio();
-  
-  const getCVFileName = () => {
-    const lang = dict.lang || 'pt';
-    const fileNames = {
-      'pt': 'CV-Thiago-Felippe-PT.pdf',
-      'en': 'CV-Thiago-Felippe-EN.pdf', 
-      'es': 'CV-Thiago-Felippe-ES.pdf'
+interface Job {
+  period: string;
+  title: string;
+  company: string;
+  description: string;
+  skills: string[];
+}
+
+interface ExperienceDict {
+  experience: {
+    title: string;
+    subtitle: string;
+    downloadCV: string;
+    currentLabel: string;
+    jobs: {
+      heap: Job;
+      divam: Job;
+      ilia: Job;
     };
-    return fileNames[lang as keyof typeof fileNames] || fileNames.pt;
   };
-  
-  const handleDownloadClick = () => {
+  lang?: string;
+}
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, x: -32 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const },
+  },
+};
+
+export function Experience({ dict }: { dict: ExperienceDict }) {
+  const audio = useAudio();
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 80%", "end 60%"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 20,
+    restDelta: 0.001,
+  });
+
+  const lineHeight = useTransform(scaleY, [0, 1], ["0%", "100%"]);
+
+  const getCVFileName = (): string => {
+    const lang = dict.lang || 'pt';
+    const fileNames: Record<string, string> = {
+      pt: 'CV-Thiago-Felippe-PT.pdf',
+      en: 'CV-Thiago-Felippe-EN.pdf',
+      es: 'CV-Thiago-Felippe-ES.pdf',
+    };
+    return fileNames[lang] ?? fileNames.pt;
+  };
+
+  const handleDownloadClick = (): void => {
     audio.play('downloadCv');
   };
+
   const experiences = [
     {
-      period: dict.experience.jobs.heap.period,
-      title: dict.experience.jobs.heap.title,
-      company: dict.experience.jobs.heap.company,
-      description: dict.experience.jobs.heap.description,
-      skills: dict.experience.jobs.heap.skills
+      ...dict.experience.jobs.heap,
+      current: false,
     },
     {
-      period: dict.experience.jobs.divam.period,
-      title: dict.experience.jobs.divam.title,
-      company: dict.experience.jobs.divam.company,
-      description: dict.experience.jobs.divam.description,
-      skills: dict.experience.jobs.divam.skills
-    }
+      ...dict.experience.jobs.divam,
+      current: false,
+    },
+    {
+      ...dict.experience.jobs.ilia,
+      current: true,
+    },
   ];
 
   return (
     <section id="experiencia" className="py-20 bg-background-secondary/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="typography-h2 text-text-headline mb-4">
             {dict.experience.title}
@@ -51,62 +105,101 @@ export function Experience({ dict }: { dict: any & { lang?: string } }) {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border-primary md:left-1/2 md:transform md:-translate-x-px"></div>
+        <motion.div
+          ref={timelineRef}
+          className="relative"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {/* Trilho da linha (fundo estático) */}
+          <div className="absolute left-3 top-2 bottom-2 w-px bg-border-primary/30" />
 
-            {experiences.map((experience, index) => (
-              <div key={index} className="relative flex items-center mb-12 last:mb-0">
-                {/* Timeline dot */}
-                <div className="absolute left-6 w-4 h-4 bg-accent-brand rounded-full border-4 border-background-primary md:left-1/2 md:transform md:-translate-x-2"></div>
+          {/* Linha animada pelo scroll */}
+          <motion.div
+            className="absolute left-3 top-2 w-px bg-accent-brand origin-top"
+            style={{ height: lineHeight }}
+          />
 
-                {/* Content */}
-                <div className={`ml-16 md:w-5/12 ${index % 2 === 0 ? 'md:ml-0 md:pr-8 md:text-right' : 'md:ml-auto md:pl-8'}`}>
-                  <Card className="bg-background-primary border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out">
+          <div className="space-y-10">
+            {experiences.map((experience) => (
+              <motion.div
+                key={experience.company}
+                className="relative pl-12"
+                variants={cardVariants}
+              >
+                {/* Dot */}
+                <div className="absolute left-0 top-6 flex items-center justify-center">
+                  {experience.current ? (
+                    <span className="relative flex h-6 w-6">
+                      <motion.span
+                        className="absolute inline-flex h-full w-full rounded-full bg-accent-brand/30"
+                        animate={{ scale: [1, 1.6, 1], opacity: [0.6, 0, 0.6] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                      <span className="relative inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-background-primary bg-accent-brand">
+                        <span className="h-2 w-2 rounded-full bg-white" />
+                      </span>
+                    </span>
+                  ) : (
+                    <span className="h-6 w-6 rounded-full border-2 border-background-primary bg-border-primary flex items-center justify-center">
+                      <span className="h-2 w-2 rounded-full bg-text-body/40" />
+                    </span>
+                  )}
+                </div>
+
+                {/* Card */}
+                <motion.div
+                  whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                >
+                  <Card className="bg-background-primary border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-6">
-                      <div className="mb-2">
-                        <Badge variant="success">
-                          {experience.period}
-                        </Badge>
+                      {/* Header */}
+                      <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                        <div>
+                          <h3 className="typography-h5 text-text-headline">
+                            {experience.title}
+                          </h3>
+                          <h4 className="typography-body-lg text-accent-brand mt-0.5">
+                            {experience.company}
+                          </h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2 items-center">
+                          <Badge variant="success" size="sm">
+                            {experience.period}
+                          </Badge>
+                          {experience.current && (
+                            <Badge variant="current" size="sm">
+                              {dict.experience.currentLabel}
+                            </Badge>
+                          )}
+                        </div>
                       </div>
 
-                      <h3 className="typography-h5 text-text-headline mb-1">
-                        {experience.title}
-                      </h3>
-
-                      <h4 className="typography-body-lg text-accent-brand mb-3">
-                        {experience.company}
-                      </h4>
-
+                      {/* Description */}
                       <p className="typography-body text-text-body mb-4">
                         {experience.description}
                       </p>
 
+                      {/* Skills */}
                       <div className="flex flex-wrap gap-2">
-                        {experience.skills.map((skill: any, skillIndex: number) => (
-                          <Badge
-                            key={skillIndex}
-                            variant="neutral"
-                          >
+                        {experience.skills.map((skill) => (
+                          <Badge key={skill} variant="neutral" size="sm">
                             {skill}
                           </Badge>
                         ))}
                       </div>
                     </CardContent>
                   </Card>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         <div className="text-center mt-16">
-          <Button
-            asChild
-            size="lg"
-            onClick={handleDownloadClick}
-          >
+          <Button asChild size="lg" onClick={handleDownloadClick}>
             <a href={`/${getCVFileName()}`} download={getCVFileName()}>
               <HiOutlineArrowDownTray />
               {dict.experience.downloadCV}

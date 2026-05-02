@@ -59,13 +59,13 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
         <HiOutlineGlobeAlt className="w-4 h-4" />
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={currentLang}
             initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
             animate={{ opacity: 1, rotate: 0, scale: 1 }}
             exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.18, ease: "easeInOut" }}
           >
             {getCurrentLanguage().flag}
           </motion.span>
