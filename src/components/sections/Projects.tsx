@@ -55,7 +55,7 @@ export function Projects({ dict }: { dict: any }) {
     fetchProjects();
   }, []);
 
-  const sectionClassName = `py-20 bg-background-secondary/30${!loading && !error && projects.length ? " dark:bg-background-secondary" : ""}`;
+  const sectionClassName = `py-20 bg-background-primary`;
 
   return (
     <section id="projetos" className={sectionClassName}>

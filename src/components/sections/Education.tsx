@@ -53,7 +53,7 @@ const cardVariants = {
 
 export function Education({ dict }: { dict: EducationDict }) {
   return (
-    <section id="formacao" className="py-20 bg-background-primary">
+    <section id="formacao" className="py-20 bg-background-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -96,12 +96,12 @@ export function Education({ dict }: { dict: EducationDict }) {
                       <div className="space-y-1 text-text-body">
                         <p className="typography-body font-medium">{dict.education.academic.institution}</p>
                         <p className="typography-body">{dict.education.academic.location}</p>
-                        <p className="typography-body flex items-center gap-4">
+                        <div className="typography-body flex items-center gap-4">
                           <span>{dict.education.academic.period}</span>
                           <Badge variant="neutral">
                             {dict.education.academic.type}
                           </Badge>
-                        </p>
+                        </div>
                       </div>
                     </div>
                   </div>

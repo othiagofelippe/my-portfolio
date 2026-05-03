@@ -80,21 +80,21 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
 
   const experiences = [
     {
-      ...dict.experience.jobs.heap,
-      current: false,
+      ...dict.experience.jobs.ilia,
+      current: true,
     },
     {
       ...dict.experience.jobs.divam,
       current: false,
     },
     {
-      ...dict.experience.jobs.ilia,
-      current: true,
+      ...dict.experience.jobs.heap,
+      current: false,
     },
   ];
 
   return (
-    <section id="experiencia" className="py-20 bg-background-secondary/30">
+    <section id="experiencia" className="py-20 bg-background-primary">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="typography-h2 text-text-headline mb-4">

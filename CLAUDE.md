@@ -452,6 +452,24 @@ npm run build       # Build completo
 
 ---
 
+## 🎨 Alternância de Cores entre Seções
+
+**Regra:** Seções alternadas usam cores diferentes para criar separação visual clara. Sempre que adicionar ou reordenar uma seção, verificar se a alternância está correta.
+
+| Ordem | Seção      | Background                  |
+|-------|------------|-----------------------------|
+| 1     | Hero       | `bg-gradient-to-br from-background-primary to-background-secondary` |
+| 2     | About      | `bg-background-secondary/30` |
+| 3     | Experience | `bg-background-primary`     |
+| 4     | Education  | `bg-background-secondary/30` |
+| 5     | Projects   | `bg-background-primary`     |
+| 6     | Skills     | `bg-background-secondary/30` |
+| 7     | Contact    | `bg-background-primary`     |
+
+**Padrão:** par = `bg-background-secondary/30` / ímpar = `bg-background-primary` (Hero é exceção com gradiente).
+
+---
+
 ## 🚧 Estado Atual vs Roadmap
 
 ### ✅ Implementado
