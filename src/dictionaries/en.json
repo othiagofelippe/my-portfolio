@@ -23,6 +23,22 @@
       "contact": "Contact"
     }
   },
+  "about": {
+    "title": "About Me",
+    "subtitle": "A bit of my story and what drives me",
+    "bio1": "I grew up surrounded by technology — my father was a computer technician, so computers were always part of my life. I used to build and fix my own PC, open it up to understand how it worked, format it myself, and test Linux just to see what was different. I started editing photos in Photoshop and videos in Sony Vegas, until one day, while working at a company outside of tech, I had the idea to build an app for them. I had no idea where to start — but that was the trigger. I started studying, kept going deeper, and soon landed my first job as a developer.",
+    "bio2": "What drives me is simple: creating things that real people use. It doesn't need my name on it — it needs to work, make sense, and be well made.",
+    "quote": "Always willing to do better.",
+    "interests": {
+      "title": "Outside of code",
+      "items": [
+        { "label": "Movies & Series", "description": "Classics, geek, superheroes and anime" },
+        { "label": "Music", "description": "A little bit of everything" },
+        { "label": "Sports", "description": "Football, basketball and weightlifting" },
+        { "label": "Experiences", "description": "Cinema, new places and what's still to come" }
+      ]
+    }
+  },
   "experience": {
     "title": "Professional Experience",
     "subtitle": "My professional journey and the experiences that shaped me as a developer",

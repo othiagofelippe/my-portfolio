@@ -1,6 +1,7 @@
 import { getDictionary } from "@/lib/dictionaries";
 import { Locale } from "@/lib/i18n";
 import {
+  About,
   Contact,
   Education,
   Experience,
@@ -22,6 +23,7 @@ export default async function Home({
     <PageTransition lang={lang}>
       <div className="min-h-screen">
         <Hero dict={{ ...dict, lang }} />
+        <About dict={dict} />
         <Experience dict={{ ...dict, lang }} />
         <Education dict={dict} />
         <Projects dict={dict} />

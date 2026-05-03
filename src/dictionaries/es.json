@@ -23,6 +23,22 @@
       "contact": "Contacto"
     }
   },
+  "about": {
+    "title": "Sobre Mí",
+    "subtitle": "Un poco de mi historia y lo que me mueve",
+    "bio1": "Crecí rodeado de tecnología — mi padre era técnico en informática, así que las computadoras siempre fueron parte de mi vida. Armaba y reparaba mi propia PC, la abría para entender cómo funcionaba por dentro, la formateaba solo y probaba Linux solo para ver qué tenía de diferente. Empecé editando fotos en Photoshop y videos en Sony Vegas, hasta que un día, trabajando en una empresa fuera del área tech, se me ocurrió crear una aplicación para ella. No sabía por dónde empezar — pero eso fue el disparador. Empecé a estudiar, fui profundizando, y pronto conseguí mi primer empleo como desarrollador.",
+    "bio2": "Lo que me mueve es simple: crear cosas que personas reales usan. No necesita llevar mi nombre — necesita funcionar, tener sentido y estar bien hecho.",
+    "quote": "Siempre dispuesto a hacer mejor.",
+    "interests": {
+      "title": "Fuera del código",
+      "items": [
+        { "label": "Películas & Series", "description": "Clásicos, geek, superhéroes y anime" },
+        { "label": "Música", "description": "Un poco de todo" },
+        { "label": "Deportes", "description": "Fútbol, baloncesto y musculación" },
+        { "label": "Experiencias", "description": "Cine, lugares nuevos y lo que aún está por venir" }
+      ]
+    }
+  },
   "experience": {
     "title": "Experiencia Profesional",
     "subtitle": "Mi trayectoria profesional y las experiencias que me formaron como desarrollador",
