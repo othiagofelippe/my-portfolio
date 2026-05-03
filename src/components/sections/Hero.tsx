@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/atoms";
+import { Briefcase } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -188,6 +189,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
 
           {/* Image */}
           <motion.div className="flex justify-center lg:justify-end" style={{ y: imageY }}>
+            <div className="relative">
             <motion.div
               className="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-4 sm:border-8 border-background-primary shadow-xl"
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
@@ -214,6 +216,23 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                 priority
               />
             </motion.div>
+
+              <motion.div
+                className="absolute -bottom-4 -right-4 flex items-center gap-2.5 bg-background-primary border border-border-primary rounded-2xl px-4 py-3 shadow-xl"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+                transition={{
+                  opacity: { duration: 0.8, ease: "easeOut", delay: 0.6 },
+                  scale: { duration: 0.8, ease: "easeOut", delay: 0.6 },
+                  y: { duration: 4, ease: "easeInOut", repeat: Infinity, repeatType: "reverse", delay: 1.4 },
+                }}
+              >
+                <Briefcase className="text-accent-brand shrink-0" size={16} aria-hidden="true" />
+                <span className="typography-body-sm text-text-headline font-semibold whitespace-nowrap">
+                  4 anos de experiência
+                </span>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
