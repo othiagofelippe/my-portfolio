@@ -240,14 +240,14 @@ Componente customizado em `src/components/ui/AccessibilityPanel.tsx`:
 
 **Estrutura:**
 - Rotas dinâmicas: `app/[lang]/page.tsx`
-- Idiomas suportados: `pt`, `en`
+- Idiomas suportados: `pt`, `en`, `es`
 - Implementação: Via parâmetros de rota (não Next-Intl ainda)
 
 **Padrão:**
 ```tsx
 // app/[lang]/page.tsx
 export default function Page({ params }: { params: { lang: string } }) {
-  const lang = params.lang // 'pt' ou 'en'
+  const lang = params.lang // 'pt', 'en' ou 'es'
   // Carregar traduções baseado em lang
 }
 ```

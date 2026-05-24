@@ -68,10 +68,15 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
 
   const handleDownloadClick = () => {
     audio.play("downloadCv");
+    const link = document.createElement("a");
+    link.href = `/${getCVFileName()}`;
+    link.download = getCVFileName();
+    link.click();
   };
 
-  const handleSocialClick = () => {
+  const handleExternalLink = (url: string) => {
     audio.play("buttonClick");
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -141,46 +146,29 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
 
             <motion.div className="flex flex-row gap-4 items-start" variants={itemVariants}>
               <Button
-                asChild
                 variant="outline"
                 size="lg"
                 onClick={handleDownloadClick}
               >
-                <a href={`/${getCVFileName()}`} download={getCVFileName()}>
-                  <HiOutlineArrowDownTray />
-                  {dict.hero.downloadCV}
-                </a>
+                <HiOutlineArrowDownTray />
+                {dict.hero.downloadCV}
               </Button>
               <div className="flex gap-3">
                 <Button
-                  asChild
                   variant="ghost"
                   size="icon"
-                  onClick={handleSocialClick}
+                  aria-label="Visitar perfil no LinkedIn"
+                  onClick={() => handleExternalLink("https://linkedin.com/in/othiagofelippe")}
                 >
-                  <a
-                    href="https://linkedin.com/in/othiagofelippe"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visitar perfil no LinkedIn"
-                  >
-                    <FaLinkedin size={20} aria-hidden="true" />
-                  </a>
+                  <FaLinkedin size={20} aria-hidden="true" />
                 </Button>
                 <Button
-                  asChild
                   variant="ghost"
                   size="icon"
-                  onClick={handleSocialClick}
+                  aria-label="Visitar perfil no GitHub"
+                  onClick={() => handleExternalLink("https://github.com/othiagofelippe")}
                 >
-                  <a
-                    href="https://github.com/othiagofelippe"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visitar perfil no GitHub"
-                  >
-                    <FaGithub size={20} aria-hidden="true" />
-                  </a>
+                  <FaGithub size={20} aria-hidden="true" />
                 </Button>
               </div>
             </motion.div>

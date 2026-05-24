@@ -182,38 +182,24 @@ export function Projects({ dict }: { dict: any }) {
                       <div className="flex gap-3 w-full">
                         {project.demo && (
                         <Button
-                          asChild
                           variant="outline"
                           size="sm"
                           className="flex-1"
-                          onClick={() => audio.play("buttonClick")}
+                          onClick={() => { audio.play("buttonClick"); window.open(project.demo ?? undefined, "_blank", "noopener,noreferrer"); }}
                         >
-                          <a
-                            href={project.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <HiOutlineArrowTopRightOnSquare />
-                            {dict.projects.demo}
-                          </a>
+                          <HiOutlineArrowTopRightOnSquare />
+                          {dict.projects.demo}
                         </Button>
                       )}
                         <Button
-                          asChild
                           variant="outline"
                           size="sm"
                           className="flex-1"
-                          onClick={() => audio.play("buttonClick")}
-                        >
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          onClick={() => { audio.play("buttonClick"); window.open(project.url, "_blank", "noopener,noreferrer"); }}
                         >
                           <HiOutlineCodeBracket />
                           {dict.projects.code}
-                        </a>
-                      </Button>
+                        </Button>
                     </div>
                   </CardFooter>
                   </Card>
@@ -227,18 +213,11 @@ export function Projects({ dict }: { dict: any }) {
 
         <div className="text-center mt-12">
           <Button
-            asChild
             size="lg"
-            onClick={() => audio.play("buttonClick")}
+            onClick={() => { audio.play("buttonClick"); window.open("https://github.com/othiagofelippe?tab=repositories", "_blank", "noopener,noreferrer"); }}
           >
-            <a
-              href="https://github.com/othiagofelippe?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {dict.projects.viewAll}
-              <HiOutlineArrowRight />
-            </a>
+            {dict.projects.viewAll}
+            <HiOutlineArrowRight />
           </Button>
         </div>
           </>

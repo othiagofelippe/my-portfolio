@@ -50,58 +50,36 @@ export function Footer({ dict }: { dict: any }) {
             </p>
             <div className="flex space-x-4">
               <Button
-                asChild
                 variant="ghost"
                 size="icon"
+                aria-label="LinkedIn"
+                onClick={() => { audio.play("buttonClick"); window.open("https://linkedin.com/in/othiagofelippe", "_blank", "noopener,noreferrer"); }}
               >
-                <Link
-                  href="https://linkedin.com/in/othiagofelippe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedinIn className="w-6 h-6" />
-                </Link>
+                <FaLinkedinIn className="w-6 h-6" />
               </Button>
               <Button
-                asChild
                 variant="ghost"
                 size="icon"
+                aria-label="GitHub"
+                onClick={() => { audio.play("buttonClick"); window.open("https://github.com/othiagofelippe", "_blank", "noopener,noreferrer"); }}
               >
-                <Link
-                  href="https://github.com/othiagofelippe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                >
-                  <FaGithub className="w-6 h-6" />
-                </Link>
+                <FaGithub className="w-6 h-6" />
               </Button>
               <Button
-                asChild
                 variant="ghost"
                 size="icon"
+                aria-label="WhatsApp"
+                onClick={() => { audio.play("buttonClick"); window.open("https://wa.me/5521973494481", "_blank", "noopener,noreferrer"); }}
               >
-                <Link
-                  href="https://wa.me/5521973494481"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                >
-                  <FaWhatsapp className="w-6 h-6" />
-                </Link>
+                <FaWhatsapp className="w-6 h-6" />
               </Button>
               <Button
-                asChild
                 variant="ghost"
                 size="icon"
+                aria-label="Email"
+                onClick={() => { audio.play("buttonClick"); window.open("mailto:contact@othiagofelippe.com"); }}
               >
-                <Link
-                  href="mailto:contact@othiagofelippe.com"
-                  aria-label="Email"
-                >
-                  <HiOutlineEnvelope className="w-6 h-6" />
-                </Link>
+                <HiOutlineEnvelope className="w-6 h-6" />
               </Button>
             </div>
           </div>

@@ -60,20 +60,17 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                 return (
                   <Button
                     key={item.id}
-                    asChild
                     variant="ghost"
                     size="sm"
                     onClick={() => scrollToSection(item.href)}
                     className={`relative ${isActive ? "text-text-headline" : "text-text-body"}`}
                   >
-                    <a href={item.href}>
-                      {item.name}
-                      <motion.span
-                        className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
-                        animate={{ width: isActive ? "100%" : "0%" }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                      />
-                    </a>
+                    {item.name}
+                    <motion.span
+                      className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
+                      animate={{ width: isActive ? "100%" : "0%" }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    />
                   </Button>
                 );
               })}
@@ -157,7 +154,6 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                       whileHover={{ x: 4 }}
                     >
                       <Button
-                        asChild
                         variant="ghost"
                         size="sm"
                         onClick={() => {
@@ -166,14 +162,12 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                         }}
                         className={`relative w-full justify-start ${isActive ? "text-text-headline" : "text-text-body"}`}
                       >
-                        <a href={item.href}>
-                          {item.name}
-                          <motion.span
-                            className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
-                            animate={{ width: isActive ? "100%" : "0%" }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
-                          />
-                        </a>
+                        {item.name}
+                        <motion.span
+                          className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
+                          animate={{ width: isActive ? "100%" : "0%" }}
+                          transition={{ duration: 0.3, ease: "easeOut" }}
+                        />
                       </Button>
                     </motion.div>
                   );

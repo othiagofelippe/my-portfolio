@@ -76,6 +76,10 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
 
   const handleDownloadClick = (): void => {
     audio.play('downloadCv');
+    const link = document.createElement('a');
+    link.href = `/${getCVFileName()}`;
+    link.download = getCVFileName();
+    link.click();
   };
 
   const experiences = [
@@ -199,11 +203,9 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
         </motion.div>
 
         <div className="text-center mt-16">
-          <Button asChild size="lg" onClick={handleDownloadClick}>
-            <a href={`/${getCVFileName()}`} download={getCVFileName()}>
-              <HiOutlineArrowDownTray />
-              {dict.experience.downloadCV}
-            </a>
+          <Button size="lg" onClick={handleDownloadClick}>
+            <HiOutlineArrowDownTray />
+            {dict.experience.downloadCV}
           </Button>
         </div>
       </div>
