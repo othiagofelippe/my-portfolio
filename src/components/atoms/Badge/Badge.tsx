@@ -3,11 +3,10 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { motion } from "motion/react"
-import { typographyVariants } from "@tfds/components"
-import { cn } from "@/lib/utils"
+import { typographyVariants, cn } from "@tfds/components"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-md border typography-body-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-action-primary focus-visible:ring-offset-2",
+  cn(typographyVariants({ variant: "body-sm" }), "inline-flex items-center rounded-md border font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-action-primary focus-visible:ring-offset-2"),
   {
     variants: {
       variant: {
