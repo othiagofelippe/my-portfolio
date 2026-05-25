@@ -69,7 +69,7 @@ export function Skills({ dict }: { dict: SkillsDict }) {
   ];
 
   return (
-    <section id="habilidades" className="py-20 bg-background-secondary/30">
+    <section id="habilidades" className="py-20 bg-bg-default/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -78,10 +78,10 @@ export function Skills({ dict }: { dict: SkillsDict }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="typography-h2 text-text-headline mb-4">
+          <h2 className="typography-h2 text-text-primary mb-4">
             {dict.skills.title}
           </h2>
-          <p className="typography-body text-text-body max-w-2xl mx-auto">
+          <p className="typography-body text-text-secondary max-w-2xl mx-auto">
             {dict.skills.subtitle}
           </p>
         </motion.div>
@@ -99,11 +99,11 @@ export function Skills({ dict }: { dict: SkillsDict }) {
               variants={cardVariants}
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
             >
-              <Card className="bg-background-primary border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300 h-full">
+              <Card className="bg-bg-page border-border-default/10 shadow-sm hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="text-accent-brand">{category.icon}</div>
-                    <CardTitle className="typography-h5 text-text-headline">
+                    <div className="text-action-primary">{category.icon}</div>
+                    <CardTitle className="typography-h5 text-text-primary">
                       {category.title}
                     </CardTitle>
                   </div>

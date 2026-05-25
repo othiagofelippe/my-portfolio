@@ -16,13 +16,13 @@ export function Services({ dict }: { dict: any })  {
   ];
 
   return (
-    <section className="py-20 bg-background-primary">
+    <section className="py-20 bg-bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="typography-h2 text-text-headline mb-4">
+          <h2 className="typography-h2 text-text-primary mb-4">
             {dict.services.title}
           </h2>
-          <p className="typography-body text-text-body max-w-2xl mx-auto">
+          <p className="typography-body text-text-secondary max-w-2xl mx-auto">
             {dict.services.subtitle}
           </p>
         </div>
@@ -31,18 +31,18 @@ export function Services({ dict }: { dict: any })  {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="bg-background-secondary/50 border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
+              className="bg-bg-default/50 border-border-default/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
             >
               <CardContent className="p-8">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="text-accent-brand">
+                  <div className="text-action-primary">
                     {service.icon}
                   </div>
-                  <CardTitle className="typography-h5 text-text-headline">
+                  <CardTitle className="typography-h5 text-text-primary">
                     {service.title}
                   </CardTitle>
                 </div>
-                <p className="typography-body text-text-body">
+                <p className="typography-body text-text-secondary">
                   {service.description}
                 </p>
               </CardContent>

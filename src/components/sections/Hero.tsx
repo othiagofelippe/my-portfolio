@@ -90,7 +90,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
             animate="visible"
           >
             <motion.div className="space-y-4" variants={itemVariants}>
-              <h1 className="typography-display text-text-headline">
+              <h1 className="typography-display text-text-primary">
                 Fala aí!{" "}
                 <motion.span
                   aria-hidden="true"
@@ -101,19 +101,19 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   👋
                 </motion.span>
               </h1>
-              <h2 className="typography-h2 text-text-heading">
+              <h2 className="typography-h2 text-text-primary">
                 {dict.hero.intro}{" "}
-                <span className="text-accent-brand">{dict.hero.name}</span>
+                <span className="text-action-primary">{dict.hero.name}</span>
               </h2>
             </motion.div>
 
-            <motion.p className="typography-h5 text-text-body flex flex-wrap items-baseline gap-x-2" variants={itemVariants}>
+            <motion.p className="typography-h5 text-text-secondary flex flex-wrap items-baseline gap-x-2" variants={itemVariants}>
               {dict.hero.rolePre}{" "}
               <span className="relative inline-flex overflow-hidden" style={{ minWidth: "14ch" }}>
                 <AnimatePresence mode="popLayout" initial={false}>
                   <motion.span
                     key={ROTATING_WORDS[wordIndex]}
-                    className="text-accent-brand font-semibold inline-block"
+                    className="text-action-primary font-semibold inline-block"
                     initial={{ y: "100%", opacity: 0 }}
                     animate={{ y: "0%", opacity: 1 }}
                     exit={{ y: "-100%", opacity: 0 }}
@@ -125,15 +125,15 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
               </span>
             </motion.p>
 
-            <motion.p className="typography-body-lg text-text-body" variants={itemVariants}>
+            <motion.p className="typography-body-lg text-text-secondary" variants={itemVariants}>
               {dict.hero.descriptionPre}{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 font-semibold text-text-headline">
+                <span className="relative z-10 font-semibold text-text-primary">
                   {dict.hero.descriptionHighlight}
                 </span>
                 <motion.span
                   aria-hidden="true"
-                  className="absolute bottom-0 left-0 h-[6px] w-full bg-accent-brand/30 rounded-full"
+                  className="absolute bottom-0 left-0 h-[6px] w-full bg-action-primary/30 rounded-full"
                   initial={{ scaleX: 0, originX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 1.4 }}
@@ -176,7 +176,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
           {/* Image */}
           <motion.div className="flex justify-center lg:justify-end" style={{ y: imageY }}>
             <motion.div
-              className="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-4 sm:border-8 border-background-primary shadow-xl"
+              className="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-4 sm:border-8 border-bg-page shadow-xl"
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 2, y: [0, -10, 0] }}
               transition={{

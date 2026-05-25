@@ -46,7 +46,7 @@ export function ScrollToTop() {
         >
           <motion.button
             onClick={scrollToTop}
-            className="relative bg-accent-brand hover:bg-accent-brand/90 text-text-label rounded-full shadow-lg cursor-pointer"
+            className="relative bg-action-primary hover:bg-action-primary/90 text-text-tertiary rounded-full shadow-lg cursor-pointer"
             style={{ width: BUTTON_SIZE, height: BUTTON_SIZE }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

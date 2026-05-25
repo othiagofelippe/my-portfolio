@@ -7,22 +7,22 @@ import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-md border typography-body-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-brand focus-visible:ring-offset-2",
+  "inline-flex items-center rounded-md border typography-body-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-action-primary focus-visible:ring-offset-2",
   {
     variants: {
       variant: {
         brand:
-          "bg-accent-brand/10 text-accent-brand border-accent-brand/20 hover:bg-accent-brand/20 dark:bg-accent-brand/20 dark:border-accent-brand/30 ocean-sunset:bg-accent-brand/20 ocean-sunset:border-accent-brand/30",
+          "bg-action-primary/10 text-action-primary border-action-primary/20 hover:bg-action-primary/20 dark:bg-action-primary/20 dark:border-action-primary/30 ocean-sunset:bg-action-primary/20 ocean-sunset:border-action-primary/30",
         neutral:
-          "bg-background-secondary/50 text-text-heading border-border-primary/30 hover:bg-background-secondary/70 dark:bg-background-tertiary dark:text-text-heading dark:border-border-primary/50 ocean-sunset:bg-background-tertiary ocean-sunset:text-text-headline ocean-sunset:border-border-primary/50",
+          "bg-bg-default/50 text-text-primary border-border-default/30 hover:bg-bg-default/70 dark:bg-bg-subtle dark:text-text-primary dark:border-border-default/50 ocean-sunset:bg-bg-subtle ocean-sunset:text-text-primary ocean-sunset:border-border-default/50",
         success:
-          "bg-accent-green/90 text-white border-accent-green hover:bg-accent-green dark:bg-accent-green dark:text-white dark:border-accent-green ocean-sunset:bg-accent-green ocean-sunset:text-white ocean-sunset:border-accent-green",
+          "bg-feedback-success/90 text-white border-feedback-success hover:bg-feedback-success dark:bg-feedback-success dark:text-white dark:border-feedback-success ocean-sunset:bg-feedback-success ocean-sunset:text-white ocean-sunset:border-feedback-success",
         outline:
-          "bg-background-secondary/50 text-text-heading border-border-primary/30 hover:bg-background-secondary/70 dark:bg-background-tertiary dark:text-text-heading dark:border-border-primary/50 ocean-sunset:bg-background-tertiary ocean-sunset:text-text-headline ocean-sunset:border-border-primary/50",
+          "bg-bg-default/50 text-text-primary border-border-default/30 hover:bg-bg-default/70 dark:bg-bg-subtle dark:text-text-primary dark:border-border-default/50 ocean-sunset:bg-bg-subtle ocean-sunset:text-text-primary ocean-sunset:border-border-default/50",
         secondary:
-          "bg-accent-brand/10 text-accent-brand border-accent-brand/20 hover:bg-accent-brand/20 dark:bg-accent-brand/20 dark:border-accent-brand/30 ocean-sunset:bg-accent-brand/20 ocean-sunset:border-accent-brand/30",
+          "bg-action-primary/10 text-action-primary border-action-primary/20 hover:bg-action-primary/20 dark:bg-action-primary/20 dark:border-action-primary/30 ocean-sunset:bg-action-primary/20 ocean-sunset:border-action-primary/30",
         current:
-          "bg-accent-green/10 text-accent-green border-accent-green/30 gap-1.5",
+          "bg-feedback-success/10 text-feedback-success border-feedback-success/30 gap-1.5",
       },
       size: {
         sm: "px-2 py-0.5 text-xs",
@@ -46,7 +46,7 @@ function Badge({ className, variant, size, ...props }: BadgeProps) {
     return (
       <div className={cn(badgeVariants({ variant, size }), className)}>
         <motion.span
-          className="w-1.5 h-1.5 rounded-full bg-accent-green shrink-0"
+          className="w-1.5 h-1.5 rounded-full bg-feedback-success shrink-0"
           animate={{ opacity: [1, 0.3, 1], scale: [1, 0.8, 1] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           aria-hidden="true"

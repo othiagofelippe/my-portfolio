@@ -34,14 +34,14 @@ export function Footer({ dict }: { dict: any }) {
   };
 
   return (
-    <footer className="bg-background-secondary text-text-label">
+    <footer className="bg-bg-default text-text-tertiary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="mb-4">
               <Logo />
             </div>
-            <p className="typography-body text-text-body mb-6 max-w-md">
+            <p className="typography-body text-text-secondary mb-6 max-w-md">
               {dict.footer.description}
             </p>
             <div className="flex space-x-4">
@@ -81,7 +81,7 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <h3 className="typography-body-lg text-text-body mb-4">
+            <h3 className="typography-body-lg text-text-secondary mb-4">
               {dict.footer.navigation}
             </h3>
             <ul className="space-y-3">
@@ -100,11 +100,11 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <h3 className="typography-body-lg text-text-body mb-4">
+            <h3 className="typography-body-lg text-text-secondary mb-4">
               {dict.footer.contactSection}
             </h3>
-            <div className="space-y-3 text-text-body">
-              <div className="flex items-start gap-2 hover:text-text-headline transition-colors">
+            <div className="space-y-3 text-text-secondary">
+              <div className="flex items-start gap-2 hover:text-text-primary transition-colors">
                 <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <Link
                   href="mailto:contact@othiagofelippe.com"
@@ -113,13 +113,13 @@ export function Footer({ dict }: { dict: any }) {
                   {dict.contact.info.email}
                 </Link>
               </div>
-              <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
+              <div className="flex items-center gap-2 hover:text-text-primary transition-colors">
                 <MapPin className="w-5 h-5" />
                 <span className="typography-body">
                   {dict.contact.info.location}
                 </span>
               </div>
-              <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
+              <div className="flex items-center gap-2 hover:text-text-primary transition-colors">
                 <Clock className="w-5 h-5" />
                 <span className="typography-body">
                   {dict.contact.info.availability}
@@ -129,8 +129,8 @@ export function Footer({ dict }: { dict: any }) {
           </div>
         </div>
 
-        <div className="border-t border-border-primary mt-12 pt-8 text-center">
-          <p className="typography-body-sm text-text-span">
+        <div className="border-t border-border-default mt-12 pt-8 text-center">
+          <p className="typography-body-sm text-text-disabled">
             © {currentYear} Thiago Felippe. {dict.footer.rights}
           </p>
         </div>

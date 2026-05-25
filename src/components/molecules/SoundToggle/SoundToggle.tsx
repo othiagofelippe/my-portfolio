@@ -20,7 +20,7 @@ export function SoundToggle() {
   return (
     <motion.button
       onClick={handleToggle}
-      className="p-2 rounded-lg text-text-body hover:text-accent-brand hover:bg-background-secondary/30 cursor-pointer"
+      className="p-2 rounded-lg text-text-secondary hover:text-action-primary hover:bg-bg-default/30 cursor-pointer"
       aria-label={muted ? "Enable sound effects" : "Disable sound effects"}
       title={muted ? "Enable sound effects" : "Disable sound effects"}
       whileHover={{ scale: 1.1 }}

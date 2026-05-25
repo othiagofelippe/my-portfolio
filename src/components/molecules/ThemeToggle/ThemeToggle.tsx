@@ -41,7 +41,7 @@ export function ThemeToggle() {
   return (
     <motion.button
       onClick={cycleTheme}
-      className="p-2 rounded-lg text-text-body hover:text-accent-brand hover:bg-background-secondary/30 cursor-pointer"
+      className="p-2 rounded-lg text-text-secondary hover:text-action-primary hover:bg-bg-default/30 cursor-pointer"
       aria-label={NEXT_THEME_LABEL[currentTheme]}
       title={NEXT_THEME_LABEL[currentTheme]}
       whileHover={{ scale: 1.1 }}
@@ -59,7 +59,7 @@ export function ThemeToggle() {
               transition={{ duration: 0.18, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <Sun className="w-5 h-5 text-accent-brand" />
+              <Sun className="w-5 h-5 text-action-primary" />
             </motion.div>
           )}
           {currentTheme === 'dark' && (
@@ -71,7 +71,7 @@ export function ThemeToggle() {
               transition={{ duration: 0.18, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <Moon className="w-5 h-5 text-accent-brand" />
+              <Moon className="w-5 h-5 text-action-primary" />
             </motion.div>
           )}
           {currentTheme === 'ocean-sunset' && (
@@ -83,7 +83,7 @@ export function ThemeToggle() {
               transition={{ duration: 0.18, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <Waves className="w-5 h-5 text-accent-brand" />
+              <Waves className="w-5 h-5 text-action-primary" />
             </motion.div>
           )}
         </AnimatePresence>

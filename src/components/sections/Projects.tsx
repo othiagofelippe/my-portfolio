@@ -55,7 +55,7 @@ export function Projects({ dict }: { dict: any }) {
     fetchProjects();
   }, []);
 
-  const sectionClassName = `py-20 bg-background-secondary/30${!loading && !error && projects.length ? " dark:bg-background-secondary" : ""}`;
+  const sectionClassName = `py-20 bg-bg-default/30${!loading && !error && projects.length ? " dark:bg-bg-default" : ""}`;
 
   return (
     <section id="projetos" className={sectionClassName}>
@@ -63,10 +63,10 @@ export function Projects({ dict }: { dict: any }) {
         {loading && (
           <>
             <div className="text-center mb-16">
-              <h2 className="typography-h2 text-text-headline mb-4">
+              <h2 className="typography-h2 text-text-primary mb-4">
                 {dict.projects.title}
               </h2>
-              <p className="typography-body text-text-body max-w-2xl mx-auto">
+              <p className="typography-body text-text-secondary max-w-2xl mx-auto">
                 {dict.projects.loading}
               </p>
             </div>
@@ -74,16 +74,16 @@ export function Projects({ dict }: { dict: any }) {
               {[1, 2, 3].map((i) => (
                 <Card
                   key={i}
-                  className="bg-background-primary border-border-primary/10"
+                  className="bg-bg-page border-border-default/10"
                 >
                   <CardHeader className="pb-4">
-                    <div className="w-full h-32 bg-background-secondary/50 rounded-lg animate-pulse"></div>
-                    <div className="h-6 bg-background-secondary/50 rounded animate-pulse"></div>
+                    <div className="w-full h-32 bg-bg-default/50 rounded-lg animate-pulse"></div>
+                    <div className="h-6 bg-bg-default/50 rounded animate-pulse"></div>
                   </CardHeader>
                   <CardContent className="pt-0">
                     <div className="space-y-2">
-                      <div className="h-4 bg-background-secondary/50 rounded animate-pulse"></div>
-                      <div className="h-4 bg-background-secondary/50 rounded animate-pulse w-3/4"></div>
+                      <div className="h-4 bg-bg-default/50 rounded animate-pulse"></div>
+                      <div className="h-4 bg-bg-default/50 rounded animate-pulse w-3/4"></div>
                     </div>
                   </CardContent>
                 </Card>
@@ -94,10 +94,10 @@ export function Projects({ dict }: { dict: any }) {
 
         {error && (
           <div className="text-center">
-            <h2 className="typography-h2 text-text-headline mb-4">
+            <h2 className="typography-h2 text-text-primary mb-4">
               {dict.projects.title}
             </h2>
-            <p className="typography-body text-accent-red">
+            <p className="typography-body text-feedback-error">
               {dict.projects.error}: {error}
             </p>
           </div>
@@ -105,10 +105,10 @@ export function Projects({ dict }: { dict: any }) {
 
         {!loading && !error && !projects.length && (
           <div className="text-center">
-            <h2 className="typography-h2 text-text-headline mb-4">
+            <h2 className="typography-h2 text-text-primary mb-4">
               {dict.projects.title}
             </h2>
-            <p className="typography-body text-text-body">
+            <p className="typography-body text-text-secondary">
               {dict.projects.empty}
             </p>
           </div>
@@ -117,10 +117,10 @@ export function Projects({ dict }: { dict: any }) {
         {!loading && !error && projects.length > 0 && (
           <>
         <div className="text-center mb-16">
-          <h2 className="typography-h2 text-text-headline mb-4">
+          <h2 className="typography-h2 text-text-primary mb-4">
             {dict.projects.title}
           </h2>
-          <p className="typography-body text-text-body max-w-2xl mx-auto">
+          <p className="typography-body text-text-secondary max-w-2xl mx-auto">
             {dict.projects.subtitle}
           </p>
         </div>
@@ -139,10 +139,10 @@ export function Projects({ dict }: { dict: any }) {
                   key={index}
                   className="pl-4 md:basis-1/2 lg:basis-1/3"
                 >
-                  <Card className="h-full bg-background-primary border-border-primary/10 hover:shadow-xl transition-all duration-300 ease-out flex flex-col">
+                  <Card className="h-full bg-bg-page border-border-default/10 hover:shadow-xl transition-all duration-300 ease-out flex flex-col">
                     <CardHeader className="pb-4">
                       <div className="flex items-center justify-between mb-4">
-                        <CardTitle className="typography-h5 text-text-headline">
+                        <CardTitle className="typography-h5 text-text-primary">
                           {project.name}
                         </CardTitle>
                         <Badge variant="neutral">
@@ -152,12 +152,12 @@ export function Projects({ dict }: { dict: any }) {
                     </CardHeader>
 
                     <CardContent className="pt-0 flex-1 flex flex-col">
-                      <p className="typography-body text-text-body mb-4 leading-relaxed line-clamp-3">
+                      <p className="typography-body text-text-secondary mb-4 leading-relaxed line-clamp-3">
                         {project.description}
                       </p>
 
                       <div className="space-y-3 mt-auto">
-                        <div className="flex items-center gap-2 text-text-body typography-body-sm">
+                        <div className="flex items-center gap-2 text-text-secondary typography-body-sm">
                           <span>📅 {project.formatted_date}</span>
                         </div>
                         <div className="flex flex-wrap gap-2 min-h-[2rem]">

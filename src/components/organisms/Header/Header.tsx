@@ -45,7 +45,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background-primary/80 backdrop-blur-md border-b border-border-primary z-50">
+    <header className="fixed top-0 left-0 right-0 bg-bg-page/80 backdrop-blur-md border-b border-border-default z-50">
       <nav aria-label="Navegação principal" className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex-shrink-0">
@@ -63,11 +63,11 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                     variant="ghost"
                     size="sm"
                     onClick={() => scrollToSection(item.href)}
-                    className={`relative ${isActive ? "text-text-headline" : "text-text-body"}`}
+                    className={`relative ${isActive ? "text-text-primary" : "text-text-secondary"}`}
                   >
                     {item.name}
                     <motion.span
-                      className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
+                      className="absolute bottom-0 left-0 h-0.5 bg-action-primary"
                       animate={{ width: isActive ? "100%" : "0%" }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
                     />
@@ -91,7 +91,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
             <LanguageSelector currentLang={lang} />
             <motion.button
               type="button"
-              className="text-text-body hover:text-text-headline focus:outline-none p-2 cursor-pointer"
+              className="text-text-secondary hover:text-text-primary focus:outline-none p-2 cursor-pointer"
               onClick={toggleMenu}
               aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={isMenuOpen}
@@ -142,7 +142,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-background-primary border-t border-border-primary">
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-bg-page border-t border-border-default">
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -160,11 +160,11 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                           scrollToSection(item.href);
                           setIsMenuOpen(false);
                         }}
-                        className={`relative w-full justify-start ${isActive ? "text-text-headline" : "text-text-body"}`}
+                        className={`relative w-full justify-start ${isActive ? "text-text-primary" : "text-text-secondary"}`}
                       >
                         {item.name}
                         <motion.span
-                          className="absolute bottom-0 left-0 h-0.5 bg-accent-brand"
+                          className="absolute bottom-0 left-0 h-0.5 bg-action-primary"
                           animate={{ width: isActive ? "100%" : "0%" }}
                           transition={{ duration: 0.3, ease: "easeOut" }}
                         />

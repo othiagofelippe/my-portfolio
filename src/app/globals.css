@@ -7,19 +7,30 @@
 @custom-variant ocean-sunset (&:is(.ocean-sunset *));
 
 @theme inline {
-  --color-background-primary: var(--tfds-color-bg-page);
-  --color-background-secondary: var(--tfds-color-bg-default);
-  --color-background-tertiary: var(--tfds-color-bg-subtle);
-  --color-accent-brand: var(--tfds-color-action-primary);
-  --color-accent-foreground: var(--tfds-color-text-onBrand);
-  --color-accent-green: var(--tfds-color-feedback-success);
-  --color-accent-red: var(--tfds-color-feedback-error);
-  --color-border-primary: var(--tfds-color-border-default);
-  --color-text-headline: var(--tfds-color-text-primary);
-  --color-text-heading: var(--tfds-color-text-primary);
-  --color-text-body: var(--tfds-color-text-secondary);
-  --color-text-label: var(--tfds-color-text-tertiary);
-  --color-text-span: var(--tfds-color-text-disabled);
+  --color-bg-page: var(--tfds-color-bg-page);
+  --color-bg-default: var(--tfds-color-bg-default);
+  --color-bg-subtle: var(--tfds-color-bg-subtle);
+  --color-bg-muted: var(--tfds-color-bg-muted);
+
+  --color-text-primary: var(--tfds-color-text-primary);
+  --color-text-secondary: var(--tfds-color-text-secondary);
+  --color-text-tertiary: var(--tfds-color-text-tertiary);
+  --color-text-disabled: var(--tfds-color-text-disabled);
+  --color-text-onBrand: var(--tfds-color-text-onBrand);
+
+  --color-action-primary: var(--tfds-color-action-primary);
+  --color-action-primaryHover: var(--tfds-color-action-primaryHover);
+  --color-action-primarySubtle: var(--tfds-color-action-primarySubtle);
+
+  --color-feedback-success: var(--tfds-color-feedback-success);
+  --color-feedback-successSubtle: var(--tfds-color-feedback-successSubtle);
+  --color-feedback-error: var(--tfds-color-feedback-error);
+  --color-feedback-errorSubtle: var(--tfds-color-feedback-errorSubtle);
+  --color-feedback-warning: var(--tfds-color-feedback-warning);
+
+  --color-border-default: var(--tfds-color-border-default);
+  --color-border-subtle: var(--tfds-color-border-subtle);
+  --color-border-strong: var(--tfds-color-border-strong);
 }
 
 @layer base {

@@ -98,13 +98,13 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
   ];
 
   return (
-    <section id="experiencia" className="py-20 bg-background-secondary/30">
+    <section id="experiencia" className="py-20 bg-bg-default/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="typography-h2 text-text-headline mb-4">
+          <h2 className="typography-h2 text-text-primary mb-4">
             {dict.experience.title}
           </h2>
-          <p className="typography-body text-text-body max-w-2xl mx-auto">
+          <p className="typography-body text-text-secondary max-w-2xl mx-auto">
             {dict.experience.subtitle}
           </p>
         </div>
@@ -118,11 +118,11 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
           viewport={{ once: true, margin: "-80px" }}
         >
           {/* Trilho da linha (fundo estático) */}
-          <div className="absolute left-3 top-2 bottom-2 w-px bg-border-primary/30" />
+          <div className="absolute left-3 top-2 bottom-2 w-px bg-border-default/30" />
 
           {/* Linha animada pelo scroll */}
           <motion.div
-            className="absolute left-3 top-2 w-px bg-accent-brand origin-top"
+            className="absolute left-3 top-2 w-px bg-action-primary origin-top"
             style={{ height: lineHeight }}
           />
 
@@ -138,16 +138,16 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                   {experience.current ? (
                     <span className="relative flex h-6 w-6">
                       <motion.span
-                        className="absolute inline-flex h-full w-full rounded-full bg-accent-brand/30"
+                        className="absolute inline-flex h-full w-full rounded-full bg-action-primary/30"
                         animate={{ scale: [1, 1.6, 1], opacity: [0.6, 0, 0.6] }}
                         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                       />
-                      <span className="relative inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-background-primary bg-accent-brand">
+                      <span className="relative inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-bg-page bg-action-primary">
                         <span className="h-2 w-2 rounded-full bg-white" />
                       </span>
                     </span>
                   ) : (
-                    <span className="h-6 w-6 rounded-full border-2 border-background-primary bg-border-primary flex items-center justify-center">
+                    <span className="h-6 w-6 rounded-full border-2 border-bg-page bg-border-default flex items-center justify-center">
                       <span className="h-2 w-2 rounded-full bg-text-body/40" />
                     </span>
                   )}
@@ -157,15 +157,15 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                 <motion.div
                   whileHover={{ y: -3, transition: { duration: 0.2 } }}
                 >
-                  <Card className="bg-background-primary border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                  <Card className="bg-bg-page border-border-default/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-6">
                       {/* Header */}
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                         <div>
-                          <h3 className="typography-h5 text-text-headline">
+                          <h3 className="typography-h5 text-text-primary">
                             {experience.title}
                           </h3>
-                          <h4 className="typography-body-lg text-accent-brand mt-0.5">
+                          <h4 className="typography-body-lg text-action-primary mt-0.5">
                             {experience.company}
                           </h4>
                         </div>
@@ -182,7 +182,7 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                       </div>
 
                       {/* Description */}
-                      <p className="typography-body text-text-body mb-4">
+                      <p className="typography-body text-text-secondary mb-4">
                         {experience.description}
                       </p>
 
