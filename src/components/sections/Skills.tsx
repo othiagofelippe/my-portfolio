@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/atoms";
+import { Badge } from "@tfds/components";
 import { Typography } from "@tfds/components";
 import { Card, CardContent } from "@/components/molecules";
 import { motion } from "motion/react";
@@ -119,7 +119,7 @@ export function Skills({ dict }: { dict: SkillsDict }) {
                         variants={badgeVariants}
                         whileHover={{ scale: 1.05, transition: { duration: 0.15 } }}
                       >
-                        <Badge variant="brand">{skill}</Badge>
+                        <Badge variant="info">{skill}</Badge>
                       </motion.div>
                     ))}
                   </motion.div>

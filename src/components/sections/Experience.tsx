@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from '@tfds/components';
-import { Badge } from '@/components/atoms';
+import { Badge } from '@tfds/components';
 import { Typography } from '@tfds/components';
 import { Card, CardContent } from '@/components/molecules';
 import { motion, useScroll, useSpring, useTransform } from 'motion/react';
@@ -175,7 +175,13 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                             {experience.period}
                           </Badge>
                           {experience.current && (
-                            <Badge variant="current" size="sm">
+                            <Badge variant="success" size="sm" className="gap-1.5">
+                              <motion.span
+                                className="w-1.5 h-1.5 rounded-full bg-feedback-success shrink-0"
+                                animate={{ opacity: [1, 0.3, 1], scale: [1, 0.8, 1] }}
+                                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                                aria-hidden="true"
+                              />
                               {dict.experience.currentLabel}
                             </Badge>
                           )}
@@ -190,7 +196,7 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                       {/* Skills */}
                       <div className="flex flex-wrap gap-2">
                         {experience.skills.map((skill) => (
-                          <Badge key={skill} variant="neutral" size="sm">
+                          <Badge key={skill} variant="default" size="sm">
                             {skill}
                           </Badge>
                         ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Badge } from "@/components/atoms";
+import { Badge } from "@tfds/components";
 import { Button } from "@tfds/components";
 import {
   Card,
@@ -145,7 +145,7 @@ export function Projects({ dict }: { dict: any }) {
                         <Typography as="h3" variant="heading-md" color="primary">
                           {project.name}
                         </Typography>
-                        <Badge variant="neutral">
+                        <Badge variant="default">
                           {project.language || "Projeto"}
                         </Badge>
                       </div>
@@ -164,13 +164,13 @@ export function Projects({ dict }: { dict: any }) {
                           {project.tags.slice(0, 4).map((tag, tagIndex) => (
                             <Badge
                               key={tagIndex}
-                              variant="brand"
+                              variant="info"
                             >
                               {tag}
                             </Badge>
                           ))}
                           {project.tags.length > 4 && (
-                            <Badge variant="neutral">
+                            <Badge variant="default">
                               +{project.tags.length - 4}
                             </Badge>
                           )}

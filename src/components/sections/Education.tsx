@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/atoms";
+import { Badge } from "@tfds/components";
 import { Typography } from "@tfds/components";
 import { Card, CardContent, CardHeader } from "@/components/molecules";
 import { motion } from "motion/react";
@@ -99,7 +99,7 @@ export function Education({ dict }: { dict: EducationDict }) {
                         <Typography as="p" color="secondary">{dict.education.academic.location}</Typography>
                         <Typography as="p" color="secondary" className="flex items-center gap-4">
                           <span>{dict.education.academic.period}</span>
-                          <Badge variant="neutral">
+                          <Badge variant="default">
                             {dict.education.academic.type}
                           </Badge>
                         </Typography>
