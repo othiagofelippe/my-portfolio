@@ -4,7 +4,7 @@ import { Locale, localeNames, locales } from "@/lib/i18n";
 import { AnimatePresence, motion } from "motion/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { HiOutlineChevronDown, HiOutlineGlobeAlt } from "react-icons/hi2";
+import { ChevronDown, Globe } from "@tfds/icons";
 import { useAudio } from "@/context/AudioContext";
 
 export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
@@ -58,7 +58,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
-        <HiOutlineGlobeAlt className="w-4 h-4" />
+        <Globe className="w-4 h-4" />
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={currentLang}
@@ -74,7 +74,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <HiOutlineChevronDown className="w-4 h-4" />
+          <ChevronDown className="w-4 h-4" />
         </motion.div>
       </motion.button>
 

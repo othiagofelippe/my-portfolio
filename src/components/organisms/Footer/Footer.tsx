@@ -2,12 +2,8 @@
 
 import { Button, Logo } from "@/components/atoms";
 import Link from "next/link";
-import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-import {
-  HiOutlineClock,
-  HiOutlineEnvelope,
-  HiOutlineMapPin,
-} from "react-icons/hi2";
+import { FaWhatsapp } from "react-icons/fa";
+import { Github, Linkedin, Clock, Mail, MapPin } from "@tfds/icons";
 import { useAudio } from "@/context/AudioContext";
 
 export function Footer({ dict }: { dict: any }) {
@@ -55,7 +51,7 @@ export function Footer({ dict }: { dict: any }) {
                 aria-label="LinkedIn"
                 onClick={() => { audio.play("buttonClick"); window.open("https://linkedin.com/in/othiagofelippe", "_blank", "noopener,noreferrer"); }}
               >
-                <FaLinkedinIn className="w-6 h-6" />
+                <Linkedin className="w-6 h-6" />
               </Button>
               <Button
                 variant="ghost"
@@ -63,7 +59,7 @@ export function Footer({ dict }: { dict: any }) {
                 aria-label="GitHub"
                 onClick={() => { audio.play("buttonClick"); window.open("https://github.com/othiagofelippe", "_blank", "noopener,noreferrer"); }}
               >
-                <FaGithub className="w-6 h-6" />
+                <Github className="w-6 h-6" />
               </Button>
               <Button
                 variant="ghost"
@@ -79,7 +75,7 @@ export function Footer({ dict }: { dict: any }) {
                 aria-label="Email"
                 onClick={() => { audio.play("buttonClick"); window.open("mailto:contact@othiagofelippe.com"); }}
               >
-                <HiOutlineEnvelope className="w-6 h-6" />
+                <Mail className="w-6 h-6" />
               </Button>
             </div>
           </div>
@@ -109,7 +105,7 @@ export function Footer({ dict }: { dict: any }) {
             </h3>
             <div className="space-y-3 text-text-body">
               <div className="flex items-start gap-2 hover:text-text-headline transition-colors">
-                <HiOutlineEnvelope className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <Link
                   href="mailto:contact@othiagofelippe.com"
                   className="typography-body-sm cursor-pointer break-all leading-relaxed"
@@ -118,13 +114,13 @@ export function Footer({ dict }: { dict: any }) {
                 </Link>
               </div>
               <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
-                <HiOutlineMapPin className="w-5 h-5" />
+                <MapPin className="w-5 h-5" />
                 <span className="typography-body">
                   {dict.contact.info.location}
                 </span>
               </div>
               <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
-                <HiOutlineClock className="w-5 h-5" />
+                <Clock className="w-5 h-5" />
                 <span className="typography-body">
                   {dict.contact.info.availability}
                 </span>

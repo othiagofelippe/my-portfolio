@@ -3,11 +3,7 @@
 import { Badge } from "@/components/atoms";
 import { Card, CardContent, CardTitle } from "@/components/molecules";
 import { motion } from "motion/react";
-import {
-  HiOutlineCog6Tooth,
-  HiOutlineDevicePhoneMobile,
-  HiOutlineServerStack,
-} from "react-icons/hi2";
+import { Settings2, Smartphone, Server } from "@tfds/icons";
 
 interface SkillsDict {
   skills: {
@@ -57,17 +53,17 @@ export function Skills({ dict }: { dict: SkillsDict }) {
   const skillCategories = [
     {
       title: dict.skills.categories.frontend.title,
-      icon: <HiOutlineDevicePhoneMobile className="w-6 h-6" />,
+      icon: <Smartphone className="w-6 h-6" />,
       skills: dict.skills.categories.frontend.skills,
     },
     {
       title: dict.skills.categories.backend.title,
-      icon: <HiOutlineServerStack className="w-6 h-6" />,
+      icon: <Server className="w-6 h-6" />,
       skills: dict.skills.categories.backend.skills,
     },
     {
       title: dict.skills.categories.tools.title,
-      icon: <HiOutlineCog6Tooth className="w-6 h-6" />,
+      icon: <Settings2 className="w-6 h-6" />,
       skills: dict.skills.categories.tools.skills,
     },
   ];

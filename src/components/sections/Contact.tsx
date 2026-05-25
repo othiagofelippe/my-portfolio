@@ -1,7 +1,7 @@
 "use client";
 
-import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
-import { HiOutlineEnvelope, HiOutlineClock, HiOutlineMapPin } from "react-icons/hi2";
+import { FaWhatsapp } from "react-icons/fa";
+import { Linkedin, Github, Mail, Clock, MapPin } from "@tfds/icons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/molecules";
 import { motion } from "motion/react";
 import { useAudio } from "@/context/AudioContext";
@@ -68,7 +68,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
       key: "linkedin",
       label: dict.contact.socialSection.channels.linkedin.label,
       description: dict.contact.socialSection.channels.linkedin.description,
-      icon: <FaLinkedinIn className="w-5 h-5" />,
+      icon: <Linkedin className="w-5 h-5" />,
       href: "https://linkedin.com/in/othiagofelippe",
       accent: "text-accent-brand bg-accent-brand/10 group-hover:bg-accent-brand/20",
     },
@@ -76,7 +76,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
       key: "github",
       label: dict.contact.socialSection.channels.github.label,
       description: dict.contact.socialSection.channels.github.description,
-      icon: <FaGithub className="w-5 h-5" />,
+      icon: <Github className="w-5 h-5" />,
       href: "https://github.com/othiagofelippe",
       accent: "text-text-headline bg-background-secondary/50 group-hover:bg-accent-brand/15 group-hover:text-accent-brand",
     },
@@ -92,7 +92,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
       key: "email",
       label: dict.contact.socialSection.channels.email.label,
       description: dict.contact.socialSection.channels.email.description,
-      icon: <HiOutlineEnvelope className="w-5 h-5" />,
+      icon: <Mail className="w-5 h-5" />,
       href: "mailto:contact@othiagofelippe.com",
       accent: "text-accent-red bg-accent-red/10 group-hover:bg-accent-red/20",
     },
@@ -143,7 +143,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
                 <CardContent className="space-y-6">
                   <motion.div variants={infoItemVariants} className="flex items-start gap-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-brand/15 text-accent-brand">
-                      <HiOutlineEnvelope className="w-5 h-5" />
+                      <Mail className="w-5 h-5" />
                     </div>
                     <div>
                       <p className="typography-body-sm text-text-span uppercase tracking-wide">
@@ -160,7 +160,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
 
                   <motion.div variants={infoItemVariants} className="flex items-start gap-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-brand/15 text-accent-brand">
-                      <HiOutlineMapPin className="w-5 h-5" />
+                      <MapPin className="w-5 h-5" />
                     </div>
                     <div>
                       <p className="typography-body-sm text-text-span uppercase tracking-wide">
@@ -174,7 +174,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
 
                   <motion.div variants={infoItemVariants} className="flex items-start gap-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-brand/15 text-accent-brand">
-                      <HiOutlineClock className="w-5 h-5" />
+                      <Clock className="w-5 h-5" />
                     </div>
                     <div>
                       <p className="typography-body-sm text-text-span uppercase tracking-wide">

@@ -2,8 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
-import { HiOutlineSun, HiOutlineMoon } from 'react-icons/hi2';
-import { MdOutlineWaves } from 'react-icons/md';
+import { Sun, Moon, Waves } from "@tfds/icons";
 import { motion, AnimatePresence } from 'motion/react';
 import { useAudio } from '@/context/AudioContext';
 
@@ -60,7 +59,7 @@ export function ThemeToggle() {
               transition={{ duration: 0.18, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <HiOutlineSun className="w-5 h-5 text-accent-brand" />
+              <Sun className="w-5 h-5 text-accent-brand" />
             </motion.div>
           )}
           {currentTheme === 'dark' && (
@@ -72,7 +71,7 @@ export function ThemeToggle() {
               transition={{ duration: 0.18, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <HiOutlineMoon className="w-5 h-5 text-accent-brand" />
+              <Moon className="w-5 h-5 text-accent-brand" />
             </motion.div>
           )}
           {currentTheme === 'ocean-sunset' && (
@@ -84,7 +83,7 @@ export function ThemeToggle() {
               transition={{ duration: 0.18, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <MdOutlineWaves className="w-5 h-5 text-accent-brand" />
+              <Waves className="w-5 h-5 text-accent-brand" />
             </motion.div>
           )}
         </AnimatePresence>

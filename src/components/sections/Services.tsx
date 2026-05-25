@@ -1,4 +1,4 @@
-import { HiOutlineCodeBracket, HiOutlinePaintBrush } from 'react-icons/hi2';
+import { Code2, Paintbrush } from '@tfds/icons';
 import { Card, CardContent, CardTitle } from '@/components/molecules';
 
 export function Services({ dict }: { dict: any })  {
@@ -6,12 +6,12 @@ export function Services({ dict }: { dict: any })  {
     {
       title: dict.services.frontend.title,
       description: dict.services.frontend.description,
-      icon: <HiOutlineCodeBracket className="w-8 h-8" />,
+      icon: <Code2 className="w-8 h-8" />,
     },
     {
       title: dict.services.design.title,
       description: dict.services.design.description,
-      icon: <HiOutlinePaintBrush className="w-8 h-8" />,
+      icon: <Paintbrush className="w-8 h-8" />,
     },
   ];
 

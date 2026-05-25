@@ -4,8 +4,7 @@ import { Button } from "@/components/atoms";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { HiOutlineArrowDownTray } from "react-icons/hi2";
+import { Github, Linkedin, Download } from "@tfds/icons";
 import { useAudio } from "@/context/AudioContext";
 
 const ROTATING_WORDS = ["Design Systems", "React & Next.js", "React Native", "TypeScript"];
@@ -150,7 +149,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                 size="lg"
                 onClick={handleDownloadClick}
               >
-                <HiOutlineArrowDownTray />
+                <Download />
                 {dict.hero.downloadCV}
               </Button>
               <div className="flex gap-3">
@@ -160,7 +159,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   aria-label="Visitar perfil no LinkedIn"
                   onClick={() => handleExternalLink("https://linkedin.com/in/othiagofelippe")}
                 >
-                  <FaLinkedin size={20} aria-hidden="true" />
+                  <Linkedin className="w-5 h-5" aria-hidden="true" />
                 </Button>
                 <Button
                   variant="ghost"
@@ -168,7 +167,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   aria-label="Visitar perfil no GitHub"
                   onClick={() => handleExternalLink("https://github.com/othiagofelippe")}
                 >
-                  <FaGithub size={20} aria-hidden="true" />
+                  <Github className="w-5 h-5" aria-hidden="true" />
                 </Button>
               </div>
             </motion.div>

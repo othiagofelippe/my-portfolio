@@ -3,7 +3,7 @@
 import { Locale } from "@/lib/i18n";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
-import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
+import { Menu, X } from "@tfds/icons";
 import { Button, Logo } from "@/components/atoms";
 import { LanguageSelector, ThemeToggle, SoundToggle } from "@/components/molecules";
 import { useAudio } from "@/context/AudioContext";
@@ -111,7 +111,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="absolute inset-0"
                     >
-                      <HiOutlineBars3 className="w-6 h-6" aria-hidden="true" />
+                      <Menu className="w-6 h-6" aria-hidden="true" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -122,7 +122,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="absolute inset-0"
                     >
-                      <HiOutlineXMark className="w-6 h-6" aria-hidden="true" />
+                      <X className="w-6 h-6" aria-hidden="true" />
                     </motion.div>
                   )}
                 </AnimatePresence>

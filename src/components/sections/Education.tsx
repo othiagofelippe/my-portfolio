@@ -3,7 +3,7 @@
 import { Badge } from "@/components/atoms";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/molecules";
 import { motion } from "motion/react";
-import { HiOutlineAcademicCap, HiOutlineDocumentText, HiOutlineGlobeAlt } from "react-icons/hi2";
+import { GraduationCap, FileText, Globe } from "@tfds/icons";
 
 interface EducationDict {
   education: {
@@ -83,7 +83,7 @@ export function Education({ dict }: { dict: EducationDict }) {
               <Card className="bg-background-secondary/20 border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
                   <CardTitle className="typography-h5 text-text-headline flex items-center gap-3">
-                    <HiOutlineAcademicCap className="w-6 h-6 text-accent-brand" />
+                    <GraduationCap className="w-6 h-6 text-accent-brand" />
                     {dict.education.academic.title}
                   </CardTitle>
                 </CardHeader>
@@ -116,7 +116,7 @@ export function Education({ dict }: { dict: EducationDict }) {
               <Card className="bg-background-secondary/20 border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
                   <CardTitle className="typography-h5 text-text-headline flex items-center gap-3">
-                    <HiOutlineDocumentText className="w-6 h-6 text-accent-brand" />
+                    <FileText className="w-6 h-6 text-accent-brand" />
                     {dict.education.certifications.title}
                   </CardTitle>
                 </CardHeader>
@@ -155,7 +155,7 @@ export function Education({ dict }: { dict: EducationDict }) {
               <Card className="bg-background-secondary/20 border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
                   <CardTitle className="typography-h5 text-text-headline flex items-center gap-3">
-                    <HiOutlineGlobeAlt className="w-6 h-6 text-accent-brand" />
+                    <Globe className="w-6 h-6 text-accent-brand" />
                     {dict.education.languages.title}
                   </CardTitle>
                 </CardHeader>

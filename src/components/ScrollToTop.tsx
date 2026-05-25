@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, useSpring, useTransform, useMotionValue } from "motion/react";
 import { useEffect, useState } from "react";
-import { HiOutlineChevronUp } from "react-icons/hi2";
+import { ChevronUp } from "@tfds/icons";
 import { useAudio } from "@/context/AudioContext";
 
 const BUTTON_SIZE = 56;
@@ -83,7 +83,7 @@ export function ScrollToTop() {
 
             {/* Icon */}
             <span className="absolute inset-0 flex items-center justify-center">
-              <HiOutlineChevronUp className="w-5 h-5" />
+              <ChevronUp className="w-5 h-5" />
             </span>
           </motion.button>
         </motion.div>

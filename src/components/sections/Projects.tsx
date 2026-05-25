@@ -17,7 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/organisms";
-import { HiOutlineArrowTopRightOnSquare, HiOutlineCodeBracket, HiOutlineArrowRight } from "react-icons/hi2";
+import { ExternalLink, Code2, ArrowRight } from "@tfds/icons";
 import { useAudio } from "@/context/AudioContext";
 
 interface Project {
@@ -187,7 +187,7 @@ export function Projects({ dict }: { dict: any }) {
                           className="flex-1"
                           onClick={() => { audio.play("buttonClick"); window.open(project.demo ?? undefined, "_blank", "noopener,noreferrer"); }}
                         >
-                          <HiOutlineArrowTopRightOnSquare />
+                          <ExternalLink />
                           {dict.projects.demo}
                         </Button>
                       )}
@@ -197,7 +197,7 @@ export function Projects({ dict }: { dict: any }) {
                           className="flex-1"
                           onClick={() => { audio.play("buttonClick"); window.open(project.url, "_blank", "noopener,noreferrer"); }}
                         >
-                          <HiOutlineCodeBracket />
+                          <Code2 />
                           {dict.projects.code}
                         </Button>
                     </div>
@@ -217,7 +217,7 @@ export function Projects({ dict }: { dict: any }) {
             onClick={() => { audio.play("buttonClick"); window.open("https://github.com/othiagofelippe?tab=repositories", "_blank", "noopener,noreferrer"); }}
           >
             {dict.projects.viewAll}
-            <HiOutlineArrowRight />
+            <ArrowRight />
           </Button>
         </div>
           </>

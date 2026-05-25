@@ -5,7 +5,7 @@ import { Badge } from '@/components/atoms';
 import { Card, CardContent } from '@/components/molecules';
 import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { useRef } from 'react';
-import { HiOutlineArrowDownTray } from 'react-icons/hi2';
+import { Download } from '@tfds/icons';
 import { useAudio } from '@/context/AudioContext';
 
 interface Job {
@@ -204,7 +204,7 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
 
         <div className="text-center mt-16">
           <Button size="lg" onClick={handleDownloadClick}>
-            <HiOutlineArrowDownTray />
+            <Download />
             {dict.experience.downloadCV}
           </Button>
         </div>
