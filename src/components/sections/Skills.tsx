@@ -1,7 +1,8 @@
 "use client";
 
 import { Badge } from "@/components/atoms";
-import { Card, CardContent, CardTitle } from "@/components/molecules";
+import { Typography } from "@tfds/components";
+import { Card, CardContent } from "@/components/molecules";
 import { motion } from "motion/react";
 import { Settings2, Smartphone, Server } from "@tfds/icons";
 
@@ -78,12 +79,12 @@ export function Skills({ dict }: { dict: SkillsDict }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="typography-h2 text-text-primary mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
             {dict.skills.title}
-          </h2>
-          <p className="typography-body text-text-secondary max-w-2xl mx-auto">
+          </Typography>
+          <Typography color="secondary" className="max-w-2xl mx-auto">
             {dict.skills.subtitle}
-          </p>
+          </Typography>
         </motion.div>
 
         <motion.div
@@ -103,9 +104,9 @@ export function Skills({ dict }: { dict: SkillsDict }) {
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="text-action-primary">{category.icon}</div>
-                    <CardTitle className="typography-h5 text-text-primary">
+                    <Typography as="h3" variant="heading-md" color="primary">
                       {category.title}
-                    </CardTitle>
+                    </Typography>
                   </div>
 
                   <motion.div

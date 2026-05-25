@@ -1,5 +1,6 @@
 import { Code2, Paintbrush } from '@tfds/icons';
-import { Card, CardContent, CardTitle } from '@/components/molecules';
+import { Typography } from '@tfds/components';
+import { Card, CardContent } from '@/components/molecules';
 
 export function Services({ dict }: { dict: any })  {
   const services = [
@@ -19,12 +20,12 @@ export function Services({ dict }: { dict: any })  {
     <section className="py-20 bg-bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="typography-h2 text-text-primary mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
             {dict.services.title}
-          </h2>
-          <p className="typography-body text-text-secondary max-w-2xl mx-auto">
+          </Typography>
+          <Typography color="secondary" className="max-w-2xl mx-auto">
             {dict.services.subtitle}
-          </p>
+          </Typography>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -38,13 +39,13 @@ export function Services({ dict }: { dict: any })  {
                   <div className="text-action-primary">
                     {service.icon}
                   </div>
-                  <CardTitle className="typography-h5 text-text-primary">
+                  <Typography as="h3" variant="heading-md" color="primary">
                     {service.title}
-                  </CardTitle>
+                  </Typography>
                 </div>
-                <p className="typography-body text-text-secondary">
+                <Typography color="secondary">
                   {service.description}
-                </p>
+                </Typography>
               </CardContent>
             </Card>
           ))}

@@ -1,7 +1,8 @@
 "use client";
 
-import { Button } from '@/components/atoms';
+import { Button } from '@tfds/components';
 import { Badge } from '@/components/atoms';
+import { Typography } from '@tfds/components';
 import { Card, CardContent } from '@/components/molecules';
 import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { useRef } from 'react';
@@ -101,12 +102,12 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
     <section id="experiencia" className="py-20 bg-bg-default/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="typography-h2 text-text-primary mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
             {dict.experience.title}
-          </h2>
-          <p className="typography-body text-text-secondary max-w-2xl mx-auto">
+          </Typography>
+          <Typography color="secondary" className="max-w-2xl mx-auto">
             {dict.experience.subtitle}
-          </p>
+          </Typography>
         </div>
 
         <motion.div
@@ -162,12 +163,12 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                       {/* Header */}
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                         <div>
-                          <h3 className="typography-h5 text-text-primary">
+                          <Typography as="h3" variant="heading-md" color="primary">
                             {experience.title}
-                          </h3>
-                          <h4 className="typography-body-lg text-action-primary mt-0.5">
+                          </Typography>
+                          <Typography as="h4" variant="body-lg" className="text-action-primary mt-0.5">
                             {experience.company}
-                          </h4>
+                          </Typography>
                         </div>
                         <div className="flex flex-wrap gap-2 items-center">
                           <Badge variant="success" size="sm">
@@ -182,9 +183,9 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                       </div>
 
                       {/* Description */}
-                      <p className="typography-body text-text-secondary mb-4">
+                      <Typography color="secondary" className="mb-4">
                         {experience.description}
-                      </p>
+                      </Typography>
 
                       {/* Skills */}
                       <div className="flex flex-wrap gap-2">

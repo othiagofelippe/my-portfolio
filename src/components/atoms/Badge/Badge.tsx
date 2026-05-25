@@ -3,7 +3,7 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { motion } from "motion/react"
-
+import { typographyVariants } from "@tfds/components"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(

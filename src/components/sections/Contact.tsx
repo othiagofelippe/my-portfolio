@@ -2,7 +2,8 @@
 
 import { FaWhatsapp } from "react-icons/fa";
 import { Linkedin, Github, Mail, Clock, MapPin } from "@tfds/icons";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/molecules";
+import { Typography } from "@tfds/components";
+import { Card, CardContent, CardHeader } from "@/components/molecules";
 import { motion } from "motion/react";
 import { useAudio } from "@/context/AudioContext";
 
@@ -112,12 +113,12 @@ export function Contact({ dict }: { dict: ContactDict }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="typography-h2 text-text-primary mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
             {dict.contact.title}
-          </h2>
-          <p className="typography-body text-text-secondary max-w-2xl mx-auto">
+          </Typography>
+          <Typography color="secondary" className="max-w-2xl mx-auto">
             {dict.contact.subtitle}
-          </p>
+          </Typography>
         </motion.div>
 
         <motion.div
@@ -130,12 +131,12 @@ export function Contact({ dict }: { dict: ContactDict }) {
           <motion.div variants={cardVariants}>
             <Card className="bg-bg-default/20 border-border-default/10 h-full">
               <CardHeader>
-                <CardTitle className="typography-h4 text-text-primary">
+                <Typography as="h3" variant="heading-lg" color="primary">
                   {dict.contact.socialSection.quickResponse.title}
-                </CardTitle>
-                <p className="typography-body text-text-secondary">
+                </Typography>
+                <Typography color="secondary">
                   {dict.contact.socialSection.quickResponse.description}
-                </p>
+                </Typography>
               </CardHeader>
               <motion.div
                 variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
@@ -146,14 +147,14 @@ export function Contact({ dict }: { dict: ContactDict }) {
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="typography-body-sm text-text-disabled uppercase tracking-wide">
+                      <Typography as="p" variant="body-sm" color="disabled" className="uppercase tracking-wide">
                         {dict.contact.infoLabels.email}
-                      </p>
+                      </Typography>
                       <a
                         href={`mailto:${dict.contact.info.email}`}
-                        className="typography-body text-text-primary hover:text-action-primary transition-colors"
+                        className="text-text-primary hover:text-action-primary transition-colors"
                       >
-                        {dict.contact.info.email}
+                        <Typography as="span" color="primary">{dict.contact.info.email}</Typography>
                       </a>
                     </div>
                   </motion.div>
@@ -163,12 +164,12 @@ export function Contact({ dict }: { dict: ContactDict }) {
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="typography-body-sm text-text-disabled uppercase tracking-wide">
+                      <Typography as="p" variant="body-sm" color="disabled" className="uppercase tracking-wide">
                         {dict.contact.infoLabels.location}
-                      </p>
-                      <p className="typography-body text-text-primary">
+                      </Typography>
+                      <Typography as="p" color="primary">
                         {dict.contact.info.location}
-                      </p>
+                      </Typography>
                     </div>
                   </motion.div>
 
@@ -177,12 +178,12 @@ export function Contact({ dict }: { dict: ContactDict }) {
                       <Clock className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="typography-body-sm text-text-disabled uppercase tracking-wide">
+                      <Typography as="p" variant="body-sm" color="disabled" className="uppercase tracking-wide">
                         {dict.contact.infoLabels.availability}
-                      </p>
-                      <p className="typography-body text-text-primary">
+                      </Typography>
+                      <Typography as="p" color="primary">
                         {dict.contact.info.availability}
-                      </p>
+                      </Typography>
                     </div>
                   </motion.div>
                 </CardContent>
@@ -193,12 +194,12 @@ export function Contact({ dict }: { dict: ContactDict }) {
           <motion.div variants={cardVariants}>
             <Card className="bg-bg-default/20 border-border-default/10 h-full">
               <CardHeader>
-                <CardTitle className="typography-h4 text-text-primary">
+                <Typography as="h3" variant="heading-lg" color="primary">
                   {dict.contact.socialSection.title}
-                </CardTitle>
-                <p className="typography-body text-text-secondary">
+                </Typography>
+                <Typography color="secondary">
                   {dict.contact.socialSection.subtitle}
-                </p>
+                </Typography>
               </CardHeader>
               <CardContent>
                 <motion.div
@@ -222,12 +223,12 @@ export function Contact({ dict }: { dict: ContactDict }) {
                         {channel.icon}
                       </div>
                       <div className="flex flex-col items-start gap-1">
-                        <span className="typography-body font-medium text-text-primary group-hover:text-action-primary">
+                        <Typography as="span" color="primary" className="font-medium group-hover:text-action-primary">
                           {channel.label}
-                        </span>
-                        <span className="typography-body-sm text-text-secondary">
+                        </Typography>
+                        <Typography as="span" variant="body-sm" color="secondary">
                           {channel.description}
-                        </span>
+                        </Typography>
                       </div>
                     </motion.a>
                   ))}

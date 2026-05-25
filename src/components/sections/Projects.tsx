@@ -2,13 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/atoms";
-import { Button } from "@/components/atoms";
+import { Button } from "@tfds/components";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/molecules";
 import {
   Carousel,
@@ -18,6 +17,7 @@ import {
   CarouselPrevious,
 } from "@/components/organisms";
 import { ExternalLink, Code2, ArrowRight } from "@tfds/icons";
+import { Typography } from "@tfds/components";
 import { useAudio } from "@/context/AudioContext";
 
 interface Project {
@@ -63,12 +63,12 @@ export function Projects({ dict }: { dict: any }) {
         {loading && (
           <>
             <div className="text-center mb-16">
-              <h2 className="typography-h2 text-text-primary mb-4">
+              <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
                 {dict.projects.title}
-              </h2>
-              <p className="typography-body text-text-secondary max-w-2xl mx-auto">
+              </Typography>
+              <Typography color="secondary" className="max-w-2xl mx-auto">
                 {dict.projects.loading}
-              </p>
+              </Typography>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3].map((i) => (
@@ -94,35 +94,35 @@ export function Projects({ dict }: { dict: any }) {
 
         {error && (
           <div className="text-center">
-            <h2 className="typography-h2 text-text-primary mb-4">
+            <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
               {dict.projects.title}
-            </h2>
-            <p className="typography-body text-feedback-error">
+            </Typography>
+            <Typography className="text-feedback-error">
               {dict.projects.error}: {error}
-            </p>
+            </Typography>
           </div>
         )}
 
         {!loading && !error && !projects.length && (
           <div className="text-center">
-            <h2 className="typography-h2 text-text-primary mb-4">
+            <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
               {dict.projects.title}
-            </h2>
-            <p className="typography-body text-text-secondary">
+            </Typography>
+            <Typography color="secondary">
               {dict.projects.empty}
-            </p>
+            </Typography>
           </div>
         )}
 
         {!loading && !error && projects.length > 0 && (
           <>
         <div className="text-center mb-16">
-          <h2 className="typography-h2 text-text-primary mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
             {dict.projects.title}
-          </h2>
-          <p className="typography-body text-text-secondary max-w-2xl mx-auto">
+          </Typography>
+          <Typography color="secondary" className="max-w-2xl mx-auto">
             {dict.projects.subtitle}
-          </p>
+          </Typography>
         </div>
 
         <div className="relative">
@@ -142,9 +142,9 @@ export function Projects({ dict }: { dict: any }) {
                   <Card className="h-full bg-bg-page border-border-default/10 hover:shadow-xl transition-all duration-300 ease-out flex flex-col">
                     <CardHeader className="pb-4">
                       <div className="flex items-center justify-between mb-4">
-                        <CardTitle className="typography-h5 text-text-primary">
+                        <Typography as="h3" variant="heading-md" color="primary">
                           {project.name}
-                        </CardTitle>
+                        </Typography>
                         <Badge variant="neutral">
                           {project.language || "Projeto"}
                         </Badge>
@@ -152,14 +152,14 @@ export function Projects({ dict }: { dict: any }) {
                     </CardHeader>
 
                     <CardContent className="pt-0 flex-1 flex flex-col">
-                      <p className="typography-body text-text-secondary mb-4 leading-relaxed line-clamp-3">
+                      <Typography color="secondary" className="mb-4 leading-relaxed line-clamp-3">
                         {project.description}
-                      </p>
+                      </Typography>
 
                       <div className="space-y-3 mt-auto">
-                        <div className="flex items-center gap-2 text-text-secondary typography-body-sm">
+                        <Typography as="p" variant="body-sm" color="secondary" className="flex items-center gap-2">
                           <span>📅 {project.formatted_date}</span>
-                        </div>
+                        </Typography>
                         <div className="flex flex-wrap gap-2 min-h-[2rem]">
                           {project.tags.slice(0, 4).map((tag, tagIndex) => (
                             <Badge

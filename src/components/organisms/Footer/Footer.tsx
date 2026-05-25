@@ -1,6 +1,8 @@
 "use client";
 
-import { Button, Logo } from "@/components/atoms";
+import { Button } from "@tfds/components";
+import { Logo } from "@/components/atoms";
+import { Typography } from "@tfds/components";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { Github, Linkedin, Clock, Mail, MapPin } from "@tfds/icons";
@@ -41,9 +43,9 @@ export function Footer({ dict }: { dict: any }) {
             <div className="mb-4">
               <Logo />
             </div>
-            <p className="typography-body text-text-secondary mb-6 max-w-md">
+            <Typography color="secondary" className="mb-6 max-w-md">
               {dict.footer.description}
-            </p>
+            </Typography>
             <div className="flex space-x-4">
               <Button
                 variant="ghost"
@@ -81,9 +83,9 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <h3 className="typography-body-lg text-text-secondary mb-4">
+            <Typography as="h3" variant="body-lg" color="secondary" className="mb-4">
               {dict.footer.navigation}
-            </h3>
+            </Typography>
             <ul className="space-y-3">
               {footerLinks.navegacao.map((link, index) => (
                 <li key={index}>
@@ -100,39 +102,39 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <h3 className="typography-body-lg text-text-secondary mb-4">
+            <Typography as="h3" variant="body-lg" color="secondary" className="mb-4">
               {dict.footer.contactSection}
-            </h3>
+            </Typography>
             <div className="space-y-3 text-text-secondary">
               <div className="flex items-start gap-2 hover:text-text-primary transition-colors">
                 <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <Link
                   href="mailto:contact@othiagofelippe.com"
-                  className="typography-body-sm cursor-pointer break-all leading-relaxed"
+                  className="cursor-pointer break-all leading-relaxed text-text-secondary"
                 >
                   {dict.contact.info.email}
                 </Link>
               </div>
               <div className="flex items-center gap-2 hover:text-text-primary transition-colors">
                 <MapPin className="w-5 h-5" />
-                <span className="typography-body">
+                <Typography as="span">
                   {dict.contact.info.location}
-                </span>
+                </Typography>
               </div>
               <div className="flex items-center gap-2 hover:text-text-primary transition-colors">
                 <Clock className="w-5 h-5" />
-                <span className="typography-body">
+                <Typography as="span">
                   {dict.contact.info.availability}
-                </span>
+                </Typography>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-border-default mt-12 pt-8 text-center">
-          <p className="typography-body-sm text-text-disabled">
+          <Typography as="p" variant="body-sm" color="disabled">
             © {currentYear} Thiago Felippe. {dict.footer.rights}
-          </p>
+          </Typography>
         </div>
       </div>
     </footer>

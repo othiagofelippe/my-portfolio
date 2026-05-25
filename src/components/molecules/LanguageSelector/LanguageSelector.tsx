@@ -6,6 +6,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { ChevronDown, Globe } from "@tfds/icons";
 import { useAudio } from "@/context/AudioContext";
+import { typographyVariants } from "@tfds/components";
+import { cn } from "@/lib/utils";
 
 export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +54,7 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
     <div className="relative">
       <motion.button
         onClick={handleToggle}
-        className="px-3 py-2 typography-body-sm font-medium text-text-secondary hover:text-text-primary flex items-center space-x-2 rounded-lg hover:bg-bg-default/30 cursor-pointer"
+        className={cn(typographyVariants({ variant: "body-sm" }), "px-3 py-2 font-medium text-text-secondary hover:text-text-primary flex items-center space-x-2 rounded-lg hover:bg-bg-default/30 cursor-pointer")}
         aria-label="Language selector"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -106,11 +108,11 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
                     onClick={() =>
                       handleLanguageChange(language.code as Locale)
                     }
-                    className={`w-full text-left px-4 py-2 typography-body-sm flex items-center justify-between cursor-pointer ${
+                    className={cn(typographyVariants({ variant: "body-sm" }), `w-full text-left px-4 py-2 flex items-center justify-between cursor-pointer ${
                       currentLang === language.code
                         ? "bg-action-primary/10 text-action-primary border-l-2 border-action-primary"
                         : "text-text-secondary hover:bg-bg-default/30 hover:text-text-primary"
-                    }`}
+                    }`)}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{

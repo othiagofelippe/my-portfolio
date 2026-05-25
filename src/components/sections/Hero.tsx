@@ -1,11 +1,14 @@
 "use client";
 
-import { Button } from "@/components/atoms";
+import { Button } from "@tfds/components";
+import { Typography } from "@tfds/components";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Github, Linkedin, Download } from "@tfds/icons";
 import { useAudio } from "@/context/AudioContext";
+
+const MotionTypography = motion.create(Typography);
 
 const ROTATING_WORDS = ["Design Systems", "React & Next.js", "React Native", "TypeScript"];
 const ROTATION_INTERVAL = 2800;
@@ -90,7 +93,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
             animate="visible"
           >
             <motion.div className="space-y-4" variants={itemVariants}>
-              <h1 className="typography-display text-text-primary">
+              <Typography as="h1" variant="display-lg" color="primary">
                 Fala aí!{" "}
                 <motion.span
                   aria-hidden="true"
@@ -100,14 +103,14 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                 >
                   👋
                 </motion.span>
-              </h1>
-              <h2 className="typography-h2 text-text-primary">
+              </Typography>
+              <Typography as="h2" variant="display-sm" color="primary">
                 {dict.hero.intro}{" "}
                 <span className="text-action-primary">{dict.hero.name}</span>
-              </h2>
+              </Typography>
             </motion.div>
 
-            <motion.p className="typography-h5 text-text-secondary flex flex-wrap items-baseline gap-x-2" variants={itemVariants}>
+            <MotionTypography as="p" variant="heading-md" color="secondary" className="flex flex-wrap items-baseline gap-x-2" variants={itemVariants}>
               {dict.hero.rolePre}{" "}
               <span className="relative inline-flex overflow-hidden" style={{ minWidth: "14ch" }}>
                 <AnimatePresence mode="popLayout" initial={false}>
@@ -123,9 +126,9 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                   </motion.span>
                 </AnimatePresence>
               </span>
-            </motion.p>
+            </MotionTypography>
 
-            <motion.p className="typography-body-lg text-text-secondary" variants={itemVariants}>
+            <MotionTypography variant="body-lg" color="secondary" variants={itemVariants}>
               {dict.hero.descriptionPre}{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 font-semibold text-text-primary">
@@ -141,7 +144,7 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
                 />
               </span>{" "}
               {dict.hero.descriptionPost}
-            </motion.p>
+            </MotionTypography>
 
             <motion.div className="flex flex-row gap-4 items-start" variants={itemVariants}>
               <Button
