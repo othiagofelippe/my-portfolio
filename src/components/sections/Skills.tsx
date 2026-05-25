@@ -79,10 +79,10 @@ export function Skills({ dict }: { dict: SkillsDict }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
             {dict.skills.title}
           </Typography>
-          <Typography color="secondary" className="max-w-2xl mx-auto">
+          <Typography color="secondary" align="center" className="max-w-2xl mx-auto">
             {dict.skills.subtitle}
           </Typography>
         </motion.div>

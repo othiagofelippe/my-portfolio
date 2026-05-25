@@ -63,10 +63,10 @@ export function Projects({ dict }: { dict: any }) {
         {loading && (
           <>
             <div className="text-center mb-16">
-              <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
+              <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
                 {dict.projects.title}
               </Typography>
-              <Typography color="secondary" className="max-w-2xl mx-auto">
+              <Typography color="secondary" align="center" className="max-w-2xl mx-auto">
                 {dict.projects.loading}
               </Typography>
             </div>
@@ -94,7 +94,7 @@ export function Projects({ dict }: { dict: any }) {
 
         {error && (
           <div className="text-center">
-            <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
+            <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
               {dict.projects.title}
             </Typography>
             <Typography className="text-feedback-error">
@@ -105,7 +105,7 @@ export function Projects({ dict }: { dict: any }) {
 
         {!loading && !error && !projects.length && (
           <div className="text-center">
-            <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
+            <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
               {dict.projects.title}
             </Typography>
             <Typography color="secondary">
@@ -117,10 +117,10 @@ export function Projects({ dict }: { dict: any }) {
         {!loading && !error && projects.length > 0 && (
           <>
         <div className="text-center mb-16">
-          <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
             {dict.projects.title}
           </Typography>
-          <Typography color="secondary" className="max-w-2xl mx-auto">
+          <Typography color="secondary" align="center" className="max-w-2xl mx-auto">
             {dict.projects.subtitle}
           </Typography>
         </div>

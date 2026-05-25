@@ -2,25 +2,19 @@ import { useEffect, useRef, useState } from 'react'
 
 export function useActiveSection(sectionIds: string[]): string {
   const [activeSection, setActiveSection] = useState<string>('')
+  const visibleSections = useRef<Set<string>>(new Set())
   const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const idsKey = sectionIds.join(',')
 
   useEffect(() => {
     const observers: IntersectionObserver[] = []
 
-    const handleIntersect = (
-      entries: IntersectionObserverEntry[],
-      sectionId: string
-    ) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return
-
-        if (debounceTimer.current) clearTimeout(debounceTimer.current)
-
-        debounceTimer.current = setTimeout(() => {
-          setActiveSection(sectionId)
-        }, 100)
-      })
+    const updateActive = () => {
+      if (debounceTimer.current) clearTimeout(debounceTimer.current)
+      debounceTimer.current = setTimeout(() => {
+        const first = sectionIds.find((id) => visibleSections.current.has(id))
+        setActiveSection(first ?? '')
+      }, 100)
     }
 
     sectionIds.forEach((id) => {
@@ -28,11 +22,17 @@ export function useActiveSection(sectionIds: string[]): string {
       if (!element) return
 
       const observer = new IntersectionObserver(
-        (entries) => handleIntersect(entries, id),
-        {
-          rootMargin: '-40% 0px -55% 0px',
-          threshold: 0,
-        }
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              visibleSections.current.add(id)
+            } else {
+              visibleSections.current.delete(id)
+            }
+          })
+          updateActive()
+        },
+        { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
       )
 
       observer.observe(element)

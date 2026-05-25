@@ -63,7 +63,7 @@ export function Education({ dict }: { dict: EducationDict }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
             {dict.education.title}
           </Typography>
           <Typography color="secondary" className="max-w-3xl mx-auto">

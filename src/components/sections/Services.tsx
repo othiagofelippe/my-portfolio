@@ -20,10 +20,10 @@ export function Services({ dict }: { dict: any })  {
     <section className="py-20 bg-bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <Typography as="h2" variant="display-sm" color="primary" className="mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
             {dict.services.title}
           </Typography>
-          <Typography color="secondary" className="max-w-2xl mx-auto">
+          <Typography color="secondary" align="center" className="max-w-2xl mx-auto">
             {dict.services.subtitle}
           </Typography>
         </div>

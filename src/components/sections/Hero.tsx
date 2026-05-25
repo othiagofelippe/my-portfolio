@@ -146,10 +146,10 @@ export function Hero({ dict }: { dict: HeroDict & { lang?: string } }) {
               {dict.hero.descriptionPost}
             </MotionTypography>
 
-            <motion.div className="flex flex-row gap-4 items-start" variants={itemVariants}>
+            <motion.div className="flex flex-row gap-4 items-center" variants={itemVariants}>
               <Button
                 variant="outline"
-                size="lg"
+                size="md"
                 onClick={handleDownloadClick}
               >
                 <Download />

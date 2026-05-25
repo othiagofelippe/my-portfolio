@@ -61,17 +61,11 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                 return (
                   <Button
                     key={item.id}
-                    variant="ghost"
+                    variant={isActive ? "primary" : "ghost"}
                     size="sm"
                     onClick={() => scrollToSection(item.href)}
-                    className={`relative ${isActive ? "text-text-primary" : "text-text-secondary"}`}
                   >
                     {item.name}
-                    <motion.span
-                      className="absolute bottom-0 left-0 h-0.5 bg-action-primary"
-                      animate={{ width: isActive ? "100%" : "0%" }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                    />
                   </Button>
                 );
               })}
@@ -155,20 +149,15 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                       whileHover={{ x: 4 }}
                     >
                       <Button
-                        variant="ghost"
+                        variant={isActive ? "primary" : "ghost"}
                         size="sm"
                         onClick={() => {
                           scrollToSection(item.href);
                           setIsMenuOpen(false);
                         }}
-                        className={`relative w-full justify-start ${isActive ? "text-text-primary" : "text-text-secondary"}`}
+                        className="w-full justify-start"
                       >
                         {item.name}
-                        <motion.span
-                          className="absolute bottom-0 left-0 h-0.5 bg-action-primary"
-                          animate={{ width: isActive ? "100%" : "0%" }}
-                          transition={{ duration: 0.3, ease: "easeOut" }}
-                        />
                       </Button>
                     </motion.div>
                   );

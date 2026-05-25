@@ -17,16 +17,16 @@
   --color-text-secondary: var(--tfds-color-text-secondary);
   --color-text-tertiary: var(--tfds-color-text-tertiary);
   --color-text-disabled: var(--tfds-color-text-disabled);
-  --color-text-onBrand: var(--tfds-color-text-onBrand);
+  --color-text-on-brand: var(--tfds-color-text-on-brand);
 
   --color-action-primary: var(--tfds-color-action-primary);
-  --color-action-primaryHover: var(--tfds-color-action-primaryHover);
-  --color-action-primarySubtle: var(--tfds-color-action-primarySubtle);
+  --color-action-primary-hover: var(--tfds-color-action-primary-hover);
+  --color-action-primary-subtle: var(--tfds-color-action-primary-subtle);
 
   --color-feedback-success: var(--tfds-color-feedback-success);
-  --color-feedback-successSubtle: var(--tfds-color-feedback-successSubtle);
+  --color-feedback-success-subtle: var(--tfds-color-feedback-success-subtle);
   --color-feedback-error: var(--tfds-color-feedback-error);
-  --color-feedback-errorSubtle: var(--tfds-color-feedback-errorSubtle);
+  --color-feedback-error-subtle: var(--tfds-color-feedback-error-subtle);
   --color-feedback-warning: var(--tfds-color-feedback-warning);
 
   --color-border-default: var(--tfds-color-border-default);
