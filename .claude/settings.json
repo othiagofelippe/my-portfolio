@@ -11,20 +11,14 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash(git push*)",
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "echo '🔍 Verificando tipos TypeScript...' && npx tsc --noEmit && echo '📦 Rodando build...' && npm run build"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash(npm install*|npm i *|yarn add*|pnpm add*)",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo '⚠️  Instalando dependência: $CLAUDE_TOOL_INPUT'"
+            "if": "Bash(git push*)",
+            "command": "npx tsc --noEmit && npm run build",
+            "timeout": 300,
+            "statusMessage": "Verificando tipos e build antes do push..."
           }
         ]
       }
@@ -35,7 +29,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"📝 Arquivo modificado: $CLAUDE_FILE_PATHS\""
+            "command": "jq -r '.tool_input.file_path' | { read -r f; ./node_modules/.bin/prettier --write --ignore-unknown \"$f\"; } 2>/dev/null || true",
+            "statusMessage": "Formatando com Prettier..."
           }
         ]
       }

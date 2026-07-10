@@ -8,6 +8,7 @@ import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { Download } from '@tfds/icons';
 import { useAudio } from '@/context/AudioContext';
+import { getCVFileName } from '@/lib/utils';
 
 interface Job {
   period: string;
@@ -65,21 +66,12 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
 
   const lineHeight = useTransform(scaleY, [0, 1], ["0%", "100%"]);
 
-  const getCVFileName = (): string => {
-    const lang = dict.lang || 'pt';
-    const fileNames: Record<string, string> = {
-      pt: 'CV-Thiago-Felippe-PT.pdf',
-      en: 'CV-Thiago-Felippe-EN.pdf',
-      es: 'CV-Thiago-Felippe-ES.pdf',
-    };
-    return fileNames[lang] ?? fileNames.pt;
-  };
-
   const handleDownloadClick = (): void => {
+    const fileName = getCVFileName(dict.lang || 'pt');
     audio.play('downloadCv');
     const link = document.createElement('a');
-    link.href = `/${getCVFileName()}`;
-    link.download = getCVFileName();
+    link.href = `/${fileName}`;
+    link.download = fileName;
     link.click();
   };
 
