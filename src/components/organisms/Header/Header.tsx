@@ -16,6 +16,7 @@ import { useActiveSection } from '@/hooks/useActiveSection'
 
 interface HeaderDict {
   nav: {
+    about: string
     experience: string
     projects: string
     skills: string
@@ -28,6 +29,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
   const audio = useAudio()
 
   const navItems = [
+    { name: dict.nav.about, href: '#about', id: 'about' },
     { name: dict.nav.experience, href: '#experience', id: 'experience' },
     { name: dict.nav.projects, href: '#projects', id: 'projects' },
     { name: dict.nav.skills, href: '#skills', id: 'skills' },

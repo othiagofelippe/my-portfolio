@@ -7,20 +7,108 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hello there! 👋",
     "intro": "Nice to meet you, I'm",
     "name": "Thiago Felippe",
     "role": "Frontend developer for 4 years, working with React, React Native, TypeScript and Next.js.",
     "rolePre": "Frontend developer focused on",
-    "description": "Taken projects from zero to production, integrating REST APIs and handling performance. Over the last few years I've gone deep into Design Systems — components, tokens, documentation and standardisation. Currently studying Systems Analysis and Development.",
+    "roleHighlight": "React & Next.js",
     "descriptionPre": "Taken projects from zero to production. Over the last",
     "descriptionHighlight": "4 years",
     "descriptionPost": "I've worked independently on web and mobile interfaces — integrating APIs, thinking about performance, and building components that other devs can actually use and maintain.",
     "downloadCV": "Download CV",
-    "buttons": {
-      "downloadCV": "Download CV",
-      "linkedin": "LinkedIn",
-      "contact": "Contact"
+    "badge": {
+      "location": "🇧🇷 Rio de Janeiro, Brazil",
+      "availability": "available for projects"
+    },
+    "ctas": {
+      "viewProjects": "view projects"
+    },
+    "stats": {
+      "years": { "value": "4+", "label": "years of experience" },
+      "companies": { "value": "3", "label": "companies" },
+      "ds": { "value": "DS", "label": "@ Livelo / ília" }
+    },
+    "socials": {
+      "github": "Visit GitHub profile",
+      "linkedin": "Visit LinkedIn profile",
+      "email": "Send email"
+    }
+  },
+  "about": {
+    "eyebrow": "// about",
+    "title": "Who I am",
+    "cards": {
+      "frontend": {
+        "title": "Frontend specialist",
+        "description": "React, Next.js and React Native as my main tools"
+      },
+      "designSystems": {
+        "title": "Design Systems",
+        "description": "Building and maintaining scalable component libraries"
+      },
+      "performance": {
+        "title": "Performance first",
+        "description": "SSR, lazy loading, optimized bundles — real metrics"
+      },
+      "fullCycle": {
+        "title": "Zero to deploy",
+        "description": "Full development cycle, from briefing to production"
+      }
+    },
+    "paragraphs": [
+      [
+        { "text": "I started my journey in development in " },
+        { "text": "2022", "emphasis": true },
+        {
+          "text": ", when I got certified in Full Stack Web Development by ProgramadorBr. I haven't stopped since. Every project was a chance to deepen what I knew and discover what I still had to learn."
+        }
+      ],
+      [
+        { "text": "I spent almost " },
+        { "text": "3 years at Heap Engenharia", "emphasis": true },
+        {
+          "text": ", where I got to lead the development of web and mobile interfaces. That's where I learned to think about components for real — not just code that works today, but that someone else can understand, use and maintain tomorrow. SSR, accessibility, a Design System documented in Storybook: I learned frontend goes way beyond what shows up on screen."
+        }
+      ],
+      [
+        { "text": "At " },
+        { "text": "Divam", "emphasis": true },
+        {
+          "text": ", I kept evolving web and mobile products, reinforcing the internal Design System and deepening my experience with GraphQL and API integration in close collaboration with the backend team."
+        }
+      ],
+      [
+        { "text": "Today I work at " },
+        { "text": "ília", "emphasis": true },
+        {
+          "text": ", allocated to Livelo as part of the Design System team (Alchemy). Building and maintaining the components and tokens other teams use daily is work that demands precision, empathy for the dev consuming it, and long-term vision. It's the kind of challenge that drives me."
+        }
+      ],
+      [
+        { "text": "Alongside that, I'm studying " },
+        { "text": "Systems Analysis and Development", "emphasis": true },
+        {
+          "text": " at Unicarioca to solidify the theoretical base behind what I've already practiced for years."
+        }
+      ],
+      [
+        { "text": "Outside work, I like exploring personal projects — " },
+        { "text": "tf.ds", "emphasis": true },
+        {
+          "text": " is my own design system, where I experiment with ideas and consolidate patterns I use across my projects. I believe the best way to grow as a developer is by building real things, with purpose."
+        }
+      ]
+    ],
+    "footer": {
+      "locationLabel": "location",
+      "location": "Rio de Janeiro, Brazil",
+      "languagesLabel": "languages",
+      "languages": [
+        { "name": "Portuguese", "level": "native" },
+        { "name": "English", "level": "intermediate" }
+      ],
+      "statusLabel": "status",
+      "status": "Available for projects"
     }
   },
   "experience": {
