@@ -74,14 +74,11 @@
     }
   },
   "projects": {
-    "title": "My Projects",
-    "subtitle": "Some of the projects I've developed that showcase my technical skills",
-    "loading": "Loading projects from GitHub...",
-    "error": "Error loading projects",
-    "empty": "No projects to display yet. Check back soon! 🚀",
+    "eyebrow": "// projects",
+    "title": "Selected work",
+    "subtitle": "Projects that show my technical skills",
     "demo": "Demo",
-    "code": "Code",
-    "viewAll": "View all projects"
+    "code": "Code"
   },
   "skills": {
     "title": "My Skills",

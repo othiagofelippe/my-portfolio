@@ -74,14 +74,11 @@
     }
   },
   "projects": {
-    "title": "Meus Projetos",
-    "subtitle": "Alguns dos projetos que desenvolvi e que mostram minhas habilidades técnicas",
-    "loading": "Carregando projetos do GitHub...",
-    "error": "Erro ao carregar projetos",
-    "empty": "Ainda não há projetos para mostrar. Volte em breve! 🚀",
+    "eyebrow": "// projetos",
+    "title": "Trabalhos selecionados",
+    "subtitle": "Projetos que mostram minhas habilidades técnicas",
     "demo": "Demo",
-    "code": "Código",
-    "viewAll": "Ver todos os projetos"
+    "code": "Código"
   },
   "skills": {
     "title": "Minhas Habilidades",
