@@ -4,12 +4,13 @@ import { Badge } from '@tfds/components'
 import { Typography } from '@tfds/components'
 import { Card, CardContent } from '@/components/molecules'
 import { motion } from 'motion/react'
-import { Settings2, Smartphone, Server } from '@tfds/icons'
 
 interface SkillsDict {
   skills: {
     title: string
     subtitle: string
+    languagesTitle: string
+    languages: { name: string; level: string }[]
     categories: {
       frontend: { title: string; skills: string[] }
       backend: { title: string; skills: string[] }
@@ -54,18 +55,21 @@ export function Skills({ dict }: { dict: SkillsDict }) {
   const skillCategories = [
     {
       title: dict.skills.categories.frontend.title,
-      icon: <Smartphone className="h-6 w-6" />,
       skills: dict.skills.categories.frontend.skills,
+      dotClassName: 'bg-feedback-success',
+      badgeVariant: 'success' as const,
     },
     {
       title: dict.skills.categories.backend.title,
-      icon: <Server className="h-6 w-6" />,
       skills: dict.skills.categories.backend.skills,
+      dotClassName: 'bg-feedback-warning',
+      badgeVariant: 'warning' as const,
     },
     {
       title: dict.skills.categories.tools.title,
-      icon: <Settings2 className="h-6 w-6" />,
       skills: dict.skills.categories.tools.skills,
+      dotClassName: 'bg-action-primary',
+      badgeVariant: 'info' as const,
     },
   ]
 
@@ -113,7 +117,10 @@ export function Skills({ dict }: { dict: SkillsDict }) {
               <Card className="bg-bg-page border-border-default/10 h-full shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <CardContent className="p-6">
                   <div className="mb-6 flex items-center gap-3">
-                    <div className="text-action-primary">{category.icon}</div>
+                    <span
+                      className={`h-2.5 w-2.5 rounded-full ${category.dotClassName}`}
+                      aria-hidden="true"
+                    />
                     <Typography as="h3" variant="heading-md" color="primary">
                       {category.title}
                     </Typography>
@@ -132,7 +139,7 @@ export function Skills({ dict }: { dict: SkillsDict }) {
                           transition: { duration: 0.15 },
                         }}
                       >
-                        <Badge variant="info">{skill}</Badge>
+                        <Badge variant={category.badgeVariant}>{skill}</Badge>
                       </motion.div>
                     ))}
                   </motion.div>
@@ -140,6 +147,39 @@ export function Skills({ dict }: { dict: SkillsDict }) {
               </Card>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          className="mt-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          <Card className="bg-bg-page border-border-default/10 shadow-sm">
+            <CardContent className="p-6">
+              <Typography
+                as="h3"
+                variant="heading-md"
+                color="primary"
+                className="mb-4"
+              >
+                {dict.skills.languagesTitle}
+              </Typography>
+              <div className="flex flex-wrap gap-8">
+                {dict.skills.languages.map((language) => (
+                  <div key={language.name}>
+                    <Typography as="p" color="primary">
+                      {language.name}
+                    </Typography>
+                    <Typography as="p" className="text-text-tertiary text-sm">
+                      {language.level}
+                    </Typography>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
     </section>

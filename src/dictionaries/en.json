@@ -242,11 +242,17 @@
           "Vercel"
         ]
       }
-    }
+    },
+    "languagesTitle": "Languages",
+    "languages": [
+      { "name": "Portuguese", "level": "Native" },
+      { "name": "English", "level": "Intermediate" }
+    ]
   },
   "contact": {
     "title": "Let's Talk?",
     "subtitle": "Have a project in mind or just want to chat? Reach me through the channels below.",
+    "microCopy": "I usually reply within 24h ⚡",
     "info": {
       "email": "contact@othiagofelippe.com",
       "location": "Rio de Janeiro, Brazil",
@@ -257,31 +263,11 @@
       "location": "Location",
       "availability": "Availability"
     },
-    "socialSection": {
-      "title": "Reach me where it suits you",
-      "subtitle": "Pick the channel that works best for you and let's connect.",
-      "quickResponse": {
-        "title": "Quick response ⚡",
-        "description": "I usually reply within 24 hours. For urgent topics, ping me on LinkedIn!"
-      },
-      "channels": {
-        "linkedin": {
-          "label": "LinkedIn",
-          "description": "Professional network and partnerships"
-        },
-        "github": {
-          "label": "GitHub",
-          "description": "Track my latest projects and code"
-        },
-        "whatsapp": {
-          "label": "WhatsApp",
-          "description": "Fast, direct conversations"
-        },
-        "email": {
-          "label": "Email",
-          "description": "Share project details and proposals"
-        }
-      }
+    "channels": {
+      "linkedin": { "label": "LinkedIn" },
+      "github": { "label": "GitHub" },
+      "whatsapp": { "label": "WhatsApp" },
+      "email": { "label": "Email" }
     }
   },
   "footer": {

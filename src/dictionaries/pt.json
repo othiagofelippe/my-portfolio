@@ -244,11 +244,17 @@
           "Vercel"
         ]
       }
-    }
+    },
+    "languagesTitle": "Idiomas",
+    "languages": [
+      { "name": "Português", "level": "Nativo" },
+      { "name": "Inglês", "level": "Intermediário" }
+    ]
   },
   "contact": {
     "title": "Vamos Conversar?",
     "subtitle": "Tem algum projeto em mente ou quer bater um papo? Estou disponível nos canais abaixo.",
+    "microCopy": "Costumo responder em até 24h ⚡",
     "info": {
       "email": "contact@othiagofelippe.com",
       "location": "Rio de Janeiro, Brasil",
@@ -259,31 +265,11 @@
       "location": "Localização",
       "availability": "Disponibilidade"
     },
-    "socialSection": {
-      "title": "Fale comigo por onde preferir",
-      "subtitle": "Escolha o canal que fizer mais sentido para você e vamos conversar.",
-      "quickResponse": {
-        "title": "Resposta rápida ⚡",
-        "description": "Costumo responder em até 24 horas. Para assuntos urgentes, me chame no LinkedIn!"
-      },
-      "channels": {
-        "linkedin": {
-          "label": "LinkedIn",
-          "description": "Conexões profissionais e networking"
-        },
-        "github": {
-          "label": "GitHub",
-          "description": "Veja meus projetos mais recentes"
-        },
-        "whatsapp": {
-          "label": "WhatsApp",
-          "description": "Conversa rápida e direta"
-        },
-        "email": {
-          "label": "Email",
-          "description": "Envie detalhes do seu projeto"
-        }
-      }
+    "channels": {
+      "linkedin": { "label": "LinkedIn" },
+      "github": { "label": "GitHub" },
+      "whatsapp": { "label": "WhatsApp" },
+      "email": { "label": "Email" }
     }
   },
   "footer": {

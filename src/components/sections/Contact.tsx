@@ -2,8 +2,7 @@
 
 import { FaWhatsapp } from 'react-icons/fa'
 import { Linkedin, Github, Mail, Clock, MapPin } from '@tfds/icons'
-import { Typography } from '@tfds/components'
-import { Card, CardContent, CardHeader } from '@/components/molecules'
+import { Badge, Typography } from '@tfds/components'
 import { motion } from 'motion/react'
 import { useAudio } from '@/context/AudioContext'
 
@@ -11,18 +10,14 @@ interface ContactDict {
   contact: {
     title: string
     subtitle: string
+    microCopy: string
     info: { email: string; location: string; availability: string }
     infoLabels: { email: string; location: string; availability: string }
-    socialSection: {
-      title: string
-      subtitle: string
-      quickResponse: { title: string; description: string }
-      channels: {
-        linkedin: { label: string; description: string }
-        github: { label: string; description: string }
-        whatsapp: { label: string; description: string }
-        email: { label: string; description: string }
-      }
+    channels: {
+      linkedin: { label: string }
+      github: { label: string }
+      whatsapp: { label: string }
+      email: { label: string }
     }
   }
 }
@@ -30,269 +25,162 @@ interface ContactDict {
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
   },
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 32 },
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' as const },
-  },
-}
-
-const channelVariants = {
-  hidden: { opacity: 0, x: -16 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.4, ease: 'easeOut' as const },
-  },
-}
-
-const infoItemVariants = {
-  hidden: { opacity: 0, x: -16 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.4, ease: 'easeOut' as const },
+    transition: { duration: 0.5, ease: 'easeOut' as const },
   },
 }
 
 export function Contact({ dict }: { dict: ContactDict }) {
   const audio = useAudio()
 
-  const contactChannels = [
+  const infoCards = [
     {
-      key: 'linkedin',
-      label: dict.contact.socialSection.channels.linkedin.label,
-      description: dict.contact.socialSection.channels.linkedin.description,
-      icon: <Linkedin className="h-5 w-5" />,
-      href: 'https://linkedin.com/in/othiagofelippe',
-      accent:
-        'text-action-primary bg-action-primary/10 group-hover:bg-action-primary/20',
+      icon: Mail,
+      label: dict.contact.infoLabels.email,
+      value: dict.contact.info.email,
+      href: `mailto:${dict.contact.info.email}`,
     },
     {
-      key: 'github',
-      label: dict.contact.socialSection.channels.github.label,
-      description: dict.contact.socialSection.channels.github.description,
-      icon: <Github className="h-5 w-5" />,
-      href: 'https://github.com/othiagofelippe',
-      accent:
-        'text-text-primary bg-bg-default/50 group-hover:bg-action-primary/15 group-hover:text-action-primary',
+      icon: MapPin,
+      label: dict.contact.infoLabels.location,
+      value: dict.contact.info.location,
+      href: null,
     },
     {
-      key: 'whatsapp',
-      label: dict.contact.socialSection.channels.whatsapp.label,
-      description: dict.contact.socialSection.channels.whatsapp.description,
-      icon: <FaWhatsapp className="h-5 w-5" />,
-      href: 'https://wa.me/5521973494481',
-      accent:
-        'text-white bg-feedback-success/90 group-hover:bg-feedback-success',
-    },
-    {
-      key: 'email',
-      label: dict.contact.socialSection.channels.email.label,
-      description: dict.contact.socialSection.channels.email.description,
-      icon: <Mail className="h-5 w-5" />,
-      href: 'mailto:contact@othiagofelippe.com',
-      accent:
-        'text-feedback-error bg-feedback-error/10 group-hover:bg-feedback-error/20',
+      icon: Clock,
+      label: dict.contact.infoLabels.availability,
+      value: dict.contact.info.availability,
+      href: null,
     },
   ]
 
-  const handleChannelClick = () => {
+  const channels = [
+    {
+      key: 'linkedin',
+      label: dict.contact.channels.linkedin.label,
+      icon: Linkedin,
+      href: 'https://linkedin.com/in/othiagofelippe',
+    },
+    {
+      key: 'github',
+      label: dict.contact.channels.github.label,
+      icon: Github,
+      href: 'https://github.com/othiagofelippe',
+    },
+    {
+      key: 'whatsapp',
+      label: dict.contact.channels.whatsapp.label,
+      icon: FaWhatsapp,
+      href: 'https://wa.me/5521973494481',
+    },
+    {
+      key: 'email',
+      label: dict.contact.channels.email.label,
+      icon: Mail,
+      href: 'mailto:contact@othiagofelippe.com',
+    },
+  ]
+
+  const handleChannelClick = (): void => {
     audio.play('buttonClick')
   }
 
   return (
     <section id="contact" className="bg-bg-page py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="mb-16 text-center"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          <Typography
-            as="h2"
-            variant="display-sm"
-            color="primary"
-            align="center"
-            className="mb-4"
-          >
-            {dict.contact.title}
-          </Typography>
-          <Typography
-            color="secondary"
-            align="center"
-            className="mx-auto max-w-2xl"
-          >
-            {dict.contact.subtitle}
-          </Typography>
-        </motion.div>
-
-        <motion.div
-          className="grid grid-cols-1 gap-12 lg:grid-cols-2"
+          className="bg-action-primary-subtle border-action-primary/20 rounded-2xl border p-8 sm:p-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          <motion.div variants={cardVariants}>
-            <Card className="bg-bg-default/20 border-border-default/10 h-full">
-              <CardHeader>
-                <Typography as="h3" variant="heading-lg" color="primary">
-                  {dict.contact.socialSection.quickResponse.title}
-                </Typography>
-                <Typography color="secondary">
-                  {dict.contact.socialSection.quickResponse.description}
-                </Typography>
-              </CardHeader>
-              <motion.div
-                variants={{
-                  hidden: {},
-                  visible: {
-                    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
-                  },
-                }}
-              >
-                <CardContent className="space-y-6">
-                  <motion.div
-                    variants={infoItemVariants}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="bg-action-primary/15 text-action-primary flex h-10 w-10 items-center justify-center rounded-full">
-                      <Mail className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <Typography
-                        as="p"
-                        variant="body-sm"
-                        color="disabled"
-                        className="tracking-wide uppercase"
-                      >
-                        {dict.contact.infoLabels.email}
-                      </Typography>
-                      <a
-                        href={`mailto:${dict.contact.info.email}`}
-                        className="text-text-primary hover:text-action-primary transition-colors"
-                      >
-                        <Typography as="span" color="primary">
-                          {dict.contact.info.email}
-                        </Typography>
-                      </a>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    variants={infoItemVariants}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="bg-action-primary/15 text-action-primary flex h-10 w-10 items-center justify-center rounded-full">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <Typography
-                        as="p"
-                        variant="body-sm"
-                        color="disabled"
-                        className="tracking-wide uppercase"
-                      >
-                        {dict.contact.infoLabels.location}
-                      </Typography>
-                      <Typography as="p" color="primary">
-                        {dict.contact.info.location}
-                      </Typography>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    variants={infoItemVariants}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="bg-action-primary/15 text-action-primary flex h-10 w-10 items-center justify-center rounded-full">
-                      <Clock className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <Typography
-                        as="p"
-                        variant="body-sm"
-                        color="disabled"
-                        className="tracking-wide uppercase"
-                      >
-                        {dict.contact.infoLabels.availability}
-                      </Typography>
-                      <Typography as="p" color="primary">
-                        {dict.contact.info.availability}
-                      </Typography>
-                    </div>
-                  </motion.div>
-                </CardContent>
-              </motion.div>
-            </Card>
+          <motion.div variants={itemVariants} className="mb-10 text-center">
+            <Typography
+              as="h2"
+              variant="display-md"
+              color="primary"
+              align="center"
+              className="mb-3"
+            >
+              {dict.contact.title}
+            </Typography>
+            <Typography
+              color="secondary"
+              align="center"
+              className="mx-auto mb-5 max-w-xl"
+            >
+              {dict.contact.subtitle}
+            </Typography>
+            <Badge variant="info">{dict.contact.microCopy}</Badge>
           </motion.div>
 
-          <motion.div variants={cardVariants}>
-            <Card className="bg-bg-default/20 border-border-default/10 h-full">
-              <CardHeader>
-                <Typography as="h3" variant="heading-lg" color="primary">
-                  {dict.contact.socialSection.title}
-                </Typography>
-                <Typography color="secondary">
-                  {dict.contact.socialSection.subtitle}
-                </Typography>
-              </CardHeader>
-              <CardContent>
-                <motion.div
-                  className="grid grid-cols-1 gap-4"
-                  variants={{
-                    hidden: {},
-                    visible: {
-                      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-                    },
-                  }}
+          <motion.div
+            variants={itemVariants}
+            className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3"
+          >
+            {infoCards.map((info) => (
+              <div
+                key={info.label}
+                className="bg-bg-page border-border-subtle rounded-xl border p-4 text-center"
+              >
+                <info.icon
+                  className="text-action-primary mx-auto mb-2 h-5 w-5"
+                  aria-hidden="true"
+                />
+                <Typography
+                  as="p"
+                  variant="body-sm"
+                  color="disabled"
+                  className="mb-1 tracking-wide uppercase"
                 >
-                  {contactChannels.map((channel) => (
-                    <motion.a
-                      key={channel.key}
-                      href={channel.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleChannelClick}
-                      variants={channelVariants}
-                      whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                      className="group border-border-default/15 bg-bg-default/40 hover:border-action-primary/40 hover:bg-bg-default/60 focus-visible:ring-action-primary/60 flex items-center gap-5 rounded-2xl border px-6 py-5 transition-colors focus-visible:ring-2 focus-visible:outline-none"
-                    >
-                      <div
-                        className={`flex h-12 w-12 items-center justify-center rounded-full ${channel.accent}`}
-                      >
-                        {channel.icon}
-                      </div>
-                      <div className="flex flex-col items-start gap-1">
-                        <Typography
-                          as="span"
-                          color="primary"
-                          className="group-hover:text-action-primary font-medium"
-                        >
-                          {channel.label}
-                        </Typography>
-                        <Typography
-                          as="span"
-                          variant="body-sm"
-                          color="secondary"
-                        >
-                          {channel.description}
-                        </Typography>
-                      </div>
-                    </motion.a>
-                  ))}
-                </motion.div>
-              </CardContent>
-            </Card>
+                  {info.label}
+                </Typography>
+                {info.href ? (
+                  <a
+                    href={info.href}
+                    className="text-text-primary hover:text-action-primary transition-colors"
+                  >
+                    <Typography as="span" color="primary">
+                      {info.value}
+                    </Typography>
+                  </a>
+                ) : (
+                  <Typography as="p" color="primary">
+                    {info.value}
+                  </Typography>
+                )}
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-2 gap-3 sm:grid-cols-4"
+          >
+            {channels.map((channel) => (
+              <a
+                key={channel.key}
+                href={channel.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleChannelClick}
+                className="group border-border-default bg-bg-page hover:border-action-primary hover:text-action-primary focus-visible:ring-action-primary/60 flex flex-col items-center gap-2 rounded-xl border px-4 py-5 text-center transition-colors focus-visible:ring-2 focus-visible:outline-none"
+              >
+                <channel.icon className="h-5 w-5" aria-hidden="true" />
+                <Typography as="span" variant="body-sm" color="primary">
+                  {channel.label}
+                </Typography>
+              </a>
+            ))}
           </motion.div>
         </motion.div>
       </div>
