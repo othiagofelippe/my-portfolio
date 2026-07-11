@@ -4,6 +4,7 @@
     "experience": "Experiencia",
     "projects": "Proyectos",
     "skills": "Habilidades",
+    "blog": "Blog",
     "contact": "Contacto"
   },
   "hero": {
@@ -271,6 +272,18 @@
       "whatsapp": { "label": "WhatsApp" },
       "email": { "label": "Email" }
     }
+  },
+  "blog": {
+    "eyebrow": "// blog",
+    "title": "Del blog",
+    "subtitle": "Notas sobre frontend, design systems y lo que voy aprendiendo en el camino",
+    "viewAll": "ver todos los posts",
+    "readMore": "leer más",
+    "minRead": "min de lectura",
+    "backToBlog": "volver al blog",
+    "backHome": "volver al inicio",
+    "notFoundTitle": "Post no encontrado",
+    "notFoundDescription": "El post que buscas no existe o fue movido."
   },
   "footer": {
     "description": "Desarrollador frontend con 4 años de experiencia, trabajando con React, React Native, TypeScript y Next.js. De cero a producción, con foco en Design Systems y rendimiento.",

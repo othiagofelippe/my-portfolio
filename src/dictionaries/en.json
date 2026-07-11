@@ -4,6 +4,7 @@
     "experience": "Experience",
     "projects": "Projects",
     "skills": "Skills",
+    "blog": "Blog",
     "contact": "Contact"
   },
   "hero": {
@@ -269,6 +270,18 @@
       "whatsapp": { "label": "WhatsApp" },
       "email": { "label": "Email" }
     }
+  },
+  "blog": {
+    "eyebrow": "// blog",
+    "title": "From the blog",
+    "subtitle": "Notes on frontend, design systems and what I learn along the way",
+    "viewAll": "view all posts",
+    "readMore": "read more",
+    "minRead": "min read",
+    "backToBlog": "back to blog",
+    "backHome": "back home",
+    "notFoundTitle": "Post not found",
+    "notFoundDescription": "The post you're looking for doesn't exist or was moved."
   },
   "footer": {
     "description": "Frontend developer for 4 years, working with React, React Native, TypeScript and Next.js. From zero to production, with a focus on Design Systems and performance.",

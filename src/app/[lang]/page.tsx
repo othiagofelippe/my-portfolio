@@ -2,6 +2,7 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import {
   About,
+  Blog,
   Contact,
   Experience,
   Hero,
@@ -26,6 +27,7 @@ export default async function Home({
         <Experience dict={{ ...dict, lang }} />
         <Projects dict={{ ...dict, lang }} />
         <Skills dict={dict} />
+        <Blog dict={{ ...dict, lang }} />
         <Contact dict={dict} />
       </div>
     </PageTransition>

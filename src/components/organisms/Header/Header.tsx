@@ -1,10 +1,12 @@
 'use client'
 
 import { Locale } from '@/lib/i18n'
+import { cn } from '@/lib/utils'
 import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
 import { Menu, X } from '@tfds/icons'
-import { Button } from '@tfds/components'
+import { Button, buttonVariants } from '@tfds/components'
+import Link from 'next/link'
 import { Logo } from '@/components/atoms'
 import {
   LanguageSelector,
@@ -20,23 +22,51 @@ interface HeaderDict {
     experience: string
     projects: string
     skills: string
+    blog: string
     contact: string
   }
 }
+
+type NavEntry =
+  | { kind: 'scroll'; name: string; href: string; id: string }
+  | { kind: 'link'; name: string; href: string }
 
 export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const audio = useAudio()
 
-  const navItems = [
-    { name: dict.nav.about, href: '#about', id: 'about' },
-    { name: dict.nav.experience, href: '#experience', id: 'experience' },
-    { name: dict.nav.projects, href: '#projects', id: 'projects' },
-    { name: dict.nav.skills, href: '#skills', id: 'skills' },
-    { name: dict.nav.contact, href: '#contact', id: 'contact' },
+  const navItems: NavEntry[] = [
+    { kind: 'scroll', name: dict.nav.about, href: '#about', id: 'about' },
+    {
+      kind: 'scroll',
+      name: dict.nav.experience,
+      href: '#experience',
+      id: 'experience',
+    },
+    {
+      kind: 'scroll',
+      name: dict.nav.projects,
+      href: '#projects',
+      id: 'projects',
+    },
+    { kind: 'scroll', name: dict.nav.skills, href: '#skills', id: 'skills' },
+    { kind: 'link', name: dict.nav.blog, href: `/${lang}/blog` },
+    {
+      kind: 'scroll',
+      name: dict.nav.contact,
+      href: '#contact',
+      id: 'contact',
+    },
   ]
 
-  const activeSection = useActiveSection(navItems.map((item) => item.id))
+  const activeSection = useActiveSection(
+    navItems
+      .filter(
+        (item): item is Extract<NavEntry, { kind: 'scroll' }> =>
+          item.kind === 'scroll'
+      )
+      .map((item) => item.id)
+  )
 
   const scrollToSection = (href: string) => {
     audio.play('buttonClick')
@@ -66,6 +96,21 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
           <div className="hidden flex-1 justify-center lg:flex lg:items-center">
             <div className="flex items-baseline space-x-6">
               {navItems.map((item) => {
+                if (item.kind === 'link') {
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => audio.play('buttonClick')}
+                      className={cn(
+                        buttonVariants({ variant: 'ghost', size: 'sm' })
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                }
+
                 const isActive = activeSection === item.id
                 return (
                   <Button
@@ -148,6 +193,32 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
             >
               <div className="bg-bg-page border-border-default space-y-1 border-t px-2 pt-2 pb-3">
                 {navItems.map((item, index) => {
+                  if (item.kind === 'link') {
+                    return (
+                      <motion.div
+                        key={item.href}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1, duration: 0.3 }}
+                        whileHover={{ x: 4 }}
+                      >
+                        <Link
+                          href={item.href}
+                          onClick={() => {
+                            audio.play('buttonClick')
+                            setIsMenuOpen(false)
+                          }}
+                          className={cn(
+                            buttonVariants({ variant: 'ghost', size: 'sm' }),
+                            'w-full justify-start'
+                          )}
+                        >
+                          {item.name}
+                        </Link>
+                      </motion.div>
+                    )
+                  }
+
                   const isActive = activeSection === item.id
                   return (
                     <motion.div

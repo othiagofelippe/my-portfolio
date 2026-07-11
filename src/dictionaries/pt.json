@@ -4,6 +4,7 @@
     "experience": "Experiência",
     "projects": "Projetos",
     "skills": "Habilidades",
+    "blog": "Blog",
     "contact": "Contato"
   },
   "hero": {
@@ -271,6 +272,18 @@
       "whatsapp": { "label": "WhatsApp" },
       "email": { "label": "Email" }
     }
+  },
+  "blog": {
+    "eyebrow": "// blog",
+    "title": "Do blog",
+    "subtitle": "Notas sobre frontend, design systems e o que aprendo pelo caminho",
+    "viewAll": "ver todos os posts",
+    "readMore": "ler mais",
+    "minRead": "min de leitura",
+    "backToBlog": "voltar para o blog",
+    "backHome": "voltar para a home",
+    "notFoundTitle": "Post não encontrado",
+    "notFoundDescription": "O post que você procura não existe ou foi movido."
   },
   "footer": {
     "description": "Desenvolvedor frontend há 4 anos, trabalhando com React, React Native, TypeScript e Next.js. Aprofundado em Design Systems, componentes e tokens.",

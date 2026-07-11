@@ -14,3 +14,17 @@ const CV_FILE_NAMES: Record<string, string> = {
 export function getCVFileName(lang: string): string {
   return CV_FILE_NAMES[lang] ?? CV_FILE_NAMES.pt
 }
+
+const INTL_LOCALES: Record<string, string> = {
+  pt: 'pt-BR',
+  en: 'en-US',
+  es: 'es-ES',
+}
+
+export function formatPostDate(dateISO: string, lang: string): string {
+  return new Intl.DateTimeFormat(INTL_LOCALES[lang] ?? INTL_LOCALES.pt, {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date(dateISO))
+}
