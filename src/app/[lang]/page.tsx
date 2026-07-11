@@ -3,7 +3,6 @@ import { Locale } from '@/lib/i18n'
 import {
   About,
   Contact,
-  Education,
   Experience,
   Hero,
   Projects,
@@ -25,7 +24,6 @@ export default async function Home({
         <Hero dict={{ ...dict, lang }} />
         <About dict={dict} />
         <Experience dict={{ ...dict, lang }} />
-        <Education dict={dict} />
         <Projects dict={{ ...dict, lang }} />
         <Skills dict={dict} />
         <Contact dict={dict} />

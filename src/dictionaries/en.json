@@ -159,6 +159,33 @@
           "Accessibility"
         ]
       }
+    },
+    "formation": {
+      "title": "Academic Background",
+      "course": "Associate Degree in Systems Analysis and Development",
+      "institution": "Centro Universitário Unicarioca",
+      "location": "Rio de Janeiro, Brazil",
+      "period": "January 2025 - Present",
+      "type": "Distance Learning"
+    },
+    "certification": {
+      "title": "Certification",
+      "name": "Full Stack Web Development Certification",
+      "institution": "ProgramadorBr",
+      "date": "March 2022",
+      "technologiesLabel": "Technologies Learned",
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript ES6+",
+        "jQuery",
+        "Bootstrap",
+        "React.js",
+        "Node.js",
+        "Firebase",
+        "MongoDB",
+        "Electron"
+      ]
     }
   },
   "projects": {
@@ -254,50 +281,6 @@
           "label": "Email",
           "description": "Share project details and proposals"
         }
-      }
-    }
-  },
-  "education": {
-    "title": "Education & Qualifications",
-    "subtitle": "My academic journey and certifications that complement my professional experience",
-    "academic": {
-      "title": "Academic Education",
-      "course": "Technology Degree in Systems Analysis and Development",
-      "institution": "Centro Universitário Unicarioca",
-      "location": "Rio de Janeiro, RJ",
-      "period": "January 2025 - Present",
-      "type": "Distance Learning"
-    },
-    "certifications": {
-      "title": "Certifications",
-      "fullstack": {
-        "name": "Full Stack Web Development Certification",
-        "institution": "ProgramadorBr",
-        "date": "March 2022",
-        "technologiesLabel": "Technologies Learned",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "JavaScript ES6+",
-          "jQuery",
-          "Bootstrap",
-          "React.js",
-          "Node.js",
-          "Firebase",
-          "MongoDB",
-          "Electron"
-        ]
-      }
-    },
-    "languages": {
-      "title": "Languages",
-      "portuguese": {
-        "name": "Portuguese",
-        "level": "Native"
-      },
-      "english": {
-        "name": "English",
-        "level": "Intermediate (Technical reading and listening comprehension)"
       }
     }
   },

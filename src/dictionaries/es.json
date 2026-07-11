@@ -161,6 +161,33 @@
           "Accesibilidad"
         ]
       }
+    },
+    "formation": {
+      "title": "Formación Académica",
+      "course": "Tecnólogo en Análisis y Desarrollo de Sistemas",
+      "institution": "Centro Universitário Unicarioca",
+      "location": "Río de Janeiro, Brasil",
+      "period": "Enero de 2025 - Presente",
+      "type": "Educación a Distancia (EAD)"
+    },
+    "certification": {
+      "title": "Certificación",
+      "name": "Certificación en Desarrollo Web Full Stack",
+      "institution": "ProgramadorBr",
+      "date": "Marzo de 2022",
+      "technologiesLabel": "Tecnologías Aprendidas",
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript ES6+",
+        "jQuery",
+        "Bootstrap",
+        "React.js",
+        "Node.js",
+        "Firebase",
+        "MongoDB",
+        "Electron"
+      ]
     }
   },
   "projects": {
@@ -256,50 +283,6 @@
           "label": "Email",
           "description": "Comparte detalles de tu proyecto"
         }
-      }
-    }
-  },
-  "education": {
-    "title": "Formación y Cualificaciones",
-    "subtitle": "Mi trayectoria académica y certificaciones que complementan mi experiencia profesional",
-    "academic": {
-      "title": "Formación Académica",
-      "course": "Tecnólogo en Análisis y Desarrollo de Sistemas",
-      "institution": "Centro Universitário Unicarioca",
-      "location": "Río de Janeiro, RJ",
-      "period": "Enero de 2025 - Presente",
-      "type": "Educación a Distancia"
-    },
-    "certifications": {
-      "title": "Certificaciones",
-      "fullstack": {
-        "name": "Certificación en Desarrollo Web Full Stack",
-        "institution": "ProgramadorBr",
-        "date": "Marzo de 2022",
-        "technologiesLabel": "Tecnologías Aprendidas",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "JavaScript ES6+",
-          "jQuery",
-          "Bootstrap",
-          "React.js",
-          "Node.js",
-          "Firebase",
-          "MongoDB",
-          "Electron"
-        ]
-      }
-    },
-    "languages": {
-      "title": "Idiomas",
-      "portuguese": {
-        "name": "Portugués",
-        "level": "Nativo"
-      },
-      "english": {
-        "name": "Inglés",
-        "level": "Intermedio (Lectura técnica y comprensión auditiva)"
       }
     }
   },

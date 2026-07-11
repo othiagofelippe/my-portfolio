@@ -3,10 +3,10 @@
 import { Button } from '@tfds/components'
 import { Badge } from '@tfds/components'
 import { Typography } from '@tfds/components'
-import { Card, CardContent } from '@/components/molecules'
+import { Card, CardContent, CardHeader } from '@/components/molecules'
 import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 import { useRef } from 'react'
-import { Download } from '@tfds/icons'
+import { Download, FileText, GraduationCap } from '@tfds/icons'
 import { useAudio } from '@/context/AudioContext'
 import { getCVFileName } from '@/lib/utils'
 
@@ -28,6 +28,22 @@ interface ExperienceDict {
       heap: Job
       divam: Job
       ilia: Job
+    }
+    formation: {
+      title: string
+      course: string
+      institution: string
+      location: string
+      period: string
+      type: string
+    }
+    certification: {
+      title: string
+      name: string
+      institution: string
+      date: string
+      technologiesLabel: string
+      technologies: string[]
     }
   }
   lang?: string
@@ -233,6 +249,97 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
             ))}
           </div>
         </motion.div>
+
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <Card className="bg-bg-page border-border-default/10 shadow-sm">
+            <CardHeader className="pb-4">
+              <Typography
+                as="h3"
+                variant="heading-md"
+                color="primary"
+                className="flex items-center gap-3"
+              >
+                <GraduationCap className="text-action-primary h-6 w-6" />
+                {dict.experience.formation.title}
+              </Typography>
+            </CardHeader>
+            <CardContent>
+              <Typography
+                as="h4"
+                variant="body-lg"
+                color="primary"
+                className="mb-2"
+              >
+                {dict.experience.formation.course}
+              </Typography>
+              <div className="space-y-1">
+                <Typography as="p" color="secondary" className="font-medium">
+                  {dict.experience.formation.institution}
+                </Typography>
+                <Typography as="p" color="secondary">
+                  {dict.experience.formation.location}
+                </Typography>
+                <Typography
+                  as="p"
+                  color="secondary"
+                  className="flex items-center gap-4"
+                >
+                  <span>{dict.experience.formation.period}</span>
+                  <Badge variant="default">
+                    {dict.experience.formation.type}
+                  </Badge>
+                </Typography>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-bg-page border-border-default/10 shadow-sm">
+            <CardHeader className="pb-4">
+              <Typography
+                as="h3"
+                variant="heading-md"
+                color="primary"
+                className="flex items-center gap-3"
+              >
+                <FileText className="text-action-primary h-6 w-6" />
+                {dict.experience.certification.title}
+              </Typography>
+            </CardHeader>
+            <CardContent>
+              <Typography
+                as="h4"
+                variant="body-lg"
+                color="primary"
+                className="mb-2"
+              >
+                {dict.experience.certification.name}
+              </Typography>
+              <div className="mb-4 space-y-1">
+                <Typography as="p" color="secondary" className="font-medium">
+                  {dict.experience.certification.institution}
+                </Typography>
+                <Typography as="p" color="secondary">
+                  {dict.experience.certification.date}
+                </Typography>
+              </div>
+              <Typography
+                as="p"
+                variant="body-sm"
+                color="primary"
+                className="mb-3 font-medium"
+              >
+                {dict.experience.certification.technologiesLabel}:
+              </Typography>
+              <div className="flex flex-wrap gap-2">
+                {dict.experience.certification.technologies.map((tech) => (
+                  <Badge key={tech} variant="success">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
 
         <div className="mt-16 text-center">
           <Button size="lg" onClick={handleDownloadClick}>
