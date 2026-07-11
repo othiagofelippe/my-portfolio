@@ -1,39 +1,39 @@
-"use client";
+'use client'
 
-import { Badge } from "@tfds/components";
-import { Typography } from "@tfds/components";
-import { Card, CardContent, CardHeader } from "@/components/molecules";
-import { motion } from "motion/react";
-import { GraduationCap, FileText, Globe } from "@tfds/icons";
+import { Badge } from '@tfds/components'
+import { Typography } from '@tfds/components'
+import { Card, CardContent, CardHeader } from '@/components/molecules'
+import { motion } from 'motion/react'
+import { GraduationCap, FileText, Globe } from '@tfds/icons'
 
 interface EducationDict {
   education: {
-    title: string;
-    subtitle: string;
+    title: string
+    subtitle: string
     academic: {
-      title: string;
-      course: string;
-      institution: string;
-      location: string;
-      period: string;
-      type: string;
-    };
+      title: string
+      course: string
+      institution: string
+      location: string
+      period: string
+      type: string
+    }
     certifications: {
-      title: string;
+      title: string
       fullstack: {
-        name: string;
-        institution: string;
-        date: string;
-        technologiesLabel: string;
-        technologies: string[];
-      };
-    };
+        name: string
+        institution: string
+        date: string
+        technologiesLabel: string
+        technologies: string[]
+      }
+    }
     languages: {
-      title: string;
-      portuguese: { name: string; level: string };
-      english: { name: string; level: string };
-    };
-  };
+      title: string
+      portuguese: { name: string; level: string }
+      english: { name: string; level: string }
+    }
+  }
 }
 
 const containerVariants = {
@@ -41,63 +41,91 @@ const containerVariants = {
   visible: {
     transition: { staggerChildren: 0.18 },
   },
-};
+}
 
 const cardVariants = {
   hidden: { opacity: 0, x: -32 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
+    transition: { duration: 0.6, ease: 'easeOut' as const },
   },
-};
+}
 
 export function Education({ dict }: { dict: EducationDict }) {
   return (
-    <section id="formacao" className="py-20 bg-bg-page">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="education" className="bg-bg-page py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
+          <Typography
+            as="h2"
+            variant="display-sm"
+            color="primary"
+            align="center"
+            className="mb-4"
+          >
             {dict.education.title}
           </Typography>
-          <Typography color="secondary" className="max-w-3xl mx-auto">
+          <Typography color="secondary" className="mx-auto max-w-3xl">
             {dict.education.subtitle}
           </Typography>
         </motion.div>
 
         <motion.div
-          className="max-w-4xl mx-auto space-y-12"
+          className="mx-auto max-w-4xl space-y-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: '-80px' }}
         >
           {/* Formação Acadêmica */}
           <motion.div variants={cardVariants}>
             <motion.div whileHover={{ y: -3, transition: { duration: 0.2 } }}>
-              <Card className="bg-bg-default/20 border-border-default/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <Card className="bg-bg-default/20 border-border-default/10 shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <CardHeader className="pb-4">
-                  <Typography as="h3" variant="heading-md" color="primary" className="flex items-center gap-3">
-                    <GraduationCap className="w-6 h-6 text-action-primary" />
+                  <Typography
+                    as="h3"
+                    variant="heading-md"
+                    color="primary"
+                    className="flex items-center gap-3"
+                  >
+                    <GraduationCap className="text-action-primary h-6 w-6" />
                     {dict.education.academic.title}
                   </Typography>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <Typography as="h4" variant="body-lg" color="primary" className="mb-2">
+                      <Typography
+                        as="h4"
+                        variant="body-lg"
+                        color="primary"
+                        className="mb-2"
+                      >
                         {dict.education.academic.course}
                       </Typography>
-                      <div className="space-y-1 text-text-secondary">
-                        <Typography as="p" color="secondary" className="font-medium">{dict.education.academic.institution}</Typography>
-                        <Typography as="p" color="secondary">{dict.education.academic.location}</Typography>
-                        <Typography as="p" color="secondary" className="flex items-center gap-4">
+                      <div className="text-text-secondary space-y-1">
+                        <Typography
+                          as="p"
+                          color="secondary"
+                          className="font-medium"
+                        >
+                          {dict.education.academic.institution}
+                        </Typography>
+                        <Typography as="p" color="secondary">
+                          {dict.education.academic.location}
+                        </Typography>
+                        <Typography
+                          as="p"
+                          color="secondary"
+                          className="flex items-center gap-4"
+                        >
                           <span>{dict.education.academic.period}</span>
                           <Badge variant="default">
                             {dict.education.academic.type}
@@ -114,33 +142,62 @@ export function Education({ dict }: { dict: EducationDict }) {
           {/* Certificações */}
           <motion.div variants={cardVariants}>
             <motion.div whileHover={{ y: -3, transition: { duration: 0.2 } }}>
-              <Card className="bg-bg-default/20 border-border-default/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <Card className="bg-bg-default/20 border-border-default/10 shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <CardHeader className="pb-4">
-                  <Typography as="h3" variant="heading-md" color="primary" className="flex items-center gap-3">
-                    <FileText className="w-6 h-6 text-action-primary" />
+                  <Typography
+                    as="h3"
+                    variant="heading-md"
+                    color="primary"
+                    className="flex items-center gap-3"
+                  >
+                    <FileText className="text-action-primary h-6 w-6" />
                     {dict.education.certifications.title}
                   </Typography>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
                     <div>
-                      <Typography as="h4" variant="body-lg" color="primary" className="mb-2">
+                      <Typography
+                        as="h4"
+                        variant="body-lg"
+                        color="primary"
+                        className="mb-2"
+                      >
                         {dict.education.certifications.fullstack.name}
                       </Typography>
-                      <div className="space-y-1 text-text-secondary mb-4">
-                        <Typography as="p" color="secondary" className="font-medium">{dict.education.certifications.fullstack.institution}</Typography>
-                        <Typography as="p" color="secondary">{dict.education.certifications.fullstack.date}</Typography>
+                      <div className="text-text-secondary mb-4 space-y-1">
+                        <Typography
+                          as="p"
+                          color="secondary"
+                          className="font-medium"
+                        >
+                          {dict.education.certifications.fullstack.institution}
+                        </Typography>
+                        <Typography as="p" color="secondary">
+                          {dict.education.certifications.fullstack.date}
+                        </Typography>
                       </div>
                       <div>
-                        <Typography as="p" variant="body-sm" color="primary" className="font-medium mb-3">
-                          {dict.education.certifications.fullstack.technologiesLabel}:
+                        <Typography
+                          as="p"
+                          variant="body-sm"
+                          color="primary"
+                          className="mb-3 font-medium"
+                        >
+                          {
+                            dict.education.certifications.fullstack
+                              .technologiesLabel
+                          }
+                          :
                         </Typography>
                         <div className="flex flex-wrap gap-2">
-                          {dict.education.certifications.fullstack.technologies.map((tech: string) => (
-                            <Badge key={tech} variant="success">
-                              {tech}
-                            </Badge>
-                          ))}
+                          {dict.education.certifications.fullstack.technologies.map(
+                            (tech: string) => (
+                              <Badge key={tech} variant="success">
+                                {tech}
+                              </Badge>
+                            )
+                          )}
                         </div>
                       </div>
                     </div>
@@ -153,15 +210,20 @@ export function Education({ dict }: { dict: EducationDict }) {
           {/* Idiomas */}
           <motion.div variants={cardVariants}>
             <motion.div whileHover={{ y: -3, transition: { duration: 0.2 } }}>
-              <Card className="bg-bg-default/20 border-border-default/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <Card className="bg-bg-default/20 border-border-default/10 shadow-sm transition-shadow duration-300 hover:shadow-lg">
                 <CardHeader className="pb-4">
-                  <Typography as="h3" variant="heading-md" color="primary" className="flex items-center gap-3">
-                    <Globe className="w-6 h-6 text-action-primary" />
+                  <Typography
+                    as="h3"
+                    variant="heading-md"
+                    color="primary"
+                    className="flex items-center gap-3"
+                  >
+                    <Globe className="text-action-primary h-6 w-6" />
                     {dict.education.languages.title}
                   </Typography>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
                       <Typography as="h4" variant="body-lg" color="primary">
                         {dict.education.languages.portuguese.name}
@@ -186,5 +248,5 @@ export function Education({ dict }: { dict: EducationDict }) {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

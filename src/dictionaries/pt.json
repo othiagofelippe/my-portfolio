@@ -23,22 +23,6 @@
       "contact": "Contato"
     }
   },
-  "about": {
-    "title": "Sobre Mim",
-    "subtitle": "Um pouco da minha história e do que me move",
-    "bio1": "Cresci rodeado de tecnologia, meu pai era técnico de informática, então computadores sempre fizeram parte da minha vida. Montava e consertava meu próprio PC, abria pra entender como funcionava por dentro, formatava sozinho, testava Linux só pra ver o que era diferente. Comecei editando fotos no Photoshop e vídeos no Sony Vegas, até que um dia, trabalhando numa empresa fora da área de tech, tive a ideia de criar um aplicativo pra ela. Não sabia nem por onde começar, mas isso foi o gatilho. Comecei a estudar, fui me aprofundando, e logo arrumei meu primeiro emprego como desenvolvedor.",
-    "bio2": "O que me move é simples: criar coisas que pessoas reais usam. Não precisa ter meu nome — precisa funcionar, fazer sentido e ser bem feito.",
-    "quote": "Sempre disposto a fazer melhor.",
-    "interests": {
-      "title": "Fora do código",
-      "items": [
-        { "label": "Filmes & Séries", "description": "Clássicos, geek, super-heróis e anime" },
-        { "label": "Música", "description": "De tudo um pouco" },
-        { "label": "Esportes", "description": "Futebol, basquete e musculação" },
-        { "label": "Experiências", "description": "Cinema, lugares novos e o que ainda está por vir" }
-      ]
-    }
-  },
   "experience": {
     "title": "Experiência Profissional",
     "subtitle": "Minha jornada profissional e as experiências que me moldaram como desenvolvedor",
@@ -50,21 +34,42 @@
         "title": "Desenvolvedor Front-End Pleno",
         "company": "Heap Engenharia e Software",
         "description": "Liderei o desenvolvimento de interfaces web e mobile com React, Next.js e React Native, priorizando performance e acessibilidade. Estruturei fluxos de dados com APIs RESTful, implementei SSR para melhorar métricas de SEO e padronizei componentes através de Design Systems documentados no Storybook. Colaborei com design aplicando princípios de UX/UI e facilitei entregas contínuas com times ágeis.",
-        "skills": ["React", "Next.js", "React Native", "TypeScript", "Storybook", "APIs REST"]
+        "skills": [
+          "React",
+          "Next.js",
+          "React Native",
+          "TypeScript",
+          "Storybook",
+          "APIs REST"
+        ]
       },
       "divam": {
         "period": "Mar 2025 - Jun 2025",
         "title": "Desenvolvedor Front-End Pleno",
         "company": "Divam",
         "description": "Atuei na evolução de produtos web com Next.js e mobile com React Native, entregando novas funcionalidades e garantindo estabilidade em produção. Reforcei o Design System interno com componentes reutilizáveis, tokens de cor, espaçamento e tipografia, além de padrões de acessibilidade e responsividade. Integrei APIs em parceria com backend, conduzi code reviews e padronizei fluxos de dados.",
-        "skills": ["Next.js", "React Native", "GraphQL", "APIs REST", "Figma", "UX/UI"]
+        "skills": [
+          "Next.js",
+          "React Native",
+          "GraphQL",
+          "APIs REST",
+          "Figma",
+          "UX/UI"
+        ]
       },
       "ilia": {
         "period": "Nov 2025 - Presente",
         "title": "Desenvolvedor Frontend | Design System @ Livelo",
         "company": "ília",
         "description": "Desenvolvedor frontend alocado na Livelo pelo time da ília. Faço parte do time de Design System (Alchemy), onde criamos e mantemos os componentes e tokens utilizados pelos outros times, tanto em React quanto em React Native. Além de desenvolver, damos suporte às equipes e criamos componentes colaborativos sob demanda.",
-        "skills": ["React", "React Native", "Design System", "Storybook", "TypeScript", "Acessibilidade"]
+        "skills": [
+          "React",
+          "React Native",
+          "Design System",
+          "Storybook",
+          "TypeScript",
+          "Acessibilidade"
+        ]
       }
     }
   },
@@ -74,22 +79,9 @@
     "loading": "Carregando projetos do GitHub...",
     "error": "Erro ao carregar projetos",
     "empty": "Ainda não há projetos para mostrar. Volte em breve! 🚀",
-    "status": "Em breve",
     "demo": "Demo",
     "code": "Código",
-    "viewAll": "Ver todos os projetos",
-    "ecommerce": {
-      "title": "E-commerce Moderno",
-      "description": "Plataforma de e-commerce completa com painel administrativo, carrinho de compras e sistema de pagamento integrado."
-    },
-    "dashboard": {
-      "title": "Dashboard Analytics",
-      "description": "Dashboard interativo para visualização de dados com gráficos dinâmicos e relatórios personalizáveis."
-    },
-    "mobile": {
-      "title": "App Mobile de Produtividade",
-      "description": "Aplicativo mobile para gerenciamento de tarefas com sincronização em tempo real e notificações push."
-    }
+    "viewAll": "Ver todos os projetos"
   },
   "skills": {
     "title": "Minhas Habilidades",
@@ -97,15 +89,46 @@
     "categories": {
       "frontend": {
         "title": "Frontend",
-        "skills": ["React", "Next.js", "React Native", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS", "Styled Components", "Sass", "MUI"]
+        "skills": [
+          "React",
+          "Next.js",
+          "React Native",
+          "TypeScript",
+          "JavaScript",
+          "HTML/CSS",
+          "Tailwind CSS",
+          "Styled Components",
+          "Sass",
+          "MUI"
+        ]
       },
       "backend": {
         "title": "Backend",
-        "skills": ["Node.js", "Express.js", "MongoDB", "MySQL", "REST APIs", "GraphQL", "JWT", "Firebase"]
+        "skills": [
+          "Node.js",
+          "Express.js",
+          "MongoDB",
+          "MySQL",
+          "REST APIs",
+          "GraphQL",
+          "JWT",
+          "Firebase"
+        ]
       },
       "tools": {
         "title": "Ferramentas & Outros",
-        "skills": ["Git", "GitHub", "VS Code", "Figma", "Storybook", "ESLint", "Prettier", "Scrum", "Kanban", "Vercel"]
+        "skills": [
+          "Git",
+          "GitHub",
+          "VS Code",
+          "Figma",
+          "Storybook",
+          "ESLint",
+          "Prettier",
+          "Scrum",
+          "Kanban",
+          "Vercel"
+        ]
       }
     }
   },
@@ -167,7 +190,18 @@
         "institution": "ProgramadorBr",
         "date": "Março de 2022",
         "technologiesLabel": "Tecnologias Aprendidas",
-        "technologies": ["HTML5", "CSS3", "JavaScript ES6+", "jQuery", "Bootstrap", "React.js", "Node.js", "Firebase", "MongoDB", "Electron"]
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript ES6+",
+          "jQuery",
+          "Bootstrap",
+          "React.js",
+          "Node.js",
+          "Firebase",
+          "MongoDB",
+          "Electron"
+        ]
       }
     },
     "languages": {

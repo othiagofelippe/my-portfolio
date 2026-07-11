@@ -1,44 +1,66 @@
-"use client";
+'use client'
 
-import { Button } from "@tfds/components";
-import { Logo } from "@/components/atoms";
-import { Typography } from "@tfds/components";
-import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
-import { Github, Linkedin, Clock, Mail, MapPin } from "@tfds/icons";
-import { useAudio } from "@/context/AudioContext";
+import { Button } from '@tfds/components'
+import { Logo } from '@/components/atoms'
+import { Typography } from '@tfds/components'
+import Link from 'next/link'
+import { FaWhatsapp } from 'react-icons/fa'
+import { Github, Linkedin, Clock, Mail, MapPin } from '@tfds/icons'
+import { useAudio } from '@/context/AudioContext'
 
-export function Footer({ dict }: { dict: any }) {
-  const currentYear = new Date().getFullYear();
-  const audio = useAudio();
+interface FooterDict {
+  nav: {
+    experience: string
+    projects: string
+    skills: string
+    contact: string
+  }
+  footer: {
+    description: string
+    navigation: string
+    contactSection: string
+    rights: string
+  }
+  contact: {
+    info: {
+      email: string
+      location: string
+      availability: string
+    }
+  }
+}
+
+export function Footer({ dict }: { dict: FooterDict }) {
+  const currentYear = new Date().getFullYear()
+  const audio = useAudio()
 
   const scrollToSection = (href: string) => {
-    audio.play("buttonClick");
-    const element = document.querySelector(href);
+    audio.play('buttonClick')
+    const element = document.querySelector(href)
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
-  };
+  }
 
   const footerLinks = {
     navegacao: [
-      { name: dict.nav.experience, href: "#experiencia" },
-      { name: dict.nav.projects, href: '#projetos' },
-      { name: dict.nav.skills, href: "#habilidades" },
-      { name: dict.nav.contact, href: "#contato" },
+      { name: dict.nav.experience, href: '#experience' },
+      { name: dict.nav.projects, href: '#projects' },
+      { name: dict.nav.skills, href: '#skills' },
+      { name: dict.nav.contact, href: '#contact' },
     ],
     social: [
-      { name: "LinkedIn", href: "https://linkedin.com/in/othiagofelippe" },
-      { name: "GitHub", href: "https://github.com/othiagofelippe" },
-      { name: "WhatsApp", href: "https://wa.me/5521973494481" },
-      { name: "Email", href: "mailto:contact@othiagofelippe.com" },
+      { name: 'LinkedIn', href: 'https://linkedin.com/in/othiagofelippe' },
+      { name: 'GitHub', href: 'https://github.com/othiagofelippe' },
+      { name: 'WhatsApp', href: 'https://wa.me/5521973494481' },
+      { name: 'Email', href: 'mailto:contact@othiagofelippe.com' },
     ],
-  };
+  }
 
   return (
     <footer className="bg-bg-default text-text-tertiary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="mb-4">
               <Logo />
@@ -51,48 +73,77 @@ export function Footer({ dict }: { dict: any }) {
                 variant="ghost"
                 size="icon"
                 aria-label="LinkedIn"
-                onClick={() => { audio.play("buttonClick"); window.open("https://linkedin.com/in/othiagofelippe", "_blank", "noopener,noreferrer"); }}
+                onClick={() => {
+                  audio.play('buttonClick')
+                  window.open(
+                    'https://linkedin.com/in/othiagofelippe',
+                    '_blank',
+                    'noopener,noreferrer'
+                  )
+                }}
               >
-                <Linkedin className="w-6 h-6" />
+                <Linkedin className="h-6 w-6" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
                 aria-label="GitHub"
-                onClick={() => { audio.play("buttonClick"); window.open("https://github.com/othiagofelippe", "_blank", "noopener,noreferrer"); }}
+                onClick={() => {
+                  audio.play('buttonClick')
+                  window.open(
+                    'https://github.com/othiagofelippe',
+                    '_blank',
+                    'noopener,noreferrer'
+                  )
+                }}
               >
-                <Github className="w-6 h-6" />
+                <Github className="h-6 w-6" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
                 aria-label="WhatsApp"
-                onClick={() => { audio.play("buttonClick"); window.open("https://wa.me/5521973494481", "_blank", "noopener,noreferrer"); }}
+                onClick={() => {
+                  audio.play('buttonClick')
+                  window.open(
+                    'https://wa.me/5521973494481',
+                    '_blank',
+                    'noopener,noreferrer'
+                  )
+                }}
               >
-                <FaWhatsapp className="w-6 h-6" />
+                <FaWhatsapp className="h-6 w-6" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
                 aria-label="Email"
-                onClick={() => { audio.play("buttonClick"); window.open("mailto:contact@othiagofelippe.com"); }}
+                onClick={() => {
+                  audio.play('buttonClick')
+                  window.open('mailto:contact@othiagofelippe.com')
+                }}
               >
-                <Mail className="w-6 h-6" />
+                <Mail className="h-6 w-6" />
               </Button>
             </div>
           </div>
 
           <div>
-            <Typography as="h3" variant="body-lg" color="secondary" className="mb-4">
+            <Typography
+              as="h3"
+              variant="body-lg"
+              color="secondary"
+              className="mb-4"
+            >
               {dict.footer.navigation}
             </Typography>
             <ul className="space-y-3">
-              {footerLinks.navegacao.map((link, index) => (
-                <li key={index}>
+              {footerLinks.navegacao.map((link) => (
+                <li key={link.href}>
                   <Button
                     onClick={() => scrollToSection(link.href)}
                     variant="ghost"
-                    className="p-0 h-auto justify-start"
+                    className="h-auto justify-start p-0"
                   >
                     {link.name}
                   </Button>
@@ -102,27 +153,30 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <Typography as="h3" variant="body-lg" color="secondary" className="mb-4">
+            <Typography
+              as="h3"
+              variant="body-lg"
+              color="secondary"
+              className="mb-4"
+            >
               {dict.footer.contactSection}
             </Typography>
-            <div className="space-y-3 text-text-secondary">
-              <div className="flex items-start gap-2 hover:text-text-primary transition-colors">
-                <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" />
+            <div className="text-text-secondary space-y-3">
+              <div className="hover:text-text-primary flex items-start gap-2 transition-colors">
+                <Mail className="mt-0.5 h-5 w-5 flex-shrink-0" />
                 <Link
                   href="mailto:contact@othiagofelippe.com"
-                  className="cursor-pointer break-all leading-relaxed text-text-secondary"
+                  className="text-text-secondary cursor-pointer leading-relaxed break-all"
                 >
                   {dict.contact.info.email}
                 </Link>
               </div>
-              <div className="flex items-center gap-2 hover:text-text-primary transition-colors">
-                <MapPin className="w-5 h-5" />
-                <Typography as="span">
-                  {dict.contact.info.location}
-                </Typography>
+              <div className="hover:text-text-primary flex items-center gap-2 transition-colors">
+                <MapPin className="h-5 w-5" />
+                <Typography as="span">{dict.contact.info.location}</Typography>
               </div>
-              <div className="flex items-center gap-2 hover:text-text-primary transition-colors">
-                <Clock className="w-5 h-5" />
+              <div className="hover:text-text-primary flex items-center gap-2 transition-colors">
+                <Clock className="h-5 w-5" />
                 <Typography as="span">
                   {dict.contact.info.availability}
                 </Typography>
@@ -131,12 +185,12 @@ export function Footer({ dict }: { dict: any }) {
           </div>
         </div>
 
-        <div className="border-t border-border-default mt-12 pt-8 text-center">
+        <div className="border-border-default mt-12 border-t pt-8 text-center">
           <Typography as="p" variant="body-sm" color="disabled">
             © {currentYear} Thiago Felippe. {dict.footer.rights}
           </Typography>
         </div>
       </div>
     </footer>
-  );
+  )
 }

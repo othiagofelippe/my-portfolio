@@ -23,22 +23,6 @@
       "contact": "Contact"
     }
   },
-  "about": {
-    "title": "About Me",
-    "subtitle": "A bit of my story and what drives me",
-    "bio1": "I grew up surrounded by technology — my father was a computer technician, so computers were always part of my life. I used to build and fix my own PC, open it up to understand how it worked, format it myself, and test Linux just to see what was different. I started editing photos in Photoshop and videos in Sony Vegas, until one day, while working at a company outside of tech, I had the idea to build an app for them. I had no idea where to start — but that was the trigger. I started studying, kept going deeper, and soon landed my first job as a developer.",
-    "bio2": "What drives me is simple: creating things that real people use. It doesn't need my name on it — it needs to work, make sense, and be well made.",
-    "quote": "Always willing to do better.",
-    "interests": {
-      "title": "Outside of code",
-      "items": [
-        { "label": "Movies & Series", "description": "Classics, geek, superheroes and anime" },
-        { "label": "Music", "description": "A little bit of everything" },
-        { "label": "Sports", "description": "Football, basketball and weightlifting" },
-        { "label": "Experiences", "description": "Cinema, new places and what's still to come" }
-      ]
-    }
-  },
   "experience": {
     "title": "Professional Experience",
     "subtitle": "My professional journey and the experiences that shaped me as a developer",
@@ -50,21 +34,42 @@
         "title": "Mid-level Front-End Developer",
         "company": "Heap Engenharia e Software",
         "description": "Led the development of web and mobile interfaces with React, Next.js, and React Native while prioritising performance and accessibility. Structured data flows with RESTful APIs, introduced SSR to boost SEO metrics, and standardised components via Design Systems documented in Storybook. Partnered with design on UX/UI principles and enabled continuous delivery with agile teams.",
-        "skills": ["React", "Next.js", "React Native", "TypeScript", "Storybook", "REST APIs"]
+        "skills": [
+          "React",
+          "Next.js",
+          "React Native",
+          "TypeScript",
+          "Storybook",
+          "REST APIs"
+        ]
       },
       "divam": {
         "period": "Mar 2025 - Jun 2025",
         "title": "Mid-level Front-End Developer",
         "company": "Divam",
         "description": "Worked on evolving web products with Next.js and mobile apps with React Native, delivering new features while keeping production stable. Enhanced the internal Design System with reusable components and design tokens for colour, spacing, and typography, reinforcing accessibility and responsiveness standards. Collaborated with backend on APIs, led code reviews, and aligned data flows across projects.",
-        "skills": ["Next.js", "React Native", "GraphQL", "REST APIs", "Figma", "UX/UI"]
+        "skills": [
+          "Next.js",
+          "React Native",
+          "GraphQL",
+          "REST APIs",
+          "Figma",
+          "UX/UI"
+        ]
       },
       "ilia": {
         "period": "Nov 2025 - Present",
         "title": "Frontend Developer | Design System @ Livelo",
         "company": "ília",
         "description": "Frontend developer embedded at Livelo through ília's team. Part of the Design System team (Alchemy), where we build and maintain the components and tokens used by other teams in both React and React Native. Beyond development, we support cross-functional teams and build collaborative components on demand.",
-        "skills": ["React", "React Native", "Design System", "Storybook", "TypeScript", "Accessibility"]
+        "skills": [
+          "React",
+          "React Native",
+          "Design System",
+          "Storybook",
+          "TypeScript",
+          "Accessibility"
+        ]
       }
     }
   },
@@ -74,22 +79,9 @@
     "loading": "Loading projects from GitHub...",
     "error": "Error loading projects",
     "empty": "No projects to display yet. Check back soon! 🚀",
-    "status": "Coming Soon",
     "demo": "Demo",
     "code": "Code",
-    "viewAll": "View all projects",
-    "ecommerce": {
-      "title": "Modern E-commerce",
-      "description": "Complete e-commerce platform with admin panel, shopping cart and integrated payment system."
-    },
-    "dashboard": {
-      "title": "Analytics Dashboard",
-      "description": "Interactive dashboard for data visualization with dynamic charts and customizable reports."
-    },
-    "mobile": {
-      "title": "Productivity Mobile App",
-      "description": "Mobile application for task management with real-time synchronization and push notifications."
-    }
+    "viewAll": "View all projects"
   },
   "skills": {
     "title": "My Skills",
@@ -97,15 +89,46 @@
     "categories": {
       "frontend": {
         "title": "Frontend",
-        "skills": ["React", "Next.js", "React Native", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS", "Styled Components", "Sass", "MUI"]
+        "skills": [
+          "React",
+          "Next.js",
+          "React Native",
+          "TypeScript",
+          "JavaScript",
+          "HTML/CSS",
+          "Tailwind CSS",
+          "Styled Components",
+          "Sass",
+          "MUI"
+        ]
       },
       "backend": {
         "title": "Backend",
-        "skills": ["Node.js", "Express.js", "MongoDB", "MySQL", "REST APIs", "GraphQL", "JWT", "Firebase"]
+        "skills": [
+          "Node.js",
+          "Express.js",
+          "MongoDB",
+          "MySQL",
+          "REST APIs",
+          "GraphQL",
+          "JWT",
+          "Firebase"
+        ]
       },
       "tools": {
         "title": "Tools & Others",
-        "skills": ["Git", "GitHub", "VS Code", "Figma", "Storybook", "ESLint", "Prettier", "Scrum", "Kanban", "Vercel"]
+        "skills": [
+          "Git",
+          "GitHub",
+          "VS Code",
+          "Figma",
+          "Storybook",
+          "ESLint",
+          "Prettier",
+          "Scrum",
+          "Kanban",
+          "Vercel"
+        ]
       }
     }
   },
@@ -167,7 +190,18 @@
         "institution": "ProgramadorBr",
         "date": "March 2022",
         "technologiesLabel": "Technologies Learned",
-        "technologies": ["HTML5", "CSS3", "JavaScript ES6+", "jQuery", "Bootstrap", "React.js", "Node.js", "Firebase", "MongoDB", "Electron"]
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript ES6+",
+          "jQuery",
+          "Bootstrap",
+          "React.js",
+          "Node.js",
+          "Firebase",
+          "MongoDB",
+          "Electron"
+        ]
       }
     },
     "languages": {
