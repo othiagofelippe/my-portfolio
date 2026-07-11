@@ -1,50 +1,51 @@
-import { HiOutlineCodeBracket, HiOutlinePaintBrush } from 'react-icons/hi2';
-import { Card, CardContent, CardTitle } from '@/components/molecules';
+import { Code2, Paintbrush } from '@tfds/icons';
+import { Typography } from '@tfds/components';
+import { Card, CardContent } from '@/components/molecules';
 
 export function Services({ dict }: { dict: any })  {
   const services = [
     {
       title: dict.services.frontend.title,
       description: dict.services.frontend.description,
-      icon: <HiOutlineCodeBracket className="w-8 h-8" />,
+      icon: <Code2 className="w-8 h-8" />,
     },
     {
       title: dict.services.design.title,
       description: dict.services.design.description,
-      icon: <HiOutlinePaintBrush className="w-8 h-8" />,
+      icon: <Paintbrush className="w-8 h-8" />,
     },
   ];
 
   return (
-    <section className="py-20 bg-background-primary">
+    <section className="py-20 bg-bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="typography-h2 text-text-headline mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
             {dict.services.title}
-          </h2>
-          <p className="typography-body text-text-body max-w-2xl mx-auto">
+          </Typography>
+          <Typography color="secondary" align="center" className="max-w-2xl mx-auto">
             {dict.services.subtitle}
-          </p>
+          </Typography>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <Card
               key={index}
-              className="bg-background-secondary/50 border-border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
+              className="bg-bg-default/50 border-border-default/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
             >
               <CardContent className="p-8">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="text-accent-brand">
+                  <div className="text-action-primary">
                     {service.icon}
                   </div>
-                  <CardTitle className="typography-h5 text-text-headline">
+                  <Typography as="h3" variant="heading-md" color="primary">
                     {service.title}
-                  </CardTitle>
+                  </Typography>
                 </div>
-                <p className="typography-body text-text-body">
+                <Typography color="secondary">
                   {service.description}
-                </p>
+                </Typography>
               </CardContent>
             </Card>
           ))}

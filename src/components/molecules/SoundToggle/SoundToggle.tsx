@@ -2,7 +2,7 @@
 
 import { useAudio } from "@/context/AudioContext";
 import { motion, AnimatePresence } from "motion/react";
-import { HiOutlineSpeakerWave, HiOutlineSpeakerXMark } from "react-icons/hi2";
+import { Volume2, VolumeX } from "@tfds/icons";
 
 export function SoundToggle() {
   const { muted, toggleMute, play } = useAudio();
@@ -20,7 +20,7 @@ export function SoundToggle() {
   return (
     <motion.button
       onClick={handleToggle}
-      className="p-2 rounded-lg text-text-body hover:text-accent-brand hover:bg-background-secondary/30 cursor-pointer"
+      className="p-2 rounded-lg text-text-secondary hover:text-action-primary hover:bg-bg-default/30 cursor-pointer"
       aria-label={muted ? "Enable sound effects" : "Disable sound effects"}
       title={muted ? "Enable sound effects" : "Disable sound effects"}
       whileHover={{ scale: 1.1 }}
@@ -38,7 +38,7 @@ export function SoundToggle() {
               transition={{ duration: 0.18, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <HiOutlineSpeakerXMark className="w-5 h-5" />
+              <VolumeX className="w-5 h-5" />
             </motion.div>
           ) : (
             <motion.div
@@ -49,7 +49,7 @@ export function SoundToggle() {
               transition={{ duration: 0.18, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <HiOutlineSpeakerWave className="w-5 h-5" />
+              <Volume2 className="w-5 h-5" />
             </motion.div>
           )}
         </AnimatePresence>

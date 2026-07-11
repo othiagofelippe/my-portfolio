@@ -1,13 +1,10 @@
 "use client";
 
-import { Badge } from "@/components/atoms";
-import { Card, CardContent, CardTitle } from "@/components/molecules";
+import { Badge } from "@tfds/components";
+import { Typography } from "@tfds/components";
+import { Card, CardContent } from "@/components/molecules";
 import { motion } from "motion/react";
-import {
-  HiOutlineCog6Tooth,
-  HiOutlineDevicePhoneMobile,
-  HiOutlineServerStack,
-} from "react-icons/hi2";
+import { Settings2, Smartphone, Server } from "@tfds/icons";
 
 interface SkillsDict {
   skills: {
@@ -57,23 +54,23 @@ export function Skills({ dict }: { dict: SkillsDict }) {
   const skillCategories = [
     {
       title: dict.skills.categories.frontend.title,
-      icon: <HiOutlineDevicePhoneMobile className="w-6 h-6" />,
+      icon: <Smartphone className="w-6 h-6" />,
       skills: dict.skills.categories.frontend.skills,
     },
     {
       title: dict.skills.categories.backend.title,
-      icon: <HiOutlineServerStack className="w-6 h-6" />,
+      icon: <Server className="w-6 h-6" />,
       skills: dict.skills.categories.backend.skills,
     },
     {
       title: dict.skills.categories.tools.title,
-      icon: <HiOutlineCog6Tooth className="w-6 h-6" />,
+      icon: <Settings2 className="w-6 h-6" />,
       skills: dict.skills.categories.tools.skills,
     },
   ];
 
   return (
-    <section id="habilidades" className="py-20 bg-background-secondary/30">
+    <section id="habilidades" className="py-20 bg-bg-default/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -82,12 +79,12 @@ export function Skills({ dict }: { dict: SkillsDict }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="typography-h2 text-text-headline mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
             {dict.skills.title}
-          </h2>
-          <p className="typography-body text-text-body max-w-2xl mx-auto">
+          </Typography>
+          <Typography color="secondary" align="center" className="max-w-2xl mx-auto">
             {dict.skills.subtitle}
-          </p>
+          </Typography>
         </motion.div>
 
         <motion.div
@@ -103,13 +100,13 @@ export function Skills({ dict }: { dict: SkillsDict }) {
               variants={cardVariants}
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
             >
-              <Card className="bg-background-primary border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300 h-full">
+              <Card className="bg-bg-page border-border-default/10 shadow-sm hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="text-accent-brand">{category.icon}</div>
-                    <CardTitle className="typography-h5 text-text-headline">
+                    <div className="text-action-primary">{category.icon}</div>
+                    <Typography as="h3" variant="heading-md" color="primary">
                       {category.title}
-                    </CardTitle>
+                    </Typography>
                   </div>
 
                   <motion.div
@@ -122,7 +119,7 @@ export function Skills({ dict }: { dict: SkillsDict }) {
                         variants={badgeVariants}
                         whileHover={{ scale: 1.05, transition: { duration: 0.15 } }}
                       >
-                        <Badge variant="brand">{skill}</Badge>
+                        <Badge variant="info">{skill}</Badge>
                       </motion.div>
                     ))}
                   </motion.div>

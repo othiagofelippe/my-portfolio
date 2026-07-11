@@ -4,10 +4,10 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "@tfds/icons"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/atoms"
+import { Button } from "@tfds/components"
 import { useAudio } from "@/context/AudioContext"
 
 type CarouselApi = UseEmblaCarouselType[1]

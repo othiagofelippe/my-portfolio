@@ -1,9 +1,10 @@
 "use client";
 
-import { Badge } from "@/components/atoms";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/molecules";
+import { Badge } from "@tfds/components";
+import { Typography } from "@tfds/components";
+import { Card, CardContent, CardHeader } from "@/components/molecules";
 import { motion } from "motion/react";
-import { HiOutlineAcademicCap, HiOutlineDocumentText, HiOutlineGlobeAlt } from "react-icons/hi2";
+import { GraduationCap, FileText, Globe } from "@tfds/icons";
 
 interface EducationDict {
   education: {
@@ -53,7 +54,7 @@ const cardVariants = {
 
 export function Education({ dict }: { dict: EducationDict }) {
   return (
-    <section id="formacao" className="py-20 bg-background-secondary/30">
+    <section id="formacao" className="py-20 bg-bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -62,12 +63,12 @@ export function Education({ dict }: { dict: EducationDict }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="typography-h2 text-text-headline mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
             {dict.education.title}
-          </h2>
-          <p className="typography-body text-text-body max-w-3xl mx-auto">
+          </Typography>
+          <Typography color="secondary" className="max-w-3xl mx-auto">
             {dict.education.subtitle}
-          </p>
+          </Typography>
         </motion.div>
 
         <motion.div
@@ -80,28 +81,28 @@ export function Education({ dict }: { dict: EducationDict }) {
           {/* Formação Acadêmica */}
           <motion.div variants={cardVariants}>
             <motion.div whileHover={{ y: -3, transition: { duration: 0.2 } }}>
-              <Card className="bg-background-secondary/20 border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <Card className="bg-bg-default/20 border-border-default/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
-                  <CardTitle className="typography-h5 text-text-headline flex items-center gap-3">
-                    <HiOutlineAcademicCap className="w-6 h-6 text-accent-brand" />
+                  <Typography as="h3" variant="heading-md" color="primary" className="flex items-center gap-3">
+                    <GraduationCap className="w-6 h-6 text-action-primary" />
                     {dict.education.academic.title}
-                  </CardTitle>
+                  </Typography>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="typography-body-lg text-text-headline mb-2">
+                      <Typography as="h4" variant="body-lg" color="primary" className="mb-2">
                         {dict.education.academic.course}
-                      </h4>
-                      <div className="space-y-1 text-text-body">
-                        <p className="typography-body font-medium">{dict.education.academic.institution}</p>
-                        <p className="typography-body">{dict.education.academic.location}</p>
-                        <div className="typography-body flex items-center gap-4">
+                      </Typography>
+                      <div className="space-y-1 text-text-secondary">
+                        <Typography as="p" color="secondary" className="font-medium">{dict.education.academic.institution}</Typography>
+                        <Typography as="p" color="secondary">{dict.education.academic.location}</Typography>
+                        <Typography as="p" color="secondary" className="flex items-center gap-4">
                           <span>{dict.education.academic.period}</span>
-                          <Badge variant="neutral">
+                          <Badge variant="default">
                             {dict.education.academic.type}
                           </Badge>
-                        </div>
+                        </Typography>
                       </div>
                     </div>
                   </div>
@@ -113,27 +114,27 @@ export function Education({ dict }: { dict: EducationDict }) {
           {/* Certificações */}
           <motion.div variants={cardVariants}>
             <motion.div whileHover={{ y: -3, transition: { duration: 0.2 } }}>
-              <Card className="bg-background-secondary/20 border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <Card className="bg-bg-default/20 border-border-default/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
-                  <CardTitle className="typography-h5 text-text-headline flex items-center gap-3">
-                    <HiOutlineDocumentText className="w-6 h-6 text-accent-brand" />
+                  <Typography as="h3" variant="heading-md" color="primary" className="flex items-center gap-3">
+                    <FileText className="w-6 h-6 text-action-primary" />
                     {dict.education.certifications.title}
-                  </CardTitle>
+                  </Typography>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
                     <div>
-                      <h4 className="typography-body-lg text-text-headline mb-2">
+                      <Typography as="h4" variant="body-lg" color="primary" className="mb-2">
                         {dict.education.certifications.fullstack.name}
-                      </h4>
-                      <div className="space-y-1 text-text-body mb-4">
-                        <p className="typography-body font-medium">{dict.education.certifications.fullstack.institution}</p>
-                        <p className="typography-body">{dict.education.certifications.fullstack.date}</p>
+                      </Typography>
+                      <div className="space-y-1 text-text-secondary mb-4">
+                        <Typography as="p" color="secondary" className="font-medium">{dict.education.certifications.fullstack.institution}</Typography>
+                        <Typography as="p" color="secondary">{dict.education.certifications.fullstack.date}</Typography>
                       </div>
                       <div>
-                        <p className="typography-body-sm font-medium text-text-heading mb-3">
+                        <Typography as="p" variant="body-sm" color="primary" className="font-medium mb-3">
                           {dict.education.certifications.fullstack.technologiesLabel}:
-                        </p>
+                        </Typography>
                         <div className="flex flex-wrap gap-2">
                           {dict.education.certifications.fullstack.technologies.map((tech: string) => (
                             <Badge key={tech} variant="success">
@@ -152,30 +153,30 @@ export function Education({ dict }: { dict: EducationDict }) {
           {/* Idiomas */}
           <motion.div variants={cardVariants}>
             <motion.div whileHover={{ y: -3, transition: { duration: 0.2 } }}>
-              <Card className="bg-background-secondary/20 border-border-primary/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <Card className="bg-bg-default/20 border-border-default/10 shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
-                  <CardTitle className="typography-h5 text-text-headline flex items-center gap-3">
-                    <HiOutlineGlobeAlt className="w-6 h-6 text-accent-brand" />
+                  <Typography as="h3" variant="heading-md" color="primary" className="flex items-center gap-3">
+                    <Globe className="w-6 h-6 text-action-primary" />
                     {dict.education.languages.title}
-                  </CardTitle>
+                  </Typography>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="typography-body-lg text-text-headline">
+                      <Typography as="h4" variant="body-lg" color="primary">
                         {dict.education.languages.portuguese.name}
-                      </h4>
-                      <p className="typography-body text-text-body">
+                      </Typography>
+                      <Typography color="secondary">
                         {dict.education.languages.portuguese.level}
-                      </p>
+                      </Typography>
                     </div>
                     <div>
-                      <h4 className="typography-body-lg text-text-headline">
+                      <Typography as="h4" variant="body-lg" color="primary">
                         {dict.education.languages.english.name}
-                      </h4>
-                      <p className="typography-body text-text-body">
+                      </Typography>
+                      <Typography color="secondary">
                         {dict.education.languages.english.level}
-                      </p>
+                      </Typography>
                     </div>
                   </div>
                 </CardContent>

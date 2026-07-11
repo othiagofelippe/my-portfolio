@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { useAudio } from '@/context/AudioContext';
+import { Typography } from '@tfds/components';
 
 export function Logo() {
   const pathname = usePathname();
@@ -30,10 +31,10 @@ export function Logo() {
         onClick={() => audio.play('buttonClick')}
       >
         <div className="w-6 h-6 sm:w-8 sm:h-8" />
-        <span className="typography-h5 !font-bold text-text-headline">
+        <Typography as="span" variant="heading-md" color="primary" className="font-bold">
           <span className="hidden sm:inline">Thiago Felippe</span>
           <span className="sm:hidden">T. Felippe</span>
-        </span>
+        </Typography>
       </Link>
     );
   }
@@ -55,7 +56,7 @@ export function Logo() {
       />
 
       {/* Logo Text */}
-      <span className="typography-h5 !font-bold text-text-headline">
+      <span className="typography-h5 !font-bold text-text-primary">
         <span className="hidden sm:inline">Thiago Felippe</span>
         <span className="sm:hidden">T. Felippe</span>
       </span>

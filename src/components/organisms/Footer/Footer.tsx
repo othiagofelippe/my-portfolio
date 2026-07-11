@@ -1,13 +1,11 @@
 "use client";
 
-import { Button, Logo } from "@/components/atoms";
+import { Button } from "@tfds/components";
+import { Logo } from "@/components/atoms";
+import { Typography } from "@tfds/components";
 import Link from "next/link";
-import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-import {
-  HiOutlineClock,
-  HiOutlineEnvelope,
-  HiOutlineMapPin,
-} from "react-icons/hi2";
+import { FaWhatsapp } from "react-icons/fa";
+import { Github, Linkedin, Clock, Mail, MapPin } from "@tfds/icons";
 import { useAudio } from "@/context/AudioContext";
 
 export function Footer({ dict }: { dict: any }) {
@@ -38,78 +36,56 @@ export function Footer({ dict }: { dict: any }) {
   };
 
   return (
-    <footer className="bg-background-secondary text-text-label">
+    <footer className="bg-bg-default text-text-tertiary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="mb-4">
               <Logo />
             </div>
-            <p className="typography-body text-text-body mb-6 max-w-md">
+            <Typography color="secondary" className="mb-6 max-w-md">
               {dict.footer.description}
-            </p>
+            </Typography>
             <div className="flex space-x-4">
               <Button
-                asChild
                 variant="ghost"
                 size="icon"
+                aria-label="LinkedIn"
+                onClick={() => { audio.play("buttonClick"); window.open("https://linkedin.com/in/othiagofelippe", "_blank", "noopener,noreferrer"); }}
               >
-                <Link
-                  href="https://linkedin.com/in/othiagofelippe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedinIn className="w-6 h-6" />
-                </Link>
+                <Linkedin className="w-6 h-6" />
               </Button>
               <Button
-                asChild
                 variant="ghost"
                 size="icon"
+                aria-label="GitHub"
+                onClick={() => { audio.play("buttonClick"); window.open("https://github.com/othiagofelippe", "_blank", "noopener,noreferrer"); }}
               >
-                <Link
-                  href="https://github.com/othiagofelippe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                >
-                  <FaGithub className="w-6 h-6" />
-                </Link>
+                <Github className="w-6 h-6" />
               </Button>
               <Button
-                asChild
                 variant="ghost"
                 size="icon"
+                aria-label="WhatsApp"
+                onClick={() => { audio.play("buttonClick"); window.open("https://wa.me/5521973494481", "_blank", "noopener,noreferrer"); }}
               >
-                <Link
-                  href="https://wa.me/5521973494481"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                >
-                  <FaWhatsapp className="w-6 h-6" />
-                </Link>
+                <FaWhatsapp className="w-6 h-6" />
               </Button>
               <Button
-                asChild
                 variant="ghost"
                 size="icon"
+                aria-label="Email"
+                onClick={() => { audio.play("buttonClick"); window.open("mailto:contact@othiagofelippe.com"); }}
               >
-                <Link
-                  href="mailto:contact@othiagofelippe.com"
-                  aria-label="Email"
-                >
-                  <HiOutlineEnvelope className="w-6 h-6" />
-                </Link>
+                <Mail className="w-6 h-6" />
               </Button>
             </div>
           </div>
 
           <div>
-            <h3 className="typography-body-lg text-text-body mb-4">
+            <Typography as="h3" variant="body-lg" color="secondary" className="mb-4">
               {dict.footer.navigation}
-            </h3>
+            </Typography>
             <ul className="space-y-3">
               {footerLinks.navegacao.map((link, index) => (
                 <li key={index}>
@@ -126,39 +102,39 @@ export function Footer({ dict }: { dict: any }) {
           </div>
 
           <div>
-            <h3 className="typography-body-lg text-text-body mb-4">
+            <Typography as="h3" variant="body-lg" color="secondary" className="mb-4">
               {dict.footer.contactSection}
-            </h3>
-            <div className="space-y-3 text-text-body">
-              <div className="flex items-start gap-2 hover:text-text-headline transition-colors">
-                <HiOutlineEnvelope className="w-5 h-5 flex-shrink-0 mt-0.5" />
+            </Typography>
+            <div className="space-y-3 text-text-secondary">
+              <div className="flex items-start gap-2 hover:text-text-primary transition-colors">
+                <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <Link
                   href="mailto:contact@othiagofelippe.com"
-                  className="typography-body-sm cursor-pointer break-all leading-relaxed"
+                  className="cursor-pointer break-all leading-relaxed text-text-secondary"
                 >
                   {dict.contact.info.email}
                 </Link>
               </div>
-              <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
-                <HiOutlineMapPin className="w-5 h-5" />
-                <span className="typography-body">
+              <div className="flex items-center gap-2 hover:text-text-primary transition-colors">
+                <MapPin className="w-5 h-5" />
+                <Typography as="span">
                   {dict.contact.info.location}
-                </span>
+                </Typography>
               </div>
-              <div className="flex items-center gap-2 hover:text-text-headline transition-colors">
-                <HiOutlineClock className="w-5 h-5" />
-                <span className="typography-body">
+              <div className="flex items-center gap-2 hover:text-text-primary transition-colors">
+                <Clock className="w-5 h-5" />
+                <Typography as="span">
                   {dict.contact.info.availability}
-                </span>
+                </Typography>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-border-primary mt-12 pt-8 text-center">
-          <p className="typography-body-sm text-text-span">
+        <div className="border-t border-border-default mt-12 pt-8 text-center">
+          <Typography as="p" variant="body-sm" color="disabled">
             © {currentYear} Thiago Felippe. {dict.footer.rights}
-          </p>
+          </Typography>
         </div>
       </div>
     </footer>

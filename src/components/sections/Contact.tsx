@@ -1,8 +1,9 @@
 "use client";
 
-import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
-import { HiOutlineEnvelope, HiOutlineClock, HiOutlineMapPin } from "react-icons/hi2";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/molecules";
+import { FaWhatsapp } from "react-icons/fa";
+import { Linkedin, Github, Mail, Clock, MapPin } from "@tfds/icons";
+import { Typography } from "@tfds/components";
+import { Card, CardContent, CardHeader } from "@/components/molecules";
 import { motion } from "motion/react";
 import { useAudio } from "@/context/AudioContext";
 
@@ -68,17 +69,17 @@ export function Contact({ dict }: { dict: ContactDict }) {
       key: "linkedin",
       label: dict.contact.socialSection.channels.linkedin.label,
       description: dict.contact.socialSection.channels.linkedin.description,
-      icon: <FaLinkedinIn className="w-5 h-5" />,
+      icon: <Linkedin className="w-5 h-5" />,
       href: "https://linkedin.com/in/othiagofelippe",
-      accent: "text-accent-brand bg-accent-brand/10 group-hover:bg-accent-brand/20",
+      accent: "text-action-primary bg-action-primary/10 group-hover:bg-action-primary/20",
     },
     {
       key: "github",
       label: dict.contact.socialSection.channels.github.label,
       description: dict.contact.socialSection.channels.github.description,
-      icon: <FaGithub className="w-5 h-5" />,
+      icon: <Github className="w-5 h-5" />,
       href: "https://github.com/othiagofelippe",
-      accent: "text-text-headline bg-background-secondary/50 group-hover:bg-accent-brand/15 group-hover:text-accent-brand",
+      accent: "text-text-primary bg-bg-default/50 group-hover:bg-action-primary/15 group-hover:text-action-primary",
     },
     {
       key: "whatsapp",
@@ -86,15 +87,15 @@ export function Contact({ dict }: { dict: ContactDict }) {
       description: dict.contact.socialSection.channels.whatsapp.description,
       icon: <FaWhatsapp className="w-5 h-5" />,
       href: "https://wa.me/5521973494481",
-      accent: "text-white bg-accent-green/90 group-hover:bg-accent-green",
+      accent: "text-white bg-feedback-success/90 group-hover:bg-feedback-success",
     },
     {
       key: "email",
       label: dict.contact.socialSection.channels.email.label,
       description: dict.contact.socialSection.channels.email.description,
-      icon: <HiOutlineEnvelope className="w-5 h-5" />,
+      icon: <Mail className="w-5 h-5" />,
       href: "mailto:contact@othiagofelippe.com",
-      accent: "text-accent-red bg-accent-red/10 group-hover:bg-accent-red/20",
+      accent: "text-feedback-error bg-feedback-error/10 group-hover:bg-feedback-error/20",
     },
   ];
 
@@ -103,7 +104,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
   };
 
   return (
-    <section id="contato" className="py-20 bg-background-primary">
+    <section id="contato" className="py-20 bg-bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -112,12 +113,12 @@ export function Contact({ dict }: { dict: ContactDict }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="typography-h2 text-text-headline mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
             {dict.contact.title}
-          </h2>
-          <p className="typography-body text-text-body max-w-2xl mx-auto">
+          </Typography>
+          <Typography color="secondary" align="center" className="max-w-2xl mx-auto">
             {dict.contact.subtitle}
-          </p>
+          </Typography>
         </motion.div>
 
         <motion.div
@@ -128,61 +129,61 @@ export function Contact({ dict }: { dict: ContactDict }) {
           viewport={{ once: true, margin: "-80px" }}
         >
           <motion.div variants={cardVariants}>
-            <Card className="bg-background-secondary/20 border-border-primary/10 h-full">
+            <Card className="bg-bg-default/20 border-border-default/10 h-full">
               <CardHeader>
-                <CardTitle className="typography-h4 text-text-headline">
+                <Typography as="h3" variant="heading-lg" color="primary">
                   {dict.contact.socialSection.quickResponse.title}
-                </CardTitle>
-                <p className="typography-body text-text-body">
+                </Typography>
+                <Typography color="secondary">
                   {dict.contact.socialSection.quickResponse.description}
-                </p>
+                </Typography>
               </CardHeader>
               <motion.div
                 variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
               >
                 <CardContent className="space-y-6">
                   <motion.div variants={infoItemVariants} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-brand/15 text-accent-brand">
-                      <HiOutlineEnvelope className="w-5 h-5" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-action-primary/15 text-action-primary">
+                      <Mail className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="typography-body-sm text-text-span uppercase tracking-wide">
+                      <Typography as="p" variant="body-sm" color="disabled" className="uppercase tracking-wide">
                         {dict.contact.infoLabels.email}
-                      </p>
+                      </Typography>
                       <a
                         href={`mailto:${dict.contact.info.email}`}
-                        className="typography-body text-text-headline hover:text-accent-brand transition-colors"
+                        className="text-text-primary hover:text-action-primary transition-colors"
                       >
-                        {dict.contact.info.email}
+                        <Typography as="span" color="primary">{dict.contact.info.email}</Typography>
                       </a>
                     </div>
                   </motion.div>
 
                   <motion.div variants={infoItemVariants} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-brand/15 text-accent-brand">
-                      <HiOutlineMapPin className="w-5 h-5" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-action-primary/15 text-action-primary">
+                      <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="typography-body-sm text-text-span uppercase tracking-wide">
+                      <Typography as="p" variant="body-sm" color="disabled" className="uppercase tracking-wide">
                         {dict.contact.infoLabels.location}
-                      </p>
-                      <p className="typography-body text-text-headline">
+                      </Typography>
+                      <Typography as="p" color="primary">
                         {dict.contact.info.location}
-                      </p>
+                      </Typography>
                     </div>
                   </motion.div>
 
                   <motion.div variants={infoItemVariants} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-brand/15 text-accent-brand">
-                      <HiOutlineClock className="w-5 h-5" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-action-primary/15 text-action-primary">
+                      <Clock className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="typography-body-sm text-text-span uppercase tracking-wide">
+                      <Typography as="p" variant="body-sm" color="disabled" className="uppercase tracking-wide">
                         {dict.contact.infoLabels.availability}
-                      </p>
-                      <p className="typography-body text-text-headline">
+                      </Typography>
+                      <Typography as="p" color="primary">
                         {dict.contact.info.availability}
-                      </p>
+                      </Typography>
                     </div>
                   </motion.div>
                 </CardContent>
@@ -191,14 +192,14 @@ export function Contact({ dict }: { dict: ContactDict }) {
           </motion.div>
 
           <motion.div variants={cardVariants}>
-            <Card className="bg-background-secondary/20 border-border-primary/10 h-full">
+            <Card className="bg-bg-default/20 border-border-default/10 h-full">
               <CardHeader>
-                <CardTitle className="typography-h4 text-text-headline">
+                <Typography as="h3" variant="heading-lg" color="primary">
                   {dict.contact.socialSection.title}
-                </CardTitle>
-                <p className="typography-body text-text-body">
+                </Typography>
+                <Typography color="secondary">
                   {dict.contact.socialSection.subtitle}
-                </p>
+                </Typography>
               </CardHeader>
               <CardContent>
                 <motion.div
@@ -214,7 +215,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
                       onClick={handleChannelClick}
                       variants={channelVariants}
                       whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                      className="group flex items-center gap-5 rounded-2xl border border-border-primary/15 bg-background-secondary/40 px-6 py-5 transition-colors hover:border-accent-brand/40 hover:bg-background-secondary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-brand/60"
+                      className="group flex items-center gap-5 rounded-2xl border border-border-default/15 bg-bg-default/40 px-6 py-5 transition-colors hover:border-action-primary/40 hover:bg-bg-default/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action-primary/60"
                     >
                       <div
                         className={`flex h-12 w-12 items-center justify-center rounded-full ${channel.accent}`}
@@ -222,12 +223,12 @@ export function Contact({ dict }: { dict: ContactDict }) {
                         {channel.icon}
                       </div>
                       <div className="flex flex-col items-start gap-1">
-                        <span className="typography-body font-medium text-text-headline group-hover:text-accent-brand">
+                        <Typography as="span" color="primary" className="font-medium group-hover:text-action-primary">
                           {channel.label}
-                        </span>
-                        <span className="typography-body-sm text-text-body">
+                        </Typography>
+                        <Typography as="span" variant="body-sm" color="secondary">
                           {channel.description}
-                        </span>
+                        </Typography>
                       </div>
                     </motion.a>
                   ))}

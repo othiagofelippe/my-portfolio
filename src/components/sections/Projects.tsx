@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Badge } from "@/components/atoms";
-import { Button } from "@/components/atoms";
+import { Badge } from "@tfds/components";
+import { Button } from "@tfds/components";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/molecules";
 import {
   Carousel,
@@ -17,7 +16,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/organisms";
-import { HiOutlineArrowTopRightOnSquare, HiOutlineCodeBracket, HiOutlineArrowRight } from "react-icons/hi2";
+import { ExternalLink, Code2, ArrowRight } from "@tfds/icons";
+import { Typography } from "@tfds/components";
 import { useAudio } from "@/context/AudioContext";
 
 interface Project {
@@ -55,7 +55,7 @@ export function Projects({ dict }: { dict: any }) {
     fetchProjects();
   }, []);
 
-  const sectionClassName = `py-20 bg-background-primary`;
+  const sectionClassName = `py-20 bg-bg-default/30${!loading && !error && projects.length ? " dark:bg-bg-default" : ""}`;
 
   return (
     <section id="projetos" className={sectionClassName}>
@@ -63,27 +63,27 @@ export function Projects({ dict }: { dict: any }) {
         {loading && (
           <>
             <div className="text-center mb-16">
-              <h2 className="typography-h2 text-text-headline mb-4">
+              <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
                 {dict.projects.title}
-              </h2>
-              <p className="typography-body text-text-body max-w-2xl mx-auto">
+              </Typography>
+              <Typography color="secondary" align="center" className="max-w-2xl mx-auto">
                 {dict.projects.loading}
-              </p>
+              </Typography>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3].map((i) => (
                 <Card
                   key={i}
-                  className="bg-background-primary border-border-primary/10"
+                  className="bg-bg-page border-border-default/10"
                 >
                   <CardHeader className="pb-4">
-                    <div className="w-full h-32 bg-background-secondary/50 rounded-lg animate-pulse"></div>
-                    <div className="h-6 bg-background-secondary/50 rounded animate-pulse"></div>
+                    <div className="w-full h-32 bg-bg-default/50 rounded-lg animate-pulse"></div>
+                    <div className="h-6 bg-bg-default/50 rounded animate-pulse"></div>
                   </CardHeader>
                   <CardContent className="pt-0">
                     <div className="space-y-2">
-                      <div className="h-4 bg-background-secondary/50 rounded animate-pulse"></div>
-                      <div className="h-4 bg-background-secondary/50 rounded animate-pulse w-3/4"></div>
+                      <div className="h-4 bg-bg-default/50 rounded animate-pulse"></div>
+                      <div className="h-4 bg-bg-default/50 rounded animate-pulse w-3/4"></div>
                     </div>
                   </CardContent>
                 </Card>
@@ -94,35 +94,35 @@ export function Projects({ dict }: { dict: any }) {
 
         {error && (
           <div className="text-center">
-            <h2 className="typography-h2 text-text-headline mb-4">
+            <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
               {dict.projects.title}
-            </h2>
-            <p className="typography-body text-accent-red">
+            </Typography>
+            <Typography className="text-feedback-error">
               {dict.projects.error}: {error}
-            </p>
+            </Typography>
           </div>
         )}
 
         {!loading && !error && !projects.length && (
           <div className="text-center">
-            <h2 className="typography-h2 text-text-headline mb-4">
+            <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
               {dict.projects.title}
-            </h2>
-            <p className="typography-body text-text-body">
+            </Typography>
+            <Typography color="secondary">
               {dict.projects.empty}
-            </p>
+            </Typography>
           </div>
         )}
 
         {!loading && !error && projects.length > 0 && (
           <>
         <div className="text-center mb-16">
-          <h2 className="typography-h2 text-text-headline mb-4">
+          <Typography as="h2" variant="display-sm" color="primary" align="center" className="mb-4">
             {dict.projects.title}
-          </h2>
-          <p className="typography-body text-text-body max-w-2xl mx-auto">
+          </Typography>
+          <Typography color="secondary" align="center" className="max-w-2xl mx-auto">
             {dict.projects.subtitle}
-          </p>
+          </Typography>
         </div>
 
         <div className="relative">
@@ -139,38 +139,38 @@ export function Projects({ dict }: { dict: any }) {
                   key={index}
                   className="pl-4 md:basis-1/2 lg:basis-1/3"
                 >
-                  <Card className="h-full bg-background-primary border-border-primary/10 hover:shadow-xl transition-all duration-300 ease-out flex flex-col">
+                  <Card className="h-full bg-bg-page border-border-default/10 hover:shadow-xl transition-all duration-300 ease-out flex flex-col">
                     <CardHeader className="pb-4">
                       <div className="flex items-center justify-between mb-4">
-                        <CardTitle className="typography-h5 text-text-headline">
+                        <Typography as="h3" variant="heading-md" color="primary">
                           {project.name}
-                        </CardTitle>
-                        <Badge variant="neutral">
+                        </Typography>
+                        <Badge variant="default">
                           {project.language || "Projeto"}
                         </Badge>
                       </div>
                     </CardHeader>
 
                     <CardContent className="pt-0 flex-1 flex flex-col">
-                      <p className="typography-body text-text-body mb-4 leading-relaxed line-clamp-3">
+                      <Typography color="secondary" className="mb-4 leading-relaxed line-clamp-3">
                         {project.description}
-                      </p>
+                      </Typography>
 
                       <div className="space-y-3 mt-auto">
-                        <div className="flex items-center gap-2 text-text-body typography-body-sm">
+                        <Typography as="p" variant="body-sm" color="secondary" className="flex items-center gap-2">
                           <span>📅 {project.formatted_date}</span>
-                        </div>
+                        </Typography>
                         <div className="flex flex-wrap gap-2 min-h-[2rem]">
                           {project.tags.slice(0, 4).map((tag, tagIndex) => (
                             <Badge
                               key={tagIndex}
-                              variant="brand"
+                              variant="info"
                             >
                               {tag}
                             </Badge>
                           ))}
                           {project.tags.length > 4 && (
-                            <Badge variant="neutral">
+                            <Badge variant="default">
                               +{project.tags.length - 4}
                             </Badge>
                           )}
@@ -182,38 +182,24 @@ export function Projects({ dict }: { dict: any }) {
                       <div className="flex gap-3 w-full">
                         {project.demo && (
                         <Button
-                          asChild
                           variant="outline"
                           size="sm"
                           className="flex-1"
-                          onClick={() => audio.play("buttonClick")}
+                          onClick={() => { audio.play("buttonClick"); window.open(project.demo ?? undefined, "_blank", "noopener,noreferrer"); }}
                         >
-                          <a
-                            href={project.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <HiOutlineArrowTopRightOnSquare />
-                            {dict.projects.demo}
-                          </a>
+                          <ExternalLink />
+                          {dict.projects.demo}
                         </Button>
                       )}
                         <Button
-                          asChild
                           variant="outline"
                           size="sm"
                           className="flex-1"
-                          onClick={() => audio.play("buttonClick")}
+                          onClick={() => { audio.play("buttonClick"); window.open(project.url, "_blank", "noopener,noreferrer"); }}
                         >
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <HiOutlineCodeBracket />
+                          <Code2 />
                           {dict.projects.code}
-                        </a>
-                      </Button>
+                        </Button>
                     </div>
                   </CardFooter>
                   </Card>
@@ -227,18 +213,11 @@ export function Projects({ dict }: { dict: any }) {
 
         <div className="text-center mt-12">
           <Button
-            asChild
             size="lg"
-            onClick={() => audio.play("buttonClick")}
+            onClick={() => { audio.play("buttonClick"); window.open("https://github.com/othiagofelippe?tab=repositories", "_blank", "noopener,noreferrer"); }}
           >
-            <a
-              href="https://github.com/othiagofelippe?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {dict.projects.viewAll}
-              <HiOutlineArrowRight />
-            </a>
+            {dict.projects.viewAll}
+            <ArrowRight />
           </Button>
         </div>
           </>
