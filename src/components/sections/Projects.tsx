@@ -97,13 +97,13 @@ export function Projects({ dict }: { dict: ProjectsDict }) {
               {[1, 2, 3].map((i) => (
                 <Card key={i} className="bg-bg-page border-border-default/10">
                   <CardHeader className="pb-4">
-                    <div className="bg-bg-default/50 h-32 w-full animate-pulse rounded-lg"></div>
-                    <div className="bg-bg-default/50 h-6 animate-pulse rounded"></div>
+                    <div className="bg-bg-default/50 h-32 w-full motion-safe:animate-pulse rounded-lg"></div>
+                    <div className="bg-bg-default/50 h-6 motion-safe:animate-pulse rounded"></div>
                   </CardHeader>
                   <CardContent className="pt-0">
                     <div className="space-y-2">
-                      <div className="bg-bg-default/50 h-4 animate-pulse rounded"></div>
-                      <div className="bg-bg-default/50 h-4 w-3/4 animate-pulse rounded"></div>
+                      <div className="bg-bg-default/50 h-4 motion-safe:animate-pulse rounded"></div>
+                      <div className="bg-bg-default/50 h-4 w-3/4 motion-safe:animate-pulse rounded"></div>
                     </div>
                   </CardContent>
                 </Card>

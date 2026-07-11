@@ -1,8 +1,8 @@
-@import "tailwindcss";
-@import "@tfds/tokens/css";
-@source "../../node_modules/@tfds/components/src";
+@import 'tailwindcss';
+@import '@tfds/tokens/css';
+@source '../../node_modules/@tfds/components/src';
 
-@plugin "tailwindcss-animate";
+@plugin 'tailwindcss-animate';
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant ocean-sunset (&:is(.ocean-sunset *));
@@ -37,7 +37,8 @@
 @layer base {
   :root {
     --tfds-font-family-sans: var(--font-roboto), Arial, Helvetica, sans-serif;
-    --tfds-font-family-display: var(--font-poppins), Arial, Helvetica, sans-serif;
+    --tfds-font-family-display:
+      var(--font-poppins), Arial, Helvetica, sans-serif;
   }
 
   body {
@@ -48,14 +49,14 @@
 
 .ocean-sunset {
   --tfds-color-text-primary: oklch(0.96 0.01 205);
-  --tfds-color-text-secondary: oklch(0.80 0.05 205);
+  --tfds-color-text-secondary: oklch(0.8 0.05 205);
   --tfds-color-text-tertiary: oklch(0.62 0.09 205);
-  --tfds-color-text-disabled: oklch(0.52 0.10 205);
+  --tfds-color-text-disabled: oklch(0.52 0.1 205);
   --tfds-color-text-inverse: oklch(0.14 0.04 210);
   --tfds-color-text-on-brand: oklch(0.96 0.01 205);
-  --tfds-color-text-error: oklch(0.62 0.20 20);
+  --tfds-color-text-error: oklch(0.62 0.2 20);
   --tfds-color-text-success: oklch(0.65 0.16 150);
-  --tfds-color-text-warning: oklch(0.80 0.14 75);
+  --tfds-color-text-warning: oklch(0.8 0.14 75);
   --tfds-color-bg-page: oklch(0.14 0.04 210);
   --tfds-color-bg-default: oklch(0.18 0.05 208);
   --tfds-color-bg-subtle: oklch(0.22 0.06 206);
@@ -66,18 +67,24 @@
   --tfds-color-border-default: oklch(0.34 0.08 205);
   --tfds-color-border-subtle: oklch(0.27 0.07 205);
   --tfds-color-border-strong: oklch(0.42 0.08 205);
-  --tfds-color-action-primary: oklch(0.66 0.20 24);
+  --tfds-color-action-primary: oklch(0.66 0.2 24);
   --tfds-color-action-primary-hover: oklch(0.57 0.19 22);
   --tfds-color-action-primary-subtle: oklch(0.28 0.07 24);
   --tfds-color-action-primary-disabled: oklch(0.34 0.08 205);
   --tfds-color-feedback-success: oklch(0.65 0.16 150);
   --tfds-color-feedback-success-subtle: oklch(0.24 0.06 150);
-  --tfds-color-feedback-error: oklch(0.62 0.20 20);
+  --tfds-color-feedback-error: oklch(0.62 0.2 20);
   --tfds-color-feedback-error-subtle: oklch(0.24 0.07 20);
   --tfds-color-feedback-warning: oklch(0.76 0.16 75);
   --tfds-color-feedback-warning-subtle: oklch(0.26 0.06 75);
-  --tfds-color-feedback-warning-text: oklch(0.80 0.14 75);
+  --tfds-color-feedback-warning-text: oklch(0.8 0.14 75);
   --tfds-color-interactive-pressed: oklch(1 0 0 / 0.06);
   --tfds-color-interactive-selected: oklch(0.28 0.07 24);
   --tfds-color-interactive-focus: oklch(0.74 0.15 26);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
