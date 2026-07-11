@@ -19,7 +19,7 @@ export function Projects({ dict }: { dict: ProjectsDict }) {
 
   return (
     <section id="projects" className="bg-bg-default/30 py-20">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
           <Typography
             as="span"

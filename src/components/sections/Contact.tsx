@@ -2,12 +2,14 @@
 
 import { FaWhatsapp } from 'react-icons/fa'
 import { Linkedin, Github, Mail, Clock, MapPin } from '@tfds/icons'
-import { Badge, Typography } from '@tfds/components'
+import { Badge, Typography, buttonVariants } from '@tfds/components'
 import { motion } from 'motion/react'
 import { useAudio } from '@/context/AudioContext'
+import { cn } from '@/lib/utils'
 
 interface ContactDict {
   contact: {
+    eyebrow: string
     title: string
     subtitle: string
     microCopy: string
@@ -95,7 +97,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
 
   return (
     <section id="contact" className="bg-bg-page py-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           className="bg-action-primary-subtle border-action-primary/20 rounded-2xl border p-8 sm:p-12"
           variants={containerVariants}
@@ -103,21 +105,22 @@ export function Contact({ dict }: { dict: ContactDict }) {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          <motion.div variants={itemVariants} className="mb-10 text-center">
+          <motion.div variants={itemVariants} className="mb-10">
+            <Typography
+              as="span"
+              className="text-action-primary mb-4 block font-mono text-xs tracking-widest"
+            >
+              {dict.contact.eyebrow}
+            </Typography>
             <Typography
               as="h2"
               variant="display-md"
               color="primary"
-              align="center"
               className="mb-3"
             >
               {dict.contact.title}
             </Typography>
-            <Typography
-              color="secondary"
-              align="center"
-              className="mx-auto mb-5 max-w-xl"
-            >
+            <Typography color="secondary" className="mb-5 max-w-xl">
               {dict.contact.subtitle}
             </Typography>
             <Badge variant="info">{dict.contact.microCopy}</Badge>
@@ -130,20 +133,22 @@ export function Contact({ dict }: { dict: ContactDict }) {
             {infoCards.map((info) => (
               <div
                 key={info.label}
-                className="bg-bg-page border-border-subtle rounded-xl border p-4 text-center"
+                className="bg-bg-page border-border-subtle rounded-xl border p-4"
               >
-                <info.icon
-                  className="text-action-primary mx-auto mb-2 h-5 w-5"
-                  aria-hidden="true"
-                />
-                <Typography
-                  as="p"
-                  variant="body-sm"
-                  color="disabled"
-                  className="mb-1 tracking-wide uppercase"
-                >
-                  {info.label}
-                </Typography>
+                <div className="mb-2 flex items-center gap-2">
+                  <info.icon
+                    className="text-action-primary h-4 w-4"
+                    aria-hidden="true"
+                  />
+                  <Typography
+                    as="span"
+                    variant="body-sm"
+                    color="disabled"
+                    className="font-mono tracking-wide uppercase"
+                  >
+                    {info.label}
+                  </Typography>
+                </div>
                 {info.href ? (
                   <a
                     href={info.href}
@@ -162,23 +167,27 @@ export function Contact({ dict }: { dict: ContactDict }) {
             ))}
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-2 gap-3 sm:grid-cols-4"
-          >
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
             {channels.map((channel) => (
               <a
                 key={channel.key}
                 href={channel.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={channel.href.startsWith('http') ? '_blank' : undefined}
+                rel={
+                  channel.href.startsWith('http')
+                    ? 'noopener noreferrer'
+                    : undefined
+                }
                 onClick={handleChannelClick}
-                className="group border-border-default bg-bg-page hover:border-action-primary hover:text-action-primary focus-visible:ring-action-primary/60 flex flex-col items-center gap-2 rounded-xl border px-4 py-5 text-center transition-colors focus-visible:ring-2 focus-visible:outline-none"
+                className={cn(
+                  buttonVariants({
+                    variant: channel.key === 'email' ? 'primary' : 'outline',
+                    size: 'lg',
+                  })
+                )}
               >
-                <channel.icon className="h-5 w-5" aria-hidden="true" />
-                <Typography as="span" variant="body-sm" color="primary">
-                  {channel.label}
-                </Typography>
+                <channel.icon className="h-4 w-4" aria-hidden="true" />
+                {channel.label}
               </a>
             ))}
           </motion.div>

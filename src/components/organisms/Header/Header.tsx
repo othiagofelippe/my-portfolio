@@ -85,7 +85,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
     <header className="bg-bg-page/80 border-border-default fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md">
       <nav
         aria-label="Navegação principal"
-        className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
+        className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"
       >
         <div className="flex h-14 items-center justify-between sm:h-16">
           <div className="flex-shrink-0">

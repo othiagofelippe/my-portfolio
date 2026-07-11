@@ -19,7 +19,7 @@ export default async function BlogPage({
   return (
     <PageTransition lang={lang}>
       <section className="min-h-screen py-32">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <Typography
               as="span"

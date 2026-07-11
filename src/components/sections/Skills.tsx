@@ -7,10 +7,9 @@ import { motion } from 'motion/react'
 
 interface SkillsDict {
   skills: {
+    eyebrow: string
     title: string
     subtitle: string
-    languagesTitle: string
-    languages: { name: string; level: string }[]
     categories: {
       frontend: { title: string; skills: string[] }
       backend: { title: string; skills: string[] }
@@ -75,30 +74,29 @@ export function Skills({ dict }: { dict: SkillsDict }) {
 
   return (
     <section id="skills" className="bg-bg-default/30 py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="mb-16 text-center"
+          className="mb-16"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <Typography
+            as="span"
+            className="text-action-primary mb-4 block font-mono text-xs tracking-widest"
+          >
+            {dict.skills.eyebrow}
+          </Typography>
+          <Typography
             as="h2"
-            variant="display-sm"
+            variant="display-md"
             color="primary"
-            align="center"
-            className="mb-4"
+            className="mb-3"
           >
             {dict.skills.title}
           </Typography>
-          <Typography
-            color="secondary"
-            align="center"
-            className="mx-auto max-w-2xl"
-          >
-            {dict.skills.subtitle}
-          </Typography>
+          <Typography color="secondary">{dict.skills.subtitle}</Typography>
         </motion.div>
 
         <motion.div
@@ -147,39 +145,6 @@ export function Skills({ dict }: { dict: SkillsDict }) {
               </Card>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          className="mt-8"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          <Card className="bg-bg-page border-border-default/10 shadow-sm">
-            <CardContent className="p-6">
-              <Typography
-                as="h3"
-                variant="heading-md"
-                color="primary"
-                className="mb-4"
-              >
-                {dict.skills.languagesTitle}
-              </Typography>
-              <div className="flex flex-wrap gap-8">
-                {dict.skills.languages.map((language) => (
-                  <div key={language.name}>
-                    <Typography as="p" color="primary">
-                      {language.name}
-                    </Typography>
-                    <Typography as="p" className="text-text-tertiary text-sm">
-                      {language.level}
-                    </Typography>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
         </motion.div>
       </div>
     </section>

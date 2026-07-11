@@ -113,6 +113,7 @@
     }
   },
   "experience": {
+    "eyebrow": "// experience",
     "title": "Professional Experience",
     "subtitle": "My professional journey and the experiences that shaped me as a developer",
     "downloadCV": "Download complete CV",
@@ -197,6 +198,7 @@
     "code": "Code"
   },
   "skills": {
+    "eyebrow": "// skills",
     "title": "My Skills",
     "subtitle": "Technologies and tools I master to create complete digital solutions",
     "categories": {
@@ -243,14 +245,10 @@
           "Vercel"
         ]
       }
-    },
-    "languagesTitle": "Languages",
-    "languages": [
-      { "name": "Portuguese", "level": "Native" },
-      { "name": "English", "level": "Intermediate" }
-    ]
+    }
   },
   "contact": {
+    "eyebrow": "// contact",
     "title": "Let's Talk?",
     "subtitle": "Have a project in mind or just want to chat? Reach me through the channels below.",
     "microCopy": "I usually reply within 24h ⚡",
@@ -284,9 +282,6 @@
     "notFoundDescription": "The post you're looking for doesn't exist or was moved."
   },
   "footer": {
-    "description": "Frontend developer for 4 years, working with React, React Native, TypeScript and Next.js. From zero to production, with a focus on Design Systems and performance.",
-    "navigation": "Navigation",
-    "contactSection": "Contact",
     "rights": "All rights reserved."
   },
   "metadata": {

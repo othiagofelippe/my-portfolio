@@ -54,7 +54,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
 
   return (
     <section className="from-background-primary to-background-secondary flex min-h-screen items-center bg-gradient-to-br">
-      <div className="mx-auto w-full max-w-4xl px-4 py-12 pt-28 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-4 py-12 pt-28 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -105,8 +105,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
               color="primary"
               className="mb-6 leading-none"
             >
-              {firstName}
-              <br />
+              {firstName}{' '}
               <span className="text-action-primary">{lastName}</span>
             </Typography>
           </motion.div>

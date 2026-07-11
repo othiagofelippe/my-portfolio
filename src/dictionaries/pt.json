@@ -115,6 +115,7 @@
     }
   },
   "experience": {
+    "eyebrow": "// experiência",
     "title": "Experiência Profissional",
     "subtitle": "Minha jornada profissional e as experiências que me moldaram como desenvolvedor",
     "downloadCV": "Baixar CV completo",
@@ -199,6 +200,7 @@
     "code": "Código"
   },
   "skills": {
+    "eyebrow": "// habilidades",
     "title": "Minhas Habilidades",
     "subtitle": "Tecnologias e ferramentas que domino para criar soluções digitais completas",
     "categories": {
@@ -245,14 +247,10 @@
           "Vercel"
         ]
       }
-    },
-    "languagesTitle": "Idiomas",
-    "languages": [
-      { "name": "Português", "level": "Nativo" },
-      { "name": "Inglês", "level": "Intermediário" }
-    ]
+    }
   },
   "contact": {
+    "eyebrow": "// contato",
     "title": "Vamos Conversar?",
     "subtitle": "Tem algum projeto em mente ou quer bater um papo? Estou disponível nos canais abaixo.",
     "microCopy": "Costumo responder em até 24h ⚡",
@@ -286,9 +284,6 @@
     "notFoundDescription": "O post que você procura não existe ou foi movido."
   },
   "footer": {
-    "description": "Desenvolvedor frontend há 4 anos, trabalhando com React, React Native, TypeScript e Next.js. Aprofundado em Design Systems, componentes e tokens.",
-    "navigation": "Navegação",
-    "contactSection": "Contato",
     "rights": "Todos os direitos reservados."
   },
   "metadata": {

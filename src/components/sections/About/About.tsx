@@ -20,7 +20,7 @@ export function About({ dict }: { dict: AboutDict }) {
       id="about"
       className="bg-bg-page border-border-subtle border-t py-20"
     >
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-start gap-16 md:grid-cols-[1fr_1.5fr]">
           <motion.div
             variants={containerVariants}

@@ -20,6 +20,7 @@ interface Job {
 
 interface ExperienceDict {
   experience: {
+    eyebrow: string
     title: string
     subtitle: string
     downloadCV: string
@@ -108,24 +109,23 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
 
   return (
     <section id="experience" className="bg-bg-default/30 py-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16">
+          <Typography
+            as="span"
+            className="text-action-primary mb-4 block font-mono text-xs tracking-widest"
+          >
+            {dict.experience.eyebrow}
+          </Typography>
           <Typography
             as="h2"
-            variant="display-sm"
+            variant="display-md"
             color="primary"
-            align="center"
-            className="mb-4"
+            className="mb-3"
           >
             {dict.experience.title}
           </Typography>
-          <Typography
-            color="secondary"
-            align="center"
-            className="mx-auto max-w-2xl"
-          >
-            {dict.experience.subtitle}
-          </Typography>
+          <Typography color="secondary">{dict.experience.subtitle}</Typography>
         </div>
 
         <motion.div
