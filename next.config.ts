@@ -1,9 +1,6 @@
-import type { NextConfig } from "next";
-import path from "path";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  outputFileTracingRoot: path.join(__dirname, "../../"),
-  transpilePackages: ["@tfds/tokens", "@tfds/components"],
   images: {
     remotePatterns: [
       {
@@ -14,6 +11,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig
