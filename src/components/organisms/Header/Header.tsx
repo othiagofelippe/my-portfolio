@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
 import { Menu, X } from '@tfds/icons'
-import { Button, buttonVariants } from '@tfds/components'
+import { Button, buttonVariants } from '@tfds/react'
 import Link from 'next/link'
 import { Logo } from '@/components/atoms'
 import {
@@ -228,17 +228,18 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
                       transition={{ delay: index * 0.1, duration: 0.3 }}
                       whileHover={{ x: 4 }}
                     >
-                      <Button
-                        variant={isActive ? 'primary' : 'ghost'}
-                        size="sm"
-                        onClick={() => {
-                          scrollToSection(item.href)
-                          setIsMenuOpen(false)
-                        }}
-                        className="w-full justify-start"
-                      >
-                        {item.name}
-                      </Button>
+                      <div className="[&>button]:w-full [&>button]:justify-start">
+                        <Button
+                          variant={isActive ? 'primary' : 'ghost'}
+                          size="sm"
+                          onClick={() => {
+                            scrollToSection(item.href)
+                            setIsMenuOpen(false)
+                          }}
+                        >
+                          {item.name}
+                        </Button>
+                      </div>
                     </motion.div>
                   )
                 })}

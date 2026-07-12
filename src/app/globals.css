@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import '@tfds/tokens/css';
-@source '../../node_modules/@tfds/components/src';
+@source '../../node_modules/@tfds/react/dist';
 
 @plugin 'tailwindcss-animate';
 

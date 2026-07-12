@@ -2,7 +2,7 @@
 
 import { FaWhatsapp } from 'react-icons/fa'
 import { Linkedin, Github, Mail, Clock, MapPin } from '@tfds/icons'
-import { Badge, Typography, buttonVariants } from '@tfds/components'
+import { Badge, Typography, buttonVariants } from '@tfds/react'
 import { motion } from 'motion/react'
 import { useAudio } from '@/context/AudioContext'
 import { cn } from '@/lib/utils'
@@ -106,23 +106,17 @@ export function Contact({ dict }: { dict: ContactDict }) {
           viewport={{ once: true, margin: '-80px' }}
         >
           <motion.div variants={itemVariants} className="mb-10">
-            <Typography
-              as="span"
-              className="text-action-primary mb-4 block font-mono text-xs tracking-widest"
-            >
-              {dict.contact.eyebrow}
-            </Typography>
-            <Typography
-              as="h2"
-              variant="display-md"
-              color="primary"
-              className="mb-3"
-            >
-              {dict.contact.title}
-            </Typography>
-            <Typography color="secondary" className="mb-5 max-w-xl">
-              {dict.contact.subtitle}
-            </Typography>
+            <div className="mb-4 block font-mono text-xs tracking-widest [--tfds-color-text-primary:var(--tfds-color-action-primary)]">
+              <Typography as="span">{dict.contact.eyebrow}</Typography>
+            </div>
+            <div className="mb-3">
+              <Typography as="h2" variant="display-md" color="primary">
+                {dict.contact.title}
+              </Typography>
+            </div>
+            <div className="mb-5 max-w-xl">
+              <Typography color="secondary">{dict.contact.subtitle}</Typography>
+            </div>
             <Badge variant="info">{dict.contact.microCopy}</Badge>
           </motion.div>
 
@@ -140,14 +134,11 @@ export function Contact({ dict }: { dict: ContactDict }) {
                     className="text-action-primary h-4 w-4"
                     aria-hidden="true"
                   />
-                  <Typography
-                    as="span"
-                    variant="body-sm"
-                    color="disabled"
-                    className="font-mono tracking-wide uppercase"
-                  >
-                    {info.label}
-                  </Typography>
+                  <div className="font-mono tracking-wide uppercase">
+                    <Typography as="span" variant="body-sm" color="disabled">
+                      {info.label}
+                    </Typography>
+                  </div>
                 </div>
                 {info.href ? (
                   <a

@@ -1,5 +1,5 @@
 import { ArrowRight } from '@tfds/icons'
-import { Badge, Typography } from '@tfds/components'
+import { Badge, Typography } from '@tfds/react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -46,44 +46,33 @@ export default async function BlogPostPage({
             ))}
           </div>
 
-          <Typography
-            as="h1"
-            variant="display-md"
-            color="primary"
-            className="mb-4"
-          >
-            {post.title}
-          </Typography>
+          <div className="mb-4">
+            <Typography as="h1" variant="display-md" color="primary">
+              {post.title}
+            </Typography>
+          </div>
 
-          <Typography
-            as="p"
-            className="text-text-tertiary mb-12 font-mono text-xs"
-          >
-            {formatPostDate(post.date, lang)} · {post.readingTime}{' '}
-            {dict.blog.minRead}
-          </Typography>
+          <div className="mb-12 font-mono text-xs [--tfds-color-text-primary:var(--tfds-color-text-tertiary)]">
+            <Typography as="p">
+              {formatPostDate(post.date, lang)} · {post.readingTime}{' '}
+              {dict.blog.minRead}
+            </Typography>
+          </div>
 
           <div className="space-y-6">
             {post.content.map((block) =>
               block.type === 'heading' ? (
-                <Typography
-                  key={block.text}
-                  as="h2"
-                  variant="heading-lg"
-                  color="primary"
-                  className="pt-4"
-                >
-                  {block.text}
-                </Typography>
+                <div key={block.text} className="pt-4">
+                  <Typography as="h2" variant="heading-lg" color="primary">
+                    {block.text}
+                  </Typography>
+                </div>
               ) : (
-                <Typography
-                  key={block.text}
-                  as="p"
-                  color="secondary"
-                  className="leading-relaxed"
-                >
-                  {block.text}
-                </Typography>
+                <div key={block.text} className="leading-relaxed">
+                  <Typography as="p" color="secondary">
+                    {block.text}
+                  </Typography>
+                </div>
               )
             )}
           </div>

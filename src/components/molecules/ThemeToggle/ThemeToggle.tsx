@@ -3,7 +3,7 @@
 import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { buttonVariants } from '@tfds/components'
+import { buttonVariants } from '@tfds/react'
 import { Sun, Moon, Waves } from '@tfds/icons'
 import { useAudio } from '@/context/AudioContext'
 import { cn } from '@/lib/utils'

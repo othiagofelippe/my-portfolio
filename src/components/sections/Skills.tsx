@@ -1,7 +1,7 @@
 'use client'
 
-import { Badge } from '@tfds/components'
-import { Typography } from '@tfds/components'
+import { Badge } from '@tfds/react'
+import { Typography } from '@tfds/react'
 import { Card, CardContent } from '@/components/molecules'
 import { motion } from 'motion/react'
 
@@ -82,20 +82,14 @@ export function Skills({ dict }: { dict: SkillsDict }) {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <Typography
-            as="span"
-            className="text-action-primary mb-4 block font-mono text-xs tracking-widest"
-          >
-            {dict.skills.eyebrow}
-          </Typography>
-          <Typography
-            as="h2"
-            variant="display-md"
-            color="primary"
-            className="mb-3"
-          >
-            {dict.skills.title}
-          </Typography>
+          <div className="mb-4 block font-mono text-xs tracking-widest [--tfds-color-text-primary:var(--tfds-color-action-primary)]">
+            <Typography as="span">{dict.skills.eyebrow}</Typography>
+          </div>
+          <div className="mb-3">
+            <Typography as="h2" variant="display-md" color="primary">
+              {dict.skills.title}
+            </Typography>
+          </div>
           <Typography color="secondary">{dict.skills.subtitle}</Typography>
         </motion.div>
 

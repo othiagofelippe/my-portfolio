@@ -1,6 +1,6 @@
 'use client'
 
-import { Typography } from '@tfds/components'
+import { Typography } from '@tfds/react'
 import { MapPin } from '@tfds/icons'
 import { motion } from 'motion/react'
 
@@ -29,20 +29,14 @@ export function About({ dict }: { dict: AboutDict }) {
             viewport={{ once: true, margin: '-80px' }}
           >
             <motion.div variants={itemVariants}>
-              <Typography
-                as="span"
-                className="text-action-primary mb-4 block font-mono text-xs tracking-widest"
-              >
-                {dict.about.eyebrow}
-              </Typography>
-              <Typography
-                as="h2"
-                variant="display-md"
-                color="primary"
-                className="mb-10"
-              >
-                {dict.about.title}
-              </Typography>
+              <div className="mb-4 block font-mono text-xs tracking-widest [--tfds-color-text-primary:var(--tfds-color-action-primary)]">
+                <Typography as="span">{dict.about.eyebrow}</Typography>
+              </div>
+              <div className="mb-10">
+                <Typography as="h2" variant="display-md" color="primary">
+                  {dict.about.title}
+                </Typography>
+              </div>
             </motion.div>
 
             <div className="space-y-3">
@@ -59,19 +53,14 @@ export function About({ dict }: { dict: AboutDict }) {
                       aria-hidden="true"
                     />
                     <div>
-                      <Typography
-                        as="p"
-                        color="primary"
-                        className="mb-0.5 text-sm leading-tight font-medium"
-                      >
-                        {card.title}
-                      </Typography>
-                      <Typography
-                        as="p"
-                        className="text-text-tertiary text-xs leading-snug"
-                      >
-                        {card.description}
-                      </Typography>
+                      <div className="mb-0.5 text-sm leading-tight font-medium">
+                        <Typography as="p" color="primary">
+                          {card.title}
+                        </Typography>
+                      </div>
+                      <div className="text-xs leading-snug [--tfds-color-text-primary:var(--tfds-color-text-tertiary)]">
+                        <Typography as="p">{card.description}</Typography>
+                      </div>
                     </div>
                   </motion.div>
                 )
@@ -87,25 +76,22 @@ export function About({ dict }: { dict: AboutDict }) {
           >
             <motion.div variants={itemVariants} className="space-y-6">
               {dict.about.paragraphs.map((paragraph) => (
-                <Typography
-                  key={paragraph[0].text}
-                  as="p"
-                  color="secondary"
-                  className="leading-relaxed"
-                >
-                  {paragraph.map((segment) => (
-                    <span
-                      key={segment.text}
-                      className={
-                        segment.emphasis
-                          ? 'text-text-primary font-semibold'
-                          : undefined
-                      }
-                    >
-                      {segment.text}
-                    </span>
-                  ))}
-                </Typography>
+                <div key={paragraph[0].text} className="leading-relaxed">
+                  <Typography as="p" color="secondary">
+                    {paragraph.map((segment) => (
+                      <span
+                        key={segment.text}
+                        className={
+                          segment.emphasis
+                            ? 'text-text-primary font-semibold'
+                            : undefined
+                        }
+                      >
+                        {segment.text}
+                      </span>
+                    ))}
+                  </Typography>
+                </div>
               ))}
             </motion.div>
 
@@ -114,34 +100,28 @@ export function About({ dict }: { dict: AboutDict }) {
               className="border-border-subtle mt-10 flex flex-wrap gap-8 border-t pt-8"
             >
               <div>
-                <Typography
-                  as="p"
-                  color="disabled"
-                  className="mb-2 font-mono text-xs tracking-widest"
-                >
-                  {dict.about.footer.locationLabel}
-                </Typography>
-                <Typography
-                  as="p"
-                  color="secondary"
-                  className="flex items-center gap-1.5 text-sm"
-                >
+                <div className="mb-2 font-mono text-xs tracking-widest">
+                  <Typography as="p" color="disabled">
+                    {dict.about.footer.locationLabel}
+                  </Typography>
+                </div>
+                <div className="flex items-center gap-1.5 text-sm">
                   <MapPin
                     className="text-action-primary h-3.5 w-3.5"
                     aria-hidden="true"
                   />
-                  {dict.about.footer.location}
-                </Typography>
+                  <Typography as="span" color="secondary">
+                    {dict.about.footer.location}
+                  </Typography>
+                </div>
               </div>
 
               <div>
-                <Typography
-                  as="p"
-                  color="disabled"
-                  className="mb-2 font-mono text-xs tracking-widest"
-                >
-                  {dict.about.footer.languagesLabel}
-                </Typography>
+                <div className="mb-2 font-mono text-xs tracking-widest">
+                  <Typography as="p" color="disabled">
+                    {dict.about.footer.languagesLabel}
+                  </Typography>
+                </div>
                 <div className="flex gap-4 text-sm">
                   {dict.about.footer.languages.map((language) => (
                     <Typography key={language.name} as="span" color="secondary">
@@ -155,13 +135,11 @@ export function About({ dict }: { dict: AboutDict }) {
               </div>
 
               <div>
-                <Typography
-                  as="p"
-                  color="disabled"
-                  className="mb-2 font-mono text-xs tracking-widest"
-                >
-                  {dict.about.footer.statusLabel}
-                </Typography>
+                <div className="mb-2 font-mono text-xs tracking-widest">
+                  <Typography as="p" color="disabled">
+                    {dict.about.footer.statusLabel}
+                  </Typography>
+                </div>
                 <span className="text-action-primary flex items-center gap-1.5 text-sm">
                   <motion.span
                     className="bg-action-primary h-1.5 w-1.5 rounded-full"

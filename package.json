@@ -13,9 +13,9 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@tfds/components": "file:../tf.ds/packages/components",
-    "@tfds/icons": "file:../tf.ds/packages/icons",
-    "@tfds/tokens": "file:../tf.ds/packages/tokens",
+    "@tfds/icons": "^0.0.1",
+    "@tfds/react": "^0.0.1",
+    "@tfds/tokens": "^0.0.1",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "motion": "^12.23.12",

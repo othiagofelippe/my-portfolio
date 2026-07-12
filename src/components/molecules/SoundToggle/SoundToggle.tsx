@@ -3,7 +3,7 @@
 import { useAudio } from '@/context/AudioContext'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'motion/react'
-import { buttonVariants } from '@tfds/components'
+import { buttonVariants } from '@tfds/react'
 import { Volume2, VolumeX } from '@tfds/icons'
 
 export function SoundToggle() {

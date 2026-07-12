@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { Button, Typography, buttonVariants } from '@tfds/components'
+import { Button, Typography, buttonVariants } from '@tfds/react'
 import { ArrowRight, Github, Linkedin, Mail } from '@tfds/icons'
 import { motion } from 'motion/react'
 
@@ -78,13 +78,10 @@ export function Hero({ dict }: { dict: HeroDict }) {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <Typography
-              as="p"
-              variant="heading-md"
-              color="secondary"
-              className="mb-4 flex items-center gap-2"
-            >
-              {dict.hero.intro}
+            <div className="mb-4 flex items-center gap-2">
+              <Typography as="p" variant="heading-md" color="secondary">
+                {dict.hero.intro}
+              </Typography>
               <motion.span
                 aria-hidden="true"
                 style={{ display: 'inline-block', transformOrigin: '70% 70%' }}
@@ -98,25 +95,24 @@ export function Hero({ dict }: { dict: HeroDict }) {
               >
                 👋
               </motion.span>
-            </Typography>
-            <Typography
-              as="h1"
-              variant="display-lg"
-              color="primary"
-              className="mb-6 leading-none"
-            >
-              {firstName}{' '}
-              <span className="text-action-primary">{lastName}</span>
-            </Typography>
+            </div>
+            <div className="mb-6">
+              <Typography as="h1" variant="display-lg" color="primary">
+                {firstName}{' '}
+                <span className="text-action-primary">{lastName}</span>
+              </Typography>
+            </div>
           </motion.div>
 
           <motion.div variants={itemVariants} className="mb-10 max-w-xl">
-            <Typography variant="heading-md" color="secondary" className="mb-4">
-              {dict.hero.rolePre}{' '}
-              <span className="text-action-primary font-semibold">
-                {dict.hero.roleHighlight}
-              </span>
-            </Typography>
+            <div className="mb-4">
+              <Typography variant="heading-md" color="secondary">
+                {dict.hero.rolePre}{' '}
+                <span className="text-action-primary font-semibold">
+                  {dict.hero.roleHighlight}
+                </span>
+              </Typography>
+            </div>
             <Typography variant="body-lg" color="secondary">
               {dict.hero.descriptionPre}{' '}
               <span className="text-text-primary font-semibold">
@@ -176,19 +172,14 @@ export function Hero({ dict }: { dict: HeroDict }) {
                   index > 0 && 'border-border-subtle border-l pl-6'
                 )}
               >
-                <Typography
-                  as="p"
-                  variant="display-sm"
-                  className="text-action-primary mb-1"
-                >
-                  {stat.value}
-                </Typography>
-                <Typography
-                  as="p"
-                  className="text-text-tertiary text-xs leading-tight"
-                >
-                  {stat.label}
-                </Typography>
+                <div className="mb-1 [--tfds-color-text-primary:var(--tfds-color-action-primary)]">
+                  <Typography as="p" variant="display-sm">
+                    {stat.value}
+                  </Typography>
+                </div>
+                <div className="text-xs [--tfds-color-text-primary:var(--tfds-color-text-tertiary)]">
+                  <Typography as="p">{stat.label}</Typography>
+                </div>
               </div>
             ))}
           </motion.div>

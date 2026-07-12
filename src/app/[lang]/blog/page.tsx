@@ -1,5 +1,5 @@
 import { ArrowRight } from '@tfds/icons'
-import { Badge, Typography } from '@tfds/components'
+import { Badge, Typography } from '@tfds/react'
 import Link from 'next/link'
 
 import { getDictionary } from '@/lib/dictionaries'
@@ -21,20 +21,14 @@ export default async function BlogPage({
       <section className="min-h-screen py-32">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <Typography
-              as="span"
-              className="text-action-primary mb-4 block font-mono text-xs tracking-widest"
-            >
-              {dict.blog.eyebrow}
-            </Typography>
-            <Typography
-              as="h1"
-              variant="display-md"
-              color="primary"
-              className="mb-3"
-            >
-              {dict.blog.title}
-            </Typography>
+            <div className="mb-4 block font-mono text-xs tracking-widest [--tfds-color-text-primary:var(--tfds-color-action-primary)]">
+              <Typography as="span">{dict.blog.eyebrow}</Typography>
+            </div>
+            <div className="mb-3">
+              <Typography as="h1" variant="display-md" color="primary">
+                {dict.blog.title}
+              </Typography>
+            </div>
             <Typography color="secondary">{dict.blog.subtitle}</Typography>
           </div>
 
@@ -52,27 +46,20 @@ export default async function BlogPage({
                     </Badge>
                   ))}
                 </div>
-                <Typography
-                  as="h2"
-                  variant="heading-md"
-                  color="primary"
-                  className="group-hover:text-action-primary mb-2 transition-colors duration-200"
-                >
-                  {post.title}
-                </Typography>
-                <Typography
-                  color="secondary"
-                  className="mb-4 flex-1 text-sm leading-relaxed"
-                >
-                  {post.excerpt}
-                </Typography>
-                <Typography
-                  as="span"
-                  className="text-text-tertiary font-mono text-xs"
-                >
-                  {formatPostDate(post.date, lang)} · {post.readingTime}{' '}
-                  {dict.blog.minRead}
-                </Typography>
+                <div className="group-hover:[--tfds-color-text-primary:var(--tfds-color-action-primary)] mb-2 transition-colors duration-200">
+                  <Typography as="h2" variant="heading-md" color="primary">
+                    {post.title}
+                  </Typography>
+                </div>
+                <div className="mb-4 flex-1 text-sm leading-relaxed">
+                  <Typography color="secondary">{post.excerpt}</Typography>
+                </div>
+                <div className="font-mono text-xs [--tfds-color-text-primary:var(--tfds-color-text-tertiary)]">
+                  <Typography as="span">
+                    {formatPostDate(post.date, lang)} · {post.readingTime}{' '}
+                    {dict.blog.minRead}
+                  </Typography>
+                </div>
               </Link>
             ))}
           </div>
