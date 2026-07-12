@@ -2,7 +2,7 @@
 
 import { FaWhatsapp } from 'react-icons/fa'
 import { Linkedin, Github, Mail, Clock, MapPin } from '@tfds/icons'
-import { Badge, Typography, buttonVariants } from '@tfds/react'
+import { Badge, Grid, Typography, buttonVariants } from '@tfds/react'
 import { motion } from 'motion/react'
 import { useAudio } from '@/context/AudioContext'
 import { cn } from '@/lib/utils'
@@ -120,42 +120,41 @@ export function Contact({ dict }: { dict: ContactDict }) {
             <Badge variant="info">{dict.contact.microCopy}</Badge>
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3"
-          >
-            {infoCards.map((info) => (
-              <div
-                key={info.label}
-                className="bg-bg-page border-border-subtle rounded-xl border p-4"
-              >
-                <div className="mb-2 flex items-center gap-2">
-                  <info.icon
-                    className="text-action-primary h-4 w-4"
-                    aria-hidden="true"
-                  />
-                  <div className="font-mono tracking-wide uppercase">
-                    <Typography as="span" variant="body-sm" color="disabled">
-                      {info.label}
-                    </Typography>
+          <motion.div variants={itemVariants} className="mb-10">
+            <Grid cols={{ base: 1, sm: 3 }} gap="4">
+              {infoCards.map((info) => (
+                <div
+                  key={info.label}
+                  className="bg-bg-page border-border-subtle rounded-xl border p-4"
+                >
+                  <div className="mb-2 flex items-center gap-2">
+                    <info.icon
+                      className="text-action-primary h-4 w-4"
+                      aria-hidden="true"
+                    />
+                    <div className="font-mono tracking-wide uppercase">
+                      <Typography as="span" variant="body-sm" color="disabled">
+                        {info.label}
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-                {info.href ? (
-                  <a
-                    href={info.href}
-                    className="text-text-primary hover:text-action-primary transition-colors"
-                  >
-                    <Typography as="span" color="primary">
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      className="text-text-primary hover:text-action-primary transition-colors"
+                    >
+                      <Typography as="span" color="primary">
+                        {info.value}
+                      </Typography>
+                    </a>
+                  ) : (
+                    <Typography as="p" color="primary">
                       {info.value}
                     </Typography>
-                  </a>
-                ) : (
-                  <Typography as="p" color="primary">
-                    {info.value}
-                  </Typography>
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              ))}
+            </Grid>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-3">

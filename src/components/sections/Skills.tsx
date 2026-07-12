@@ -1,8 +1,7 @@
 'use client'
 
-import { Badge } from '@tfds/react'
+import { Badge, Card, Grid } from '@tfds/react'
 import { Typography } from '@tfds/react'
-import { Card, CardContent } from '@/components/molecules'
 import { motion } from 'motion/react'
 
 interface SkillsDict {
@@ -94,20 +93,20 @@ export function Skills({ dict }: { dict: SkillsDict }) {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 gap-8 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          {skillCategories.map((category) => (
-            <motion.div
-              key={category.title}
-              variants={cardVariants}
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-            >
-              <Card className="bg-bg-page border-border-default/10 h-full shadow-sm transition-shadow duration-300 hover:shadow-lg">
-                <CardContent className="p-6">
+          <Grid cols={{ base: 1, lg: 3 }} gap="8">
+            {skillCategories.map((category) => (
+              <motion.div
+                key={category.title}
+                variants={cardVariants}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                className="h-full [&>div]:h-full"
+              >
+                <Card>
                   <div className="mb-6 flex items-center gap-3">
                     <span
                       className={`h-2.5 w-2.5 rounded-full ${category.dotClassName}`}
@@ -135,10 +134,10 @@ export function Skills({ dict }: { dict: SkillsDict }) {
                       </motion.div>
                     ))}
                   </motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                </Card>
+              </motion.div>
+            ))}
+          </Grid>
         </motion.div>
       </div>
     </section>

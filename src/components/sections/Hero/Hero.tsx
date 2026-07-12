@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { Button, Typography, buttonVariants } from '@tfds/react'
+import { Button, Grid, Typography, buttonVariants } from '@tfds/react'
 import { ArrowRight, Github, Linkedin, Mail } from '@tfds/icons'
 import { motion } from 'motion/react'
 
@@ -157,31 +157,34 @@ export function Hero({ dict }: { dict: HeroDict }) {
             </div>
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="border-border-subtle grid max-w-md grid-cols-3 gap-0 border-t pt-8"
-          >
-            {[
-              dict.hero.stats.years,
-              dict.hero.stats.companies,
-              dict.hero.stats.ds,
-            ].map((stat, index) => (
-              <div
-                key={stat.label}
-                className={cn(
-                  index > 0 && 'border-border-subtle border-l pl-6'
-                )}
-              >
-                <div className="mb-1 [--tfds-color-text-primary:var(--tfds-color-action-primary)]">
-                  <Typography as="p" variant="display-sm">
-                    {stat.value}
-                  </Typography>
+          <motion.div variants={itemVariants}>
+            <Grid
+              cols={3}
+              gap="0"
+              className="border-border-subtle max-w-md border-t pt-8"
+            >
+              {[
+                dict.hero.stats.years,
+                dict.hero.stats.companies,
+                dict.hero.stats.ds,
+              ].map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={cn(
+                    index > 0 && 'border-border-subtle border-l pl-6'
+                  )}
+                >
+                  <div className="mb-1 [--tfds-color-text-primary:var(--tfds-color-action-primary)]">
+                    <Typography as="p" variant="display-sm">
+                      {stat.value}
+                    </Typography>
+                  </div>
+                  <div className="text-xs [--tfds-color-text-primary:var(--tfds-color-text-tertiary)]">
+                    <Typography as="p">{stat.label}</Typography>
+                  </div>
                 </div>
-                <div className="text-xs [--tfds-color-text-primary:var(--tfds-color-text-tertiary)]">
-                  <Typography as="p">{stat.label}</Typography>
-                </div>
-              </div>
-            ))}
+              ))}
+            </Grid>
           </motion.div>
         </motion.div>
       </div>

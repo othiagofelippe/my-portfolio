@@ -1,5 +1,5 @@
 import { ArrowRight } from '@tfds/icons'
-import { Badge, Typography } from '@tfds/react'
+import { Badge, Grid, Typography } from '@tfds/react'
 import Link from 'next/link'
 
 import { getDictionary } from '@/lib/dictionaries'
@@ -32,7 +32,7 @@ export default async function BlogPage({
             <Typography color="secondary">{dict.blog.subtitle}</Typography>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <Grid cols={{ base: 1, md: 3 }} gap="6">
             {posts.map((post) => (
               <Link
                 key={post.slug}
@@ -46,7 +46,7 @@ export default async function BlogPage({
                     </Badge>
                   ))}
                 </div>
-                <div className="group-hover:[--tfds-color-text-primary:var(--tfds-color-action-primary)] mb-2 transition-colors duration-200">
+                <div className="mb-2 transition-colors duration-200 group-hover:[--tfds-color-text-primary:var(--tfds-color-action-primary)]">
                   <Typography as="h2" variant="heading-md" color="primary">
                     {post.title}
                   </Typography>
@@ -62,7 +62,7 @@ export default async function BlogPage({
                 </div>
               </Link>
             ))}
-          </div>
+          </Grid>
 
           <div className="mt-16">
             <Link

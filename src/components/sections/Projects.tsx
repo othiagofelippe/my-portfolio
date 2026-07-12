@@ -47,7 +47,7 @@ export function Projects({ dict }: { dict: ProjectsDict }) {
 
                 <div>
                   <div className="mb-2 flex items-center gap-3">
-                    <div className="group-hover:[--tfds-color-text-primary:var(--tfds-color-action-primary)] font-mono text-base font-bold transition-colors duration-300">
+                    <div className="font-mono text-base font-bold transition-colors duration-300 group-hover:[--tfds-color-text-primary:var(--tfds-color-action-primary)]">
                       <Typography as="h3">{project.name}</Typography>
                     </div>
                     <div className="font-mono text-xs [--tfds-color-text-primary:var(--tfds-color-text-tertiary)]">
