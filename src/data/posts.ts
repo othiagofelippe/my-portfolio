@@ -3,6 +3,17 @@ export interface PostBlock {
   text: string
 }
 
+export interface Chapter {
+  start: number
+  title: string
+}
+
+export interface PostVideo {
+  youtubeId: string
+  duration: string
+  chapters: Chapter[]
+}
+
 export interface Post {
   slug: string
   title: string
@@ -11,6 +22,8 @@ export interface Post {
   readingTime: number
   tags: string[]
   content: PostBlock[]
+  format?: 'article' | 'video'
+  video?: PostVideo
 }
 
 export const posts: Post[] = [
@@ -22,6 +35,12 @@ export const posts: Post[] = [
     date: '2026-05-12',
     readingTime: 6,
     tags: ['Design Systems', 'React', 'TypeScript'],
+    format: 'video',
+    video: {
+      youtubeId: 'dQw4w9WgXcQ',
+      duration: '6:12',
+      chapters: [],
+    },
     content: [
       {
         type: 'paragraph',

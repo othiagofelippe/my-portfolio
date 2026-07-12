@@ -7,7 +7,7 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import { posts } from '@/data/posts'
 import { formatPostDate } from '@/lib/utils'
-import { PageTransition } from '@/components/molecules'
+import { PageTransition, VideoEmbed } from '@/components/molecules'
 
 export function generateStaticParams(): { slug: string }[] {
   return posts.map((post) => ({ slug: post.slug }))
@@ -58,6 +58,17 @@ export default async function BlogPostPage({
               {dict.blog.minRead}
             </Typography>
           </div>
+
+          {post.format === 'video' && post.video && (
+            <div className="mb-12">
+              <VideoEmbed
+                youtubeId={post.video.youtubeId}
+                title={post.title}
+                duration={post.video.duration}
+                dict={{ playLabel: dict.blog.videoPlay }}
+              />
+            </div>
+          )}
 
           <div className="space-y-6">
             {post.content.map((block) =>
