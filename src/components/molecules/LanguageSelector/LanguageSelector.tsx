@@ -1,90 +1,92 @@
-"use client";
+'use client'
 
-import { Locale, localeNames, locales } from "@/lib/i18n";
-import { AnimatePresence, motion } from "motion/react";
-import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
-import { ChevronDown, Globe } from "@tfds/icons";
-import { useAudio } from "@/context/AudioContext";
-import { typographyVariants } from "@tfds/components";
-import { cn } from "@/lib/utils";
+import { Locale, localeNames, locales } from '@/lib/i18n'
+import { AnimatePresence, motion } from 'motion/react'
+import { usePathname, useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { buttonVariants } from '@tfds/components'
+import { ChevronDown, Globe } from '@tfds/icons'
+import { useAudio } from '@/context/AudioContext'
+import { cn } from '@/lib/utils'
 
-export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname();
-  const audio = useAudio();
+const FLAG_EMOJIS: Record<Locale, string> = {
+  pt: '🇧🇷',
+  en: '🇺🇸',
+  es: '🇪🇸',
+}
 
-  const flagEmojis: Record<Locale, string> = {
-    pt: "🇧🇷",
-    en: "🇺🇸",
-    es: "🇪🇸",
-  };
+interface LanguageSelectorProps {
+  currentLang: Locale
+}
 
-  const languages = locales.map((locale) => ({
-    code: locale,
-    name: locale.toUpperCase(),
-    fullName: localeNames[locale],
-    flag: flagEmojis[locale],
-  }));
+export function LanguageSelector({ currentLang }: LanguageSelectorProps) {
+  const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
+  const audio = useAudio()
 
   const handleToggle = () => {
-    setIsOpen(!isOpen);
-    audio.play("uiExpand");
-  };
+    setIsOpen(!isOpen)
+    audio.play('uiExpand')
+  }
 
   const handleLanguageChange = (locale: Locale) => {
-    setIsOpen(false);
-    audio.play("pageTransition");
+    setIsOpen(false)
+    audio.play('pageTransition')
 
-    const newPathname = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
-    router.push(newPathname);
-  };
+    const newPathname = pathname.replace(/^\/[a-z]{2}/, `/${locale}`)
+    router.push(newPathname)
+  }
 
   const handleClose = () => {
-    setIsOpen(false);
-    audio.play("uiExpand");
-  };
+    setIsOpen(false)
+    audio.play('uiExpand')
+  }
 
-  const getCurrentLanguage = () => {
-    return languages.find((lang) => lang.code === currentLang) || languages[0];
-  };
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Escape' && isOpen) {
+      handleClose()
+    }
+  }
 
   return (
-    <div className="relative">
-      <motion.button
+    <div className="relative" onKeyDown={handleKeyDown}>
+      <button
+        type="button"
         onClick={handleToggle}
-        className={cn(typographyVariants({ variant: "body-sm" }), "px-3 py-2 font-medium text-text-secondary hover:text-text-primary flex items-center space-x-2 rounded-lg hover:bg-bg-default/30 cursor-pointer")}
+        className={cn(
+          buttonVariants({ variant: 'ghost', size: 'sm' }),
+          'font-mono tracking-widest uppercase'
+        )}
         aria-label="Language selector"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        aria-expanded={isOpen}
+        aria-haspopup="menu"
       >
-        <Globe className="w-4 h-4" />
+        <Globe aria-hidden="true" />
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={currentLang}
-            initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
-            animate={{ opacity: 1, rotate: 0, scale: 1 }}
-            exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
-            transition={{ duration: 0.18, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ duration: 0.18, ease: 'easeInOut' }}
           >
-            {getCurrentLanguage().flag}
+            {currentLang}
           </motion.span>
         </AnimatePresence>
-        <motion.div
+        <motion.span
+          className="inline-flex"
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2 }}
+          aria-hidden="true"
         >
-          <ChevronDown className="w-4 h-4" />
-        </motion.div>
-      </motion.button>
+          <ChevronDown />
+        </motion.span>
+      </button>
 
-      {/* Dropdown Menu */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Overlay para fechar ao clicar fora */}
             <motion.div
               className="fixed inset-0 z-10"
               onClick={handleClose}
@@ -95,44 +97,43 @@ export function LanguageSelector({ currentLang }: { currentLang: Locale }) {
             />
 
             <motion.div
-              className="absolute right-0 mt-2 w-36 bg-bg-page rounded-lg shadow-lg border border-border-default z-20"
+              role="menu"
+              className="bg-bg-page border-border-default absolute right-0 z-20 mt-2 w-48 rounded-md border p-1 shadow-lg"
               initial={{ opacity: 0, scale: 0.95, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
             >
-              <div className="py-1">
-                {languages.map((language, index) => (
-                  <motion.button
-                    key={language.code}
-                    onClick={() =>
-                      handleLanguageChange(language.code as Locale)
-                    }
-                    className={cn(typographyVariants({ variant: "body-sm" }), `w-full text-left px-4 py-2 flex items-center justify-between cursor-pointer ${
-                      currentLang === language.code
-                        ? "bg-action-primary/10 text-action-primary border-l-2 border-action-primary"
-                        : "text-text-secondary hover:bg-bg-default/30 hover:text-text-primary"
-                    }`)}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: index * 0.05,
-                      duration: 0.2,
-                    }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.95 }}
+              {locales.map((locale) => {
+                const isActive = currentLang === locale
+                return (
+                  <button
+                    key={locale}
+                    type="button"
+                    role="menuitem"
+                    onClick={() => handleLanguageChange(locale)}
+                    aria-current={isActive ? 'true' : undefined}
+                    className={cn(
+                      buttonVariants({ variant: 'ghost', size: 'sm' }),
+                      'w-full justify-between',
+                      isActive &&
+                        'bg-action-primary-subtle text-action-primary hover:bg-action-primary-subtle'
+                    )}
                   >
-                    <span className="flex items-center space-x-2">
-                      <span>{language.flag}</span>
-                      <span>{language.fullName}</span>
+                    <span className="flex items-center gap-2">
+                      <span aria-hidden="true">{FLAG_EMOJIS[locale]}</span>
+                      {localeNames[locale]}
                     </span>
-                  </motion.button>
-                ))}
-              </div>
+                    <span className="text-text-tertiary font-mono text-xs tracking-widest uppercase">
+                      {locale}
+                    </span>
+                  </button>
+                )
+              })}
             </motion.div>
           </>
         )}
       </AnimatePresence>
     </div>
-  );
+  )
 }
