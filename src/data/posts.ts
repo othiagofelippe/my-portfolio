@@ -85,4 +85,47 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: 'exemplo-post-em-video',
+    title: 'Exemplo de post em vídeo',
+    excerpt:
+      'Um post placeholder para testar o formato de vídeo do blog: player com facade, capítulos com seek e badge de duração na listagem.',
+    date: '2026-07-10',
+    readingTime: 4,
+    tags: ['Blog', 'Vídeo'],
+    format: 'video',
+    video: {
+      youtubeId: 'dQw4w9WgXcQ',
+      duration: '5:45',
+      chapters: [
+        { start: 0, title: 'Abertura' },
+        { start: 60, title: 'Por que vídeo no blog' },
+        { start: 150, title: 'Como funciona o player' },
+        { start: 240, title: 'Capítulos e navegação' },
+        { start: 315, title: 'Encerramento' },
+      ],
+    },
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Este é um post de exemplo, criado para validar o formato "vídeo" do blog de ponta a ponta: a miniatura estática antes do clique, o carregamento do player só sob demanda e a navegação por capítulos com salto direto para o trecho escolhido.',
+      },
+      {
+        type: 'heading',
+        text: 'O que este post testa',
+      },
+      {
+        type: 'paragraph',
+        text: 'O player usa uma facade — nada de iframe do YouTube é carregado até que a pessoa clique em assistir. Depois do clique, os capítulos abaixo do vídeo permitem pular para qualquer ponto usando a API de mensagens do player do YouTube.',
+      },
+      {
+        type: 'heading',
+        text: 'Próximos passos',
+      },
+      {
+        type: 'paragraph',
+        text: 'Quando o primeiro vídeo real for publicado, este post placeholder pode ser substituído ou removido.',
+      },
+    ],
+  },
 ]
