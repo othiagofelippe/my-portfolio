@@ -105,7 +105,7 @@ export function Skills({ dict }: { dict: SkillsDict }) {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          <Grid cols={{ base: 1, md: 2, lg: 4 }} gap="8">
+          <Grid cols={{ base: 1, md: 2 }} gap="8">
             {skillCategories.map((category) => (
               <motion.div
                 key={category.title}
