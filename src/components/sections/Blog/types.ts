@@ -7,6 +7,7 @@ export interface BlogDict {
     subtitle: string
     viewAll: string
     minRead: string
+    videoLabel: string
   }
   lang?: Locale
 }

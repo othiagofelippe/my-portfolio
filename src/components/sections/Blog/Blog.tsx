@@ -1,4 +1,4 @@
-import { ArrowRight } from '@tfds/icons'
+import { ArrowRight, Play } from '@tfds/icons'
 import { Badge, Grid, Typography } from '@tfds/react'
 import Link from 'next/link'
 
@@ -33,6 +33,12 @@ export function Blog({ dict }: { dict: BlogDict }) {
               className="group border-border-subtle hover:border-border-default flex flex-col border p-6 transition-colors duration-200"
             >
               <div className="mb-4 flex flex-wrap gap-1.5">
+                {post.format === 'video' && post.video && (
+                  <Badge variant="info" size="sm">
+                    <Play className="mr-1 size-3" aria-hidden="true" />
+                    {dict.blog.videoLabel} · {post.video.duration}
+                  </Badge>
+                )}
                 {post.tags.map((tag) => (
                   <Badge key={tag} variant="info" size="sm">
                     {tag}
