@@ -8,18 +8,18 @@
     "contact": "Contact"
   },
   "hero": {
-    "intro": "Nice to meet you, I'm",
+    "intro": "Hi, I'm",
     "name": "Thiago Felippe",
-    "role": "Frontend developer for 4 years, working with React, React Native, TypeScript and Next.js.",
+    "role": "Frontend developer focused on React, TypeScript and design systems.",
     "rolePre": "Frontend developer focused on",
-    "roleHighlight": "React & Next.js",
-    "descriptionPre": "Taken projects from zero to production. Over the last",
+    "roleHighlight": "React, TypeScript and design systems",
+    "descriptionPre": "Before I ever wrote code, I was already taking computers apart and poking at games to figure out how they worked. For the past",
     "descriptionHighlight": "4 years",
-    "descriptionPost": "I've worked independently on web and mobile interfaces — integrating APIs, thinking about performance, and building components that other devs can actually use and maintain.",
+    "descriptionPost": "I've done it professionally: I build web and mobile interfaces, and today I work with design systems, the components other developers rely on every day.",
     "downloadCV": "Download CV",
     "badge": {
       "location": "🇧🇷 Rio de Janeiro, Brazil",
-      "availability": "available for projects"
+      "availability": "open to opportunities"
     },
     "ctas": {
       "viewProjects": "view projects"
@@ -27,7 +27,7 @@
     "stats": {
       "years": { "value": "4+", "label": "years of experience" },
       "companies": { "value": "3", "label": "companies" },
-      "ds": { "value": "DS", "label": "@ Livelo / ília" }
+      "ds": { "value": "DS", "label": "design systems as a specialty" }
     },
     "socials": {
       "github": "Visit GitHub profile",
@@ -40,63 +40,62 @@
     "title": "Who I am",
     "cards": {
       "frontend": {
-        "title": "Frontend specialist",
-        "description": "React, Next.js and React Native as my main tools"
+        "title": "Frontend day to day",
+        "description": "React, Next.js and React Native as my main tools for 4 years"
       },
       "designSystems": {
         "title": "Design Systems",
-        "description": "Building and maintaining scalable component libraries"
+        "description": "Components, tokens and documentation other devs can actually use and maintain"
       },
       "performance": {
-        "title": "Performance first",
-        "description": "SSR, lazy loading, optimized bundles — real metrics"
+        "title": "Investigation first",
+        "description": "Understand the problem before coding: performance, SSR and optimization driven by metrics, not guesswork"
       },
       "fullCycle": {
-        "title": "Zero to deploy",
-        "description": "Full development cycle, from briefing to production"
+        "title": "From Figma to the stores",
+        "description": "Full cycle: design, implementation and publishing to the App Store and Play Store"
       }
     },
     "paragraphs": [
       [
-        { "text": "I started my journey in development in " },
-        { "text": "2022", "emphasis": true },
         {
-          "text": ", when I got certified in Full Stack Web Development by ProgramadorBr. I haven't stopped since. Every project was a chance to deepen what I knew and discover what I still had to learn."
+          "text": "Son of an IT technician, I grew up taking computers apart, reinstalling Windows and hunting for drivers on forums. Before I even knew what programming was, I was already digging into "
+        },
+        { "text": "game code", "emphasis": true },
+        { "text": " to fix whatever broke." }
+      ],
+      [
+        { "text": "Real programming started in " },
+        { "text": "2019", "emphasis": true },
+        {
+          "text": ", when I wanted to build an app for the company I worked at and realized I had no idea where to begin. I started with logic, writing tiny systems in the terminal, and never stopped. It took three jobs outside the field before I bet everything on studying."
         }
       ],
       [
-        { "text": "I spent almost " },
-        { "text": "3 years at Heap Engenharia", "emphasis": true },
+        { "text": "In 2022 I joined " },
+        { "text": "Heap Engenharia", "emphasis": true },
         {
-          "text": ", where I got to lead the development of web and mobile interfaces. That's where I learned to think about components for real — not just code that works today, but that someone else can understand, use and maintain tomorrow. SSR, accessibility, a Design System documented in Storybook: I learned frontend goes way beyond what shows up on screen."
+          "text": " as an intern, literally changing button colors. Three years later I owned entire projects: e-commerce, mobile apps, corporate sites, each with a different context and a different problem. That's where I learned to investigate before writing code, back when the answer lived on Stack Overflow or inside the library's source."
         }
       ],
       [
-        { "text": "At " },
+        { "text": "An agency client liked my work and hired me: at " },
         { "text": "Divam", "emphasis": true },
         {
-          "text": ", I kept evolving web and mobile products, reinforcing the internal Design System and deepening my experience with GraphQL and API integration in close collaboration with the backend team."
-        }
-      ],
-      [
-        { "text": "Today I work at " },
-        { "text": "ília", "emphasis": true },
+          "text": ", I handled web and mobile features of a product in production, from designing the screen in Figma to the business rules. Today I'm part of the design system team at "
+        },
+        { "text": "Livelo", "emphasis": true },
         {
-          "text": ", allocated to Livelo as part of the Design System team (Alchemy). Building and maintaining the components and tokens other teams use daily is work that demands precision, empathy for the dev consuming it, and long-term vision. It's the kind of challenge that drives me."
+          "text": ", placed through ília, building and maintaining the components and tokens other teams use every day."
         }
       ],
       [
-        { "text": "Alongside that, I'm studying " },
+        { "text": "In parallel, I'm studying " },
         { "text": "Systems Analysis and Development", "emphasis": true },
-        {
-          "text": " at Unicarioca to solidify the theoretical base behind what I've already practiced for years."
-        }
-      ],
-      [
-        { "text": "Outside work, I like exploring personal projects — " },
+        { "text": " and I maintain " },
         { "text": "tf.ds", "emphasis": true },
         {
-          "text": " is my own design system, where I experiment with ideas and consolidate patterns I use across my projects. I believe the best way to grow as a developer is by building real things, with purpose."
+          "text": ", my personal design system, where I test ideas before taking anything to work. I still believe in what got me here: the best way to learn is to build something real."
         }
       ]
     ],
@@ -106,24 +105,25 @@
       "languagesLabel": "languages",
       "languages": [
         { "name": "Portuguese", "level": "native" },
-        { "name": "English", "level": "intermediate" }
+        { "name": "English", "level": "intermediate" },
+        { "name": "Spanish", "level": "intermediate" }
       ],
       "statusLabel": "status",
-      "status": "Available for projects"
+      "status": "Open to opportunities"
     }
   },
   "experience": {
     "eyebrow": "// experience",
     "title": "Professional Experience",
     "subtitle": "My professional journey and the experiences that shaped me as a developer",
-    "downloadCV": "Download complete CV",
+    "downloadCV": "Download full CV",
     "currentLabel": "Current",
     "jobs": {
       "heap": {
         "period": "Apr 2022 - Mar 2025",
-        "title": "Mid-level Front-End Developer",
+        "title": "Front-End Developer",
         "company": "Heap Engenharia e Software",
-        "description": "Led the development of web and mobile interfaces with React, Next.js, and React Native while prioritising performance and accessibility. Structured data flows with RESTful APIs, introduced SSR to boost SEO metrics, and standardised components via Design Systems documented in Storybook. Partnered with design on UX/UI principles and enabled continuous delivery with agile teams.",
+        "description": "I joined as an intern and left owning entire projects. In three years at the agency, I worked on e-commerce, corporate sites, internal tools and apps for several companies, with React, Next.js and React Native. I rescued a legacy mobile app and brought it back to the stores, including a video call feature built with scarce documentation and a lot of source code reading. Along the way: SSR, API integration, design systems documented in Storybook and agile teams.",
         "skills": [
           "React",
           "Next.js",
@@ -135,9 +135,9 @@
       },
       "divam": {
         "period": "Mar 2025 - Jun 2025",
-        "title": "Mid-level Front-End Developer",
+        "title": "Mid-Level Front-End Developer",
         "company": "Divam",
-        "description": "Worked on evolving web products with Next.js and mobile apps with React Native, delivering new features while keeping production stable. Enhanced the internal Design System with reusable components and design tokens for colour, spacing, and typography, reinforcing accessibility and responsiveness standards. Collaborated with backend on APIs, led code reviews, and aligned data flows across projects.",
+        "description": "Hired by a company that first saw my work as an agency client. At Divam, a mental health platform with a product in production, I evolved the mobile app and the web application: new features, business rule reviews and screen design in Figma before implementation. I worked with GraphQL, organized the product's visual foundation toward a design system and handled requests coming from real user support.",
         "skills": [
           "Next.js",
           "React Native",
@@ -149,24 +149,24 @@
       },
       "ilia": {
         "period": "Nov 2025 - Present",
-        "title": "Frontend Developer | Design System @ Livelo",
+        "title": "Mid-Level Front-End Developer | Design System",
         "company": "ília",
-        "description": "Frontend developer embedded at Livelo through ília's team. Part of the Design System team (Alchemy), where we build and maintain the components and tokens used by other teams in both React and React Native. Beyond development, we support cross-functional teams and build collaborative components on demand.",
+        "description": "I'm part of Livelo's design system team, Prisma, placed through ília. I build and evolve components and tokens in React and React Native, support the teams that consume the design system and help keep consistency across the company's repositories. I also work on tools that bring the design system closer to the developers' workflow, including AI integrations.",
         "skills": [
           "React",
           "React Native",
           "Design System",
-          "Storybook",
+          "Style Dictionary",
           "TypeScript",
           "Accessibility"
         ]
       }
     },
     "formation": {
-      "title": "Academic Background",
-      "course": "Associate Degree in Systems Analysis and Development",
+      "title": "Education",
+      "course": "Technologist in Systems Analysis and Development",
       "institution": "Centro Universitário Unicarioca",
-      "location": "Rio de Janeiro, Brazil",
+      "location": "Rio de Janeiro, RJ",
       "period": "January 2025 - Present",
       "type": "Distance Learning"
     },
@@ -192,15 +192,15 @@
   },
   "projects": {
     "eyebrow": "// projects",
-    "title": "Selected work",
-    "subtitle": "Projects that show my technical skills",
+    "title": "Things I've built",
+    "subtitle": "Personal projects where I test real ideas: my own design system, this site and whatever comes next",
     "demo": "Demo",
     "code": "Code"
   },
   "skills": {
     "eyebrow": "// skills",
     "title": "My Skills",
-    "subtitle": "Technologies and tools I master to create complete digital solutions",
+    "subtitle": "Technologies and tools I use to turn ideas into reality, from design to deploy",
     "categories": {
       "frontend": {
         "title": "Frontend",
@@ -210,11 +210,11 @@
           "React Native",
           "TypeScript",
           "JavaScript",
-          "HTML/CSS",
           "Tailwind CSS",
           "Styled Components",
-          "Sass",
-          "MUI"
+          "Design Systems",
+          "Design Tokens (Style Dictionary)",
+          "Accessibility (WCAG)"
         ]
       },
       "backend": {
@@ -222,40 +222,49 @@
         "skills": [
           "Node.js",
           "Express.js",
+          "GraphQL",
+          "REST APIs",
           "MongoDB",
           "MySQL",
-          "REST APIs",
-          "GraphQL",
-          "JWT",
           "Firebase"
         ]
       },
-      "tools": {
-        "title": "Tools & Others",
+      "ai": {
+        "title": "AI & Agents",
         "skills": [
-          "Git",
-          "GitHub",
-          "VS Code",
-          "Figma",
+          "Context Engineering",
+          "AI Agents",
+          "MCP (Model Context Protocol)",
+          "Spec-driven Development",
+          "Guardrails",
+          "Multi-agent workflows",
+          "Claude Code / agentic tools"
+        ]
+      },
+      "tools": {
+        "title": "Tools",
+        "skills": [
+          "Git & GitHub Actions",
+          "Monorepos (Lerna/Nx)",
           "Storybook",
-          "ESLint",
-          "Prettier",
-          "Scrum",
-          "Kanban",
-          "Vercel"
+          "Jest & Testing Library",
+          "TanStack Query",
+          "Zustand/Redux",
+          "Figma",
+          "Scrum/Kanban"
         ]
       }
     }
   },
   "contact": {
     "eyebrow": "// contact",
-    "title": "Let's Talk?",
-    "subtitle": "Have a project in mind or just want to chat? Reach me through the channels below.",
-    "microCopy": "I usually reply within 24h ⚡",
+    "title": "Let's talk?",
+    "subtitle": "A role, a project or just to chat about frontend and design systems: reach me on any channel below.",
+    "microCopy": "I usually reply within 24h. Powered by curiosity, not coffee.",
     "info": {
       "email": "contact@othiagofelippe.com",
       "location": "Rio de Janeiro, Brazil",
-      "availability": "Available for projects"
+      "availability": "Open to opportunities"
     },
     "infoLabels": {
       "email": "Email",
@@ -272,26 +281,26 @@
   "blog": {
     "eyebrow": "// blog",
     "title": "From the blog",
-    "subtitle": "Notes on frontend, design systems and what I learn along the way",
+    "subtitle": "Notes on frontend, design systems and AI, written as I learn",
     "viewAll": "view all posts",
     "readMore": "read more",
     "minRead": "min read",
     "videoPlay": "Watch video",
     "videoLabel": "video",
     "videoChaptersTitle": "Chapters",
-    "videoChapterAriaPrefix": "Jump to chapter",
+    "videoChapterAriaPrefix": "Go to chapter",
     "backToBlog": "back to blog",
-    "backHome": "back home",
+    "backHome": "back to home",
     "notFoundTitle": "Post not found",
-    "notFoundDescription": "The post you're looking for doesn't exist or was moved."
+    "notFoundDescription": "This post doesn't exist or was moved. Or Asta knocked it off the table, he's a cat, it's what cats do."
   },
   "footer": {
     "rights": "All rights reserved."
   },
   "metadata": {
-    "title": "Thiago Felippe - Front-End Developer | React, Next.js, TypeScript",
-    "description": "Frontend developer for 4 years, working with React, React Native, TypeScript and Next.js. From zero to production, with a focus on Design Systems and performance. Open to opportunities.",
-    "keywords": "front-end developer, react developer, next.js, typescript, react native, javascript developer, web developer jobs, software engineer, rio de janeiro, remote work, tech jobs brazil",
+    "title": "Thiago Felippe · Front-End Developer | React, Next.js, TypeScript & Design Systems",
+    "description": "Frontend developer with 4 years of experience in React, React Native, TypeScript and Next.js. Specialized in design systems and AI tooling (MCP, agents). Rio de Janeiro, open to opportunities.",
+    "keywords": "front-end developer, react developer, next.js, typescript, react native, design system, design tokens, mcp, model context protocol, ai agents, context engineering, remote frontend developer, frontend developer brazil, rio de janeiro developer, hire frontend developer, tech jobs",
     "author": "Thiago Felippe",
     "twitterHandle": "@othiagofelippe"
   }
