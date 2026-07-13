@@ -12,6 +12,7 @@ interface SkillsDict {
     categories: {
       frontend: { title: string; skills: string[] }
       backend: { title: string; skills: string[] }
+      ai: { title: string; skills: string[] }
       tools: { title: string; skills: string[] }
     }
   }
@@ -64,6 +65,12 @@ export function Skills({ dict }: { dict: SkillsDict }) {
       badgeVariant: 'warning' as const,
     },
     {
+      title: dict.skills.categories.ai.title,
+      skills: dict.skills.categories.ai.skills,
+      dotClassName: 'bg-feedback-error',
+      badgeVariant: 'error' as const,
+    },
+    {
       title: dict.skills.categories.tools.title,
       skills: dict.skills.categories.tools.skills,
       dotClassName: 'bg-action-primary',
@@ -98,7 +105,7 @@ export function Skills({ dict }: { dict: SkillsDict }) {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          <Grid cols={{ base: 1, lg: 3 }} gap="8">
+          <Grid cols={{ base: 1, md: 2, lg: 4 }} gap="8">
             {skillCategories.map((category) => (
               <motion.div
                 key={category.title}
