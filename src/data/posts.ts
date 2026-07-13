@@ -39,7 +39,12 @@ export const posts: Post[] = [
     video: {
       youtubeId: 'dQw4w9WgXcQ',
       duration: '6:12',
-      chapters: [],
+      chapters: [
+        { start: 0, title: 'Introdução' },
+        { start: 90, title: 'Por que construir um Design System pessoal' },
+        { start: 210, title: 'Tokens e composição de componentes' },
+        { start: 320, title: 'Próximos passos' },
+      ],
     },
     content: [
       {

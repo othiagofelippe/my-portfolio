@@ -65,7 +65,12 @@ export default async function BlogPostPage({
                 youtubeId={post.video.youtubeId}
                 title={post.title}
                 duration={post.video.duration}
-                dict={{ playLabel: dict.blog.videoPlay }}
+                chapters={post.video.chapters}
+                dict={{
+                  playLabel: dict.blog.videoPlay,
+                  chaptersTitle: dict.blog.videoChaptersTitle,
+                  chapterAriaPrefix: dict.blog.videoChapterAriaPrefix,
+                }}
               />
             </div>
           )}

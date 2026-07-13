@@ -280,6 +280,8 @@
     "minRead": "min de lectura",
     "videoPlay": "Ver video",
     "videoLabel": "video",
+    "videoChaptersTitle": "Capítulos",
+    "videoChapterAriaPrefix": "Ir al capítulo",
     "backToBlog": "volver al blog",
     "backHome": "volver al inicio",
     "notFoundTitle": "Post no encontrado",
