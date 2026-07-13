@@ -1,6 +1,6 @@
 {
   "nav": {
-    "about": "Acerca de",
+    "about": "Sobre mí",
     "experience": "Experiencia",
     "projects": "Proyectos",
     "skills": "Habilidades",
@@ -8,18 +8,18 @@
     "contact": "Contacto"
   },
   "hero": {
-    "intro": "Un placer, soy",
+    "intro": "Encantado, soy",
     "name": "Thiago Felippe",
-    "role": "Desarrollador frontend con 4 años de experiencia, trabajando con React, React Native, TypeScript y Next.js.",
+    "role": "Desarrollador frontend enfocado en React, TypeScript y design systems.",
     "rolePre": "Desarrollador frontend enfocado en",
-    "roleHighlight": "React & Next.js",
-    "descriptionPre": "He llevado proyectos de cero a producción. En los últimos",
+    "roleHighlight": "React, TypeScript y design systems",
+    "descriptionPre": "Antes de escribir código, ya desarmaba computadoras y hurgaba en juegos para entender cómo funcionaban. Hace",
     "descriptionHighlight": "4 años",
-    "descriptionPost": "he trabajado de forma independiente en interfaces web y mobile — integrando APIs, pensando en performance y construyendo componentes que otros devs pueden usar y mantener.",
+    "descriptionPost": "lo hago de forma profesional: construyo interfaces web y mobile, y hoy trabajo con design systems, componentes que otros desarrolladores usan en su día a día.",
     "downloadCV": "Descargar CV",
     "badge": {
       "location": "🇧🇷 Río de Janeiro, Brasil",
-      "availability": "disponible para proyectos"
+      "availability": "abierto a oportunidades"
     },
     "ctas": {
       "viewProjects": "ver proyectos"
@@ -27,78 +27,77 @@
     "stats": {
       "years": { "value": "4+", "label": "años de experiencia" },
       "companies": { "value": "3", "label": "empresas" },
-      "ds": { "value": "DS", "label": "@ Livelo / ília" }
+      "ds": { "value": "DS", "label": "design systems como especialidad" }
     },
     "socials": {
-      "github": "Visitar perfil de GitHub",
-      "linkedin": "Visitar perfil de LinkedIn",
-      "email": "Enviar correo"
+      "github": "Visitar perfil en GitHub",
+      "linkedin": "Visitar perfil en LinkedIn",
+      "email": "Enviar email"
     }
   },
   "about": {
-    "eyebrow": "// acerca de",
+    "eyebrow": "// sobre",
     "title": "Quién soy",
     "cards": {
       "frontend": {
-        "title": "Especialista frontend",
-        "description": "React, Next.js y React Native como principales herramientas"
+        "title": "Frontend en el día a día",
+        "description": "React, Next.js y React Native como herramientas principales desde hace 4 años"
       },
       "designSystems": {
         "title": "Design Systems",
-        "description": "Creación y mantenimiento de librerías de componentes escalables"
+        "description": "Componentes, tokens y documentación que otros devs logran usar y mantener"
       },
       "performance": {
-        "title": "Performance primero",
-        "description": "SSR, lazy loading, bundle optimizado — métricas reales"
+        "title": "Investigar primero",
+        "description": "Entender el problema antes de codear: performance, SSR y optimización con métricas, no suposiciones"
       },
       "fullCycle": {
-        "title": "De cero a producción",
-        "description": "Ciclo completo de desarrollo, del briefing a la producción"
+        "title": "Del Figma a las tiendas",
+        "description": "Ciclo completo: diseño, implementación y publicación en la App Store y la Play Store"
       }
     },
     "paragraphs": [
       [
-        { "text": "Comencé mi trayectoria en el desarrollo en " },
-        { "text": "2022", "emphasis": true },
         {
-          "text": ", cuando me certifiqué en Desarrollo Web Full Stack por ProgramadorBr. Desde entonces no paré más. Cada proyecto fue una oportunidad de profundizar lo que ya sabía y descubrir lo que aún tenía que aprender."
+          "text": "Hijo de un técnico en informática, crecí desarmando computadoras, formateando Windows y buscando drivers en foros. Antes de saber qué era la programación, ya hurgaba en "
+        },
+        { "text": "código de juegos", "emphasis": true },
+        { "text": " para arreglar lo que se rompía." }
+      ],
+      [
+        { "text": "Programar de verdad empezó en " },
+        { "text": "2019", "emphasis": true },
+        {
+          "text": ", cuando quise crear una app para la empresa donde trabajaba y me di cuenta de que no sabía ni por dónde empezar. Empecé por la lógica, escribiendo mini sistemas en la terminal, y no paré más. Fueron tres empleos fuera del área hasta que aposté todo a los estudios."
         }
       ],
       [
-        { "text": "Pasé casi " },
-        { "text": "3 años en Heap Engenharia", "emphasis": true },
+        { "text": "En 2022 entré en " },
+        { "text": "Heap Engenharia", "emphasis": true },
         {
-          "text": ", donde tuve la oportunidad de liderar el desarrollo de interfaces web y mobile. Ahí aprendí a pensar en componentes de verdad — no solo código que funciona hoy, sino que otra persona pueda entender, usar y mantener mañana. SSR, accesibilidad, Design System documentado en Storybook: aprendí que el frontend va mucho más allá de lo que aparece en pantalla."
+          "text": " como pasante, literalmente cambiando el color de un botón. Tres años después, era responsable de proyectos enteros: e-commerce, aplicaciones, sitios institucionales, cada uno con un contexto y un problema distinto. Fue ahí donde aprendí a investigar antes de escribir código, en una época en la que la respuesta vivía en Stack Overflow o dentro del código fuente de la biblioteca."
         }
       ],
       [
-        { "text": "En " },
+        {
+          "text": "A un cliente de la agencia le gustó mi trabajo y me contrató: en "
+        },
         { "text": "Divam", "emphasis": true },
         {
-          "text": ", seguí evolucionando productos web y mobile, reforzando el Design System interno y profundizando mi experiencia con GraphQL e integración de APIs en colaboración cercana con el equipo de backend."
-        }
-      ],
-      [
-        { "text": "Hoy trabajo en " },
-        { "text": "ília", "emphasis": true },
+          "text": " me encargué de features web y mobile de un producto en producción, desde el diseño de la pantalla en Figma hasta la regla de negocio. Hoy formo parte del equipo de design system de "
+        },
+        { "text": "Livelo", "emphasis": true },
         {
-          "text": ", asignado a Livelo como parte del equipo de Design System (Alchemy). Crear y mantener los componentes y tokens que otros equipos usan a diario es un trabajo que exige precisión, empatía con el dev que lo va a consumir y visión de largo plazo. Es el tipo de desafío que me motiva."
+          "text": ", asignado por ília, creando y manteniendo componentes y tokens que otros equipos usan todos los días."
         }
       ],
       [
         { "text": "En paralelo, curso " },
         { "text": "Análisis y Desarrollo de Sistemas", "emphasis": true },
-        {
-          "text": " en Unicarioca para solidificar la base teórica detrás de lo que ya practico hace años."
-        }
-      ],
-      [
-        {
-          "text": "Fuera del trabajo, me gusta explorar proyectos personales — "
-        },
+        { "text": " y mantengo " },
         { "text": "tf.ds", "emphasis": true },
         {
-          "text": " es mi propio design system, donde experimento ideas y consolido patrones que uso en mis proyectos. Creo que la mejor forma de crecer como desarrollador es construyendo cosas reales, con propósito."
+          "text": ", mi design system personal, donde experimento ideas antes de llevar cualquier cosa al trabajo. Sigo creyendo en lo que me trajo hasta aquí: la mejor forma de aprender es construir algo real."
         }
       ]
     ],
@@ -108,10 +107,11 @@
       "languagesLabel": "idiomas",
       "languages": [
         { "name": "Portugués", "level": "nativo" },
-        { "name": "Inglés", "level": "intermedio" }
+        { "name": "Inglés", "level": "intermedio" },
+        { "name": "Español", "level": "intermedio" }
       ],
       "statusLabel": "estado",
-      "status": "Disponible para proyectos"
+      "status": "Abierto a oportunidades"
     }
   },
   "experience": {
@@ -123,9 +123,9 @@
     "jobs": {
       "heap": {
         "period": "Abr 2022 - Mar 2025",
-        "title": "Desarrollador Front-End Pleno",
+        "title": "Desarrollador Front-End",
         "company": "Heap Engenharia e Software",
-        "description": "Lideré el desarrollo de interfaces web y móviles con React, Next.js y React Native, priorizando rendimiento y accesibilidad. Estructuré flujos de datos con APIs RESTful, introduje SSR para mejorar métricas de SEO y estandaricé componentes mediante Design Systems documentados en Storybook. Colaboré con diseño aplicando principios de UX/UI y habilité entregas continuas con equipos ágiles.",
+        "description": "Entré como pasante y salí como responsable de proyectos enteros. En tres años de agencia, trabajé en e-commerces, sitios institucionales, herramientas internas y aplicaciones de varias empresas, con React, Next.js y React Native. Rescaté una app mobile heredada y la llevé de vuelta a las tiendas, incluyendo una feature de videollamada construida con documentación escasa y mucha lectura de código fuente. En el camino: SSR, integración de APIs, design systems documentados en Storybook y equipos ágiles.",
         "skills": [
           "React",
           "Next.js",
@@ -137,9 +137,9 @@
       },
       "divam": {
         "period": "Mar 2025 - Jun 2025",
-        "title": "Desarrollador Front-End Pleno",
+        "title": "Desarrollador Front-End Semi Senior",
         "company": "Divam",
-        "description": "Trabajé en la evolución de productos web con Next.js y aplicaciones móviles con React Native, entregando nuevas funcionalidades y manteniendo la estabilidad en producción. Potencié el Design System interno con componentes reutilizables y tokens de color, espaciado y tipografía, reforzando estándares de accesibilidad y responsividad. Colaboré con backend en APIs, lideré code reviews y alineé flujos de datos entre proyectos.",
+        "description": "Contratado por una empresa que conoció mi trabajo cuando era cliente de la agencia. En Divam, plataforma de salud mental con producto en producción, evolucioné la aplicación mobile y la aplicación web: nuevas funcionalidades, revisión de reglas de negocio y diseño de pantallas en Figma antes de la implementación. Trabajé con GraphQL, organicé la base visual del producto en dirección a un design system y atendí demandas provenientes del soporte a usuarios reales.",
         "skills": [
           "Next.js",
           "React Native",
@@ -151,14 +151,14 @@
       },
       "ilia": {
         "period": "Nov 2025 - Presente",
-        "title": "Desarrollador Frontend | Design System @ Livelo",
+        "title": "Desarrollador Front-End Semi Senior | Design System",
         "company": "ília",
-        "description": "Desarrollador frontend asignado en Livelo por el equipo de ília. Formo parte del equipo de Design System (Alchemy), donde creamos y mantenemos los componentes y tokens que utilizan los demás equipos, tanto en React como en React Native. Además de desarrollar, brindamos soporte a los equipos y creamos componentes colaborativos bajo demanda.",
+        "description": "Formo parte del equipo del design system de Livelo, el Prisma, asignado por ília. Creo y evoluciono componentes y tokens en React y React Native, doy soporte a los equipos que consumen el design system y ayudo a mantener la conformidad entre los repositorios de la empresa. También trabajo en herramientas que acercan el design system al flujo de los desarrolladores, incluyendo integraciones con IA.",
         "skills": [
           "React",
           "React Native",
           "Design System",
-          "Storybook",
+          "Style Dictionary",
           "TypeScript",
           "Accesibilidad"
         ]
@@ -168,7 +168,7 @@
       "title": "Formación Académica",
       "course": "Tecnólogo en Análisis y Desarrollo de Sistemas",
       "institution": "Centro Universitário Unicarioca",
-      "location": "Río de Janeiro, Brasil",
+      "location": "Río de Janeiro, RJ",
       "period": "Enero de 2025 - Presente",
       "type": "Educación a Distancia (EAD)"
     },
@@ -194,15 +194,15 @@
   },
   "projects": {
     "eyebrow": "// proyectos",
-    "title": "Trabajos seleccionados",
-    "subtitle": "Proyectos que muestran mis habilidades técnicas",
+    "title": "Cosas que construí",
+    "subtitle": "Proyectos personales donde pruebo ideas de verdad: mi propio design system, este sitio y lo que venga después",
     "demo": "Demo",
     "code": "Código"
   },
   "skills": {
     "eyebrow": "// habilidades",
     "title": "Mis Habilidades",
-    "subtitle": "Tecnologías y herramientas que domino para crear soluciones digitales completas",
+    "subtitle": "Tecnologías y herramientas que uso para sacar ideas del papel, del diseño al deploy",
     "categories": {
       "frontend": {
         "title": "Frontend",
@@ -212,11 +212,11 @@
           "React Native",
           "TypeScript",
           "JavaScript",
-          "HTML/CSS",
           "Tailwind CSS",
           "Styled Components",
-          "Sass",
-          "MUI"
+          "Design Systems",
+          "Design Tokens (Style Dictionary)",
+          "Accesibilidad (WCAG)"
         ]
       },
       "backend": {
@@ -224,27 +224,36 @@
         "skills": [
           "Node.js",
           "Express.js",
+          "GraphQL",
+          "REST APIs",
           "MongoDB",
           "MySQL",
-          "APIs REST",
-          "GraphQL",
-          "JWT",
           "Firebase"
         ]
       },
-      "tools": {
-        "title": "Herramientas & Otros",
+      "ai": {
+        "title": "IA y Agentes",
         "skills": [
-          "Git",
-          "GitHub",
-          "VS Code",
-          "Figma",
+          "Context Engineering",
+          "Agentes de IA",
+          "MCP (Model Context Protocol)",
+          "Spec-driven Development",
+          "Guardrails",
+          "Flujos multiagente",
+          "Claude Code / herramientas agénticas"
+        ]
+      },
+      "tools": {
+        "title": "Herramientas",
+        "skills": [
+          "Git & GitHub Actions",
+          "Monorepos (Lerna/Nx)",
           "Storybook",
-          "ESLint",
-          "Prettier",
-          "Scrum",
-          "Kanban",
-          "Vercel"
+          "Jest & Testing Library",
+          "TanStack Query",
+          "Zustand/Redux",
+          "Figma",
+          "Scrum/Kanban"
         ]
       }
     }
@@ -252,12 +261,12 @@
   "contact": {
     "eyebrow": "// contacto",
     "title": "¿Conversamos?",
-    "subtitle": "¿Tienes un proyecto en mente o quieres charlar? Contáctame por los canales de abajo.",
-    "microCopy": "Suelo responder en 24h ⚡",
+    "subtitle": "Vacante, proyecto o solo charlar sobre frontend y design systems: escríbeme por cualquier canal de abajo.",
+    "microCopy": "Suelo responder en menos de 24h. Movido por la curiosidad, no por el café.",
     "info": {
       "email": "contact@othiagofelippe.com",
       "location": "Río de Janeiro, Brasil",
-      "availability": "Disponible para proyectos"
+      "availability": "Abierto a oportunidades"
     },
     "infoLabels": {
       "email": "Email",
@@ -274,7 +283,7 @@
   "blog": {
     "eyebrow": "// blog",
     "title": "Del blog",
-    "subtitle": "Notas sobre frontend, design systems y lo que voy aprendiendo en el camino",
+    "subtitle": "Notas sobre frontend, design systems e IA, escritas mientras aprendo",
     "viewAll": "ver todos los posts",
     "readMore": "leer más",
     "minRead": "min de lectura",
@@ -285,15 +294,15 @@
     "backToBlog": "volver al blog",
     "backHome": "volver al inicio",
     "notFoundTitle": "Post no encontrado",
-    "notFoundDescription": "El post que buscas no existe o fue movido."
+    "notFoundDescription": "Este post no existe o fue movido. O Asta lo tiró de la mesa, es un gato, es lo que hacen los gatos."
   },
   "footer": {
     "rights": "Todos los derechos reservados."
   },
   "metadata": {
-    "title": "Thiago Felippe - Desarrollador Front-End | React, Next.js, TypeScript",
-    "description": "Desarrollador frontend con 4 años de experiencia, trabajando con React, React Native, TypeScript y Next.js. De cero a producción, con foco en Design Systems y rendimiento. Abierto a oportunidades.",
-    "keywords": "desarrollador front-end, react developer, next.js, typescript, react native, desarrollador javascript, empleo desarrollador, ingeniero de software, rio de janeiro, trabajo remoto, empleos tech brasil",
+    "title": "Thiago Felippe · Desarrollador Front-End | React, Next.js, TypeScript y Design Systems",
+    "description": "Desarrollador frontend con 4 años de experiencia en React, React Native, TypeScript y Next.js. Especializado en design systems y herramientas de IA (MCP, agentes). Río de Janeiro, abierto a oportunidades.",
+    "keywords": "desarrollador front-end, react developer, next.js, typescript, react native, design system, design tokens, mcp, model context protocol, ai agents, context engineering, desarrollador react, desarrollador río de janeiro, frontend developer brazil, remote frontend developer, vacantes tech",
     "author": "Thiago Felippe",
     "twitterHandle": "@othiagofelippe"
   }
