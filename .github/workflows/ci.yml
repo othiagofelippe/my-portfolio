@@ -1,41 +1,33 @@
 name: CI
 
-# Quando este workflow vai rodar?
 on:
   push:
-    branches: [ develop ]  # Só na branch develop
+    branches: [main, develop]
   pull_request:
-    branches: [ main ]     # E quando abrir PR para main
+    branches: [main]
 
 jobs:
-  # Job de qualidade de código
   quality-check:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Baixa o código do repositório
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    # 2. Configura Node.js
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
 
-    # 3. Instala dependências
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    # 4. Roda o linter
-    - name: Run linter
-      run: npm run lint
+      - name: Run linter
+        run: npm run lint
 
-    # 5. Verifica tipos TypeScript
-    - name: Type check
-      run: npx tsc --noEmit
+      - name: Type check
+        run: npx tsc --noEmit
 
-    # 6. Tenta fazer build para ver se não quebra
-    - name: Build project
-      run: npm run build
+      - name: Build project
+        run: npm run build
