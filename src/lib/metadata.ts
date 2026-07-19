@@ -18,7 +18,8 @@ export function generateMetadata(
   lang: Locale,
   dict: DictionaryMetadata
 ): Metadata {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://othiagofelippe.com'
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || 'https://othiagofelippe.com'
 
   const localeMap: Record<Locale, string> = {
     pt: 'pt_BR',

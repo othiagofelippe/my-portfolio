@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import { motion, AnimatePresence } from 'motion/react';
-import { ReactNode } from 'react';
+import { motion, AnimatePresence } from 'motion/react'
+import { ReactNode } from 'react'
 
 interface PageTransitionProps {
-  children: ReactNode;
-  lang: string;
+  children: ReactNode
+  lang: string
 }
 
 export function PageTransition({ children, lang }: PageTransitionProps) {
@@ -18,11 +18,11 @@ export function PageTransition({ children, lang }: PageTransitionProps) {
         exit={{ opacity: 0, y: -20 }}
         transition={{
           duration: 0.3,
-          ease: "easeInOut"
+          ease: 'easeInOut',
         }}
       >
         {children}
       </motion.div>
     </AnimatePresence>
-  );
+  )
 }

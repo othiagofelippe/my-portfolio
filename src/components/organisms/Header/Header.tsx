@@ -82,7 +82,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
   }
 
   return (
-    <header className="bg-bg-page/80 border-border-default fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md">
+    <header className="fixed top-0 right-0 left-0 z-50 border-b border-border-default bg-bg-page/80 backdrop-blur-md">
       <nav
         aria-label="Navegação principal"
         className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"
@@ -140,7 +140,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
             <LanguageSelector currentLang={lang} />
             <motion.button
               type="button"
-              className="text-text-secondary hover:text-text-primary cursor-pointer p-2 focus:outline-none"
+              className="cursor-pointer p-2 text-text-secondary hover:text-text-primary focus:outline-none"
               onClick={toggleMenu}
               aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
               aria-expanded={isMenuOpen}
@@ -191,7 +191,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: HeaderDict }) {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
-              <div className="bg-bg-page border-border-default space-y-1 border-t px-2 pt-2 pb-3">
+              <div className="space-y-1 border-t border-border-default bg-bg-page px-2 pt-2 pb-3">
                 {navItems.map((item, index) => {
                   if (item.kind === 'link') {
                     return (

@@ -58,7 +58,7 @@ export function Logo() {
       />
 
       {/* Logo Text */}
-      <span className="typography-h5 text-text-primary !font-bold">
+      <span className="typography-h5 !font-bold text-text-primary">
         <span className="hidden sm:inline">Thiago Felippe</span>
         <span className="sm:hidden">T. Felippe</span>
       </span>

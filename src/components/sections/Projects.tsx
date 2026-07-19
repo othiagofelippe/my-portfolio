@@ -36,7 +36,7 @@ export function Projects({ dict }: { dict: ProjectsDict }) {
           {projects.map((project) => (
             <div
               key={project.name}
-              className="group border-border-subtle hover:bg-bg-default/20 border-t py-8 transition-colors duration-300"
+              className="group border-t border-border-subtle py-8 transition-colors duration-300 hover:bg-bg-default/20"
             >
               <div className="grid items-start gap-6 md:grid-cols-[60px_1fr_auto]">
                 <div className="hidden [--tfds-color-text-primary:var(--tfds-color-text-disabled)] md:block">
@@ -65,7 +65,7 @@ export function Projects({ dict }: { dict: ProjectsDict }) {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="border-border-subtle text-text-tertiary border px-2 py-0.5 font-mono text-xs"
+                        className="border border-border-subtle px-2 py-0.5 font-mono text-xs text-text-tertiary"
                       >
                         {tag}
                       </span>
@@ -81,7 +81,7 @@ export function Projects({ dict }: { dict: ProjectsDict }) {
                       rel="noopener noreferrer"
                       title={dict.projects.demo}
                       aria-label={`${dict.projects.demo}: ${project.name}`}
-                      className="text-text-tertiary hover:text-action-primary transition-colors duration-200"
+                      className="text-text-tertiary transition-colors duration-200 hover:text-action-primary"
                     >
                       <ExternalLink className="h-4 w-4" />
                     </a>
@@ -92,7 +92,7 @@ export function Projects({ dict }: { dict: ProjectsDict }) {
                     rel="noopener noreferrer"
                     title={dict.projects.code}
                     aria-label={`${dict.projects.code}: ${project.name}`}
-                    className="text-text-tertiary hover:text-action-primary transition-colors duration-200"
+                    className="text-text-tertiary transition-colors duration-200 hover:text-action-primary"
                   >
                     <Github className="h-4 w-4" />
                   </a>
@@ -100,7 +100,7 @@ export function Projects({ dict }: { dict: ProjectsDict }) {
               </div>
             </div>
           ))}
-          <div className="border-border-subtle border-t" />
+          <div className="border-t border-border-subtle" />
         </div>
       </div>
     </section>

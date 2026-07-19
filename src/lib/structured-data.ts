@@ -13,18 +13,20 @@ interface Dictionary {
 }
 
 export function generatePersonSchema(lang: Locale, dict: Dictionary) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://othiagofelippe.com'
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || 'https://othiagofelippe.com'
 
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: dict.hero.name,
     jobTitle: 'Front-End Developer',
-    description: lang === 'pt'
-      ? 'Desenvolvedor Front-End Pleno especializado em React, Next.js e React Native'
-      : lang === 'en'
-      ? 'Mid-Level Front-End Developer specializing in React, Next.js and React Native'
-      : 'Desarrollador Front-End Pleno especializado en React, Next.js y React Native',
+    description:
+      lang === 'pt'
+        ? 'Desenvolvedor Front-End Pleno especializado em React, Next.js e React Native'
+        : lang === 'en'
+          ? 'Mid-Level Front-End Developer specializing in React, Next.js and React Native'
+          : 'Desarrollador Front-End Pleno especializado en React, Next.js y React Native',
     url: `${baseUrl}/${lang}`,
     image: 'https://github.com/othiagofelippe.png',
     email: dict.contact.info.email,
@@ -51,7 +53,8 @@ export function generatePersonSchema(lang: Locale, dict: Dictionary) {
 }
 
 export function generateProfilePageSchema(lang: Locale) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://othiagofelippe.com'
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || 'https://othiagofelippe.com'
 
   return {
     '@context': 'https://schema.org',
@@ -63,11 +66,12 @@ export function generateProfilePageSchema(lang: Locale) {
       name: 'Thiago Felippe',
       alternateName: 'Thiago Felippe',
       identifier: `${baseUrl}/${lang}`,
-      description: lang === 'pt'
-        ? 'Desenvolvedor Front-End Pleno com foco em React e Next.js'
-        : lang === 'en'
-        ? 'Mid-Level Front-End Developer focused on React and Next.js'
-        : 'Desarrollador Front-End Pleno enfocado en React y Next.js',
+      description:
+        lang === 'pt'
+          ? 'Desenvolvedor Front-End Pleno com foco em React e Next.js'
+          : lang === 'en'
+            ? 'Mid-Level Front-End Developer focused on React and Next.js'
+            : 'Desarrollador Front-End Pleno enfocado en React y Next.js',
       image: 'https://github.com/othiagofelippe.png',
     },
   }

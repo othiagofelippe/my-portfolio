@@ -30,7 +30,7 @@ export function Blog({ dict }: { dict: BlogDict }) {
             <Link
               key={post.slug}
               href={`/${lang}/blog/${post.slug}`}
-              className="group border-border-subtle hover:border-border-default flex flex-col border p-6 transition-colors duration-200"
+              className="group flex flex-col border border-border-subtle p-6 transition-colors duration-200 hover:border-border-default"
             >
               <div className="mb-4 flex flex-wrap gap-1.5">
                 {post.format === 'video' && post.video && (
@@ -66,7 +66,7 @@ export function Blog({ dict }: { dict: BlogDict }) {
         <div className="mt-10 text-center">
           <Link
             href={`/${lang}/blog`}
-            className="text-action-primary inline-flex items-center gap-1.5 font-mono text-sm hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-sm text-action-primary hover:underline"
           >
             {dict.blog.viewAll}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

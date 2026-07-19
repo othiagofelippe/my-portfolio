@@ -19,14 +19,14 @@ export function ChapterList({
       <Typography as="p" variant="body-sm" color="secondary">
         {title}
       </Typography>
-      <ul className="border-border-subtle mt-2 divide-y border-t">
+      <ul className="mt-2 divide-y border-t border-border-subtle">
         {chapters.map((chapter) => (
           <li key={chapter.start}>
             <button
               type="button"
               onClick={() => onSelect(chapter.start)}
               aria-label={`${ariaPrefix}: ${chapter.title} (${formatTimestamp(chapter.start)})`}
-              className="hover:bg-bg-muted flex w-full items-center justify-between gap-4 py-2 text-left transition-colors duration-200"
+              className="flex w-full items-center justify-between gap-4 py-2 text-left transition-colors duration-200 hover:bg-bg-muted"
             >
               <Typography as="span" color="secondary">
                 {chapter.title}

@@ -98,7 +98,7 @@ export function VideoEmbed({
 
     return (
       <div>
-        <div className="bg-bg-muted aspect-video w-full overflow-hidden">
+        <div className="aspect-video w-full overflow-hidden bg-bg-muted">
           <iframe
             ref={iframeRef}
             className="h-full w-full"
@@ -126,7 +126,7 @@ export function VideoEmbed({
         type="button"
         onClick={() => playFrom(0)}
         aria-label={`${dict.playLabel}: ${title} (${duration})`}
-        className="border-border-subtle relative aspect-video w-full overflow-hidden border"
+        className="relative aspect-video w-full overflow-hidden border border-border-subtle"
       >
         <Image
           src={`https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`}
@@ -135,7 +135,7 @@ export function VideoEmbed({
           className="object-cover"
           sizes="(min-width: 768px) 768px, 100vw"
         />
-        <div className="bg-bg-page/50 hover:bg-bg-page/30 absolute inset-0 flex items-center justify-center transition-colors duration-200">
+        <div className="absolute inset-0 flex items-center justify-center bg-bg-page/50 transition-colors duration-200 hover:bg-bg-page/30">
           <div
             className={cn(
               buttonVariants({ variant: 'primary', size: 'icon' }),

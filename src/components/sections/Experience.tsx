@@ -130,11 +130,11 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
           viewport={{ once: true, margin: '-80px' }}
         >
           {/* Trilho da linha (fundo estático) */}
-          <div className="bg-border-default/30 absolute top-2 bottom-2 left-3 w-px" />
+          <div className="absolute top-2 bottom-2 left-3 w-px bg-border-default/30" />
 
           {/* Linha animada pelo scroll */}
           <motion.div
-            className="bg-action-primary absolute top-2 left-3 w-px origin-top"
+            className="absolute top-2 left-3 w-px origin-top bg-action-primary"
             style={{ height: lineHeight }}
           />
 
@@ -150,7 +150,7 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                   {experience.current ? (
                     <span className="relative flex h-6 w-6">
                       <motion.span
-                        className="bg-action-primary/30 absolute inline-flex h-full w-full rounded-full"
+                        className="absolute inline-flex h-full w-full rounded-full bg-action-primary/30"
                         animate={{ scale: [1, 1.6, 1], opacity: [0.6, 0, 0.6] }}
                         transition={{
                           duration: 2,
@@ -158,12 +158,12 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                           ease: 'easeInOut',
                         }}
                       />
-                      <span className="border-bg-page bg-action-primary relative inline-flex h-6 w-6 items-center justify-center rounded-full border-2">
+                      <span className="relative inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-bg-page bg-action-primary">
                         <span className="h-2 w-2 rounded-full bg-white" />
                       </span>
                     </span>
                   ) : (
-                    <span className="border-bg-page bg-border-default flex h-6 w-6 items-center justify-center rounded-full border-2">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-bg-page bg-border-default">
                       <span className="bg-text-body/40 h-2 w-2 rounded-full" />
                     </span>
                   )}
@@ -197,7 +197,7 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
                         {experience.current && (
                           <Badge variant="success" size="sm">
                             <motion.span
-                              className="bg-feedback-success mr-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                              className="mr-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-feedback-success"
                               animate={{
                                 opacity: [1, 0.3, 1],
                                 scale: [1, 0.8, 1],
@@ -240,7 +240,7 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
         <Grid cols={{ base: 1, md: 2 }} gap="6" className="mt-16">
           <Card>
             <div className="mb-4 flex items-center gap-3">
-              <GraduationCap className="text-action-primary h-6 w-6" />
+              <GraduationCap className="h-6 w-6 text-action-primary" />
               <Typography as="h3" variant="heading-md" color="primary">
                 {dict.experience.formation.title}
               </Typography>
@@ -272,7 +272,7 @@ export function Experience({ dict }: { dict: ExperienceDict }) {
 
           <Card>
             <div className="mb-4 flex items-center gap-3">
-              <FileText className="text-action-primary h-6 w-6" />
+              <FileText className="h-6 w-6 text-action-primary" />
               <Typography as="h3" variant="heading-md" color="primary">
                 {dict.experience.certification.title}
               </Typography>

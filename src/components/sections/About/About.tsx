@@ -18,7 +18,7 @@ export function About({ dict }: { dict: AboutDict }) {
   return (
     <section
       id="about"
-      className="bg-bg-page border-border-subtle border-t py-20"
+      className="border-t border-border-subtle bg-bg-page py-20"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-start gap-16 md:grid-cols-[1fr_1.5fr]">
@@ -46,10 +46,10 @@ export function About({ dict }: { dict: AboutDict }) {
                   <motion.div
                     key={card.title}
                     variants={itemVariants}
-                    className="border-border-subtle hover:border-border-default flex items-start gap-3 border p-4 transition-colors duration-200"
+                    className="flex items-start gap-3 border border-border-subtle p-4 transition-colors duration-200 hover:border-border-default"
                   >
                     <Icon
-                      className="text-action-primary mt-0.5 h-4 w-4 shrink-0"
+                      className="mt-0.5 h-4 w-4 shrink-0 text-action-primary"
                       aria-hidden="true"
                     />
                     <div>
@@ -83,7 +83,7 @@ export function About({ dict }: { dict: AboutDict }) {
                         key={segment.text}
                         className={
                           segment.emphasis
-                            ? 'text-text-primary font-semibold'
+                            ? 'font-semibold text-text-primary'
                             : undefined
                         }
                       >
@@ -97,7 +97,7 @@ export function About({ dict }: { dict: AboutDict }) {
 
             <motion.div
               variants={itemVariants}
-              className="border-border-subtle mt-10 flex flex-wrap gap-8 border-t pt-8"
+              className="mt-10 flex flex-wrap gap-8 border-t border-border-subtle pt-8"
             >
               <div>
                 <div className="mb-2 font-mono text-xs tracking-widest">
@@ -107,7 +107,7 @@ export function About({ dict }: { dict: AboutDict }) {
                 </div>
                 <div className="flex items-center gap-1.5 text-sm">
                   <MapPin
-                    className="text-action-primary h-3.5 w-3.5"
+                    className="h-3.5 w-3.5 text-action-primary"
                     aria-hidden="true"
                   />
                   <Typography as="span" color="secondary">
@@ -126,7 +126,7 @@ export function About({ dict }: { dict: AboutDict }) {
                   {dict.about.footer.languages.map((language) => (
                     <Typography key={language.name} as="span" color="secondary">
                       {language.name}{' '}
-                      <span className="text-text-disabled text-xs">
+                      <span className="text-xs text-text-disabled">
                         {language.level}
                       </span>
                     </Typography>
@@ -140,9 +140,9 @@ export function About({ dict }: { dict: AboutDict }) {
                     {dict.about.footer.statusLabel}
                   </Typography>
                 </div>
-                <span className="text-action-primary flex items-center gap-1.5 text-sm">
+                <span className="flex items-center gap-1.5 text-sm text-action-primary">
                   <motion.span
-                    className="bg-action-primary h-1.5 w-1.5 rounded-full"
+                    className="h-1.5 w-1.5 rounded-full bg-action-primary"
                     animate={{ opacity: [1, 0.3, 1] }}
                     transition={{
                       duration: 2,

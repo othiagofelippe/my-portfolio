@@ -37,7 +37,7 @@ export default async function BlogPage({
               <Link
                 key={post.slug}
                 href={`/${lang}/blog/${post.slug}`}
-                className="group border-border-subtle hover:border-border-default flex flex-col border p-6 transition-colors duration-200"
+                className="group flex flex-col border border-border-subtle p-6 transition-colors duration-200 hover:border-border-default"
               >
                 <div className="mb-4 flex flex-wrap gap-1.5">
                   {post.format === 'video' && post.video && (
@@ -73,7 +73,7 @@ export default async function BlogPage({
           <div className="mt-16">
             <Link
               href={`/${lang}`}
-              className="text-text-secondary hover:text-action-primary inline-flex items-center gap-1.5 font-mono text-sm"
+              className="inline-flex items-center gap-1.5 font-mono text-sm text-text-secondary hover:text-action-primary"
             >
               <ArrowRight className="h-4 w-4 rotate-180" aria-hidden="true" />
               {dict.blog.backHome}

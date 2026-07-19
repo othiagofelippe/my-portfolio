@@ -99,7 +99,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
     <section id="contact" className="bg-bg-page py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="bg-action-primary-subtle border-action-primary/20 rounded-2xl border p-8 sm:p-12"
+          className="rounded-2xl border border-action-primary/20 bg-action-primary-subtle p-8 sm:p-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -125,11 +125,11 @@ export function Contact({ dict }: { dict: ContactDict }) {
               {infoCards.map((info) => (
                 <div
                   key={info.label}
-                  className="bg-bg-page border-border-subtle rounded-xl border p-4"
+                  className="rounded-xl border border-border-subtle bg-bg-page p-4"
                 >
                   <div className="mb-2 flex items-center gap-2">
                     <info.icon
-                      className="text-action-primary h-4 w-4"
+                      className="h-4 w-4 text-action-primary"
                       aria-hidden="true"
                     />
                     <div className="font-mono tracking-wide uppercase">
@@ -141,7 +141,7 @@ export function Contact({ dict }: { dict: ContactDict }) {
                   {info.href ? (
                     <a
                       href={info.href}
-                      className="text-text-primary hover:text-action-primary transition-colors"
+                      className="text-text-primary transition-colors hover:text-action-primary"
                     >
                       <Typography as="span" color="primary">
                         {info.value}

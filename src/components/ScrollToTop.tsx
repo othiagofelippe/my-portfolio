@@ -1,38 +1,52 @@
-"use client";
+'use client'
 
-import { AnimatePresence, motion, useSpring, useTransform, useMotionValue } from "motion/react";
-import { useEffect, useState } from "react";
-import { ChevronUp } from "@tfds/icons";
-import { useAudio } from "@/context/AudioContext";
+import {
+  AnimatePresence,
+  motion,
+  useSpring,
+  useTransform,
+  useMotionValue,
+} from 'motion/react'
+import { useEffect, useState } from 'react'
+import { ChevronUp } from '@tfds/icons'
+import { useAudio } from '@/context/AudioContext'
 
-const BUTTON_SIZE = 56;
-const RADIUS = 24;
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+const BUTTON_SIZE = 56
+const RADIUS = 24
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS
 
 export function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false);
-  const audio = useAudio();
+  const [isVisible, setIsVisible] = useState(false)
+  const audio = useAudio()
 
-  const rawProgress = useMotionValue(0);
-  const smoothProgress = useSpring(rawProgress, { stiffness: 80, damping: 20, mass: 0.5 });
-  const strokeDashoffset = useTransform(smoothProgress, (v) => CIRCUMFERENCE * (1 - v));
+  const rawProgress = useMotionValue(0)
+  const smoothProgress = useSpring(rawProgress, {
+    stiffness: 80,
+    damping: 20,
+    mass: 0.5,
+  })
+  const strokeDashoffset = useTransform(
+    smoothProgress,
+    (v) => CIRCUMFERENCE * (1 - v)
+  )
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      rawProgress.set(docHeight > 0 ? scrollTop / docHeight : 0);
-      setIsVisible(scrollTop > 300);
-    };
+      const scrollTop = window.scrollY
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight
+      rawProgress.set(docHeight > 0 ? scrollTop / docHeight : 0)
+      setIsVisible(scrollTop > 300)
+    }
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [rawProgress]);
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [rawProgress])
 
   const scrollToTop = () => {
-    audio.play("uiExpand");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    audio.play('uiExpand')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <AnimatePresence>
@@ -42,15 +56,15 @@ export function ScrollToTop() {
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           <motion.button
             onClick={scrollToTop}
-            className="relative bg-action-primary hover:bg-action-primary/90 text-text-tertiary rounded-full shadow-lg cursor-pointer"
+            className="relative cursor-pointer rounded-full bg-action-primary text-text-tertiary shadow-lg hover:bg-action-primary/90"
             style={{ width: BUTTON_SIZE, height: BUTTON_SIZE }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             aria-label="Voltar ao topo"
           >
             {/* Progress ring */}
@@ -83,11 +97,11 @@ export function ScrollToTop() {
 
             {/* Icon */}
             <span className="absolute inset-0 flex items-center justify-center">
-              <ChevronUp className="w-5 h-5" />
+              <ChevronUp className="h-5 w-5" />
             </span>
           </motion.button>
         </motion.div>
       )}
     </AnimatePresence>
-  );
+  )
 }

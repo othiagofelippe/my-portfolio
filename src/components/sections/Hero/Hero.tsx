@@ -61,13 +61,13 @@ export function Hero({ dict }: { dict: HeroDict }) {
           animate="visible"
         >
           <motion.div
-            className="text-action-primary mb-8 flex flex-wrap items-center gap-3 font-mono text-xs tracking-widest"
+            className="mb-8 flex flex-wrap items-center gap-3 font-mono text-xs tracking-widest text-action-primary"
             variants={itemVariants}
           >
-            <span className="bg-action-primary h-px w-8" aria-hidden="true" />
+            <span className="h-px w-8 bg-action-primary" aria-hidden="true" />
             <span>{dict.hero.badge.location}</span>
             <motion.span
-              className="bg-action-primary h-2 w-2 rounded-full"
+              className="h-2 w-2 rounded-full bg-action-primary"
               animate={{ opacity: [1, 0.3, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               aria-hidden="true"
@@ -108,14 +108,14 @@ export function Hero({ dict }: { dict: HeroDict }) {
             <div className="mb-4">
               <Typography variant="heading-md" color="secondary">
                 {dict.hero.rolePre}{' '}
-                <span className="text-action-primary font-semibold">
+                <span className="font-semibold text-action-primary">
                   {dict.hero.roleHighlight}
                 </span>
               </Typography>
             </div>
             <Typography variant="body-lg" color="secondary">
               {dict.hero.descriptionPre}{' '}
-              <span className="text-text-primary font-semibold">
+              <span className="font-semibold text-text-primary">
                 {dict.hero.descriptionHighlight}
               </span>{' '}
               {dict.hero.descriptionPost}
@@ -161,7 +161,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
             <Grid
               cols={3}
               gap="0"
-              className="border-border-subtle max-w-md border-t pt-8"
+              className="max-w-md border-t border-border-subtle pt-8"
             >
               {[
                 dict.hero.stats.years,
@@ -171,7 +171,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
                 <div
                   key={stat.label}
                   className={cn(
-                    index > 0 && 'border-border-subtle border-l pl-6'
+                    index > 0 && 'border-l border-border-subtle pl-6'
                   )}
                 >
                   <div className="mb-1 [--tfds-color-text-primary:var(--tfds-color-action-primary)]">

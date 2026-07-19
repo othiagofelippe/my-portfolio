@@ -98,7 +98,7 @@ export function LanguageSelector({ currentLang }: LanguageSelectorProps) {
 
             <motion.div
               role="menu"
-              className="bg-bg-page border-border-default absolute right-0 z-20 mt-2 w-48 rounded-md border p-1 shadow-lg"
+              className="absolute right-0 z-20 mt-2 w-48 rounded-md border border-border-default bg-bg-page p-1 shadow-lg"
               initial={{ opacity: 0, scale: 0.95, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
@@ -124,7 +124,7 @@ export function LanguageSelector({ currentLang }: LanguageSelectorProps) {
                       <span aria-hidden="true">{FLAG_EMOJIS[locale]}</span>
                       {localeNames[locale]}
                     </span>
-                    <span className="text-text-tertiary font-mono text-xs tracking-widest uppercase">
+                    <span className="font-mono text-xs tracking-widest text-text-tertiary uppercase">
                       {locale}
                     </span>
                   </button>

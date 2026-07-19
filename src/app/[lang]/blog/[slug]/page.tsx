@@ -32,7 +32,7 @@ export default async function BlogPostPage({
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Link
             href={`/${lang}/blog`}
-            className="text-text-secondary hover:text-action-primary mb-10 inline-flex items-center gap-1.5 font-mono text-sm"
+            className="mb-10 inline-flex items-center gap-1.5 font-mono text-sm text-text-secondary hover:text-action-primary"
           >
             <ArrowRight className="h-4 w-4 rotate-180" aria-hidden="true" />
             {dict.blog.backToBlog}
