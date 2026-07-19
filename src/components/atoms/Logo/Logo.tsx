@@ -21,7 +21,11 @@ export function Logo() {
 
   const isDark = resolvedTheme === 'dark' || theme === 'dark'
   const isOcean = resolvedTheme === 'ocean-sunset' || theme === 'ocean-sunset'
-  const logoSrc = isDark || isOcean ? '/logo-light.svg' : '/logo-dark.svg'
+  const logoSrc = isOcean
+    ? '/logo-ocean.svg'
+    : isDark
+      ? '/logo-light.svg'
+      : '/logo-dark.svg'
 
   if (!mounted) {
     return (
@@ -54,7 +58,7 @@ export function Logo() {
         width={32}
         height={32}
         className="h-6 w-6 sm:h-8 sm:w-8"
-        key={isDark || isOcean ? 'light' : 'dark'}
+        key={isOcean ? 'ocean' : isDark ? 'light' : 'dark'}
       />
 
       {/* Logo Text */}
