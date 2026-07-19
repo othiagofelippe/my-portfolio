@@ -5,10 +5,10 @@ Portfolio pessoal de Thiago Felippe. Repaginada visual completa (estrutura/esté
 ## Stack
 
 - Next.js 15 (App Router) + React 19 + TypeScript strict + Tailwind CSS v4 + Turbopack
-- **Design system externo `@tfds`**: `@tfds/components`, `@tfds/tokens`, `@tfds/icons` via `file:../tf.ds/packages/*` (repo irmão). Componentes de UI (Button, Badge, Typography, VStack...) vêm de lá — NÃO criar equivalentes locais
+- **Design system externo `@tfds`**: `@tfds/react`, `@tfds/tokens`, `@tfds/icons` via npm (`^0.0.1`, publicados a partir do repo irmão `../tf.ds`). Componentes de UI (Button, Badge, Typography, VStack...) vêm de lá — NÃO criar equivalentes locais. Atenção: `Typography`/`Badge`/`Button`/`Card` não aceitam `className` (AD-007 do tf.ds); só primitivos de layout aceitam
 - Animações: Motion (`motion/react`) — exige `'use client'`; `prefers-reduced-motion` respeitado globalmente via `MotionConfig reducedMotion="user"` em `app/[lang]/layout.tsx`
 - Temas: next-themes com 3 temas — light (default), `.dark`, `.ocean-sunset`
-- i18n: rotas `app/[lang]` (pt/en/es) + dicionários em `src/dictionaries/*.json`; anchors/ids de seção sempre em inglês (`#about`, `#experience`, `#projects`, `#skills`, `#contact`)
+- i18n: rotas `app/[lang]` (pt/en/es) + dicionários em `src/dictionaries/*.json`; detecção de locale por `accept-language` no `middleware.ts` (raiz do repo — funciona com `src/`, verificado no build); anchors/ids de seção sempre em inglês (`#about`, `#experience`, `#projects`, `#skills`, `#contact`)
 - Sons: `use-sound` via `src/context/AudioContext.tsx`
 - Deploy alvo: Vercel + Vercel Analytics
 
@@ -55,9 +55,7 @@ Não existe mais `src/app/api/github/` (Projects passou a ser Server Component c
 
 ## Scripts
 
-`npm run dev | build | lint | format | format:check | type-check` — não há script de teste ainda (Vitest instalado, sem config).
-
-⚠️ Se `NODE_ENV=development` estiver setado globalmente no shell (ex.: `.zshrc`), `next build` quebra na geração do `/404` interno (`<Html> should not be imported outside of pages/_document.`). Rode `build`/`lint`/`type-check` com `NODE_ENV=production` explícito até isso ser corrigido na raiz do shell.
+`npm run dev | build | lint | format | format:check | type-check` — não há script nem toolchain de teste (removida na limpeza de 2026-07-19 por estar quebrada e sem uso; instalar Vitest do zero quando os primeiros testes forem escritos).
 
 ## Workflow Claude Code
 
@@ -68,9 +66,10 @@ Não existe mais `src/app/api/github/` (Projects passou a ser Server Component c
 ## Estado atual e débitos conhecidos
 
 - Repaginada visual (T0–T8 da `docs/REDESIGN_SPEC.md`) concluída em `develop`: git limpo (só `main`/`develop` local), zero `any`/`key={index}`, `prefers-reduced-motion` global, Projects/Blog como Server Components, Hero sem foto, About nova, Education absorvida por Experience, Skills com dots de token + idiomas, Contact em card único, Blog com dados locais
-- Bloqueante para deploy real (fora do escopo da spec): dependência `@tfds/*` via `file:../tf.ds/packages/*` não tem estratégia de build coberta pela Vercel — precisa de tarefa separada antes de publicar
-- First Load JS de `/[lang]` está em ~224kB (meta do roadmap é <100kB) — não resolvido nesta repaginada
-- Zero testes (Vitest instalado, sem config) — fora do escopo da spec
-- Blog em produção com apenas 1 post placeholder — trocar por conteúdo real antes de divulgar o site
+- Migração tfds-v2 (PT1–PT3) concluída: deps `@tfds/*` agora vêm do npm (o antigo bloqueante de deploy por `file:` não existe mais). Pendência: PT4 — validar deploy preview na Vercel (checkpoint manual do usuário; ver `.specs/STATE.md`)
+- Limpeza de 2026-07-19 (`chore/repo-cleanup`): removidos artefatos da mini-org (AGENTS.md, `tasks/`, `docs/specs/`), sobras de shadcn (`components.json`, `tailwind.config.ts` vazio, `tailwindcss-animate`), toolchain de teste morta e 5 sons órfãos; next atualizado para 15.5.20 (patch de segurança); `npm audit` zerado exceto 3 moderates upstream (postcss pinado dentro do próprio next, presente em todas as versões); ícones do manifest.json criados (não existiam) com cores dos tokens
+- First Load JS de `/[lang]` está em ~216kB (meta do roadmap é <100kB) — não resolvido
+- Zero testes — débito aberto
+- Blog com 2 posts: 1 real (Design System, com vídeo e capítulos) e 1 placeholder (`exemplo-post-em-video`) — remover o placeholder antes de divulgar o site
 
-**Última atualização:** 2026-07-11
+**Última atualização:** 2026-07-19
