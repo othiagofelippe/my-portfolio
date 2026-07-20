@@ -1,11 +1,11 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { buttonVariants } from '@tfds/react'
 import { Sun, Moon, Waves } from '@tfds/icons'
 import { useAudio } from '@/context/AudioContext'
+import { useMounted } from '@/hooks/useMounted'
 import { cn } from '@/lib/utils'
 
 type Theme = 'light' | 'dark' | 'ocean-sunset'
@@ -26,12 +26,8 @@ const NEXT_THEME_LABEL: Record<Theme, string> = {
 
 export function ThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const mounted = useMounted()
   const audio = useAudio()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const currentTheme = (resolvedTheme as Theme) ?? 'light'
   const ThemeIcon = THEME_ICONS[currentTheme]
