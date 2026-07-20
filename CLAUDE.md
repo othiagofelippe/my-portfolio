@@ -4,11 +4,11 @@ Portfolio pessoal de Thiago Felippe. Repaginada visual completa (estrutura/esté
 
 ## Stack
 
-- Next.js 15 (App Router) + React 19 + TypeScript strict + Tailwind CSS v4 + Turbopack
+- Next.js 16 (App Router) + React 19.2 + TypeScript strict + Tailwind CSS v4 + Turbopack (default no Next 16, sem flag) + React Compiler ativo
 - **Design system externo `@tfds`**: `@tfds/react`, `@tfds/tokens`, `@tfds/icons` via npm (`^0.0.1`, publicados a partir do repo irmão `../tf.ds`). Componentes de UI (Button, Badge, Typography, VStack...) vêm de lá — NÃO criar equivalentes locais. Atenção: `Typography`/`Badge`/`Button`/`Card` não aceitam `className` (AD-007 do tf.ds); só primitivos de layout aceitam
 - Animações: Motion (`motion/react`) — exige `'use client'`; `prefers-reduced-motion` respeitado globalmente via `MotionConfig reducedMotion="user"` em `app/[lang]/layout.tsx`
 - Temas: next-themes com 3 temas — light (default), `.dark`, `.ocean-sunset`
-- i18n: rotas `app/[lang]` (pt/en/es) + dicionários em `src/dictionaries/*.json`; detecção de locale por `accept-language` no `middleware.ts` (raiz do repo — funciona com `src/`, verificado no build); anchors/ids de seção sempre em inglês (`#about`, `#experience`, `#projects`, `#skills`, `#contact`)
+- i18n: rotas `app/[lang]` (pt/en/es) + dicionários em `src/dictionaries/*.json`; detecção de locale por `accept-language` no `proxy.ts` (raiz do repo, `export function proxy` — renomeado de `middleware.ts` no upgrade pro Next 16; funciona com `src/`, verificado no build); anchors/ids de seção sempre em inglês (`#about`, `#experience`, `#projects`, `#skills`, `#contact`)
 - Sons: `use-sound` via `src/context/AudioContext.tsx`
 - Deploy alvo: Vercel + Vercel Analytics
 
@@ -66,10 +66,11 @@ Não existe mais `src/app/api/github/` (Projects passou a ser Server Component c
 ## Estado atual e débitos conhecidos
 
 - Repaginada visual (T0–T8 da `docs/REDESIGN_SPEC.md`) concluída em `develop`: git limpo (só `main`/`develop` local), zero `any`/`key={index}`, `prefers-reduced-motion` global, Projects/Blog como Server Components, Hero sem foto, About nova, Education absorvida por Experience, Skills com dots de token + idiomas, Contact em card único, Blog com dados locais
-- Migração tfds-v2 (PT1–PT3) concluída: deps `@tfds/*` agora vêm do npm (o antigo bloqueante de deploy por `file:` não existe mais). Pendência: PT4 — validar deploy preview na Vercel (checkpoint manual do usuário; ver `.specs/STATE.md`)
-- Limpeza de 2026-07-19 (`chore/repo-cleanup`): removidos artefatos da mini-org (AGENTS.md, `tasks/`, `docs/specs/`), sobras de shadcn (`components.json`, `tailwind.config.ts` vazio, `tailwindcss-animate`), toolchain de teste morta e 5 sons órfãos; next atualizado para 15.5.20 (patch de segurança); `npm audit` zerado exceto 3 moderates upstream (postcss pinado dentro do próprio next, presente em todas as versões); ícones do manifest.json criados (não existiam) com cores dos tokens
-- First Load JS de `/[lang]` está em ~216kB (meta do roadmap é <100kB) — não resolvido
+- Migração tfds-v2 (PT1–PT4) concluída: deps `@tfds/*` vêm do npm, deploy preview/produção validado na Vercel
+- Limpeza de 2026-07-19 (`chore/repo-cleanup`): removidos artefatos da mini-org (AGENTS.md, `tasks/`, `docs/specs/`), sobras de shadcn (`components.json`, `tailwind.config.ts` vazio, `tailwindcss-animate`), toolchain de teste morta e 5 sons órfãos; ícones do manifest.json criados (não existiam) com cores dos tokens
+- Upgrade Next 16 + CI hardening (2026-07-19/20, feature `next16-upgrade`, ver `.specs/STATE.md`): Next 16.2.10 + React 19.2.7 + React Compiler; CI com Node 22 e dependabot; branch protection na `main` exigindo `quality-check`. **Pendente:** T4 (remoção de 2 registros DNS órfãos na Hostinger) bloqueada por bug no tool MCP `hostinger-mcp` — resolver manualmente no painel
+- First Load JS de `/[lang]` estava em ~216kB antes do upgrade pro Next 16 (meta do roadmap é <100kB) — não resolvido; o `next build` do Next 16 não imprime mais essa tabela por rota, então medir de novo exige `@next/bundle-analyzer` ou equivalente
 - Zero testes — débito aberto
 - Blog com 2 posts: 1 real (Design System, com vídeo e capítulos) e 1 placeholder (`exemplo-post-em-video`) — remover o placeholder antes de divulgar o site
 
-**Última atualização:** 2026-07-19
+**Última atualização:** 2026-07-20
