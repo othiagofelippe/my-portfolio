@@ -4,20 +4,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
 import { useAudio } from '@/context/AudioContext'
+import { useMounted } from '@/hooks/useMounted'
 import { Typography } from '@tfds/react'
 
 export function Logo() {
   const pathname = usePathname()
   const currentLang = pathname.split('/')[1] || 'pt'
   const { theme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const mounted = useMounted()
   const audio = useAudio()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const isDark = resolvedTheme === 'dark' || theme === 'dark'
   const isOcean = resolvedTheme === 'ocean-sunset' || theme === 'ocean-sunset'
