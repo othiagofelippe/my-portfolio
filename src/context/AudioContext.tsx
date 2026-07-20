@@ -123,6 +123,8 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
 
     const stored = readStoredPreferences()
     if (stored) {
+      // One-time sync from localStorage on mount; not a re-render loop.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPreferences((prev) => ({ ...prev, ...stored }))
     }
   }, [])
