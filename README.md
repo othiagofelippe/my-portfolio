@@ -2,7 +2,7 @@
 
 Personal portfolio built with Next.js, styled with my own design system ([`@tfds`](https://github.com/othiagofelippe/tf.ds)). Multi-language (pt/en/es), multi-theme, with a blog and a curated projects section.
 
-🔗 [Live site](https://my-portfolio-tau-nine-88.vercel.app)
+🔗 [Live site](https://www.othiagofelippe.com)
 
 ![Portfolio screenshot](.github/screenshot.png)
 
